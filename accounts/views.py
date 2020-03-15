@@ -40,6 +40,7 @@ def login(request):
 def register(request):
     """Render the registration page"""
     if request.user.is_authenticated:
+        messages.success(request, "Sure you're already registered! :)")
         return redirect(reverse('home'))
 
     if request.method == "POST":
@@ -53,9 +54,11 @@ def register(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
+                return redirect(reverse('home'))
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:
         registration_form = UserRegistrationForm()
+
     return render(request, 'register.html', {
         "registration_form": registration_form})
