@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .views import index, about, contact, products, testimonials
+from .views import home_page, about, contact, products, testimonials
 
 urlpatterns = [
     url('about/', about, name="about"),
