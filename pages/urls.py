@@ -1,6 +1,9 @@
 from django.conf.urls import url, include
-from .views import index
+from .views import index, about, contact, products, testimonials
 
 urlpatterns = [
-    url(r'^$', index, name='index'),
+    url('about/', about, name="about"),
+    url('contact/', contact, name="contact"),
+    url('products/', products, name="products"),
+    url('testimonials/', testimonials, name="testimonials")
 ]
