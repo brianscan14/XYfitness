@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_forms_bootstrap',
     'pages',
     'accounts',
 ]
@@ -113,3 +114,5 @@ STATICFILES_LOCATION = 'static'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
