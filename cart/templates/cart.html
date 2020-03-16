@@ -8,7 +8,8 @@
 
     {% for item in cart_items %}
     
-    <div>
+    <div class="row mt-3">
+        <div class="col-6 mt-2 mx-auto">
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
         
         <div>
@@ -24,15 +25,16 @@
                             <div>{{item.quantity}}</div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-outline-warning">Change</button>
+                    <button type="submit" class="btn btn-outline-warning mt-2">Change</button>
                 </form>
+        </div>
         </div>
     </div>
     {% endfor %}
-</div>
 
-<div class="row">
-    <div class="col-6">
+
+<div class="row mt-3">
+    <div class="col-6 mx-auto">
         <div class="check">
             <p>Total</p>
             <p>{{ total }}</p>
@@ -41,4 +43,5 @@
     </div>
 </div>
 
+</div>
 {% endblock %}
