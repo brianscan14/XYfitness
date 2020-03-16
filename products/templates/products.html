@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-
-
 {% block content %}
 
-all me products on offer
 
+<div class="container">
+<div class="row">
 {% for product in products %}
 
+<div class="col-4">
     <div class="div">
     <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
         <h3>{{ product.name }}</h3>
@@ -22,7 +22,9 @@ all me products on offer
             </div>
         </form>
     </div>
-
+</div>
 {% endfor %}
+</div>
+</div>
 
 {% endblock %}
