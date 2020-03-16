@@ -14,9 +14,5 @@ def contact(request):
     return render(request, "contact.html")
 
 
-def products(request):
-    return render(request, "products.html")
-
-
 def testimonials(request):
     return render(request, "testimonials.html")
