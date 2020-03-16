@@ -15,7 +15,17 @@
             <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
             <p>{{ item.product.price }}</p>
-
+                <form method="post" action="{% url 'change_cart' item.id %}">
+                    {% csrf_token %}
+                    <div>
+                        <div class="input-group">
+                            <div>Qty</div>
+                                <input name="quantity" type="number" min="0" max="99" required>
+                            <div>{{item.quantity}}</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-warning">Change</button>
+                </form>
         </div>
     </div>
     {% endfor %}
