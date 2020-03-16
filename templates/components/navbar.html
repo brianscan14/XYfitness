@@ -32,6 +32,9 @@
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
+            <i class="fas fa-user">{{ user }}</i>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> out</a>
         </li>
         {% else %}
@@ -42,6 +45,14 @@
             <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
         </li>
         {% endif %}
+        <li>
+            <a href="{% url 'view_cart' %}">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+                {% if product_count > 0 %}
+                    <label class="badge badge-warning">{{ product_count }}</label>
+                {% endif %}
+            </a>
+        </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
