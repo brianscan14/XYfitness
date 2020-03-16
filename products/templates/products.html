@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
 all me products on offer
 
 {% for product in products %}
 
+    <div class="div">
     <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}</p>
-    
+        <form method="post" action="{% url 'cart_add' product.id %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <input name="quantity" type="number" min="1" max="999" required>
+                <span class="input-group-btn">
+                <button class="btn-outline-success" type="submit">Add</button>
+                </span>
+            </div>
+        </form>
+    </div>
 
 {% endfor %}
 
