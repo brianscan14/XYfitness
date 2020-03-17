@@ -148,6 +148,8 @@ AUTHENTICATION_BACKENDS = [
     'accounts.backends.EmailAuth'
 ]
 
+AWS_DEFAULT_ACL = 'public-read'
+
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
 
