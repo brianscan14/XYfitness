@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from .views import reviews
+from .views import all_reviews
 
 urlpatterns = [
-    url(r'^reviews/$', reviews, name='reviews'),
+    url(r'^$', all_reviews, name='all_reviews'),
 ]
