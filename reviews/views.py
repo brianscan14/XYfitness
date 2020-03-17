@@ -1,7 +1,7 @@
 from .models import Review
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -18,6 +18,12 @@ class ReviewListView(ListView):
     template_name = 'reviews.html'
     context_object_name = 'reviews'
     ordering = ['-date']
+
+
+class ViewReview(DetailView):
+    model = Review
+    template_name = 'review_detail.html'
+    context_object_name = 'review'
 
 
 class CreateReview(LoginRequiredMixin, CreateView):
