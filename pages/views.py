@@ -12,7 +12,3 @@ def about(request):
 
 def contact(request):
     return render(request, "contact.html")
-
-
-def testimonials(request):
-    return render(request, "testimonials.html")
