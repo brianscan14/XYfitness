@@ -5,4 +5,7 @@
         <p>{{ review.author }}</p>
         <p>{{ review.date|date:"F, Y" }}</p>
 
+        
+        <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
+
 {% endblock content %}
