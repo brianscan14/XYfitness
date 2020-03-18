@@ -7,6 +7,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100, default=' XYfitness Product')
     description = models.TextField(max_length=250)
     price = models.DecimalField(max_digits=4, decimal_places=2)
+    category = models.CharField(max_length=30, default='plan')
 
     def __str__(self):
         return self.name
