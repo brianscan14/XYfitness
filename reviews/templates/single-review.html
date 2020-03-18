@@ -5,7 +5,8 @@
         <p>{{ review.author }}</p>
         <p>{{ review.date|date:"F, Y" }}</p>
 
-        
+        {% if review.author == user %}
         <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
+        {% endif %}
 
 {% endblock content %}
