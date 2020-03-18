@@ -1,8 +1,8 @@
 from django.conf.urls import url
-from .views import ViewReview, CreateReview, ReviewListView
+from .views import single_review, all_reviews, new_review
 
 urlpatterns = [
-    url(r'^$', ReviewListView.as_view(), name='all_reviews'),
-    url(r'review/(?P<id>\d+)', ViewReview.as_view(), name='review'),
-    url(r'^new/', CreateReview.as_view(), name='new_review')
+    url(r'^$', all_reviews, name='all_reviews'),
+    url(r'review/(?P<pk>\d+)', single_review, name='single_review'),
+    url(r'^new/', new_review, name='new_review')
 ]
