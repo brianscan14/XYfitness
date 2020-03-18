@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostReviewForm
 from django.contrib import messages
+from django.db import IntegrityError
 
 
 def all_reviews(request):
@@ -25,14 +26,19 @@ def new_review(request, pk=None):
         form = PostReviewForm(request.POST, request.FILES, instance=review)
         form.instance.author = request.user
         if form.is_valid():
-            review = form.save()
-            return redirect(single_review, review.pk)
+            try:
+                review = form.save()
+                return redirect(single_review, review.pk)
+            except IntegrityError:
+                messages.success(request, "You already have a review!")
+                return redirect(all_reviews)
     else:
         form = PostReviewForm(instance=review)
         form.instance.author = request.user
     return render(request, 'addreview.html', {'form': form})
 
 
+@login_required()
 def delete_review(request, pk):
     review = get_object_or_404(Review, pk=pk)
     if review.author == request.user:
