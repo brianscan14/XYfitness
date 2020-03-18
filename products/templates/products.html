@@ -4,7 +4,7 @@
 
 <!-- <div class="container">
 <div class="row">
-<form action="{% url 'plans_search' %}" method="get" class="form-inline my-2">
+<form action="{% url 'cat_search' %}" method="get" class="form-inline my-2">
     <input type="text" placeholder="cat" aria-label="cat"  value="plan">
         <select>
             {% for cat in products %}
@@ -21,9 +21,23 @@
     {% endfor %}  
     </select>
     <input type="submit" value="Submit" /> 
- </form> --> 
+ </form>  -->
 
+<div class="container">
+<div class="row">
+<form action="{% url 'cat_search' %}" method="get" class="form-inline my-2">
+    <select class="custom-select custom-select-lg" id="meal_type" name="cats" required>
+            <option value="" disabled selected hidden>Pick category</option>
+            <option value="apparel">apparel</option>
+            <option value="plan">plan</option>
+    </select>
+    <button class="btn btn-success" type="submit" name="action">Find Cats</button>
+</form> 
+</div>
+</div>
 
+<div class="container">
+<div class="row">
 {% for product in products %}
 
 <div class="col-4">
