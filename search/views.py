@@ -13,7 +13,7 @@ def search(request):
 
 
 def cat_search(request):
-    results = Product.objects.filter(category__icontains=request.GET['cats'])
+    results = Product.objects.filter(category__icontains=request.GET['plan'])
     if not results:
         messages.error(request, "no results for your search")
         return redirect(reverse('home'))
