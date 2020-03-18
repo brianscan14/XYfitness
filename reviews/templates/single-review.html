@@ -7,6 +7,7 @@
 
         {% if review.author == user %}
         <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
+        <a href="{% url 'delete_review' review.id %}" class="btn btn-default">delete Review</a>
         {% endif %}
 
 {% endblock content %}
