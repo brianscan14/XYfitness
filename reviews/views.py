@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostReviewForm
+from django.contrib import messages
 
 
 def all_reviews(request):
@@ -36,4 +37,5 @@ def delete_review(request, pk):
     review = get_object_or_404(Review, pk=pk)
     if review.author == request.user:
         review.delete()
+        messages.success(request, "Your review was deleted")
         return redirect(all_reviews)
