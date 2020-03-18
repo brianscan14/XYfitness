@@ -5,7 +5,6 @@ from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-# Create your views here.
 def all_reviews(request):
     stuff = {
         'reviews': Review.objects.all()
