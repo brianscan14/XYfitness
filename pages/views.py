@@ -23,7 +23,10 @@ def contact(request):
             title = form.cleaned_data['title']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            send_mail(title, message, email, ['admin@hotmail.com'])
+            try:
+                send_mail(title, message, email, ['admin@hotmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
             messages.success(request, "Successfully sent mail")
             return redirect('home')
     return render(request, "contact.html", {'form': form})
