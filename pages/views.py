@@ -16,7 +16,11 @@ def about(request):
 
 def contact(request):
     if request.method == 'GET':
-        form = EmailContactForm()
+        if request.user.is_authenticated:
+            form_filled = {
+                'email': request.user.email,
+            }
+        form = EmailContactForm(initial=form_filled)
     else:
         form = EmailContactForm(request.POST)
         if form.is_valid():
