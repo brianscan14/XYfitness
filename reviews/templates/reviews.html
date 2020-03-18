@@ -8,10 +8,11 @@
 <div class="col-4">
     <div class="div">
     <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
-        <h3><a href="{% url 'review' review.id %}">{{ review.title }}</a></h3>
+        <h3>{{ review.title }}</h3>
         <p>{{ review.content }}</p>
         <p>{{ review.author }}</p>
         <p>{{ review.date|date:"F, Y" }}</p>
+        <p><a href="{% url 'single_review' review.id %}">link to this post</a></p>
     </div>
 </div>
 </div>
