@@ -7,15 +7,15 @@ def search(request):
     results = Product.objects.filter(name__icontains=request.GET['query'])
     if not results:
         messages.error(request, "no results for your search")
-        return redirect(reverse('home'))
+        return redirect(reverse('products'))
     else:
         return render(request, "products.html", {"products": results})
 
 
 def cat_search(request):
-    results = Product.objects.filter(category__icontains=request.GET['plan'])
+    results = Product.objects.filter(category__icontains=request.GET['cats'])
     if not results:
         messages.error(request, "no results for your search")
-        return redirect(reverse('home'))
+        return redirect(reverse('products'))
     else:
         return render(request, "products.html", {"products": results})
