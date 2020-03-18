@@ -18,7 +18,7 @@ def contact(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
             form_filled = {
-                'email': request.user.email,
+                'email': request.user.email
             }
         form = EmailContactForm(initial=form_filled)
     else:
