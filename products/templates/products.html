@@ -15,15 +15,15 @@
     </div>
 </div>
 
+<a class="nav-link" href="{% url 'apparel' %}">Apparel</a>
+<a class="nav-link" href="{% url 'plans' %}">Plans</a>
 
 <div class="container">
-    <div class="row">
-        <!-- <a class="nav-link" href="{% url 'LtoH' %}">LtoH</a> -->
-    </div>
+
     <div class="row">
         <form action="{% url 'sort' %}" method="get" class="form-inline my-2">
             <select class="custom-select custom-select-lg" name="sort" required>
-                    <option value="" disabled selected hidden>Pick category</option>
+                    <option value="" disabled selected hidden>Sort</option>
                     <option value="LtoH">LtoH</option>
                     <option value="HtoL">HtoL</option>
             </select>
