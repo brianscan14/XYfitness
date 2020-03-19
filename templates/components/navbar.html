@@ -15,13 +15,21 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Prods
+            Products
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'products' %}">Action</a>
-            <a class="dropdown-item" href="">Another action</a>
+            <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            
+            <form action="{% url 'cat_search' %}" method="get" class="form-inline my-2" >
+            <span class="dropdown-item">
+                <button type="submit" value="apparel" name="cats"><i class="fas fa-tshirt"></i></button>  Gym Gear
+            </span>
+            <span class="dropdown-item">
+                <button type="submit" value="plan" name="cats"><i class="fas fa-dumbbell"></i></button>  Gym Plans
+            </span>
+            </form>
+            
             </div>
         </li>
         <li class="nav-item">
