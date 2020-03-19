@@ -18,7 +18,17 @@
 
 <div class="container">
     <div class="row">
-        <a class="nav-link" href="{% url 'LtoH' %}">LtoH</a>
+        <!-- <a class="nav-link" href="{% url 'LtoH' %}">LtoH</a> -->
+    </div>
+    <div class="row">
+        <form action="{% url 'sort' %}" method="get" class="form-inline my-2">
+            <select class="custom-select custom-select-lg" name="sort" required>
+                    <option value="" disabled selected hidden>Pick category</option>
+                    <option value="LtoH">LtoH</option>
+                    <option value="HtoL">HtoL</option>
+            </select>
+            <button class="btn btn-success" type="submit" name="action">Sort</button>
+        </form> 
     </div>
 </div>
 
