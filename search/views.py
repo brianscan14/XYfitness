@@ -21,8 +21,17 @@ def cat_search(request):
         return render(request, "products.html", {"products": results})
 
 
-def LtoH(request):
-    results = Product.objects.order_by('-price')
+def apparel(request):
+    results = Product.objects.filter(category__icontains='apparel')
+    if not results:
+        messages.error(request, "no results for your search")
+        return redirect(reverse('products'))
+    else:
+        return render(request, "products.html", {"products": results})
+
+
+def plans(request):
+    results = Product.objects.filter(category__icontains='plan')
     if not results:
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
