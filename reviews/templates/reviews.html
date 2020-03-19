@@ -19,5 +19,8 @@
 {% endfor %}
 </div>
 
+{% if user.is_authenticated  %}
+<p><a href="{% url 'new_review' %}">Add a review!</a></p>
+{% endif %}
 
 {% endblock %}
