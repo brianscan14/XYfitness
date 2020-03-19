@@ -18,18 +18,10 @@
             Products
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
+                <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
             <div class="dropdown-divider"></div>
-            
-            <form action="{% url 'cat_search' %}" method="get" class="form-inline my-2" >
-            <span class="dropdown-item">
-                <button type="submit" value="apparel" name="cats"><i class="fas fa-tshirt"></i></button>  Gym Gear
-            </span>
-            <span class="dropdown-item">
-                <button type="submit" value="plan" name="cats"><i class="fas fa-dumbbell"></i></button>  Gym Plans
-            </span>
-            </form>
-            
+                <a class="dropdown-item" href="{% url 'plans' %}">Plans</a>
+                <a class="dropdown-item" href="{% url 'apparel' %}">Apparel</a>
             </div>
         </li>
         <li class="nav-item">
