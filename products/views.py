@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Product
 from django.contrib import messages
+from django.http import HttpResponse
 
 
 # Create your views here.
 def all_prods(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-price')
     return render(request, "products.html", {"products": products})
 
 
@@ -15,7 +16,7 @@ def apparel(request):
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
     else:
-        return render(request, "products.html", {"products": results})
+        return render(request, "prods-apparel.html", {"products": results})
 
 
 def plans(request):
@@ -24,7 +25,7 @@ def plans(request):
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
     else:
-        return render(request, "products.html", {"products": results})
+        return render(request, "prods-plans.html", {"products": results})
 
 
 def sort(request):
@@ -45,12 +46,39 @@ def sort(request):
             return render(request, "products.html", {"products": results})
 
 
-def test(request):
-    select = request.GET['sort']
-    if request.get_full_path == '/products/':
-        results = Product.objects.order_by('price')
+def sort_apparel(request):
+    select = request.GET['sorta']
+    items = Product.objects.filter(category__icontains='apparel')
+    if select == 'LtoH':
+        results = items.order_by('price')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "prods-apparel.html", {"products": results})
+    elif select == 'HtoL':
+        results = items.order_by('-price')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-apparel.html", {"products": results})
+
+
+def sort_plans(request):
+    select = request.GET['sortp']
+    items = Product.objects.filter(category__icontains='plan')
+    if select == 'LtoH':
+        results = items.order_by('price')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-plans.html", {"products": results})
+    elif select == 'HtoL':
+        results = items.order_by('-price')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-plans.html", {"products": results})
