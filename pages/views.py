@@ -20,7 +20,9 @@ def contact(request):
             form_filled = {
                 'email': request.user.email
             }
-        form = EmailContactForm(initial=form_filled)
+            form = EmailContactForm(initial=form_filled)
+        else:
+            form = EmailContactForm()
     else:
         form = EmailContactForm(request.POST)
         if form.is_valid():
