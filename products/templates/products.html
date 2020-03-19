@@ -1,60 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<div class="container">
-    <div class="row">
-        <form action="{% url 'cat_search' %}" method="get" class="form-inline my-2">
-            <select class="custom-select custom-select-lg" name="cats" required>
-                    <option value="" disabled selected hidden>Pick category</option>
-                    <option value="apparel">apparel</option>
-                    <option value="plan">plan</option>
-            </select>
-            <button class="btn btn-success" type="submit" name="action">Find Cats</button>
-        </form> 
-    </div>
-</div>
-
-<a class="nav-link" href="{% url 'apparel' %}">Apparel</a>
-<a class="nav-link" href="{% url 'plans' %}">Plans</a>
-
 <div class="container">
 
     <div class="row">
         <form action="{% url 'sort' %}" method="get" class="form-inline my-2">
             <select class="custom-select custom-select-lg" name="sort" required>
                     <option value="" disabled selected hidden>Sort</option>
-                    <option value="LtoH">LtoH</option>
-                    <option value="HtoL">HtoL</option>
+                    <option value="LtoH">Price: Low to </option>
+                    <option value="HtoL">Price: High to Low</option>
             </select>
             <button class="btn btn-success" type="submit" name="action">Sort</button>
         </form> 
     </div>
+
 </div>
 
-<div class="container">
-<div class="row">
-{% for product in products %}
-
-<div class="col-4">
-    <div class="div">
-    <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
-        <form method="post" action="{% url 'cart_add' product.id %}">
-            {% csrf_token %}
-            <div class="input-group">
-                <input name="quantity" type="number" min="1" max="999" required>
-                <span class="input-group-btn">
-                <button class="btn-outline-success" type="submit">Add</button>
-                </span>
-            </div>
-        </form>
-    </div>
-</div>
-{% endfor %}
-</div>
-</div>
+{% include 'components/prodlist.html' %}
 
 {% endblock %}
