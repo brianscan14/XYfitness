@@ -1,29 +1,41 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
-
-<a class="nav-link" href="{% url 'apparel' %}">Apparel</a>
-<a class="nav-link" href="{% url 'plans' %}">Plans</a>
-
-
-<div class="container">
+<div class="container my-3">
 
     <div class="row">
+        <div class="col-12 mr-auto mx-auto prod-links">
+            <a class="" href="{% url 'apparel' %}">Apparel</a>
+            <a class="" href="{% url 'plans' %}">Plans</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 mr-auto">
+            <h2>All Products</h2>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-4 ml-auto ">
         <form action="{% url 'sort' %}" method="get" class="form-inline my-2">
-            <select class="custom-select custom-select-lg" name="sort" required>
-                    <option value="" disabled selected hidden>Sort</option>
-                    <option value="LtoH">Price: Low to </option>
+            <select class="custom-select custom-select-md" name="sort" required>
+                    <option value="" disabled selected hidden>Sort By:</option>
+                    <option value="LtoH">Price: Low to High</option>
                     <option value="HtoL">Price: High to Low</option>
             </select>
+            <span class="pl-2">
             <button class="btn btn-success" type="submit" name="action">Sort</button>
-        </form> 
+            </span>
+        </form>
+        </div> 
     </div>
 
 
 
-</div>
-
 {% include 'components/prodlist.html' %}
 
+</div>
 
 {% endblock %}

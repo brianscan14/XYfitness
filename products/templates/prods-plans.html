@@ -6,16 +6,18 @@
     <div class="row">
         <form action="{% url 'sort_plans' %}" method="get" class="form-inline my-2">
             <select class="custom-select custom-select-lg" name="sortp" required>
-                    <option value="" disabled selected hidden>Sort</option>
-                    <option value="LtoH">Price: Low to </option>
+                    <option value="" disabled selected hidden>Sort By:</option>
+                    <option value="LtoH">Price: Low to High</option>
                     <option value="HtoL">Price: High to Low</option>
             </select>
             <button class="btn btn-success" type="submit" name="action">Sort</button>
         </form> 
     </div>
 
-</div>
+
 
 {% include 'components/prodlist.html' %}
+
+</div>
 
 {% endblock %}
