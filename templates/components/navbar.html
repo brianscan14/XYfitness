@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Products
+            Shop
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
@@ -32,29 +32,29 @@
         </ul>
         <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
-        <li class="nav-item px-2">
-            <i class="fas fa-user">{{ user }}</i>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-user nav-link"> {{ user }}</i></a>
         </li>
-        <li class="nav-item px-2">
-            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> out</a>
+        <li class="nav-item pr-1 py-1">
+            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
         </li>
         {% else %}
-        <li class="nav-item px-2">
+        <li class="nav-item px-1">
             <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a>
         </li>
-        <li class="nav-item px-2">
-            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign Up</a>
+        <li class="nav-item px-1">
+            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>
         </li>
         {% endif %}
-        <li class="nav-item px-2">
+        <li class="nav-item pl-1 pr-2 py-1">
             <a href="{% url 'view_cart' %}">
-                <i class="fa fa-shopping-cart fa-2x"></i>
+                <i class="fa fa-shopping-bag fa-2x"></i>
                 {% if product_count > 0 %}
                     <label class="badge badge-warning">{{ product_count }}</label>
                 {% endif %}
             </a>
         </li>
-        <li class="nav-item px-2">
+        <li class="nav-item pr-1 pl-2 py-1">
         <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="query">
             <button class="btn btn-outline-success my-2 my-sm-0" type="search">Search</button>
