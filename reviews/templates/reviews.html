@@ -4,19 +4,20 @@
 <div class="container">
 
 {% for review in reviews %}
-<div class="row">
-<div class="col-4">
-    <div class="div">
-    <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
-        <h3>{{ review.title }}</h3>
-        <p>{{ review.content }}</p>
-        <p>{{ review.author }}</p>
-        <p>{{ review.date|date:"F, Y" }}</p>
-        <p><a href="{% url 'single_review' review.id %}">link to this post</a></p>
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <div class="div">
+                <h3>{{ review.title }}</h3>
+                <p><img class="review-image" src="{{ MEDIA_URL }}{{ review.image }}"></p>
+                <p>{{ review.content }}</p>
+                <p>{{ review.author }}</p>
+                <p>{{ review.date|date:"F, Y" }}</p>
+                <p><a href="{% url 'single_review' review.id %}">link to this post</a></p>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 {% endfor %}
+
 </div>
 
 {% if user.is_authenticated  %}
