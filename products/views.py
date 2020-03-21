@@ -75,6 +75,20 @@ def sort_apparel(request):
             return redirect(reverse('products'))
         else:
             return render(request, "prods-apparel.html", {"products": results})
+    elif select == 'AtoZ':
+        results = items.order_by('name')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-apparel.html", {"products": results})
+    elif select == 'ZtoA':
+        results = items.order_by('-name')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-apparel.html", {"products": results})
 
 
 def sort_plans(request):
@@ -89,6 +103,20 @@ def sort_plans(request):
             return render(request, "prods-plans.html", {"products": results})
     elif select == 'HtoL':
         results = items.order_by('-price')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-plans.html", {"products": results})
+    elif select == 'AtoZ':
+        results = items.order_by('name')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "prods-plans.html", {"products": results})
+    elif select == 'ZtoA':
+        results = items.order_by('-name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
