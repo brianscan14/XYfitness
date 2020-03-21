@@ -3,8 +3,6 @@ from .models import Product
 from django.contrib import messages
 
 
-
-# Create your views here.
 def all_prods(request):
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
@@ -39,6 +37,20 @@ def sort(request):
             return render(request, "products.html", {"products": results})
     elif select == 'HtoL':
         results = Product.objects.order_by('-price')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "products.html", {"products": results})
+    elif select == 'AtoZ':
+        results = Product.objects.order_by('name')
+        if not results:
+            messages.error(request, "no results for your search")
+            return redirect(reverse('products'))
+        else:
+            return render(request, "products.html", {"products": results})
+    elif select == 'ZtoA':
+        results = Product.objects.order_by('-name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
