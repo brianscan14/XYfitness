@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 from accounts import url_reset
-from .views import all_links, logout, login, register, profile
+from .views import all_links, logout, login, register, profile, update_profile
 
 urlpatterns = [
     url(r'^logout/$', logout, name='logout'),
@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^profile/$', profile, name='profile'),
     url(r'^register/$', register, name='register'),
     url(r'^all/links/$', all_links, name='all-links'),
+    url(r'^profile/update/$', update_profile, name='update_profile'),
     url(r'^password-reset/', include(url_reset)),
 ]
