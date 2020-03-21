@@ -9,6 +9,7 @@ class Review(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     content = models.TextField(max_length=250)
     date = models.DateTimeField(default=timezone.now)
+    name = models.CharField(User, max_length=30, default='user review')
 
     def __str__(self):
         return self.title
