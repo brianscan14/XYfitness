@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from accounts.forms import UserLoginForm, UserRegistrationForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 
 
 def all_links(request):
@@ -49,15 +50,18 @@ def register(request):
 
         if registration_form.is_valid():
             registration_form.save()
-
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
+            Profile.objects.create(
+                user=user,
+                username=request.POST['username']
+            )
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('home'))
             else:
-                messages.error(request, "Unable to register your account at this time")
+                messages.error(request, "Unable to register your account")
     else:
         registration_form = UserRegistrationForm()
 
@@ -68,3 +72,17 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'profile.html')
+
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Account updated.')
+            return redirect('profile')
+    else:
+        form = ProfileUpdateForm(instance=request.user)
+    return render(request, 'update.html', {
+        "form": form})
