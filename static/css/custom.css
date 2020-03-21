@@ -1,5 +1,7 @@
 /* general css */
-
+.centered {
+    text-align: center;
+}
 
 
 
@@ -16,7 +18,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+`
 .prod-links {
     text-align: center;
 }
