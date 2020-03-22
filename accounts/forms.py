@@ -48,11 +48,10 @@ class ProfileUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     first_name = forms.CharField()
     username = forms.CharField()
-    profile_pic = forms.ImageField(label='Profile Pic')
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'profile_pic']
+        fields = ['username', 'email', 'first_name']
 
 
 class ProfilePic(forms.ModelForm):
