@@ -9,7 +9,7 @@ from django.db import IntegrityError
 
 def all_reviews(request):
     stuff = {
-        'reviews': Review.objects.all()
+        'reviews': Review.objects.all().order_by('-date')
     }
     return render(request, 'reviews.html', stuff)
 
@@ -25,6 +25,7 @@ def new_review(request, pk=None):
     if request.method == "POST":
         form = PostReviewForm(request.POST, request.FILES, instance=review)
         form.instance.author = request.user
+        form.instance.image = request.user.profile.profile_pic
         if form.is_valid():
             try:
                 review = form.save()
@@ -35,6 +36,7 @@ def new_review(request, pk=None):
     else:
         form = PostReviewForm(instance=review)
         form.instance.author = request.user
+        form.instance.image = request.user.profile.profile_pic
     return render(request, 'addreview.html', {'form': form})
 
 
