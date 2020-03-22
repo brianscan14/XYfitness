@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from .models import Profile
 
 
 class UserLoginForm(forms.Form):
@@ -15,10 +16,11 @@ class UserRegistrationForm(UserCreationForm):
         label='Password Confirmation',
         widget=forms.PasswordInput
     )
+    profile_pic = forms.ImageField(label='Profile Pic')
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2', 'profile_pic']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -46,7 +48,15 @@ class ProfileUpdateForm(forms.ModelForm):
     email = forms.EmailField()
     first_name = forms.CharField()
     username = forms.CharField()
+    profile_pic = forms.ImageField(label='Profile Pic')
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name']
+        fields = ['username', 'email', 'first_name', 'profile_pic']
+
+
+class ProfilePic(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ['profile_pic']
