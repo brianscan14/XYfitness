@@ -99,7 +99,7 @@ def update_profile_pic(request):
         form = ProfilePic(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Account updated.')
+            messages.success(request, f'Profile picture updated.')
             return redirect('profile')
     else:
         form = ProfilePic(instance=request.user)
