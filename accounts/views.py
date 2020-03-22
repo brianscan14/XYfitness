@@ -96,6 +96,7 @@ def update_password(request):
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
+            update_session_auth_hash(request, user)
             messages.success(request, 'Password updated!')
             return redirect('profile')
         else:
