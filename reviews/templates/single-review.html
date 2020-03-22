@@ -4,6 +4,7 @@
         <p>{{ review.content }}</p>
         <p>{{ review.author }}</p>
         <p>{{ review.date|date:"F, Y" }}</p>
+        <p><img class="product" src="{{ MEDIA_URL }}{{ review.image }}"></p>
 
         {% if review.author == user %}
         <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
