@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth import update_session_auth_hash
-from accounts.forms import UserLoginForm, UserRegistrationForm, ProfileUpdateForm
+from accounts.forms import UserLoginForm, UserRegistrationForm, ProfileUpdateForm, ProfilePic
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
@@ -48,15 +48,17 @@ def register(request):
         return redirect(reverse('home'))
 
     if request.method == "POST":
-        registration_form = UserRegistrationForm(request.POST)
+        registration_form = UserRegistrationForm(request.POST, request.FILES)
 
         if registration_form.is_valid():
             registration_form.save()
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password1'])
+            user.profile_pic = request.FILES['profile_pic']
             Profile.objects.create(
                 user=user,
-                username=request.POST['username']
+                username=request.POST['username'],
+                profile_pic=request.FILES['profile_pic']
             )
             if user:
                 auth.login(user=user, request=request)
@@ -79,7 +81,7 @@ def profile(request):
 @login_required
 def update_profile(request):
     if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST, instance=request.user)
+        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, f'Account updated.')
@@ -87,6 +89,21 @@ def update_profile(request):
     else:
         form = ProfileUpdateForm(instance=request.user)
     return render(request, 'update.html', {
+        "form": form})
+
+
+@login_required
+def update_profile_pic(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == 'POST':
+        form = ProfilePic(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Account updated.')
+            return redirect('profile')
+    else:
+        form = ProfilePic(instance=request.user)
+    return render(request, 'profilepic.html', {
         "form": form})
 
 
