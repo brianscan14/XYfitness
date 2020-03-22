@@ -5,21 +5,28 @@
 
 
 <div class="container">
-<div class="row">
-<div class="col-6">
-<h2>{{ user.username }}</h2>
-<p>{{ user.email }}</p>
-<p>{{ user.first_name }}</p>
+    <div class="row my-2">
+        <div class="col-6 mx-auto">
+            <h2>{{ user.username }}</h2>
+            <p>{{ user.email }}</p>
+            <p>{{ user.first_name }}</p>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
+            <a href="{% url 'update_profile' %}" class="btn btn-primary btn-lg active" role="button"
+                aria-pressed="true">Update Profile</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="{% url 'update_password' %}" class="btn btn-primary btn-lg active" role="button"
+                aria-pressed="true">Update password</a>
+        </div>
+    </div>
+</div>
 
 
-</div>
-</div>
-<div class="row">
-<div class="col-12">
-<a href="{% url 'update_profile' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
-</div>
-</div>
-</div>
             
 
 {% endblock %}
