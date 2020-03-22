@@ -3,20 +3,21 @@
 {% block content %}
 
 <div class="container">
-<div class="row">
-<div class="col-6">
-            <form method="POST">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom">Info</legend>
-                    {{ form | as_bootstrap }}
-                </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-success" type="submit">Update</button>
-                </div>
-            </form>
-</div>
-</div>
+	<div class="row">
+		<div class="col-6">
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form | as_bootstrap }}
+				<button type="submit" class="btn btn-outline-success">Add Details</button>
+			</form>
+		</div>
+	</div>
+    <div class="row mt-2">
+		<div class="col-12">
+            <a href="{% url 'update_password' %}" class="btn btn-primary btn-md active" role="button"
+                aria-pressed="true">Update Password</a>
+        </div>
+	</div>
 </div>
 
 {% endblock %}
