@@ -6,4 +6,4 @@ class PostReviewForm(forms.ModelForm):
 
     class Meta:
         model = Review
-        fields = ('title', 'content', 'image', 'date')
+        fields = ('title', 'content', 'date')
