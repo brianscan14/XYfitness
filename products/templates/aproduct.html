@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h3>{{ product.name }}</h3>
+			<p>{{ product.description }}</p>
+			<p>{{ product.price }}</p>
+		</div>
+	</div>
+</div>
 
 {% endblock %}
