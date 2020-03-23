@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product
 from django.contrib import messages
+from .forms import ProdReviewForm
 
 
 def all_prods(request):
@@ -11,6 +12,23 @@ def all_prods(request):
 def single_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'aproduct.html', {'product': product})
+
+
+def review_prod(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == "POST":
+        form = ProdReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            form.instance.user = request.user
+            review.save()
+            messages.success(request, "Review Added")
+            # return redirect('aproduct.html', product.pk)
+            return redirect(reverse('products'))
+    else:
+        form = ProdReviewForm()
+    return render(request, 'prodreview.html', {'form': form})
 
 
 def apparel(request):
