@@ -10,8 +10,9 @@
                 <h3>{{ review.title }}</h3>
                 <p>{{ review.content }}</p>
                 <p>{{ review.author.first_name }} "{{ review.author }}"</p>
-                <p>{{ review.date|date:"F, Y" }}</p>
-                <p><img class="product" src="{{ MEDIA_URL }}{{ review.image }}"></p>
+                <p>{{ review.date|date:"F, Y" }}  
+                 <img class="profile-image pl-2" src="{{ MEDIA_URL }}{{ review.image }}">
+                </p>
                 <p><a href="{% url 'single_review' review.id %}">link to this post</a></p>
             </div>
         </div>
