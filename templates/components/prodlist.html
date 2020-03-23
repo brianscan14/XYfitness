@@ -8,6 +8,7 @@
             <h3>{{ product.name }}</h3>
             <p>{{ product.description }}</p>
             <p>{{ product.price }}</p>
+            <p><a href="{% url 'single_prod' product.id %}">View Product</a></p>
             <form method="post" action="{% url 'cart_add' product.id %}">
                 {% csrf_token %}
                 <div class="input-group">
