@@ -17,12 +17,14 @@
     </div>
 </div>
 
-{% for review in reviews %}
 
+<h3>{{ product.productreview_set.count }} Product Reviews</h3>
+{% for review in product.productreview_set.all %}
     <h3>{{ review.title }}</h3>
 	<p>{{ review.content }}</p>
 	<p>{{ review.user }}</p>
-
+    <p>{{ review.date }}</p>
+    <p>"{{ review.product }}"</p>
 {% endfor %}
 
 
