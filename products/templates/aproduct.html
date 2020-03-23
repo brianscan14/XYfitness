@@ -9,6 +9,21 @@
 			<p>{{ product.price }}</p>
 		</div>
 	</div>
+    <div class="row my-2">
+        <div class="col-12">
+            <a href="{% url 'review_prod' product.id %}" class="btn btn-primary btn-lg active" role="button"
+                aria-pressed="true">Add Review</a>
+        </div>
+    </div>
 </div>
+
+{% for review in reviews %}
+
+    <h3>{{ review.title }}</h3>
+	<p>{{ review.content }}</p>
+	<p>{{ review.user }}</p>
+
+{% endfor %}
+
 
 {% endblock %}
