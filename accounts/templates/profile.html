@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="container my-5">
     <div class="row my-2">
         <div class="col-6 mx-auto">
+            <p><img class="review-image" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
             <h2>{{ user.username }}</h2>
             <p>{{ user.email }}</p>
             <p>{{ user.first_name }}</p>
-            <p><img class="review-image" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
         </div>
     </div>
     <div class="row my-2">
@@ -22,7 +22,7 @@
                 aria-pressed="true">Update password</a>
         </div>
     </div>
-    <div class="row">
+    <div class="row my-2">
         <div class="col-12">
             <a href="{% url 'update_profile_pic' %}" class="btn btn-primary btn-lg active" role="button"
                 aria-pressed="true">Update pic</a>
