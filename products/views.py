@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product
 from django.contrib import messages
 
@@ -6,6 +6,11 @@ from django.contrib import messages
 def all_prods(request):
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
+
+
+def single_prod(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'aproduct.html', {'product': product})
 
 
 def apparel(request):
