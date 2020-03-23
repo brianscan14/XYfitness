@@ -1,10 +1,11 @@
 from django.conf.urls import url
-from .views import all_prods, plans, apparel, sort, sort_apparel, sort_plans, single_prod, review_prod
+from .views import all_prods, plans, apparel, sort, sort_apparel, sort_plans, single_prod, review_prod, delete_prod_review
 
 urlpatterns = [
     url(r'^$', all_prods, name='products'),
     url(r'product/(?P<pk>\d+)', single_prod, name='single_prod'),
     url(r'product/review/(?P<pk>\d+)/$', review_prod, name='review_prod'),
+    url(r'^(?P<pk>\d+)/delete/$', delete_prod_review, name='delete_prod_review'),
     url(r'^plans/$', plans, name='plans'),
     url(r'^apparel/$', apparel, name='apparel'),
     url(r'^sort/$', sort, name='sort'),
