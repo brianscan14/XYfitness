@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .models import Product
+from .models import Product, ProductReview
 from django.contrib import messages
 from .forms import ProdReviewForm
 
@@ -29,6 +29,14 @@ def review_prod(request, pk):
     else:
         form = ProdReviewForm()
     return render(request, 'prodreview.html', {'form': form})
+
+
+def delete_prod_review(request, pk):
+    review = get_object_or_404(ProductReview, pk=pk)
+    if review.user == request.user:
+        review.delete()
+        messages.success(request, "Your review was deleted")
+        return redirect(all_prods)
 
 
 def apparel(request):
