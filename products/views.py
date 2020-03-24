@@ -26,11 +26,10 @@ def review_prod(request, pk):
                 form.instance.user = request.user
                 review.save()
                 messages.success(request, "Review Added")
-                # return redirect('aproduct.html', product.pk)
-                return redirect(reverse('products'))
+                return redirect(single_prod, product.pk)
             except IntegrityError:
                 messages.error(request, "Already reviewed this product!")
-                return redirect(reverse('products'))
+                return redirect(single_prod, product.pk)
     else:
         form = ProdReviewForm()
     return render(request, 'prodreview.html', {'form': form})
