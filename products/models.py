@@ -15,7 +15,7 @@ class Product(models.Model):
 
 
 class ProductReview(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, unique=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=30, default='Review Title')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=250)
