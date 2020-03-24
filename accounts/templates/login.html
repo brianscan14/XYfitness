@@ -4,6 +4,7 @@
 <form method="POST">
     {% csrf_token %} {{ login_form | as_bootstrap}}
     <button type="submit">Login</button>
+    <input type="hidden" name="next" value="{{next}}" />
 </form>
 <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
 {% endblock %}
