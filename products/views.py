@@ -22,6 +22,8 @@ def review_prod(request, pk):
     user = request.user
     if request.method == "POST":
         if ProductReview.objects.filter(user=user, product=product).exists():
+            # old_review = ProductReview.objects.filter(user=user, product=product)
+            form = ProdReviewForm(request.POST)
             messages.error(request, "Already reviewed this product!")
             return redirect(single_prod, product.pk)
         else:
@@ -36,6 +38,23 @@ def review_prod(request, pk):
     else:
         form = ProdReviewForm()
     return render(request, 'prodreview.html', {'form': form})
+
+
+@login_required()
+def edit_review_prod(request, pk):
+    review = get_object_or_404(ProductReview, pk=pk)
+    product = review.product_id
+    if request.method == "POST":
+        form = ProdReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            review = form.save(commit=False)
+            form.instance.user = request.user
+            review.save()
+            messages.success(request, "Review updated")
+            return redirect(single_prod, product)
+    else:
+        form = ProdReviewForm(instance=review)
+    return render(request, 'editprodreview.html', {'form': form})
 
 
 @login_required()
