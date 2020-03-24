@@ -33,7 +33,7 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                return redirect(request.GET.get('next'))
+                return redirect(request.GET.get('next', 'home'))
             else:
                 login_form.add_error(None, "Username or password is incorrect")
     else:
