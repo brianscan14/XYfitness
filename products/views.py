@@ -3,6 +3,7 @@ from .models import Product, ProductReview
 from django.contrib import messages
 from .forms import ProdReviewForm
 from django.db import IntegrityError
+from django.contrib.auth.decorators import login_required
 
 
 def all_prods(request):
@@ -15,6 +16,7 @@ def single_prod(request, pk):
     return render(request, 'aproduct.html', {'product': product})
 
 
+@login_required(redirect_field_name='single_prod')
 def review_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
@@ -35,6 +37,7 @@ def review_prod(request, pk):
     return render(request, 'prodreview.html', {'form': form})
 
 
+@login_required()
 def delete_prod_review(request, pk):
     review = get_object_or_404(ProductReview, pk=pk)
     if review.user == request.user:
