@@ -8,10 +8,10 @@ from django.db import IntegrityError
 
 
 def all_reviews(request):
-    stuff = {
+    reviews = {
         'reviews': Review.objects.all().order_by('-date')
     }
-    return render(request, 'reviews.html', stuff)
+    return render(request, 'reviews.html', reviews)
 
 
 def single_review(request, pk):
