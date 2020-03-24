@@ -16,7 +16,7 @@ def single_prod(request, pk):
     return render(request, 'aproduct.html', {'product': product})
 
 
-@login_required(redirect_field_name='single_prod')
+@login_required()
 def review_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == "POST":
