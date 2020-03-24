@@ -16,19 +16,10 @@ def single_prod(request, pk):
     return render(request, 'aproduct.html', {'product': product})
 
 
-    results = Product.objects.filter(category__icontains='apparel')
-    if not results:
-        messages.error(request, "no results for your search")
-        return redirect(reverse('products'))
-    else:
-        return render(request, "prods-apparel.html", {"products": results})
-
-
 @login_required()
 def review_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
     user = request.user
-    review = get_object_or_404(ProductReview, pk=pk)
     if request.method == "POST":
         if ProductReview.objects.filter(user=user, product=product).exists():
             messages.error(request, "Already reviewed this product!")
@@ -57,7 +48,7 @@ def delete_prod_review(request, pk):
 
 
 def apparel(request):
-    results = Product.objects.filter(category__icontains='apparel')
+    results = Product.objects.filter(category__icontains='A')
     if not results:
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
@@ -66,7 +57,7 @@ def apparel(request):
 
 
 def plans(request):
-    results = Product.objects.filter(category__icontains='plan')
+    results = Product.objects.filter(category__icontains='P')
     if not results:
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
@@ -108,7 +99,7 @@ def sort(request):
 
 def sort_apparel(request):
     select = request.GET['sorta']
-    items = Product.objects.filter(category__icontains='apparel')
+    items = Product.objects.filter(category__icontains='A')
     if select == 'LtoH':
         results = items.order_by('price')
         if not results:
@@ -141,7 +132,7 @@ def sort_apparel(request):
 
 def sort_plans(request):
     select = request.GET['sortp']
-    items = Product.objects.filter(category__icontains='plan')
+    items = Product.objects.filter(category__icontains='P')
     if select == 'LtoH':
         results = items.order_by('price')
         if not results:
