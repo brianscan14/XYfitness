@@ -33,6 +33,7 @@
     <p>"{{ review.product }}"</p>
     {% if review.user == user %}
         <a href="{% url 'delete_prod_review' review.id %}" class="btn btn-default">delete review</a>
+        <a href="{% url 'edit_review_prod' review.id  %}" class="btn btn-default">edit review</a>
     {% endif %}
 {% endfor %}
 
