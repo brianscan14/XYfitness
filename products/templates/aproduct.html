@@ -17,8 +17,14 @@
     </div>
 </div>
 
+{% if product.productreview_set.count == 0 %}
+    <h3>No reviews for this product</h3>
+{% elif product.productreview_set.count == 1 %}
+    <h3>{{ product.productreview_set.count }} review for product</h3>
+{% elif product.productreview_set.count > 1 %}
+    <h3>{{ product.productreview_set.count }} Product Reviews</h3>
+{% endif %}
 
-<h3>{{ product.productreview_set.count }} Product Reviews</h3>
 {% for review in product.productreview_set.all %}
     <h3>{{ review.title }}</h3>
 	<p>{{ review.content }}</p>
