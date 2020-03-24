@@ -16,21 +16,31 @@ def single_prod(request, pk):
     return render(request, 'aproduct.html', {'product': product})
 
 
+    results = Product.objects.filter(category__icontains='apparel')
+    if not results:
+        messages.error(request, "no results for your search")
+        return redirect(reverse('products'))
+    else:
+        return render(request, "prods-apparel.html", {"products": results})
+
+
 @login_required()
 def review_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
+    user = request.user
+    review = get_object_or_404(ProductReview, pk=pk)
     if request.method == "POST":
-        form = ProdReviewForm(request.POST)
-        if form.is_valid():
-            try:
+        if ProductReview.objects.filter(user=user, product=product).exists():
+            messages.error(request, "Already reviewed this product!")
+            return redirect(single_prod, product.pk)
+        else:
+            form = ProdReviewForm(request.POST)
+            if form.is_valid():
                 review = form.save(commit=False)
                 review.product = product
                 form.instance.user = request.user
                 review.save()
                 messages.success(request, "Review Added")
-                return redirect(single_prod, product.pk)
-            except IntegrityError:
-                messages.error(request, "Already reviewed this product!")
                 return redirect(single_prod, product.pk)
     else:
         form = ProdReviewForm()
