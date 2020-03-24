@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product, ProductReview
 from django.contrib import messages
 from .forms import ProdReviewForm
+from django.db import IntegrityError
 
 
 def all_prods(request):
@@ -19,13 +20,17 @@ def review_prod(request, pk):
     if request.method == "POST":
         form = ProdReviewForm(request.POST)
         if form.is_valid():
-            review = form.save(commit=False)
-            review.product = product
-            form.instance.user = request.user
-            review.save()
-            messages.success(request, "Review Added")
-            # return redirect('aproduct.html', product.pk)
-            return redirect(reverse('products'))
+            try:
+                review = form.save(commit=False)
+                review.product = product
+                form.instance.user = request.user
+                review.save()
+                messages.success(request, "Review Added")
+                # return redirect('aproduct.html', product.pk)
+                return redirect(reverse('products'))
+            except IntegrityError:
+                messages.error(request, "Already reviewed this product!")
+                return redirect(reverse('products'))
     else:
         form = ProdReviewForm()
     return render(request, 'prodreview.html', {'form': form})
