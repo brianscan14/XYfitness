@@ -150,7 +150,7 @@ AUTHENTICATION_BACKENDS = [
 
 AWS_DEFAULT_ACL = 'public-read'
 
-LOGIN_URL = 'login'
+
 
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
