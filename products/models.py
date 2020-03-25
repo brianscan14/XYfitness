@@ -13,6 +13,14 @@ class Product(models.Model):
         ('A', 'Apparel'),
     )
     category = models.CharField(max_length=30, choices=cats, default='P')
+    sizes = (
+        ('XS', 'Extra Small'),
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+        ('XL', 'Extra Large'),
+    )
+    size = models.CharField(max_length=100, choices=sizes, default='XS')
 
     def __str__(self):
         return self.name
@@ -27,3 +35,4 @@ class ProductReview(models.Model):
 
     def __str__(self):
         return self.title
+
