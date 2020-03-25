@@ -17,13 +17,20 @@
     </div>
 </div>
 
-{% if product.productreview_set.count == 0 %}
-    <h3>No reviews for this product</h3>
-{% elif product.productreview_set.count == 1 %}
-    <h3>{{ product.productreview_set.count }} review for product</h3>
-{% elif product.productreview_set.count > 1 %}
-    <h3>{{ product.productreview_set.count }} Product Reviews</h3>
-{% endif %}
+    {{ product.get_size_display }}
+        <select name="size">
+            {% for choice in product.sizes %}
+                <option value="{{ choice }}">{{ choice }}</option>
+            {% endfor %}
+        </select>
+
+    {% if product.productreview_set.count == 0 %}
+        <h3>No reviews for this product</h3>
+    {% elif product.productreview_set.count == 1 %}
+        <h3>{{ product.productreview_set.count }} review for product</h3>
+    {% elif product.productreview_set.count > 1 %}
+        <h3>{{ product.productreview_set.count }} Product Reviews</h3>
+    {% endif %}
 
 {% for review in product.productreview_set.all %}
     <h3>{{ review.title }}</h3>
