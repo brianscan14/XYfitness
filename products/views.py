@@ -13,7 +13,12 @@ def all_prods(request):
 
 def single_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    return render(request, 'aproduct.html', {'product': product})
+    choices = Product._meta.get_field('size').choices
+    context = {
+        'product': product,
+        'choices': choices
+    }
+    return render(request, 'aproduct.html', context)
 
 
 @login_required()
@@ -22,7 +27,6 @@ def review_prod(request, pk):
     user = request.user
     if request.method == "POST":
         if ProductReview.objects.filter(user=user, product=product).exists():
-            # old_review = ProductReview.objects.filter(user=user, product=product)
             form = ProdReviewForm(request.POST)
             messages.error(request, "Already reviewed this product!")
             return redirect(single_prod, product.pk)
