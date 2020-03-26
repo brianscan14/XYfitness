@@ -11,6 +11,19 @@
 	</div>
     <div class="row my-2">
         <div class="col-12">
+            <form method="post" action="{% url 'cart_add' product.id %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name="quantity" type="number" min="1" max="99" required>
+                    <span class="input-group-btn">
+                    <button class="btn-outline-success" type="submit">Add to Cart</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-12">
             <a href="{% url 'review_prod' product.id %}" class="btn btn-primary btn-lg active" role="button"
                 aria-pressed="true">Add Review</a>
         </div>
@@ -19,7 +32,7 @@
 
     {{ product.get_size_display }}
         <select name="size">
-            {% for choice in product.sizes %}
+            {% for choice in product.size %}
                 <option value="{{ choice }}">{{ choice }}</option>
             {% endfor %}
         </select>
