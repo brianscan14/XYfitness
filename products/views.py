@@ -13,6 +13,7 @@ def all_prods(request):
 
 def single_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
+    # product.size = request.GET['size']
     choices = Product._meta.get_field('size').choices
     context = {
         'product': product,
@@ -64,10 +65,11 @@ def edit_review_prod(request, pk):
 @login_required()
 def delete_prod_review(request, pk):
     review = get_object_or_404(ProductReview, pk=pk)
+    product = review.product_id
     if review.user == request.user:
         review.delete()
         messages.success(request, "Your review was deleted")
-        return redirect(all_prods)
+        return redirect(single_prod, product)
 
 
 def apparel(request):
