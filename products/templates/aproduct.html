@@ -30,6 +30,10 @@
     </div>
 </div>
 
+        {% for star in stars %}
+                <h3>rating {{ star.avg_review }} </h3>
+        {% endfor %} 
+
 
     {{ product.get_size_display }}
         <select name="size">
