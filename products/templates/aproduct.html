@@ -30,9 +30,10 @@
     </div>
 </div>
 
+
     {{ product.get_size_display }}
         <select name="size">
-            {% for choice in product.size %}
+            {% for choice in choices %}
                 <option value="{{ choice }}">{{ choice }}</option>
             {% endfor %}
         </select>
@@ -51,6 +52,7 @@
 	<p>{{ review.user }}</p>
     <p>{{ review.date }}</p>
     <p>"{{ review.product }}"</p>
+    <p>"{{ review.rating }}/5"</p>
     {% if review.user == user %}
         <a href="{% url 'delete_prod_review' review.id %}" class="btn btn-default">delete review</a>
         <a href="{% url 'edit_review_prod' review.id  %}" class="btn btn-default">edit review</a>
