@@ -16,7 +16,7 @@ def single_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
     # product.size = request.GET['size']
     choices = Product._meta.get_field('size').choices
-    stars = Product.objects.filter(name=product).annotate(
+    stars = Product.objects.filter(id=pk).annotate(
         avg_review=Avg('productreview__rating')
     )
     context = {
