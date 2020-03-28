@@ -3,6 +3,7 @@ from .models import Product, ProductReview
 from django.contrib import messages
 from .forms import ProdReviewForm
 from django.db import IntegrityError
+from django.db.models import Avg
 from django.contrib.auth.decorators import login_required
 
 
@@ -15,9 +16,13 @@ def single_prod(request, pk):
     product = get_object_or_404(Product, pk=pk)
     # product.size = request.GET['size']
     choices = Product._meta.get_field('size').choices
+    stars = Product.objects.filter(name=product).annotate(
+        avg_review=Avg('productreview__rating')
+    )
     context = {
         'product': product,
-        'choices': choices
+        'choices': choices,
+        'stars': stars
     }
     return render(request, 'aproduct.html', context)
 
