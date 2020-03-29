@@ -13,8 +13,13 @@
 
     <div class="row">
         <div class="col-4 mr-auto">
+        {% if '/products/apparel/' in request.path %}
+            <h2>Apparel</h2>
+        {% elif '/products/plans/' in request.path %}
+            <h2>All Plans</h2>
+        {% else %}
             <h2>All Products</h2>
-            {{ request.path }}
+        {% endif %}
         </div>
     </div>
 
@@ -35,12 +40,12 @@
                     <option value="HtoL">Price: High to Low</option>
                     <option value="AtoZ">Alphabetically: A to Z</option>
                     <option value="ZtoA">Alphabetically: Z to A</option>
-            </select>
-            <span class="pl-2">
-            <button class="btn btn-success" type="submit" name="action">Sort</button>
-            </span>
-        </form>
-        </div> 
+                </select>
+                <span class="pl-2">
+                <button class="btn btn-success" type="submit" name="action">Sort</button>
+                </span>
+            </form>
+        </div>
     </div>
 
 
