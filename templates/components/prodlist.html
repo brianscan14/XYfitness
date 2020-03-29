@@ -4,26 +4,21 @@
     {% for product in products %}
     <div class="col-4 my-4">
         <div class="row">
-            <div class="col-12">
+            <div class="col">
             <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
                 <h3>{{ product.name }}</h3>
                 <p>{{ product.description }}</p>
                 <p>{{ product.price }}</p>
-                <p>{{ product.id }}</p>
                 <p><a href="{% url 'single_prod' product.id %}">View Product</a></p>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 my-4">
+            <div class="col my-4">
                 {% for star in stars %}
                     {% if product.id == star.id %}
                         {% if star.avg_review %}
                         <div class="div">
-                            <h4>rating {{ star.avg_review }} ( {{ product.id }} )</h4>
-                        </div>
-                        {% else %}
-                        <div class="div">
-                            <h4>No Reviews</h4>
+                            <h4>Rating {{ star.avg_review }}</h4>
                         </div>
                         {% endif %} 
                     {% endif %} 
