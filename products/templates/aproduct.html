@@ -5,8 +5,20 @@
 	<div class="row">
 		<div class="col">
 			<h3>{{ product.name }}</h3>
+            <p><img class="product" src="{{ MEDIA_URL }}{{ product.image }}"></p>
 			<p>{{ product.description }}</p>
 			<p>{{ product.price }}</p>
+            {% for star in stars %}
+                {% if star.avg_review %}
+                    <div class="div">
+                        <h4>Rating {{ star.avg_review }}</h4>
+                    </div>
+                    {% else %}
+                    <div class="div">
+                        <h4>No reviews yet for this product</h4>
+                    </div>
+                {% endif %} 
+            {% endfor %}
 		</div>
 	</div>
     <div class="row my-2">
@@ -29,18 +41,6 @@
         </div>
     </div>
 </div>
-
-        {% for star in stars %}
-                {% if star.avg_review %}
-                    <div class="div">
-                        <h4>rating {{ star.avg_review }} ( {{ product.id }} )</h4>
-                    </div>
-                    {% else %}
-                    <div class="div">
-                        <h4>No Reviews</h4>
-                    </div>
-                {% endif %} 
-        {% endfor %} 
 
 
     {{ product.get_size_display }}
@@ -66,8 +66,8 @@
     <p>"{{ review.product }}"</p>
     <p>"{{ review.rating }}/5"</p>
     {% if review.user == user %}
-        <a href="{% url 'delete_prod_review' review.id %}" class="btn btn-default">delete review</a>
-        <a href="{% url 'edit_review_prod' review.id  %}" class="btn btn-default">edit review</a>
+        <a href="{% url 'delete_prod_review' review.id %}" class="btn btn-danger">delete review</a>
+        <a href="{% url 'edit_review_prod' review.id  %}" class="btn btn-warning">edit review</a>
     {% endif %}
 {% endfor %}
 
