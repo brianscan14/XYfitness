@@ -9,7 +9,14 @@ from django.contrib.auth.decorators import login_required
 
 def all_prods(request):
     products = Product.objects.all()
-    return render(request, "products.html", {"products": products})
+    stars = Product.objects.annotate(
+        avg_review=Avg('productreview__rating'),
+    )
+    context = {
+        'products': products,
+        'stars': stars
+    }
+    return render(request, "products.html", context)
 
 
 def single_prod(request, pk):

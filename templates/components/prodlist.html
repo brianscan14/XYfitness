@@ -11,6 +11,11 @@
             <p><a href="{% url 'single_prod' product.id %}">View Product</a></p>
         </div>
     </div>
+
+        {% for star in stars product.id %}
+                <h3>rating {{ star.avg_review }} </h3>
+        {% endfor %} 
+
     {% endfor %}
 
 </div>
