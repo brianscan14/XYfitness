@@ -86,20 +86,34 @@ def delete_prod_review(request, pk):
 
 def apparel(request):
     results = Product.objects.filter(category__icontains='A')
+    stars = Product.objects.annotate(
+        avg_review=Avg('productreview__rating'),
+    )
+    context = {
+        'products': results,
+        'stars': stars
+    }
     if not results:
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
     else:
-        return render(request, "products.html", {"products": results})
+        return render(request, "products.html", context)
 
 
 def plans(request):
     results = Product.objects.filter(category__icontains='P')
+    stars = Product.objects.annotate(
+        avg_review=Avg('productreview__rating'),
+    )
+    context = {
+        'products': results,
+        'stars': stars
+    }
     if not results:
         messages.error(request, "no results for your search")
         return redirect(reverse('products'))
     else:
-        return render(request, "products.html", {"products": results})
+        return render(request, "products.html", context)
 
 
 def sort(request):
