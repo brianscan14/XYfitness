@@ -14,13 +14,22 @@
     <div class="row">
         <div class="col-4 mr-auto">
             <h2>All Products</h2>
+            {{ request.path }}
         </div>
     </div>
 
     <div class="row mb-4">
         <div class="col-4 ml-auto ">
-        <form action="{% url 'sort' %}" method="get" class="form-inline my-2">
-            <select class="custom-select custom-select-md" name="sort" required>
+        {% if '/products/apparel/' in request.path %}
+            <form action="{% url 'sort_apparel' %}" method="get" class="form-inline my-2">
+                <select class="custom-select custom-select-md" name="sorta" required>
+        {% elif '/products/plans/' in request.path %}
+            <form action="{% url 'sort_plans' %}" method="get" class="form-inline my-2">
+                <select class="custom-select custom-select-md" name="sortp" required>
+        {% else %}
+            <form action="{% url 'sort' %}" method="get" class="form-inline my-2">
+                <select class="custom-select custom-select-md" name="sort" required>
+        {% endif %}
                     <option value="" disabled selected hidden>Sort By:</option>
                     <option value="LtoH">Price: Low to High</option>
                     <option value="HtoL">Price: High to Low</option>
