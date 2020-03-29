@@ -3,35 +3,28 @@
 
     {% for product in products %}
     <div class="col-4 my-4">
-        <div class="div">
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }}</p>
-            <p>{{ product.id }}</p>
-            <p><a href="{% url 'single_prod' product.id %}">View Product</a></p>
+        <div class="row">
+            <div class="col-12">
+            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <p>{{ product.price }}</p>
+                <p>{{ product.id }}</p>
+                <p><a href="{% url 'single_prod' product.id %}">View Product</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 my-4">
+                {% for star in stars %}
+                    {% if product.id == star.id %}
+                        <div class="div">
+                            <h4>rating {{ star.avg_review }} ( {{ product.id }} )</h4>
+                        </div>
+                    {% endif %} 
+                {% endfor %} 
+            </div>
         </div>
     </div>
-</div>
-<div class="row">
-<div class="col-12 my-4">
-        {% for star in stars %}
-        <div class="row">
-        <div class="col-4 my-4">
-            <div class="div">
-                <h3>rating {{ star.avg_review }} and prod id {{ product.id }} </h3>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-4 my-4">
-            <div class="div">
-                <h3>this {{ star.id }} </h3>
-            </div>
-        </div>
-        </div>
-        {% endfor %} 
-
     {% endfor %}
-</div>
+
 </div>
