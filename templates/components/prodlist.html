@@ -17,9 +17,15 @@
             <div class="col-12 my-4">
                 {% for star in stars %}
                     {% if product.id == star.id %}
+                        {% if star.avg_review %}
                         <div class="div">
                             <h4>rating {{ star.avg_review }} ( {{ product.id }} )</h4>
                         </div>
+                        {% else %}
+                        <div class="div">
+                            <h4>No Reviews</h4>
+                        </div>
+                        {% endif %} 
                     {% endif %} 
                 {% endfor %} 
             </div>
