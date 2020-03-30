@@ -11,7 +11,7 @@
             {% for star in stars %}
                 {% if star.avg_review %}
                     <div class="div">
-                        <h4>Rating {{ star.avg_review }}</h4>
+                       {% include 'components/starrating.html' %} 
                     </div>
                     {% else %}
                     <div class="div">
@@ -21,6 +21,22 @@
             {% endfor %}
 		</div>
 	</div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+            <label>Size</label>
+            <select name="size" class="selectpicker" data-title="Select size" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+            {% for x,y in form.fields.size.choices %}
+            <option value="{{ x }}">{{ y }}</option>
+            {% endfor %}
+            </select>
+        </div>  
+        </div>
+    </div>
+
+
+
     <div class="row my-2">
         <div class="col-12">
             <form method="post" action="{% url 'cart_add' product.id %}">
@@ -42,13 +58,6 @@
     </div>
 </div>
 
-
-    {{ product.get_size_display }}
-        <select name="size">
-            {% for choice in choices %}
-                <option value="{{ choice }}">{{ choice }}</option>
-            {% endfor %}
-        </select>
 
     {% if product.productreview_set.count == 0 %}
         <h3>No reviews for this product</h3>
