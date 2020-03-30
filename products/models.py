@@ -20,7 +20,7 @@ class Product(models.Model):
         ('L', 'Large'),
         ('XL', 'Extra Large'),
     )
-    size = models.CharField(max_length=100, choices=sizes, default='XS')
+    size = models.CharField(max_length=100, choices=sizes, default='choose size', verbose_name="size")
 
     def __str__(self):
         return self.name
