@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product, ProductReview
 from django.contrib import messages
-from .forms import ProdReviewForm
+from .forms import ProdReviewForm, ProdSizeForm
 from django.db import IntegrityError
 from django.db.models import Avg
 from django.contrib.auth.decorators import login_required
@@ -26,10 +26,12 @@ def single_prod(request, pk):
     stars = Product.objects.filter(id=pk).annotate(
         avg_review=Avg('productreview__rating')
     )
+    form = ProdSizeForm()
     context = {
         'product': product,
         'choices': choices,
-        'stars': stars
+        'stars': stars,
+        'form': form
     }
     return render(request, 'aproduct.html', context)
 
