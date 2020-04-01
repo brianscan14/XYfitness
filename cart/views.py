@@ -11,39 +11,45 @@ def view_cart(request):
 
 @login_required
 def cart_add(request, id):
-    quantity = int(request.POST.get('quantity'))
-    size = request.POST.get('size')
-    print(size, quantity)
-    # content = {
-    #             'size': size,
-    #             'quantity': quantity
-    # }
-    # print(content)
+    q = int(request.POST.get('quantity'))
+    s = request.POST.get('size')
+    print(s, q)
     cart = request.session.get('cart', {})
     print(cart)
 
     if id in cart:
-        if size == cart[id][1]:
-            cart[id] = [int(cart[id][0]) + quantity, size]
-            # adding the quantity added to your
-            # quantity integer there already
+        print("id is in cart")
+        if s in cart[id]:
+            cart[id][s] = cart[id][s] + q
             print(cart[id])
         else:
-            newid = [quantity, size]
-            print(newid)
-            cart[id] = cart[id] + newid
-            
-            # cart[id] = cart.get(id, [quantity, size])
-        # add another k/v pair to your cart id if size there
-        # if the size is not already in the cart then you
-        # want to add this new k/v pair onto this prod id
-        # if size = cart[id][1] else:
-            # print(cart[id][0])
-            # print(cart[id][1])
-            print(cart[id])
+            cart[id][s] = q  # lhs of new dict = rhs
     else:
-        cart[id] = cart.get(int(id), [quantity, size])
-        print(cart[id])
+        cart[id] = {s: q}
+        print("id not in cart")
+
+    # if id in cart:
+    #     if size == cart[id][1]:  # if size equal to size there already in cart
+    #         cart[id] = [int(cart[id][0]) + quantity, size]
+    #         # adding the quantity added to
+    #         # quantity integer there already
+    #         print(cart[id])
+    #     else:
+    #         newid = [quantity, size]
+    #         print(newid)
+    #         print(cart[id])
+    #         cart[id] = cart[id] + newid
+
+    #         # add another k/v pair to your cart id if size there
+    #         # if the size is not already in the cart then you
+    #         # want to add this new k/v pair onto this prod id
+    #         # if size = cart[id][1] else:
+    #         # print(cart[id][0])
+    #         # print(cart[id][1])
+    #         print(cart[id])
+    # else:
+    #     cart[id] = cart.get(int(id), [quantity, size])
+    #     print(cart[id])
 
     # if id in cart:
     #     # size = cart[id][1]
@@ -64,13 +70,13 @@ def cart_add(request, id):
 @login_required
 def change_cart(request, id):
     quantity = int(request.POST.get('quantity'))
-    cart = request.session.get('cart', {})
     size = request.POST.get('size')
+    cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[id] = [quantity, cart[id][1]]
+        cart[id][size] = quantity
     else:
-        cart.pop(id)
+        cart.pop(id[size])
 
     request.session['cart'] = cart
     messages.success(request, "Cart updated")
