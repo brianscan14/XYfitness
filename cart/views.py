@@ -13,7 +13,6 @@ def view_cart(request):
 def cart_add(request, id):
     q = int(request.POST.get('quantity'))
     s = request.POST.get('size')
-    print(s, q)
     cart = request.session.get('cart', {})
     print(cart)
 
@@ -42,20 +41,27 @@ def change_cart(request, id):
     quantity = int(request.POST.get('quantity'))
     size = request.POST.get('size')
     cart = request.session.get('cart', {})
+    # print(cart[id])
+    print(type(cart))
+    print(cart)
+    # print(cart[id][quantity])
+    # print(cart[id][size])
 
     if quantity > 0:
         if size in cart[id]:
             cart[id][size] = quantity
-            print(cart[id])
+            # print(cart[id])
         else:
             cart[id].pop(size)
+            # cart[id][size] = quantity
+
             # cart[id][size] = cart[id].pop('size', quantity)
             # cart[id].update(cart[id])
             # cart[id][size] = quantity
             # print(cart[id])
     else:
         # cart[id].pop([id][quantity])
-        cart[id].pop([id][quantity])
+        cart[id].pop(size)
         # if else to pop out qunatity if size is 0
 
     request.session['cart'] = cart
