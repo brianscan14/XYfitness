@@ -40,13 +40,20 @@ def cart_add(request, id):
 def change_cart(request, id):
     quantity = int(request.POST.get('quantity'))
     size = request.POST.get('size')
+    oldsize = request.POST.get('oldsize')
     cart = request.session.get('cart', {})
     # print(cart[id])
 
-    if size in cart[id]:
+    if size == oldsize:
         cart[id][size] = quantity
     else:
-        cart[id].pop(size)
+        cart[id].pop(oldsize)
+        cart[id][size] = quantity
+
+    # if size in cart[id]:
+    #     cart[id][size] = quantity
+    # else:
+    #     cart[id].pop(oldsize)
         # if size not in cart[id]:
         #     cart[id].clear()
 
