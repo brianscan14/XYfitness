@@ -42,8 +42,8 @@
                                 <option {% if item.size == 'M' %} selected {% endif %} value="M">M</option>
                                 <option {% if item.size == 'L' %} selected {% endif %} value="L">L</option>
                                 <option {% if item.size == 'XL' %} selected {% endif %} value="XL">XL</option>
-                                
                             </select>
+                            <input type="hidden" name="oldsize" value="{{item.size}}" />
                             <div>{{item.size}}</div>
 
                         </div>
