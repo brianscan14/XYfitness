@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- favison files -->
+    <!-- favicon files -->
     <link rel="apple-touch-icon" sizes="180x180" href="media/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="media/images/favicons/favicon-16x16.png">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     {% block head_js %}
     {% endblock head_js %}
 </head>
@@ -45,11 +45,12 @@
 {% block content %}
 {% endblock %}
 
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
-<script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>
