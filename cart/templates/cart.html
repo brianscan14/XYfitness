@@ -11,7 +11,14 @@
         </div>
         <div class="col-4 ml-auto">
             <p>Total items in basket : {{ product_count }}</p>
-            <p><a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a></p>
+
+            <p>
+                {% if product_count == 0 %}
+                    <button type="button" class="btn btn-success" disabled>Checkout</button>
+                {% else %}
+                    <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
+                {% endif %}
+            </p>
             <p><i class="fas fa-euro-sign"></i> Total : {{ total }}</p>
         </div>
     </div>
@@ -69,7 +76,13 @@
         <div class="check">
             <p>Total</p>
             <p><i class="fas fa-euro-sign"></i> {{ total }}</p>
-            <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
+            <p>
+                {% if product_count == 0 %}
+                    <button type="button" class="btn btn-success" disabled>Checkout</button>
+                {% else %}
+                    <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
+                {% endif %}
+            </p>
         </div>
     </div>
 </div>
