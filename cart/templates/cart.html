@@ -6,24 +6,46 @@
 
 <div class="container">
 
+        <div class="row">
+        <div class="col-4">
+            Total items in basket : {{ product_count }}
+        </div>
+    </div>
+    
+
     {% for item in cart_items %}
     
     <div class="row mt-3">
-        <div class="col-6 mt-2 mx-auto">
+        <div class="col-4 mt-2 mx-auto">
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
         
         <div>
+        <form method="post" action="{% url 'del_cart_item' item.product.id %}">
+            {% csrf_token %}
+            <!-- <div name="sizez" value="{{item.size}}">{{item.size}}</div> -->
+            <input type="hidden" name="sizez" value="{{item.size}}" />
+            <button type="submit" class="btn btn-outline-warning mt-2">Remove</button>
+        </form>
             <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
             <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
+            <p><i class="fas fa-euro-sign"></i> {{ item.total }}</p>
                 <form method="post" action="{% url 'change_cart' item.id %}">
                     {% csrf_token %}
                     <div>
                         <div class="input-group">
-                            <div>Qty</div>
-                            <div><input name="quantity" type="number" min="0" max="99" required></div>
-                            <div>{{item.quantity}}</div>
+                            <div>Qty</div><div>{{item.quantity}}</div>
+                            <div><input name="quantity" type="number" min="1" max="99" required></div>
+                            <select name="size" class="selectpicker" data-title="Select size" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
+                                <option {% if item.size == 'S' %} selected {% endif %} value="S">S</option>
+                                <option {% if item.size == 'M' %} selected {% endif %} value="M">M</option>
+                                <option {% if item.size == 'L' %} selected {% endif %} value="L">L</option>
+                                <option {% if item.size == 'XL' %} selected {% endif %} value="XL">XL</option>
+                                
+                            </select>
                             <div>{{item.size}}</div>
+
                         </div>
                     </div>
                     <button type="submit" class="btn btn-outline-warning mt-2">Change</button>
