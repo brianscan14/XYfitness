@@ -4,3 +4,4 @@ __pycache__/
 .gitpod.dockerfile
 .gitpod.yml
 .theia/
+staticfiles
