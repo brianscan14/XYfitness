@@ -14,7 +14,6 @@ def cart_add(request, id):
     q = int(request.POST.get('quantity'))
     s = request.POST.get('size')
     cart = request.session.get('cart', {})
-    print(cart)
 
     if id in cart:
         print("id is in cart")
@@ -42,26 +41,15 @@ def change_cart(request, id):
     size = request.POST.get('size')
     oldsize = request.POST.get('oldsize')
     cart = request.session.get('cart', {})
-    # print(cart[id])
 
     if size == oldsize:
+        # if previosu size is same then quantity is what user selects
         cart[id][size] = quantity
     else:
+        # if oldsize and new size are different, pop the old size kv
+        # kv entry for this prod is now what the user selected
         cart[id].pop(oldsize)
         cart[id][size] = quantity
-
-    # if size in cart[id]:
-    #     cart[id][size] = quantity
-    # else:
-    #     cart[id].pop(oldsize)
-        # if size not in cart[id]:
-        #     cart[id].clear()
-
-        # cart[id][size] = quantity
-    # else:
-    #     # cart[id].pop([id][quantity])
-    #     cart[id].pop(size)
-    #     # if else to pop out qunatity if size is 0
 
     request.session['cart'] = cart
     messages.success(request, "Cart updated")
@@ -72,9 +60,10 @@ def change_cart(request, id):
 def del_cart_item(request, id):
     size = request.POST.get('sizez')
     cart = request.session.get('cart', {})
-    print(cart[id])
 
     cart[id].pop(size)
+    # check for an empty dict for this id
+    # delete it if so
     if len(cart[id]) == 0:
         del cart[id]
 
