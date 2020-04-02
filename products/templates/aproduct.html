@@ -2,6 +2,15 @@
 {% block content %}
 
 <div class="container">
+
+        <div id="breadcrumbs" class="col-12">
+            <a href="/">Home </a>
+            - 
+            <a href="{% url 'products' %}">Products </a>
+            -
+            Product
+        </div>
+
 	<div class="row">
 		<div class="col">
 			<h3>{{ product.name }}</h3>
