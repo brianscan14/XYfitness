@@ -42,28 +42,35 @@ def change_cart(request, id):
     size = request.POST.get('size')
     cart = request.session.get('cart', {})
     # print(cart[id])
-    print(type(cart))
-    print(cart)
-    # print(cart[id][quantity])
-    # print(cart[id][size])
 
-    if quantity > 0:
-        if size in cart[id]:
-            cart[id][size] = quantity
-            # print(cart[id])
-        else:
-            cart[id].pop(size)
-            # cart[id][size] = quantity
-
-            # cart[id][size] = cart[id].pop('size', quantity)
-            # cart[id].update(cart[id])
-            # cart[id][size] = quantity
-            # print(cart[id])
+    if size in cart[id]:
+        cart[id][size] = quantity
     else:
-        # cart[id].pop([id][quantity])
         cart[id].pop(size)
-        # if else to pop out qunatity if size is 0
+        # if size not in cart[id]:
+        #     cart[id].clear()
+
+        # cart[id][size] = quantity
+    # else:
+    #     # cart[id].pop([id][quantity])
+    #     cart[id].pop(size)
+    #     # if else to pop out qunatity if size is 0
 
     request.session['cart'] = cart
     messages.success(request, "Cart updated")
+    return redirect(reverse('view_cart'))
+
+
+@login_required
+def del_cart_item(request, id):
+    size = request.POST.get('sizez')
+    cart = request.session.get('cart', {})
+    print(cart[id])
+
+    cart[id].pop(size)
+    if len(cart[id]) == 0:
+        del cart[id]
+
+    request.session['cart'] = cart
+    messages.success(request, "Item removed")
     return redirect(reverse('view_cart'))
