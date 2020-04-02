@@ -16,10 +16,11 @@ def cart_contents(request):
         # # # size = content[1]
         # total += quantity * product.price
         for size, quantity in content.items():
+            this_total = quantity * product.price
             total += quantity * product.price
             prod_count += quantity
             cart_items.append({
-                'id': id, 'quantity': quantity,
+                'id': id, 'quantity': quantity, 'this_total': this_total,
                 'size': size, 'total': total, 'product': product
             })
 

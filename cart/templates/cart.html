@@ -7,7 +7,7 @@
 
     <div class="row mt-3">
         <div class="col-4 mr-auto">
-        <a class="" href="{% url 'products' %}">Continue Shopping</a>
+        <a class="" href="{% url 'products' %}">Back to all products</a>
         </div>
         <div class="col-4 ml-auto">
             <p>Total items in basket : {{ product_count }}</p>
@@ -24,7 +24,7 @@
         <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
             <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
-            <p><i class="fas fa-euro-sign"></i> {{ item.total }}</p>
+            <p><i class="fas fa-euro-sign"></i> {{ item.this_total }}</p>
         </div>
 
         <div class="col-6 mt-2 mx-auto">
