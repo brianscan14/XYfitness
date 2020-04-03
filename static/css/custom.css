@@ -4,6 +4,26 @@
 }
 
 
+/* scroll back to top */
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1;
+    border: none;
+    outline: none;
+    color: rgba(177, 159, 157, 0.732);
+}
+
+#topBtn:hover {
+    opacity: 1;
+    color: rgba(233, 231, 220, 0.9);
+    transition: ease-in-out;
+    transition-duration: 0.7s;
+}
+
 /* navbar  */
 
 .profile-image {
@@ -22,8 +42,15 @@ body {
 /* products page */
 
 .product {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.product-image {
+    width: 100%;
+    height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
 }
