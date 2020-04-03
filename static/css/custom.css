@@ -62,6 +62,6 @@ body {
 
 /* styling */
 
-.fa-star {
+.fa-star, .fa-star-half-alt {
     color: rgba(177, 177, 21, 0.904);
 }
