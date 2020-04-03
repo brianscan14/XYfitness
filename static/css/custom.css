@@ -58,3 +58,10 @@ body {
 .prod-links {
     text-align: center;
 }
+
+
+/* styling */
+
+.fa-star {
+    color: rgba(177, 177, 21, 0.904);
+}
