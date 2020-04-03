@@ -5,25 +5,22 @@
     <div class="col-4 my-4">
         <div class="row">
             <div class="col">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image1 }}')"></div>
+                <a href="{% url 'single_prod' product.id %}">
+                    <img class="product" src="{{ MEDIA_URL }}{{ product.image1 }}">
+                </a>
                 <h3>{{ product.name }}</h3>
-                <p>{{ product.description }}</p>
-                <p>{{ product.price }}</p>
-                <p><a href="{% url 'single_prod' product.id %}">View Product</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col my-4">
+                <h5><i class="fas fa-euro-sign"></i> {{ product.price }}</h5>
+                <p>
                 {% for star in stars %}
                     {% if product.id == star.id %}
                         {% if star.avg_review %}
                         <div class="div">
-                            <h4>Rating {{ star.avg_review }}</h4>
                             {% include 'components/starrating.html' %} 
                         </div>
                         {% endif %} 
                     {% endif %} 
                 {% endfor %} 
+                </p>
             </div>
         </div>
     </div>

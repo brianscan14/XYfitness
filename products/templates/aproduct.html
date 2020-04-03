@@ -19,6 +19,8 @@
 	<div class="row mt-4">
 
 		<div class="col-6">
+            <div class="row">
+                <div class="col">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -45,6 +47,23 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            </div>
+            </div>
+            <div class="row mt-2">
+            <div class="col mx-auto centered">
+                {% for star in stars %}
+                    {% if star.avg_review %}
+                        <div class="div mx-auto">
+                        {% include 'components/starrating.html' %} 
+                        </div>
+                        {% else %}
+                        <div class="div mx-auto">
+                            <h4>No reviews yet for this product</h4>
+                        </div>
+                    {% endif %} 
+                {% endfor %}
+            </div>
+            </div>
 	    </div>
 
         <div class="col-6">
@@ -59,25 +78,12 @@
                 <div class="row">
                 <p>{{ product.price }}</p>
                 </div>
-                <div class="row">
-                {% for star in stars %}
-                    {% if star.avg_review %}
-                        <div class="div">
-                        {% include 'components/starrating.html' %} 
-                        </div>
-                        {% else %}
-                        <div class="div">
-                            <h4>No reviews yet for this product</h4>
-                        </div>
-                    {% endif %} 
-                {% endfor %}
-                </div>
 
                 <div class="row">
                 <form method="post" action="{% url 'cart_add' product.id %}">
                     {% csrf_token %}
                     <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="99" required>
+                        <input name="quantity" type="number" min="1" max="99" value="1" required>
                         <span class="input-group-btn">
                         <button class="btn-outline-success" type="submit">Add to Cart</button>
                         </span>
