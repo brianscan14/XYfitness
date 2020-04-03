@@ -108,17 +108,58 @@
             </div>
         </div>
 
+    <div class="row mt-3">
+        <div class="col-8">
+                <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Description</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Reviews ({{product.productreview_set.count}})</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Shipping</a>
+                </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">{{ product.description }}</div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row my-2">
+                        <div class="col-12">
+                            {% if product.productreview_set.count == 0 %}
+                                <h3>No reviews for this product</h3>
+                            {% elif product.productreview_set.count == 1 %}
+                                <h3>{{ product.productreview_set.count }} review for product</h3>
+                            {% elif product.productreview_set.count > 1 %}
+                                <h3>{{ product.productreview_set.count }} Product Reviews</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% for review in product.productreview_set.all %}
+                        <h3>{{ review.title }}</h3>
+                        <p>{{ review.content }}</p>
+                        <p>{{ review.user }}</p>
+                        <p>{{ review.date }}</p>
+                        <p>"{{ review.product }}"</p>
+                        <p>"{{ review.rating }}/5"</p>
+                        {% if review.user == user %}
+                            <a href="{% url 'delete_prod_review' review.id %}" class="btn btn-danger">delete review</a>
+                            <a href="{% url 'edit_review_prod' review.id  %}" class="btn btn-warning">edit review</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="container mt-5">
     <div class="row my-2">
         <div class="col-12">
-            <a href="{% url 'review_prod' product.id %}" class="btn btn-primary btn-lg active" 
+            <a href="{% url 'review_prod' product.id %}" 
             role="button" aria-pressed="true">Add Review</a>
             </div>
         </div>
 
-    <div class="row my-2">
+    <!-- <div class="row my-2">
         <div class="col-12">
             {% if product.productreview_set.count == 0 %}
                 <h3>No reviews for this product</h3>
@@ -127,8 +168,8 @@
             {% elif product.productreview_set.count > 1 %}
                 <h3>{{ product.productreview_set.count }} Product Reviews</h3>
             {% endif %}
-            </div>
         </div>
+    </div>
 
     <div class="row my-2">
         <div class="col-12">
@@ -145,7 +186,7 @@
             {% endif %}
         {% endfor %}
         </div>
-    </div>
+    </div> -->
 
 </div>
 {% endblock %}
