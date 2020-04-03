@@ -119,6 +119,9 @@ def plans(request):
 
 
 def sort(request):
+    stars = Product.objects.annotate(
+        avg_review=Avg('productreview__rating'),
+    )
     select = request.GET['sort']
     if select == 'LtoH':
         results = Product.objects.order_by('price')
@@ -126,31 +129,38 @@ def sort(request):
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'HtoL':
         results = Product.objects.order_by('-price')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'AtoZ':
         results = Product.objects.order_by('name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'ZtoA':
         results = Product.objects.order_by('-name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
 
 
 def sort_apparel(request):
+    stars = Product.objects.annotate(
+        avg_review=Avg('productreview__rating'),
+    )
     select = request.GET['sorta']
     items = Product.objects.filter(category__icontains='A')
     if select == 'LtoH':
@@ -159,31 +169,38 @@ def sort_apparel(request):
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'HtoL':
         results = items.order_by('-price')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'AtoZ':
         results = items.order_by('name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'ZtoA':
         results = items.order_by('-name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
 
 
 def sort_plans(request):
+    stars = Product.objects.annotate(
+        avg_review=Avg('productreview__rating'),
+    )
     select = request.GET['sortp']
     items = Product.objects.filter(category__icontains='P')
     if select == 'LtoH':
@@ -192,25 +209,29 @@ def sort_plans(request):
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'HtoL':
         results = items.order_by('-price')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'AtoZ':
         results = items.order_by('name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
     elif select == 'ZtoA':
         results = items.order_by('-name')
         if not results:
             messages.error(request, "no results for your search")
             return redirect(reverse('products'))
         else:
-            return render(request, "products.html", {"products": results})
+            return render(request, "products.html",
+            {"products": results, 'stars': stars})
