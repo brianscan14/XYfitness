@@ -44,6 +44,10 @@
                     <button type="submit" class="btn btn-outline-warning mt-2">Change</button>
                 </div>        
                 <div class="col-6">
+                {% if item.product.category == "P" %}
+                    <input type="hidden" name="size" value="D" />
+                    <input type="hidden" name="oldsize" value="{{item.size}}" />
+                {% else %}
                     <select name="size" type="submit" class="selectpicker" data-title="Select size" 
                     data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                         <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
@@ -54,6 +58,7 @@
                     </select>
                     <input type="hidden" name="oldsize" value="{{item.size}}" />
                     <div>{{item.size}}</div>
+                {% endif %}
                 </div>
                 </div>
             </form>
