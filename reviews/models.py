@@ -9,6 +9,14 @@ class Review(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     content = models.TextField(max_length=250)
     date = models.DateTimeField(default=timezone.now)
+    before_picture = models.ImageField(
+        upload_to='images',
+        default='If you want to add a before pic you can do so here'
+    )
+    after_picture = models.ImageField(
+        upload_to='images',
+        default='Only add the after pic if you want to!'
+    )
 
     def __str__(self):
         return self.title
