@@ -1,14 +1,64 @@
 {% extends 'base.html' %}
 {% block content %}
 
-        <p>{{ review.content }}</p>
-        <p>{{ review.author }}</p>
-        <p>{{ review.date|date:"F, Y" }}</p>
-        <p><img class="product" src="{{ MEDIA_URL }}{{ review.image }}"></p>
-
-        {% if review.author == user %}
-        <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
-        <a href="{% url 'delete_review' review.id %}" class="btn btn-default">delete Review</a>
-        {% endif %}
+<div class="container">
+	<div class="row">
+		<div class="col-6 mx-auto">
+            <div class="row">
+                <div class="col">
+                    <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title }}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ review.content }}
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Fuga impedit facere tenetur dicta consequuntur, 
+                    modi molestias dolorum nihil tempore earum. 
+                    Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                <p>{{ review.author.first_name }} "{{ review.author }}" 
+                    <img class="profile-image pl-2" src="{{ MEDIA_URL }}{{ review.image }}">
+                </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                <p>{{ review.date|date:"F, Y" }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 mx-auto">
+                    <div class="row">
+                        {% if review.before_picture %}
+                        <p><img class="" src="{{ MEDIA_URL }}{{ review.before_picture }}"></p>
+                        {% endif %}
+                        </div>
+                </div>
+                <div class="col-6 mx-auto">
+                    <div class="row">
+                        {% if review.after_picture %}
+                        <p><img class="" src="{{ MEDIA_URL }}{{ review.after_picture }}"></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if review.author == user %}
+                <div class="col mx-auto">
+                    <div class="row">
+                        <div class="centered">
+                            <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
+                            <a href="{% url 'delete_review' review.id %}" class="btn btn-default">delete Review</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+		</div>
+	</div>
+</div>
 
 {% endblock content %}
