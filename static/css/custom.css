@@ -32,6 +32,92 @@
     border-radius: 20px;
 }
 
+/* nav search icon */
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed; 
+    z-index: 99; 
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow-x: hidden; 
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: rgb(255, 255, 255)
+}
+
+.overlay .close-nav-search {
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    font-size: 80px;
+}
+
+@media screen and (max-width: 415px) {
+  .overlay .close-nav-search {
+    font-size: 60px;
+    top: 25px;
+    right: 50px;
+  }
+}
+
+.nav-search-form {
+    border: none;
+    height: 80px;
+    background-color: rgba(36, 98, 179, 0.601);
+    border-radius: 3em;
+    font-size: 30px;
+    text-align: center;
+}
+
+.nav-search-form:focus {
+    color: #265c92;
+    background-color: #fff;
+    border-color: #1d41b8a6;
+    outline: 0;
+    box-shadow: 0 0 0 0.5rem rgba(206, 198, 198, 0);
+}
+
+input[type="text"].nav-search-form::-webkit-input-placeholder {
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+}
+
+input[type="text"].nav-search-form::-moz-placeholder {
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+}
+
+.fa-search:hover {
+    color: rgba(25, 121, 204, 0.877);
+    transition: ease-in-out;
+    transition-duration: 0.4s;
+    cursor: grab;
+}
+
+
+
 
 /* home page */
 body {
@@ -58,6 +144,15 @@ body {
 .prod-links {
     text-align: center;
 }
+
+.details-nav {
+    height: 500px;
+}
+
+.review-section {
+    overflow-y: scroll;
+}
+
 
 
 /* styling */
