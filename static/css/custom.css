@@ -151,6 +151,7 @@ body {
 
 .review-section {
     overflow-y: scroll;
+    height: 250px;
 }
 
 

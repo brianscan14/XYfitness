@@ -101,7 +101,7 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">{{ product.description }}</div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row my-2">
                         <div class="col-12"><h3>
                             {% if product.productreview_set.count == 0 %}
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="row my-2">
-                        <div class="col-12 ">
+                        <div class="col-12 review-section">
                         {% for review in product.productreview_set.all %}
                             <h4>{{ review.title }}</h4>
                             <p>{{ review.content }}</p>
