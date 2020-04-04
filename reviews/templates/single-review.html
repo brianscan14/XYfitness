@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="container mt-5">
 	<div class="row">
-		<div class="col-6 mx-auto">
+		<div class="col-6 mx-auto p-2">
             <div class="row">
                 <div class="col">
                     <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title }}</h4>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col centered">
                     <p>{{ review.content }}
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                     Fuga impedit facere tenetur dicta consequuntur, 
@@ -20,15 +20,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                <p>{{ review.author.first_name }} "{{ review.author }}" 
-                    <img class="profile-image pl-2" src="{{ MEDIA_URL }}{{ review.image }}">
-                </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                <p>{{ review.date|date:"F, Y" }}</p>
+                <div class="col centered">
+                {% if request.user == review.author %}
+                    <p>{{ review.author.first_name }} (you!), "{{ review.author }}" 
+                        <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
+                    </p>
+                {% else %}
+                    <p>{{ review.author.first_name }}, "{{ review.author }}" 
+                        <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
+                    </p>
+                {% endif %}
                 </div>
             </div>
             <div class="row">
@@ -50,9 +51,9 @@
             {% if review.author == user %}
                 <div class="col mx-auto">
                     <div class="row">
-                        <div class="centered">
-                            <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
-                            <a href="{% url 'delete_review' review.id %}" class="btn btn-default">delete Review</a>
+                        <div class=" mx-auto">
+                            <a href="{% url 'edit_review' review.id %}" >Edit</a> /
+                            <a href="{% url 'delete_review' review.id %}" >Delete</a>
                         </div>
                     </div>
                 </div>
