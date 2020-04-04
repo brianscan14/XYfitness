@@ -4,11 +4,17 @@
 
 {% block content %}
 {% if user.is_authenticated  %}
-    <h1>What's your thought?</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form | as_bootstrap }}
-        <button type="submit" class="btn btn-success">Add Review</button>
-    </form>
+<div class="container">
+	<div class="row">
+		<div class="col-8 mx-auto">
+            <h1 class="centered my-3">Please post yout experience below:</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | as_bootstrap }}
+                <button type="submit" class="btn btn-success">Add Review</button>
+            </form>
+		</div>
+	</div>
+</div>
 {% endif %}
 {% endblock content %}
