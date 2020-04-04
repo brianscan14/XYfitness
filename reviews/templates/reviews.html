@@ -24,10 +24,17 @@
     </div>
 {% endfor %}
 
+{% if user.is_authenticated  %}
+    <div class="row my-4">
+        <div class="col-6 mx-auto">
+            <p class="centered">
+                <a href="{% url 'new_review' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Add your Experience!</a>
+            </p>
+        </div>
+    </div>
+{% endif %}
+
 </div>
 
-{% if user.is_authenticated  %}
-<p><a href="{% url 'new_review' %}">Add a review!</a></p>
-{% endif %}
 
 {% endblock %}
