@@ -14,16 +14,17 @@ class Order(models.Model):
     date = models.DateField()
 
     def __str__(self):
-        return "{1}-{2}-{3}".format(self.id, self.date, self.full_name)
-    # dot format used to inject into strings
+        return "{0}, {1}, {2}, {3} - ordered on {4}".format(
+            self.id, self.full_name, self.country, self.county, self.date
+            )
 
 
-# takes form the order class just created
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False)
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)
 
     def __str__(self):
-        return "{0} {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
-        # returns quantity being bought, name, price
+        return "{0} {1} @ {2}".format(
+            self.quantity, self.product.name, self.product.price
+            )
