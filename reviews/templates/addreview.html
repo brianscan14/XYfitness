@@ -3,18 +3,18 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-{% if user.is_authenticated  %}
-<div class="container">
-	<div class="row">
-		<div class="col-8 mx-auto">
-            <h1 class="centered my-3">Please post yout experience below:</h1>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form | as_bootstrap }}
-                <button type="submit" class="btn btn-success">Add Review</button>
-            </form>
-		</div>
-	</div>
-</div>
-{% endif %}
+    {% if user.is_authenticated  %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7 mx-auto">
+                    <h1 class="centered my-3">Please post yout experience below:</h1>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | as_bootstrap }}
+                        <button type="submit" class="btn btn-success">Add Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock content %}
