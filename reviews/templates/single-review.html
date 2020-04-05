@@ -6,12 +6,12 @@
 		<div class="col-6 mx-auto p-2">
             <div class="row">
                 <div class="col">
-                    <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title }}</h4>
+                    <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title | title }}</h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col centered">
-                    <p>{{ review.content }}
+                    <p>{{ review.content | capfirst }}
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                     Fuga impedit facere tenetur dicta consequuntur, 
                     modi molestias dolorum nihil tempore earum. 
@@ -22,11 +22,11 @@
             <div class="row">
                 <div class="col centered">
                 {% if request.user == review.author %}
-                    <p>{{ review.author.first_name }} (you!), "{{ review.author }}" 
+                    <p>{{ review.author.first_name | capfirst }} (you!), "{{ review.author }}" 
                         <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
                     </p>
                 {% else %}
-                    <p>{{ review.author.first_name }}, "{{ review.author }}" 
+                    <p>{{ review.author.first_name | capfirst }}, "{{ review.author }}" 
                         <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
                     </p>
                 {% endif %}
