@@ -11,7 +11,9 @@
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form | as_bootstrap }}
-                        <button type="submit" class="btn btn-success">Add Review</button>
+                        <div class="centered">
+                            <button type="submit" class="btn btn-outline-primary">Add Testimonial</button>
+                        </div>
                     </form>
                 </div>
             </div>
