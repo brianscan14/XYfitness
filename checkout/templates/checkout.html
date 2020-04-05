@@ -12,6 +12,20 @@
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
+{% block breadcrumb %}
+    <div class="container-fluid my-3 pl-4">
+        <div class="row">
+            <div class="col pl-4">
+                <div id="breadcrumbs" class="bread">
+                    <a href="{% url 'view_cart' %}">Cart </a> - 
+                    <a href="{% url 'checkout' %}">Checkout </a>
+                    - {{ product.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock breadcrumb %}
+
 {% block content %}
 <div class="container">
 <div class="row row-flex">
