@@ -24,11 +24,11 @@
                 <div class="col centered">
                 {% if request.user == review.author %}
                     <p class="float-right">"{{ review.author }}",  {{ review.author.first_name | capfirst }} (you!)
-                        <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
+                        <img class="user-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
                     </p>
                 {% else %}
                     <p class="float-right">"{{ review.author }}", {{ review.author.first_name | capfirst }} 
-                         <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
+                         <img class="user-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
                     </p>
                 {% endif %}
                 </div>
