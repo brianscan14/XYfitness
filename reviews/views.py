@@ -1,10 +1,10 @@
 from .models import Review
-from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostReviewForm
 from django.contrib import messages
 from django.db import IntegrityError
+import datetime
 
 
 def all_reviews(request):
@@ -25,6 +25,7 @@ def new_review(request, pk=None):
     if request.method == "POST":
         form = PostReviewForm(request.POST, request.FILES, instance=review)
         form.instance.author = request.user
+        form.instance.date = datetime.datetime.now()
         form.instance.image = request.user.profile.profile_pic
         if form.is_valid():
             try:
@@ -36,6 +37,7 @@ def new_review(request, pk=None):
     else:
         form = PostReviewForm(instance=review)
         form.instance.author = request.user
+        form.instance.date = datetime.datetime.now()
         form.instance.image = request.user.profile.profile_pic
     return render(request, 'addreview.html', {'form': form})
 
