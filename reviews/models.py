@@ -12,7 +12,7 @@ class Review(models.Model):
     before_picture = models.ImageField(
         upload_to='images',
         blank=True,
-        verbose_name=u"Before pic (only add these pictures if you want to)."
+        verbose_name=u"Before pic (only add these if you want to)."
     )
     after_picture = models.ImageField(upload_to='images', blank=True)
 

@@ -7,11 +7,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-7 mx-auto">
-                    <h1 class="centered my-3">Please post yout experience below:</h1>
+                    <h1 class="centered my-3 add-review-title mx-auto p-2">Share the experience:</h1>
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form | as_bootstrap }}
-                        <div class="centered">
+                        <div class="centered my-4">
                             <button type="submit" class="btn btn-outline-primary">Add Testimonial</button>
                         </div>
                     </form>

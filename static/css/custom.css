@@ -1,5 +1,8 @@
 /* general css */
 
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+
 .centered {
     text-align: center;
 }
@@ -176,6 +179,21 @@ body {
     margin-left: auto;
     margin-right: auto;
     border-radius: 1.5em;
+}
+
+.add-review-title {
+    font-family: 'Comfortaa', cursive;
+    border-bottom: 1px solid #77695F;
+    width: 60%;
+}
+
+@media screen and (max-width: 770px) {
+ .add-review-title {
+    font-family: 'Comfortaa', cursive;
+    border-bottom: 1px solid #77695F;
+    width: 60%;
+    font-size: 25px;
+ }
 }
 
 .user-image {
