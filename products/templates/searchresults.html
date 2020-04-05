@@ -1,8 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 
-Results for your search:
+<div class="container">
+    <div class="row my-3">
+        <div class="col">
+            <div id="breadcrumbs" class="col-12">
+                <a href="/">Home </a> - 
+                <a href="{% url 'products' %}">Products </a>
+                - Search Results
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 mx-auto p-3">
+            <h2 class="border-bottom centered p-3">Search Results:</h2>
+        </div>
+    </div>
+    {% include 'components/prodlist.html' %}
+</div>
 
-{% include 'components/prodlist.html' %}
 
 {% endblock %}
