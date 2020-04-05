@@ -7,10 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile
 
 
-def all_links(request):
-    return render(request,  'all-links.html')
-
-
 @login_required
 def logout(request):
     auth.logout(request)
