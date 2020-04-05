@@ -11,12 +11,10 @@ class Review(models.Model):
     date = models.DateTimeField(default=timezone.now)
     before_picture = models.ImageField(
         upload_to='images',
-        blank=True
+        blank=True,
+        verbose_name=u"Before pic (only add these pictures if you want to)."
     )
-    after_picture = models.ImageField(
-        upload_to='images',
-        blank=True
-    )
+    after_picture = models.ImageField(upload_to='images', blank=True)
 
     def __str__(self):
         return self.title
