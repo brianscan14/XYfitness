@@ -3,6 +3,13 @@
     text-align: center;
 }
 
+/* .form-textfield {
+    height: 100px;
+}
+
+input[type="text"].form-textfield::-webkit-input-placeholder {
+    color: pink;
+} */
 
 /* scroll back to top */
 
