@@ -18,11 +18,13 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-6 mx-auto">
 			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form | as_bootstrap }}
+                <div class="centered">
 				<button type="submit" class="btn btn-outline-success">update Details</button>
+                </div>
 			</form>
 		</div>
 	</div>

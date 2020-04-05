@@ -4,10 +4,12 @@
 {% block content %}
 <div class="container">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-6 mx-auto">
 			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %} {{ registration_form | as_bootstrap }}
-				<button type="submit" class="btn btn-success">Register</button>
+                <div class="centered">
+				    <button type="submit" class="btn btn-success">Register</button>
+                </div>
 			</form>
 		</div>
 	</div>

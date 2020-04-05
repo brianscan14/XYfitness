@@ -2,10 +2,24 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %} {{ login_form | as_bootstrap}}
-    <button type="submit">Login</button>
-    <input type="hidden" name="next" value="{{next}}" />
-</form>
-<p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+<div class="container">
+	<div class="row">
+		<div class="col-6 mx-auto">
+            <form method="POST">
+                {% csrf_token %} {{ login_form | as_bootstrap}}
+                <div class="centered">
+                    <button type="submit">Login</button>
+                    <input type="hidden" name="next" value="{{next}}" />
+                </div>
+            </form>
+        </div>
+	</div>
+    <div class="row mt-3">
+        <div class="col-6 mx-auto">
+            <div class="">
+                <p>Forgot Password? <a href="{% url 'password_reset' %}">Reset</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

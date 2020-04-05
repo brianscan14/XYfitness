@@ -18,18 +18,22 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-6 mx-auto">
 			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form | as_bootstrap }}
-				<button type="submit" class="btn btn-outline-success">Add Details</button>
+                <div class="centered mt-4">
+				    <button type="submit" class="btn btn-outline-success">Add Details</button>
+                </div>
 			</form>
 		</div>
 	</div>
-    <div class="row mt-2">
+    <div class="row mt-5">
 		<div class="col-12">
-            <a href="{% url 'update_password' %}" class="btn btn-primary btn-md active" role="button"
-                aria-pressed="true">Update Password</a>
+            <div class="centered">
+                <a href="{% url 'update_password' %}" class="btn btn-primary btn-md active" role="button"
+                aria-pressed="true">Change Password</a>
+            </div>
         </div>
 	</div>
 </div>
