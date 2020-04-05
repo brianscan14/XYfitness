@@ -1,15 +1,17 @@
 /* general css */
+
 .centered {
     text-align: center;
 }
 
-/* .form-textfield {
-    height: 100px;
+.form-control {
+    height: 45px;
 }
 
+/* 
 input[type="text"].form-textfield::-webkit-input-placeholder {
     color: pink;
-} */
+}  */
 
 /* scroll back to top */
 
