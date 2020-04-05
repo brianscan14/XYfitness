@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
-{% load static from staticfiles %}
-{% load static %}
+{% block breadcrumb %}
+    <div class="container-fluid my-3 pl-4">
+        <div class="row">
+            <div class="col pl-4">
+                <div id="breadcrumbs" class="bread">
+                    <a href="/">Home </a> - 
+                    <a href="{% url 'products' %}">Products </a>
+                    - {{ product.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock breadcrumb %}
 
 {% block content %}
 
 <div class="container">
-    
-    <div class="row">
-        <div class="col">
-            <div id="breadcrumbs" class="bread">
-                <a href="/">Home </a> - 
-                <a href="{% url 'products' %}">Products </a>
-                - {{ product.name }}
-            </div>
-        </div>
-    </div>
 
 	<div class="row mt-4">
 

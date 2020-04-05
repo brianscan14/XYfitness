@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
-{% block content %}
 
-<div class="container">
-    <div class="row my-3">
-        <div class="col">
-            <div id="breadcrumbs" class="bread">
-                <a href="/">Home </a> - 
-                <a href="{% url 'products' %}">Products </a>
-                - Search Results
+{% block breadcrumb %}
+    <div class="container-fluid my-3 pl-4">
+        <div class="row my-3">
+            <div class="col pl-3">
+                <div id="breadcrumbs" class="bread">
+                    <a href="/">Home </a> - 
+                    <a href="{% url 'products' %}">Products </a>
+                    - Search Results
+                </div>
             </div>
         </div>
     </div>
+{% endblock breadcrumb %}
+
+{% block content %}
+
+<div class="container">
     <div class="row">
         <div class="col-4 mx-auto p-3">
             <h2 class="border-bottom centered p-3">Search Results:</h2>
