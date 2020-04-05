@@ -161,7 +161,16 @@ body {
     height: 250px;
 }
 
+/* testimonials */
 
+.before-after-pic {
+    max-width:230px;
+    max-height:250px;
+    width: 80%;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 /* styling */
 
