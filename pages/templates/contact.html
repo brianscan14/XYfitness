@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% block content %}
-    <h1>New Post</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form | as_bootstrap }}
-        <button type="submit" class="btn btn-info">Save</button>
-    </form>
+
+<div class="container my-4">
+	<div class="row">
+		<div class="col-6 mx-auto">
+            <h2 class="border-bottom w-50 centered mx-auto p-3">Contact Us</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form | as_bootstrap }}
+                <div class="centered">
+                    <button type="submit" class="btn btn-primary centered">Send Mail</button>
+                </div>
+            </form>
+		</div>
+	</div>
+</div>
+    
 {% endblock content %}
