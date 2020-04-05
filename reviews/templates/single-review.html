@@ -22,36 +22,34 @@
             <div class="row">
                 <div class="col centered">
                 {% if request.user == review.author %}
-                    <p>{{ review.author.first_name | capfirst }} (you!), "{{ review.author }}" 
+                    <p class="float-right">"{{ review.author }}",  {{ review.author.first_name | capfirst }} (you!)
                         <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
                     </p>
                 {% else %}
-                    <p>{{ review.author.first_name | capfirst }}, "{{ review.author }}" 
-                        <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
+                    <p class="float-right">"{{ review.author }}", {{ review.author.first_name | capfirst }} 
+                         <img class="profile-image rounded-circle" src="{{ MEDIA_URL }}{{ review.image }}">
                     </p>
                 {% endif %}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6 mx-auto">
-                    <div class="row">
-                        {% if review.before_picture %}
-                        <p><img class="" src="{{ MEDIA_URL }}{{ review.before_picture }}"></p>
-                        {% endif %}
+            {% if review.before_picture and review.after_picture %}
+                <div class="row">
+                    <div class="col-6 mx-auto">
+                        <div class="row">
+                            <img class="before-after-pic" src="{{ MEDIA_URL }}{{ review.before_picture }}">
                         </div>
-                </div>
-                <div class="col-6 mx-auto">
-                    <div class="row">
-                        {% if review.after_picture %}
-                        <p><img class="" src="{{ MEDIA_URL }}{{ review.after_picture }}"></p>
-                        {% endif %}
+                    </div>
+                    <div class="col-6 mx-auto">
+                        <div class="row">
+                            <img class="before-after-pic" src="{{ MEDIA_URL }}{{ review.after_picture }}">
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
             {% if review.author == user %}
-                <div class="col mx-auto">
-                    <div class="row">
-                        <div class=" mx-auto">
+                <div class="row">
+                    <div class="col mx-auto">
+                        <div class="centered">
                             <a href="{% url 'edit_review' review.id %}" >Edit</a> /
                             <a href="{% url 'delete_review' review.id %}" >Delete</a>
                         </div>
