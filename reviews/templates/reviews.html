@@ -12,7 +12,10 @@
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                 Fuga impedit facere tenetur dicta consequuntur, 
                 modi molestias dolorum nihil tempore earum. 
-                Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias.
+                Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
+                {% if review.before_picture and review.after_picture %}
+                    <a href="{% url 'single_review' review.id %}">see pics here</a>.
+                {% endif %}
                 </p>
                 <p>{{ review.author.first_name | capfirst }} "{{ review.author }}" 
                     <img class="profile-image pl-2" src="{{ MEDIA_URL }}{{ review.image }}">
