@@ -1,61 +1,41 @@
 {% if star.avg_review == 5 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
-    </h4>
 {% elif star.avg_review > 4 and star.avg_review < 5%}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star-half-alt"></i>
-    </h4>
 {% elif star.avg_review == 4 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
-    </h4>
 {% elif star.avg_review > 3 and star.avg_review < 4 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star-half-alt"></i>
-    </h4>
 {% elif star.avg_review == 3 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
-    </h4>
 {% elif star.avg_review > 2 and star.avg_review < 3 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star-half-alt"></i>
-    </h4>
 {% elif star.avg_review == 2 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
-    </h4>
 {% elif star.avg_review > 1 and star.avg_review < 2 %}
-    <h4>
         <i class="fas fa-star"></i>
         <i class="fas fa-star-half-alt"></i>
-    </h4>
 {% elif star.avg_review == 1 %}
-    <h4>
         <i class="fas fa-star"></i>
-    </h4>
 {% elif star.avg_review > 0 and star.avg_review < 1 %}
-    <h4>
         <i class="fas fa-star-half-alt"></i>
-    </h4>
 {% endif %}
