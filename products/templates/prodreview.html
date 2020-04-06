@@ -4,7 +4,7 @@
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-3">
-            <div class="col  pl-4">
+            <div class="col pl-4">
                 <div id="breadcrumbs" class="bread">
                     <a href="/">Home </a> - 
                     <a href="{% url 'products' %}">Products </a>
@@ -19,11 +19,13 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-6 mx-auto">
 			<form method="POST">
 				{% csrf_token %}
 				{{ form | as_bootstrap }}
-				<button type="submit" class="btn btn-outline-success">Add Review</button>
+                <div class="centered mt-4">
+				    <button type="submit" class="btn btn-outline-success">Add Review</button>
+                </div>
 			</form>
 		</div>
 	</div>
