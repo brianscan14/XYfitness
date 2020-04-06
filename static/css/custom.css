@@ -202,6 +202,37 @@ body {
     border-radius: 15px;
 }
 
+/* cart page  */
+
+.count {
+    font-size: 25px;
+    text-align: center;
+    width: 75px;
+    border-radius: 4px;
+}
+
+.plus {
+    cursor: grab;
+    color: blue;
+    }
+
+.minus {
+    cursor: grab;
+    color: blue;
+}
+
+span{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
 /* styling */
 
 .fa-star, .fa-star-half-alt {
