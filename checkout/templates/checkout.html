@@ -3,6 +3,7 @@
 {% load bootstrap_tags %}
 
 {% block head_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
     //<![CDATA[
@@ -10,7 +11,7 @@
     //]]>
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-{% endblock %}
+{% endblock head_js %}
 
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
@@ -28,66 +29,55 @@
 
 {% block content %}
 <div class="container">
-<div class="row row-flex">
-    {% for item in cart_items %}
-        <div class="display panel panel-default">
-            <div class="panel-body">
-                <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image1 }}')"></div>
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12">
+                    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+                        {% csrf_token %}
+                        <legend>Payment Details</legend>
 
-                <div class="caption">
-                    <h3>{{ item.product.name }}</h3>
-                    <p class="product-description">{{ item.product.description }}</p>
-                    <p>{{ item.quantity }} items</p>
-                    <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div id="credit-card-errors" style="display: none;">
+                                            <div class="alert-message block-message error" id="stripe-error-message"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    {{ order_form | as_bootstrap }}
+                                </div>
+                                <div class="form-group col-6">
+                                    {{ payment_form | as_bootstrap }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col centered">
+                                    <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
-    {% endfor %}
-</div>
-<div class="row">
-    <p>Total </p>
-    <p> <i class="fas fa-euro-sign"></i> {{ total }}</p>
-</div>
-
-<div class="row">
-    <div class="col-12">
-    <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-        <legend>Payment Details</legend>
-
-    <div class="row">
-    <div class="col-12">
-        <div class="row">
-            <div class="col-12">
-                <div id="credit-card-errors" style="display: none;">
-                    <div class="alert-message block-message error" id="stripe-error-message"></div>
-                </div>
-                </div>
-            </div>
-        </div>
-        
-    <div class="row">
-        <div class="form-group col-6">
-            {{ order_form | as_bootstrap }}
-        </div>
-
-        <div class="form-group col-6">
-            {{ payment_form | as_bootstrap }}
+        <div class="col-4">
+            {% for item in cart_items %}
+                <p class="mt-2"><img class="before-after-pic" src="{{ MEDIA_URL }}{{ item.product.image1 }}"></p>
+                <p class="mt-2">{{ item.product.name }}</p>
+                <p class="mt-2">{{ item.product.size }}</p>
+                <p class="mt-2">{{ item.quantity }}</p>
+            {% endfor %}
+            <i class="fas fa-euro-sign"> {{ total }}</i>
         </div>
     </div>
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-12">
-        <div class="form-group col-md-12">
-            <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-        </div>
-        </div>
-    </div>
-    </div>
-    </div>
-
-    </form>
-    </div>
-</div>
-
 </div>
 {% endblock %}
