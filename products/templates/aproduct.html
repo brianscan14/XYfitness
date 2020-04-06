@@ -18,72 +18,79 @@
 <div class="container">
 
 	<div class="row mt-4">
-
 		<div class="col-6">
             <div class="row">
                 <div class="col">
-                {% include 'components/prod-image.html' %} 
-            </div>
+                    {% include 'components/prod-image.html' %} 
+                </div>
             </div>
 	    </div>
 
         <div class="col-6">
-        <div class="row my-2">
-            <div class="col-12">
-                <div class="row">
-                <h3>{{ product.name }}</h3>
-                </div>
-                <div class="row">
-                <p>{{ product.description }}</p>
-                </div>
-                <div class="row mb-3">
-                    <div class="col pl-0">
-                        {% for star in stars %}
-                            {% if star.avg_review %}
-                                <div class="div">
-                                {% include 'components/starrating.html' %} 
-                                </div>
-                            {% endif %} 
-                        {% endfor %}
-                    </div>
-                    </div>
-                <div class="row">
-                <p> <i class="fas fa-euro-sign"> {{ product.price }}</i></p>
-                </div>
+            <div class="row my-2">
+                <div class="col-12">
 
-                <div class="row">
-                <form method="post" action="{% url 'cart_add' product.id %}">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="99" value="1" required>
-                        <span class="input-group-btn">
-                        <button class="btn-outline-success" type="submit">Add to Cart</button>
-                        </span>
+                    <div class="row">
+                        <h3>{{ product.name }}</h3>
                     </div>
-                    <div class="row mt-3">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                            {% if product.category == "P" %}
-                            <input type="hidden" name="size" value="D" />
-                            {% else %}
-                            <label>Size</label>
-                            <select name="size" type="submit" class="selectpicker" data-title="Select size" 
-                            data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                            {% endif %}
-                            </div>  
+
+                    <div class="row">
+                        <p>{{ product.description }}</p>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col pl-0">
+                            {% for star in stars %}
+                                {% if star.avg_review %}
+                                    <div class="div">
+                                    {% include 'components/starrating.html' %} 
+                                    </div>
+                                {% endif %} 
+                            {% endfor %}
                         </div>
                     </div>
 
-                </form>
+                    <div class="row">
+                        <p> <i class="fas fa-euro-sign"> {{ product.price }}</i></p>
+                    </div>
+
+                    <div class="row">
+                        <form method="post" action="{% url 'cart_add' product.id %}">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                {% if product.category == "P" %}
+                                    <input type="hidden" name="quantity" value="1" />
+                                {% else %}
+                                    <input name="quantity" type="number" min="1" max="1" value="1" required>
+                                {% endif %}
+                                <span class="input-group-btn">
+                                    <button class="btn-outline-success" type="submit">Add to Cart</button>
+                                </span>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                    {% if product.category == "P" %}
+                                    <input type="hidden" name="size" value="D" />
+                                    {% else %}
+                                    <label>Size</label>
+                                    <select name="size" type="submit" class="selectpicker" data-title="Select size" 
+                                    data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                        <option value="XS">XS</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                    </select>
+                                    {% endif %}
+                                    </div>  
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
         </div>
     </div>
 
