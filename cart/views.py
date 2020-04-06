@@ -13,25 +13,27 @@ def view_cart(request):
 def cart_add(request, id):
     q = int(request.POST.get('quantity'))
     s = request.POST.get('size')
+    category = request.POST.get('category')
     cart = request.session.get('cart', {})
 
     if id in cart:
-        print("id is in cart")
-        if s in cart[id]:
+        if category == 'plan':
+            messages.error(request, "Plan in cart already")
+        elif s in cart[id]:
             cart[id][s] = cart[id][s] + q
-            print(cart[id])
+            messages.success(request, "Cart updated")
         else:
             cart[id][s] = q  # lhs of new dict = rhs
+            messages.success(request, "Item added to cart")
     else:
         cart[id] = {s: q}
-        print("id not in cart")
+        messages.success(request, "Item added to cart")
 
     # add another k/v pair to your cart id if size there
     # if the size is not already in the cart then you
     # want to add this new k/v pair onto this prod id
 
     request.session['cart'] = cart
-    messages.success(request, "Item added to cart")
     return redirect(single_prod, id)
 
 
