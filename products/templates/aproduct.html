@@ -25,21 +25,6 @@
                 {% include 'components/prod-image.html' %} 
             </div>
             </div>
-            <div class="row mt-2">
-            <div class="col mx-auto centered">
-                {% for star in stars %}
-                    {% if star.avg_review %}
-                        <div class="div mx-auto">
-                        {% include 'components/starrating.html' %} 
-                        </div>
-                        {% else %}
-                        <div class="div mx-auto">
-                            <h4>No reviews yet for this product</h4>
-                        </div>
-                    {% endif %} 
-                {% endfor %}
-            </div>
-            </div>
 	    </div>
 
         <div class="col-6">
@@ -51,6 +36,17 @@
                 <div class="row">
                 <p>{{ product.description }}</p>
                 </div>
+                <div class="row mb-3">
+                    <div class="col pl-0">
+                        {% for star in stars %}
+                            {% if star.avg_review %}
+                                <div class="div">
+                                {% include 'components/starrating.html' %} 
+                                </div>
+                            {% endif %} 
+                        {% endfor %}
+                    </div>
+                    </div>
                 <div class="row">
                 <p> <i class="fas fa-euro-sign"> {{ product.price }}</i></p>
                 </div>
