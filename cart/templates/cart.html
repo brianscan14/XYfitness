@@ -8,11 +8,10 @@
 
     <div class="row mt-3">
         <div class="col-4 mr-auto">
-        <a class="" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> Back to all products</a>
+            <a class="" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> All products</a>
         </div>
         <div class="col-4 ml-auto">
             <p>Total items in basket : {{ product_count }}</p>
-
             <p>
                 {% if product_count == 0 %}
                     <button type="button" class="btn btn-success" disabled>Checkout</button>
@@ -20,13 +19,42 @@
                     <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
                 {% endif %}
             </p>
-            <p><i class="fas fa-euro-sign"></i> Total : {{ total }}</p>
+        </div>
+    </div>
+
+    <div class="row mt-3 mb-5">
+        <div class="col-12 mx-auto">
+            <h2 class="centered">My Shopping Bag</h2>
         </div>
     </div>
     
     {% for item in cart_items %}
     
     <div class="row mt-3">
+        <div class="col-2">
+
+        </div>
+        <div class="col-1">
+        
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                </div>
+                <div class="col-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mx-auto">
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+        
+        </div>
+        <div class="col-1">
+        
+        </div>
         <div class="col-3 mt-2 mx-auto">
         <p><img class="product" src="{{ MEDIA_URL }}{{ item.product.image1 }}"></p>
         <h3>{{ item.product.name }}</h3>
