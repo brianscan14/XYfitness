@@ -43,14 +43,25 @@
                 <p class="mt-2">{{ item.product.name }}</p>
             </div>
         </div>
-        <div class="col-6 mx-auto">
+        {% if item.product.category == "P" %}
+            <div class="col-5">
+                <div class="div">
+                    
+                    <p class="mt-2">
+                        <strong><i>Note:</i></strong> our plans are emailed as a PDF.
+                        Please check your email inbox once order has been placed.
+                    </p>
+                </div>
+            </div>
+        {% else %}
+        <div class="col-5 mx-auto">
             <form method="post" action="{% url 'change_cart' item.id %}">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <div class="centered">
                             <span class="minus"><i class="fas fa-minus-circle fa-2x"></i></span>
-                            <input name="quantity" class="count" type="number" min="1" max="99" value="{{item.quantity}}" required>
+                            <input name="quantity" class="count" type="number" min="1" max="50" value="{{item.quantity}}" required>
                             <span class="plus"><i class="fas fa-plus-circle fa-2x"></i></span>
                         </div>
                     </div>
@@ -60,7 +71,7 @@
                                 <input type="hidden" name="size" value="D" />
                                 <input type="hidden" name="oldsize" value="{{item.size}}" />
                             {% else %}
-                                <select name="size" type="submit" class="form-control size-select w-75" data-title="Select size" 
+                                <select name="size" type="submit" class="form-control mx-auto w-50" data-title="Select size" 
                                 data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                     <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
                                     <option {% if item.size == 'S' %} selected {% endif %} value="S">S</option>
@@ -70,18 +81,20 @@
                                 </select>
                                 <input type="hidden" name="oldsize" value="{{item.size}}" />
                             {% endif %}
+
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mx-auto">
                         <div class="centered">
-                            <button type="submit" class="btn btn-outline-warning mt-4">Update Item</button>
+                            <button type="submit" class="btn btn-outline-warning mt-5">Update Item</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        {% endif %}
         <div class="col-2 mx-auto">
             <div class="div">
                 Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
