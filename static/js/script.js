@@ -70,3 +70,22 @@ $('#navSearchClose').click(function(){
        closeSearchBar();
     });
 });
+
+// counter for quantity of prod items 
+
+$(document).ready(function(){
+    $('.minus').click(function () {
+        var $input = $(this).parent().find('input');
+        var amount = parseInt($input.val()) - 1;
+        amount = amount < 1 ? 1 : amount;
+        $input.val(amount);
+        $input.change();
+        return false;
+    });
+    $('.plus').click(function () {
+        var $input = $(this).parent().find('input');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+        return false;
+    });
+});
