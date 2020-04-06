@@ -8,18 +8,16 @@
                 <a href="{% url 'single_prod' product.id %}">
                     <img class="product" src="{{ MEDIA_URL }}{{ product.image1 }}">
                 </a>
-                <h3>{{ product.name }}</h3>
-                <h5><i class="fas fa-euro-sign"></i> {{ product.price }}</h5>
-                <p>
-                {% for star in stars %}
-                    {% if product.id == star.id %}
-                        {% if star.avg_review %}
-                        <div class="div">
-                            {% include 'components/starrating.html' %} 
-                        </div>
+                <h5 class="mt-3">{{ product.name }}</h5>
+                <p class="mb-0"><i class="fas fa-euro-sign"></i> {{ product.price }}</p>
+                <p class="mt-1">
+                    {% for star in stars %}
+                        {% if product.id == star.id %}
+                            {% if star.avg_review %}
+                                {% include 'components/starrating.html' %} 
+                            {% endif %} 
                         {% endif %} 
-                    {% endif %} 
-                {% endfor %} 
+                    {% endfor %} 
                 </p>
             </div>
         </div>
