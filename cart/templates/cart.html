@@ -11,14 +11,16 @@
             <a class="" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> All products</a>
         </div>
         <div class="col-4 ml-auto">
-            <p>Total items in basket : {{ product_count }}</p>
-            <p>
-                {% if product_count == 0 %}
-                    <button type="button" class="btn btn-success" disabled>Checkout</button>
-                {% else %}
-                    <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
-                {% endif %}
-            </p>
+            <div class="">
+                <p class="text-right">Total items in basket : {{ product_count }}</p>
+                <p class="text-right">
+                    {% if product_count == 0 %}
+                        <button type="button" class="btn btn-success" disabled>Checkout</button>
+                    {% else %}
+                        <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
+                    {% endif %}
+                </p>
+            </div>
         </div>
     </div>
 
@@ -30,91 +32,79 @@
     
     {% for item in cart_items %}
     
-    <div class="row mt-3">
-        <div class="col-2">
-
-        </div>
-        <div class="col-1">
-        
-        </div>
-        <div class="col-6">
-            <div class="row">
-                <div class="col-6">
-                </div>
-                <div class="col-6">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col mx-auto">
-                </div>
+    <div class="row my-5">
+        <div class="col-2 mx-auto">
+            <div class="div">
+                <img class="before-after-pic" src="{{ MEDIA_URL }}{{ item.product.image1 }}">
             </div>
         </div>
-        <div class="col-2">
-        
+        <div class="col-1 mx-auto">
+            <div class="div">
+                <p class="mt-2">{{ item.product.name }}</p>
+            </div>
         </div>
-        <div class="col-1">
-        
-        </div>
-        <div class="col-3 mt-2 mx-auto">
-        <p><img class="product" src="{{ MEDIA_URL }}{{ item.product.image1 }}"></p>
-        <h3>{{ item.product.name }}</h3>
-            <p class="product-description">{{ item.product.description }}</p>
-            <p><i class="fas fa-euro-sign"></i> {{ item.product.price }}</p>
-            <p><i class="fas fa-euro-sign"></i> {{ item.this_total }}</p>
-        </div>
-
-        <div class="col-6 mt-2 mx-auto">
+        <div class="col-6 mx-auto">
             <form method="post" action="{% url 'change_cart' item.id %}">
-                <div class="row">
                 {% csrf_token %}
-                <div class="col-6">
-                    <div>
-                        <span class="minus"><i class="fas fa-minus-circle fa-2x"></i></span>
+                <div class="row">
+                    <div class="col-6 mx-auto">
+                        <div class="centered">
+                            <span class="minus"><i class="fas fa-minus-circle fa-2x"></i></span>
                             <input name="quantity" class="count" type="number" min="1" max="99" value="{{item.quantity}}" required>
-                        <span class="plus"><i class="fas fa-plus-circle fa-2x"></i></span>
+                            <span class="plus"><i class="fas fa-plus-circle fa-2x"></i></span>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-outline-warning mt-2">Change</button>
+                    <div class="col-6 mx-auto">
+                        <div class="">
+                            {% if item.product.category == "P" %}
+                                <input type="hidden" name="size" value="D" />
+                                <input type="hidden" name="oldsize" value="{{item.size}}" />
+                            {% else %}
+                                <select name="size" type="submit" class="form-control size-select w-75" data-title="Select size" 
+                                data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                                    <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
+                                    <option {% if item.size == 'S' %} selected {% endif %} value="S">S</option>
+                                    <option {% if item.size == 'M' %} selected {% endif %} value="M">M</option>
+                                    <option {% if item.size == 'L' %} selected {% endif %} value="L">L</option>
+                                    <option {% if item.size == 'XL' %} selected {% endif %} value="XL">XL</option>
+                                </select>
+                                <input type="hidden" name="oldsize" value="{{item.size}}" />
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-6">
-                {% if item.product.category == "P" %}
-                    <input type="hidden" name="size" value="D" />
-                    <input type="hidden" name="oldsize" value="{{item.size}}" />
-                {% else %}
-                    <select name="size" type="submit" class="selectpicker" data-title="Select size" 
-                    data-style="btn-default btn-block" data-menu-style="dropdown-blue">
-                        <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
-                        <option {% if item.size == 'S' %} selected {% endif %} value="S">S</option>
-                        <option {% if item.size == 'M' %} selected {% endif %} value="M">M</option>
-                        <option {% if item.size == 'L' %} selected {% endif %} value="L">L</option>
-                        <option {% if item.size == 'XL' %} selected {% endif %} value="XL">XL</option>
-                    </select>
-                    <input type="hidden" name="oldsize" value="{{item.size}}" />
-                    <div>{{item.size}}</div>
-                {% endif %}
-                </div>
+                <div class="row">
+                    <div class="col mx-auto">
+                        <div class="centered">
+                            <button type="submit" class="btn btn-outline-warning mt-4">Update Item</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
-
-    
-        <div class="col-3">
-        <form method="post" action="{% url 'del_cart_item' item.product.id %}">
-            {% csrf_token %}
-            <input type="hidden" name="sizez" value="{{item.size}}" />
-            <button type="submit" class="btn btn-outline-warning mt-2">Remove</button>
-        </form>
+        <div class="col-2 mx-auto">
+            <div class="div">
+                Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
+            </div>
+        </div>
+        <div class="col-1 mx-auto">
+            <div class="">
+                <form method="post" action="{% url 'del_cart_item' item.product.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="sizez" value="{{item.size}}" />
+                    <button type="submit" class="rounded-circle"><i class="fas fa-times"></i></button>
+                </form>
+            </div>
         </div>
     </div>
     {% endfor %}
 
 
 <div class="row mt-3">
-    <div class="col-6 mx-auto">
-        <div class="check">
-            <p>Total</p>
-            <p><i class="fas fa-euro-sign"></i> {{ total }}</p>
-            <p>
+    <div class="col mx-auto">
+        <div class="">
+            <p class="text-right">Total <i class="fas fa-euro-sign"></i> {{ total }}</p>
+            <p class="text-right">
                 {% if product_count == 0 %}
                     <button type="button" class="btn btn-success" disabled>Checkout</button>
                 {% else %}
