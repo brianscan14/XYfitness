@@ -3,11 +3,12 @@
 {% load bootstrap_tags %}
 
 {% block content %}
+
 <div class="container">
 
     <div class="row mt-3">
         <div class="col-4 mr-auto">
-        <a class="" href="{% url 'products' %}">Back to all products</a>
+        <a class="" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> Back to all products</a>
         </div>
         <div class="col-4 ml-auto">
             <p>Total items in basket : {{ product_count }}</p>
@@ -39,10 +40,14 @@
                 <div class="row">
                 {% csrf_token %}
                 <div class="col-6">
-                    <div>Qty</div><div>{{item.quantity}}</div>
-                    <div><input name="quantity" type="number" min="1" max="99" required></div>
+                    <div>
+                        <span class="minus"><i class="fas fa-minus-circle fa-2x"></i></span>
+                            <input name="quantity" class="count" type="number" min="1" max="99" value="{{item.quantity}}" required>
+                        <span class="plus"><i class="fas fa-plus-circle fa-2x"></i></span>
+                    </div>
                     <button type="submit" class="btn btn-outline-warning mt-2">Change</button>
-                </div>        
+                </div>
+
                 <div class="col-6">
                 {% if item.product.category == "P" %}
                     <input type="hidden" name="size" value="D" />
