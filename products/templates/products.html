@@ -5,7 +5,7 @@
         <div class="row my-3">
             <div class="col pl-4">
                 <div id="breadcrumbs" class="bread">
-                    <a href="/">Home </a> - 
+                    <a href="/">Home </a> / 
                     <a href="{% url 'products' %}">Products </a>
                 </div>
             </div>
@@ -18,26 +18,26 @@
 <div class="container my-3">
 
     <div class="row">
-        <div class="col-12 mr-auto mx-auto prod-links">
+        <div class="col-3 mr-auto mx-auto prod-links border-bottom p-2">
             <a class="" href="{% url 'apparel' %}">Apparel</a>
-            <a class="" href="{% url 'plans' %}">Plans</a>
+            <a class="" href="{% url 'plans' %}">/ Plans</a>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-4 mr-auto">
-        {% if '/products/apparel/' in request.path %}
-            <h2>Apparel</h2>
-        {% elif '/products/plans/' in request.path %}
-            <h2>All Plans</h2>
-        {% else %}
-            <h2>All Products</h2>
-        {% endif %}
+        <div class="col-4 mr-auto p-2">
+            {% if '/products/apparel/' in request.path %}
+                <h2>Apparel</h2>
+            {% elif '/products/plans/' in request.path %}
+                <h2>All Plans</h2>
+            {% else %}
+                <h2>All Products</h2>
+            {% endif %}
         </div>
     </div>
 
     <div class="row mb-4">
-        <div class="col-4 ml-auto ">
+        <div class="col-12 col-md-4 ml-auto ">
         {% if '/products/apparel/' in request.path %}
             <form action="{% url 'sort_apparel' %}" method="get" class="form-inline my-2">
                 <select class="custom-select custom-select-md" name="sorta" required>
@@ -54,9 +54,11 @@
                     <option value="AtoZ">Alphabetically: A to Z</option>
                     <option value="ZtoA">Alphabetically: Z to A</option>
                 </select>
+                <div class="col-2">
                 <span class="pl-2">
-                <button class="btn btn-success" type="submit" name="action">Sort</button>
+                    <button class="btn btn-success" type="submit" name="action">Sort</button>
                 </span>
+                </div>
             </form>
         </div>
     </div>
