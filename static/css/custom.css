@@ -1,5 +1,6 @@
 /* general css */
 
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 
 
@@ -16,7 +17,9 @@ input[type="text"].form-textfield::-webkit-input-placeholder {
     color: pink;
 }  */
 
+
 /* scroll back to top */
+
 
 #topBtn {
     display: none;
@@ -36,7 +39,9 @@ input[type="text"].form-textfield::-webkit-input-placeholder {
     transition-duration: 0.7s;
 }
 
+
 /* navbar  */
+
 
 .profile-image {
     width: 40px;
@@ -44,7 +49,9 @@ input[type="text"].form-textfield::-webkit-input-placeholder {
     border-radius: 20px;
 }
 
+
 /* nav search icon */
+
 
 .overlay {
     height: 100%;
@@ -129,21 +136,21 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 
 
-
-
 /* home page */
-body {
-    background-color:#fff;
-}
+
+
+
 
 
 /* products page */
 
+
 .product {
     width: 100%;
     height: 300px;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
 }
 
 .product-image {
@@ -166,7 +173,14 @@ body {
     height: 250px;
 }
 
+.product-qty {
+    height: 45px;
+    text-align: center;
+}
+
+
 /* testimonials */
+
 
 .before-after-pic {
     max-width:230px;
@@ -202,7 +216,9 @@ body {
     border-radius: 15px;
 }
 
+
 /* cart page  */
+
 
 .count {
     font-size: 25px;
@@ -227,13 +243,14 @@ span{
     -ms-user-select: none;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.count::-webkit-outer-spin-button,
+.count::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
 
-/* styling */
+/* styling across the page */
+
 
 .fa-star, .fa-star-half-alt {
     color: rgba(177, 177, 21, 0.904);
