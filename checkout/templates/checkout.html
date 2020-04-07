@@ -69,8 +69,17 @@
             </div>
         </div>
         <div class="col-4 mx-auto">
+            <div class="row">
+                <div class="col border-bottom pb-2">
+                    <h5>Order summary
+                        <a class="text-right float-right pr-4" href="{% url 'view_cart' %}">
+                            <small><u>Edit</u></small>
+                        </a>
+                    </h5>
+                </div>
+            </div>
             {% for item in cart_items %}
-            <div class="row my-2">
+            <div class="row my-2 pt-2">
                 <div class="col-4">
                     <img class="checkout-pic" src="{{ MEDIA_URL }}{{ item.product.image1 }}">
                 </div>
@@ -79,16 +88,16 @@
                     {% if item.product.category == "P" %}
                         <input type="hidden" name="size" value="D" />
                     {% else %}
-                        <p class="text-muted mb-1">{{ item.product.size }}</p>
+                        <p class="text-muted mb-1">Size: {{ item.product.size }}</p>
                     {% endif %}
-                    <p class="text-muted">{{ item.quantity }}</p>
+                    <p class="text-muted">Quantity: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3">
                     <i class="fas fa-euro-sign text-muted"> {{ item.this_total }}</i>
                 </div>
             </div>
             {% endfor %}
-            <div class="row mt-3">
+            <div class="row mt-3 border-top pt-2">
                 <div class="col ml-auto">
                     <div class="">
                         <p class="">Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
