@@ -89,8 +89,17 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
 
+    name = request.session['user_delivery_data']['full_name']
+    address = request.session['user_delivery_data']['street_address2']
+    town = request.session['user_delivery_data']['town_or_city']
+    county = request.session['user_delivery_data']['county']
+
     return render(request, "checkout.html", {
         "order_form": order_form,
         "payment_form": payment_form,
+        "name": name,
+        "address": address,
+        "town": town,
+        "county": county,
         "publishable": settings.STRIPE_PUBLISHABLE
         })
