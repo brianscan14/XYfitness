@@ -17,23 +17,31 @@ def delivery(request):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
         if order_form.is_valid():
-            request.session['form_data_page_1'] = order_form.cleaned_data
+            request.session['user_delivery_data'] = order_form.cleaned_data
+            cart = request.session.get('cart', {})
+            total = 0
+            del_total = 0
+
+            for id, content in cart.items():
+                product = get_object_or_404(Product, pk=id)
+                cat = Product.objects.filter(id=id, category__icontains='A')
+                if cat:
+                    del_total = 5
+                for size, quantity in content.items():
+                    total += quantity * product.price
+
+            total = del_total + total
             return redirect('checkout')
     else:
-        order_form = OrderForm(request.session['form_data_page_1'])
+        order_form = OrderForm(request.session['user_delivery_data'])
     return render(request, "deliver.html", {"order_form": order_form})
-
-# @login_required()
-# def verify_delivery(request, content):
-#     return render(request, 'myapp/verify_content.html', {'content' : content})
 
 
 @login_required()
 def checkout(request):
-    deliv_details = request.session['form_data_page_1']
-    order_form = OrderForm(deliv_details)
+    delivery_details = request.session['user_delivery_data']
+    order_form = OrderForm(delivery_details)
     if request.method == "POST":
-        # order_form = request.session['order_form']
         payment_form = MakePaymentForm(request.POST)
 
         if order_form.is_valid() and payment_form.is_valid():
@@ -70,7 +78,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.success(request, "You have successfully paid")
+                messages.success(request, "Thank you for your purchase")
                 request.session['cart'] = {}
                 return redirect(reverse('home'))
             else:
@@ -80,7 +88,6 @@ def checkout(request):
             messages.error(request, "Unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
-        
 
     return render(request, "checkout.html", {
         "order_form": order_form,
