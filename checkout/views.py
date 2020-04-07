@@ -31,17 +31,18 @@ def checkout(request):
                 cat = Product.objects.filter(id=id, category__icontains='A')
                 if cat:
                     del_total = 5
-                else:
-                    del_total = 0
                 for size, quantity in content.items():
                     total += quantity * product.price
+                    print(total)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
                         quantity=quantity,
                     )
                     order_line_item.save()
-                total = del_total + total
+                    print(order_line_item)
+            total = del_total + total
+            print(total)
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
