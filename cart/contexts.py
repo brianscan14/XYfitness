@@ -11,13 +11,11 @@ def cart_contents(request):
 
     for id, content in cart.items():
         product = get_object_or_404(Product, pk=id)
-        print(product.category)
         cat = Product.objects.filter(id=id, category__icontains='A')
         if cat:
             del_total = 5
         else:
             del_total = 0
-        print(del_total)
         for size, quantity in content.items():
             this_total = quantity * product.price
             total += quantity * product.price
@@ -28,9 +26,7 @@ def cart_contents(request):
             })
 
     subtotal = total
-    print(subtotal)
     total = del_total + total
-    print(total)
 
     return {
         'cart_items': cart_items,
