@@ -14,8 +14,6 @@ def cart_contents(request):
         cat = Product.objects.filter(id=id, category__icontains='A')
         if cat:
             del_total = 5
-        else:
-            del_total = 0
         for size, quantity in content.items():
             this_total = quantity * product.price
             total += quantity * product.price
