@@ -117,9 +117,11 @@
 
 
 <div class="row mt-3">
-    <div class="col mx-auto">
+    <div class="col-4 ml-auto">
         <div class="">
-            <p class="text-right">Total <i class="fas fa-euro-sign"></i> {{ total }}</p>
+            <p class="">Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
+            <p class="">Delivery fee: <i class="fas fa-euro-sign float-right"> {{ del_total }}</i></p>
+            <p class="">Total <i class="fas fa-euro-sign float-right"> {{ total }}</i></p>
             <p class="text-right">
                 {% if product_count == 0 %}
                     <button type="button" class="btn btn-success" disabled>Checkout</button>
