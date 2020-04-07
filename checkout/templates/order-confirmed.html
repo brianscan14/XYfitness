@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block breadcrumb %}
+    <div class="container-fluid my-3 pl-4">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <div id="breadcrumbs" class="bread centered d-flex justify-content-around">
+                    <a href="{% url 'delivery' %}">Delivery</a> -
+                    <a href="{% url 'checkout' %}">Checkout </a> -
+                    Order Confirmed
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock breadcrumb %}
+
+{% block content %}
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <div class="thanks centered">
+                    <h2>Thank you! :)</h2>
+                    <p>Your order is being processed, please check your emails for confirmation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
