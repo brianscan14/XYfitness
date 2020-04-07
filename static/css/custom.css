@@ -249,8 +249,22 @@ span{
 }
 
 
+/* checkout page */
+
+
+.checkout-pic {
+    width: 100%;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 /* styling across the page */
 
+.bold {
+    font-weight: 999;
+}
 
 .fa-star, .fa-star-half-alt {
     color: rgba(177, 177, 21, 0.904);
