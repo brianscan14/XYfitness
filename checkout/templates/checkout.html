@@ -17,11 +17,10 @@
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row">
-            <div class="col pl-4">
-                <div id="breadcrumbs" class="bread">
-                    <a href="{% url 'view_cart' %}">Cart </a> - 
+            <div class="col-10 mx-auto">
+                <div id="breadcrumbs" class="bread centered">
+                    <a href="{% url 'delivery' %}">Delivery </a> -
                     <a href="{% url 'checkout' %}">Checkout </a>
-                    - {{ product.name }}
                 </div>
             </div>
         </div>
@@ -37,7 +36,7 @@
 
                     <div class="row my-3">
                         <div class="col-8 mx-auto border p-2">
-                            <div class="">
+                            <div>
                                 <p class="mb-2">Delivery Address:
                                     <a href="{% url 'delivery' %}" class="float-right pr-4" >
                                         <small><u>Change</u></small>
