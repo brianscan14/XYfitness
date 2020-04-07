@@ -103,13 +103,6 @@
                         <p class="">Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
                         <p class="text-muted">Delivery fee: <i class="fas fa-euro-sign float-right"> {{ del_total }}</i></p>
                         <p class="bold">Total <i class="fas fa-euro-sign float-right"> {{ total }}</i></p>
-                        <p class="text-right">
-                            {% if product_count == 0 %}
-                                <button type="button" class="btn btn-success" disabled>Checkout</button>
-                            {% else %}
-                                <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
-                            {% endif %}
-                        </p>
                     </div>
                 </div>
             </div>
