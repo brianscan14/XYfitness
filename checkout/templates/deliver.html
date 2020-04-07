@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static from staticfiles %}
 {% load bootstrap_tags %}
 
 {% block content %}
@@ -8,13 +7,13 @@
     <div class="row">
         <div class="col-8">
             <div class="row">
-                <div class="col-12">
-                    <form method="POST" enctype="multipart/form-data">
+                <div class="col-10 mx-auto">
+                    <form method="POST">
                         {% csrf_token %}
-                            {{ order_form | as_bootstrap }}
-                            <div class="centered my-4">
-                                <button type="submit" class="btn btn-outline-primary">Add delivery</button>
-                            </div>
+                        {{ order_form | as_bootstrap }}
+                        <div class="centered my-4">
+                            <button type="submit" class="btn btn-outline-primary mt-4">Confirm Details</button>
+                        </div>
                     </form>
                 </div>
             </div>
