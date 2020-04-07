@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        {{ order_form | as_bootstrap }}
+        <div class="centered my-4">
+            <button type="submit" class="btn btn-outline-primary">Add delivery</button>
+        </div>
+</form>
+{% endblock %}
