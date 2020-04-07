@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
@@ -78,9 +78,8 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.success(request, "Thank you for your purchase")
                 request.session['cart'] = {}
-                return redirect(reverse('home'))
+                return redirect('order_confirm')
             else:
                 messages.error(request, "Unable to take payment")
         else:
@@ -103,3 +102,7 @@ def checkout(request):
         "county": county,
         "publishable": settings.STRIPE_PUBLISHABLE
         })
+
+@login_required()
+def order_confirm(request):
+    return render(request, "order-confirmed.html")
