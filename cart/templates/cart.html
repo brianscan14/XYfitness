@@ -17,8 +17,7 @@
                     {% if product_count == 0 %}
                         <button type="button" class="btn btn-success" disabled>Checkout</button>
                     {% else %}
-                        <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
-                        <a href="{% url 'delivery' %}" class="btn btn-outline-success" role="button">Delivery</a>
+                        <a href="{% url 'delivery' %}" class="btn btn-outline-success" role="button">Checkout</a>
                     {% endif %}
                 </p>
             </div>
@@ -127,8 +126,7 @@
                 {% if product_count == 0 %}
                     <button type="button" class="btn btn-success" disabled>Checkout</button>
                 {% else %}
-                    <a href="{% url 'delivery' %}" class="btn btn-outline-success" role="button">Delivery</a>
-                    <a href="{% url 'checkout' %}" class="btn btn-outline-success" role="button">Checkout</a>
+                    <a href="{% url 'delivery' %}" class="btn btn-outline-success" role="button">Checkout</a>
                 {% endif %}
             </p>
         </div>
