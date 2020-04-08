@@ -12,11 +12,6 @@
     height: 45px;
 }
 
-/* 
-input[type="text"].form-textfield::-webkit-input-placeholder {
-    color: pink;
-}  */
-
 
 /* scroll back to top */
 
@@ -151,6 +146,18 @@ input[type="text"].nav-search-form::-moz-placeholder {
     background-size: cover;
     background-repeat: no-repeat;
     display: block;
+    box-shadow: 2px 2px 5px 2px #77695F;
+}
+
+.product:hover {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    box-shadow: 2px 2px 15px 2px #77695F;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
 }
 
 .product-image {
