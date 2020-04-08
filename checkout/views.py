@@ -17,7 +17,7 @@ def delivery(request):
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
         if order_form.is_valid():
-            request.session['user_delivery_data'] = order_form.cleaned_data
+            request.session['delivery_data'] = order_form.cleaned_data
             cart = request.session.get('cart', {})
             total = 0
             del_total = 0
@@ -33,13 +33,18 @@ def delivery(request):
             total = del_total + total
             return redirect('checkout')
     else:
-        order_form = OrderForm(request.session['user_delivery_data'])
+
+        if request.session.get('delivery_data'):
+            order_form = OrderForm(initial=request.session['delivery_data'])
+        else:
+            order_form = OrderForm()
+
     return render(request, "deliver.html", {"order_form": order_form})
 
 
 @login_required()
 def checkout(request):
-    delivery_details = request.session['user_delivery_data']
+    delivery_details = request.session['delivery_data']
     order_form = OrderForm(delivery_details)
     if request.method == "POST":
         payment_form = MakePaymentForm(request.POST)
@@ -88,10 +93,10 @@ def checkout(request):
     else:
         payment_form = MakePaymentForm()
 
-    name = request.session['user_delivery_data']['full_name']
-    address = request.session['user_delivery_data']['street_address2']
-    town = request.session['user_delivery_data']['town_or_city']
-    county = request.session['user_delivery_data']['county']
+    name = request.session['delivery_data']['full_name']
+    address = request.session['delivery_data']['street_address2']
+    town = request.session['delivery_data']['town_or_city']
+    county = request.session['delivery_data']['county']
 
     return render(request, "checkout.html", {
         "order_form": order_form,
