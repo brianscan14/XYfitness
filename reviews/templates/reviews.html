@@ -28,7 +28,7 @@
                 modi molestias dolorum nihil tempore earum. 
                 Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
                 {% if review.before_picture and review.after_picture %}
-                    <a href="{% url 'single_review' review.id %}">see pics here</a>.
+                    <a href="{% url 'single_review' review.id %}"><u>see pics here</u></a>.
                 {% endif %}
                 </p>
                 <p class="my-2 float-right pr-3">{{ review.date|date:"F, Y" }}</p>
