@@ -131,6 +131,13 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 
 
+/* footer */
+
+.footer {
+    left: 0;
+    bottom: 0;
+}
+
 /* home page */
 
 
