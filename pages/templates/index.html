@@ -2,6 +2,20 @@
 
 {% block content %}
 
+<div class="container-fluid p-0">
+	<div class="row">
+		<div class="col">
+            <div class="main-pic">
+                <div class="main-pic-text p-3">
+                    <h1 class="text-white hero-heading p-3 border-bottom">XYfitness</h1>
+                    <h2 class="p-3 my-5"><em>Your body awaits..</em></h2>
+                    <a href="{% url 'products' %}" class="contact-me-button btn btn-outline-primary p-3 mt-3">Start your journey today</a>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
 {% if reviews %}
 <div class="container-fluid my-4">
 	<div class="row">

@@ -37,6 +37,9 @@
 
 /* navbar  */
 
+.navbar {
+    background-color: #1E1E24;
+}
 
 .profile-image {
     width: 40px;
@@ -144,7 +147,37 @@ input[type="text"].nav-search-form::-moz-placeholder {
 /* home page */
 
 
+.main-pic {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+   rgba(0, 0, 0, 0.5)), 
+   url("https://image.shutterstock.com/image-illustration/gym-weights-under-strong-dramatic-260nw-472696720.jpg");
+  height: 85vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
+.main-pic-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.hero-heading {
+    font-size: 80px;
+}
+
+
+/* about page */
+
+
+.about-dark {
+    background-color: rgba(78, 77, 77, 0.89);
+}
 
 
 /* products page */
@@ -285,4 +318,17 @@ span{
 
 .fa-star, .fa-star-half-alt {
     color: rgba(177, 177, 21, 0.904);
+}
+
+.contact-me-button {
+    color: #fff;
+    border-color: #fff;
+}
+
+.contact-me-button:hover {
+    background-color: #fff;
+    border-color: rgb(2, 2, 2);
+    color: black;
+    transition: ease-in-out;
+    transition-duration: 0.5s;
 }
