@@ -1,0 +1,82 @@
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="6000">
+	<div class="carousel-inner">
+		<div class="carousel-item">
+			<div class="">
+				<h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ reviews.1.title | title |truncatewords:3 }}
+				</h4>
+				<p class="my-3">{{ reviews.1.content | capfirst }}
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Fuga impedit facere tenetur dicta consequuntur,
+					modi molestias dolorum nihil tempore earum.
+					Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
+				</p>
+				<p class="my-2 float-right pr-3">{{ reviews.3.date|date:"F, Y" }}</p>
+				<p class="my-3">{{ reviews.1.author.first_name | capfirst }} "{{ reviews.1.author }}"</p>
+			</div>
+		</div>
+		<div class="carousel-item active">
+			<div class="">
+				<h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ reviews.2.title | title |truncatewords:3 }}
+				</h4>
+				<p class="my-2">{{ reviews.2.content | capfirst }}
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Fuga impedit facere tenetur dicta consequuntur,
+					modi molestias dolorum nihil tempore earum.
+					Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
+				</p>
+				<p class="my-2 float-right pr-3">{{ reviews.2.date|date:"F, Y" }}</p>
+				<p class="my-3">{{ reviews.2.author.first_name | capfirst }} "{{ reviews.2.author }}"</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="">
+				<h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ reviews.3.title | title |truncatewords:3 }}
+				</h4>
+				<p class="my-3">{{ reviews.3.content | capfirst }}
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Fuga impedit facere tenetur dicta consequuntur,
+					modi molestias dolorum nihil tempore earum.
+					Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
+				</p>
+				<p class="my-2 float-right pr-3">{{ reviews.3.date|date:"F, Y" }}</p>
+				<p class="my-3">{{ reviews.3.author.first_name | capfirst }} "{{ reviews.3.author }}"</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="">
+				<h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ reviews.4.title | title |truncatewords:3 }}
+				</h4>
+				<p class="my-3">{{ reviews.4.content | capfirst }}
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Fuga impedit facere tenetur dicta consequuntur,
+					modi molestias dolorum nihil tempore earum.
+					Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
+				</p>
+				<p class="my-2 float-right pr-3">{{ reviews.4.date|date:"F, Y" }}</p>
+				<p class="my-3">{{ reviews.4.author.first_name | capfirst }} "{{ reviews.4.author }}"</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<div class="">
+				<h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ reviews.5.title | title |truncatewords:3 }}
+				</h4>
+				<p class="my-3">{{ reviews.5.content | capfirst }}
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+					Fuga impedit facere tenetur dicta consequuntur,
+					modi molestias dolorum nihil tempore earum.
+					Architecto pariatur laudantium ullam quibusdam quia tenetur ipsam facilis alias
+				</p>
+				<p class="my-2 float-right pr-3">{{ reviews.5.date|date:"F, Y" }}</p>
+				<p class="my-3">{{ reviews.5.author.first_name | capfirst }} "{{ reviews.5.author }}"</p>
+			</div>
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
