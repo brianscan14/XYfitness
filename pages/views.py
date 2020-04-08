@@ -3,11 +3,15 @@ from .forms import EmailContactForm
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
+from reviews.models import Review
 
 
 # Create your views here.
 def home_page(request):
-    return render(request, "index.html")
+    reviews = {
+        'reviews': Review.objects.all().order_by('-date')
+    }
+    return render(request, "index.html", reviews)
 
 
 def about(request):
