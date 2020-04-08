@@ -4,12 +4,10 @@ from django.contrib import messages
 from products.views import single_prod
 
 
-@login_required
 def view_cart(request):
     return render(request, "cart.html")
 
 
-@login_required
 def cart_add(request, id):
     q = int(request.POST.get('quantity'))
     s = request.POST.get('size')
@@ -37,7 +35,6 @@ def cart_add(request, id):
     return redirect(single_prod, id)
 
 
-@login_required
 def change_cart(request, id):
     quantity = int(request.POST.get('quantity'))
     size = request.POST.get('size')
@@ -58,7 +55,6 @@ def change_cart(request, id):
     return redirect(reverse('view_cart'))
 
 
-@login_required
 def del_cart_item(request, id):
     size = request.POST.get('sizez')
     cart = request.session.get('cart', {})
