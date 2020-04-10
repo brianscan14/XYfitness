@@ -1,0 +1,1 @@
+web: gunicorn xy_fitness.wsgi:application
