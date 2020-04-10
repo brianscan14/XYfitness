@@ -5,7 +5,7 @@
 <div class="container my-5 vh-full">
 	<div class="row ">
 		<div class="col-6 mx-auto mt-5">
-			<form method="POST">
+			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %} {{ registration_form | as_bootstrap }}
                 <div class="centered">
 				    <button type="submit" class="btn btn-primary btn-md active mt-4"
@@ -14,5 +14,8 @@
 			</form>
 		</div>
 	</div>
+    {% for error_field, error_message in registration_form.errors.items %}
+    {{ error_field|striptags }}: {{ error_message|striptags }}
+    {% endfor %}
 </div>
 {% endblock %}
