@@ -14,8 +14,12 @@
 			</form>
 		</div>
 	</div>
-    {% for error_field, error_message in registration_form.errors.items %}
-    {{ error_field|striptags }}: {{ error_message|striptags }}
-    {% endfor %}
+    <div class="row">
+        <div class="col-6 mx-auto">
+            {% for error_field, error_message in registration_form.errors.items %}
+            {{ error_field|striptags }}: {{ error_message|striptags }}
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
