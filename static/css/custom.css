@@ -12,6 +12,9 @@
     height: 45px;
 }
 
+.vh-full {
+    height: 70vh;
+}
 
 /* scroll back to top */
 
@@ -36,6 +39,8 @@
 
 
 /* navbar  */
+
+
 
 .navbar {
     background-color: #1E1E24;
