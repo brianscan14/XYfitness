@@ -16,7 +16,7 @@
 
 {% block content %}
 
-<div class="container my-4">
+<div class="container my-5">
 	<div class="row">
 		<div class="col-6 mx-auto">
             <h2 class="border-bottom w-50 centered mx-auto p-3">Contact Us</h2>
@@ -24,7 +24,7 @@
                 {% csrf_token %}
                 {{ form | as_bootstrap }}
                 <div class="centered">
-                    <button type="submit" class="btn btn-primary centered">Send Mail</button>
+                    <button type="submit" class="mt-4 btn btn-primary centered">Send Mail</button>
                 </div>
             </form>
 		</div>

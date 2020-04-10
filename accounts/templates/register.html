@@ -2,13 +2,14 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="container">
-	<div class="row">
-		<div class="col-6 mx-auto">
-			<form method="POST" enctype="multipart/form-data">
+<div class="container my-5 vh-full">
+	<div class="row ">
+		<div class="col-6 mx-auto mt-5">
+			<form method="POST">
 				{% csrf_token %} {{ registration_form | as_bootstrap }}
                 <div class="centered">
-				    <button type="submit" class="btn btn-success">Register</button>
+				    <button type="submit" class="btn btn-primary btn-md active mt-4"
+                    aria-pressed="true" role="button">Register</button>
                 </div>
 			</form>
 		</div>
