@@ -18,7 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     os.environ.get('GIT_HOSTNAME'),
     os.environ.get('LOCAL_HOSTNAME'),
-    os.environ.get('HEROKU_HOSTNAME')
+    os.environ.get('HEROKU_HOSTNAME'),
 ]
 
 
