@@ -36,13 +36,13 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-2 mb-0">
                         <div class="col-10">
                             <p>{{ product.description|truncatewords:15 }}</p>
                         </div>
                     </div>
 
-                    <div class="row mb-1">
+                    <div class="row mb-2">
                         <div class="col">
                             {% for star in stars %}
                                 {% if star.avg_review %}
@@ -54,13 +54,13 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-1">
                         <div class="col">
-                            <p><i class="fas fa-euro-sign"> {{ product.price }}</i></p>
+                            <i class="fas fa-euro-sign"> {{ product.price }}</i>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row mt-2">
                         <div class="col">
                             <form method="post" action="{% url 'cart_add' product.id %}">
                                 {% csrf_token %}
