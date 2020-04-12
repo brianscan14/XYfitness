@@ -223,11 +223,6 @@ input[type="text"].nav-search-form::-moz-placeholder {
     height: 500px;
 }
 
-.review-section {
-    overflow-y: scroll;
-    height: 250px;
-}
-
 .product-qty {
     height: 45px;
     text-align: center;
