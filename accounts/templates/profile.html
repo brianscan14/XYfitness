@@ -17,7 +17,7 @@
 
 {% block content %}
 
-<div class="container my-5">
+<div class="container my-5 vh-full">
     <div class="row my-2">
         <div class="col-6 mx-auto centered">
             <p><img class="before-after-pic" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
@@ -27,17 +27,17 @@
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-12">
+        <div class="col centered">
             <a href="{% url 'update_profile' %}">Update Profile</a>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col centered">
             <a href="{% url 'update_password' %}">Update password</a>
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-12">
+        <div class="col centered">
             <a href="{% url 'update_profile_pic' %}">Update pic</a>
         </div>
     </div>
