@@ -1,84 +1,90 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="{% url 'home' %}">XY</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Shop
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
-            <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'plans' %}">Plans</a>
-                <a class="dropdown-item" href="{% url 'apparel' %}">Apparel</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'all_reviews' %}">Testimonials</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
-        </li>
-        {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" 
+                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'plans' %}">Plans</a>
+                    <a class="dropdown-item" href="{% url 'apparel' %}">Apparel</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'all_reviews' %}">Testimonials</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+            </li>
+            {% endif %}
         </ul>
         <ul class="navbar-nav ml-auto">
-        <li class="nav-item my-auto">
-
-        <span class="nav-search-bar d-none d-sm-inline-block" id="navSearchOpen"><i class="fas fa-search fa-2x"></i></span>
-
-        <div id="overlaySearchBar" class="overlay">
-                <a href="javascript:void(0)" id="navSearchClose" class="close-nav-search">&times;</a>
-                <div class="overlay-content">
-                <form action="{% url 'search' %}" method="get">
-                    <div class="row mt-5">
-                        <div class="col-10 col-sm-7 mx-auto form-caps">
-                            <input class="form-control nav-search-form mx-auto" autocomplete="off" 
-                            type="text" placeholder="Search for a product!" name="query" required>
-                        </div>
+            <li class="nav-item my-auto">
+                <span class="nav-search-bar" id="navSearchOpen">
+                    <i class="fas fa-search text-white-50 fa-2x d-none d-sm-inline-block"></i>
+                    <span class="nav-search-bar d-sm-none text-white-50 nav-link">Search</span>
+                </span>
+                <div id="overlaySearchBar" class="overlay">
+                    <a href="javascript:void(0)" id="navSearchClose" class="close-nav-search">&times;</a>
+                    <div class="overlay-content">
+                        <form action="{% url 'search' %}" method="get">
+                            <div class="w-75 mx-auto">
+                                <input class="form-control nav-search-form mx-auto" autocomplete="off" 
+                                type="text" placeholder="Search products!" name="query" required>
+                                <button id="search_recipe" type="submit" class="btn btn-success mt-4" aria-label="search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <button id="search_recipe" type="submit" class="btn btn-success mt-4" aria-label="search">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
                 </div>
-            </div>
-        </li>
-        <li class="nav-item my-auto">
-            <a href="{% url 'view_cart' %}">
-                <i class="fa fa-shopping-bag text-white fa-2x"></i>
-                {% if product_count > 0 %}
-                    <label class="badge badge-success">{{ product_count }}</label>
-                {% endif %}
-            </a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link p-0" href="{% url 'profile' %}">{{ user }}
-                <img class="profile-image" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}">
-            </a>
-        </li>
-        {% else %}
-        <li class="nav-item ">
-            <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>
-        </li>
-        {% endif %}
+            </li>
+            <li class="nav-item my-auto">
+                <a class="nav-link" href="{% url 'view_cart' %}">
+                    <i class="fa fa-shopping-bag text-white-50 fa-2x d-none d-sm-inline-block"></i>
+                    {% if product_count > 0 %}
+                        <label class="badge badge-success d-none d-sm-inline-block">{{ product_count }}</label>
+                    {% endif %}
+                    <span class="text-white-50 d-sm-none py-2">Checkout
+                    {% if product_count == 1 %}
+                        ({{ product_count }} item)
+                    {% elif product_count > 1 %}
+                        ({{ product_count }} items)
+                    {% endif %}
+                    </span>
+                </a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link p-0" href="{% url 'profile' %}">{{ user }}
+                    <img class="profile-image" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}">
+                </a>
+            </li>
+            {% else %}
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
