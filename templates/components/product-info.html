@@ -1,0 +1,51 @@
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+			aria-controls="nav-home" aria-selected="true">Description</a>
+		<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+			aria-controls="nav-profile" aria-selected="false">Reviews ({{product.productreview_set.count}})</a>
+		<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+			aria-controls="nav-contact" aria-selected="false">Shipping</a>
+	</div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+	<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+		{{ product.description }}</div>
+	<div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+		<div class="row my-2">
+			<div class="col-12">
+				<h3>
+					{% if product.productreview_set.count == 0 %}
+					No reviews for this products
+					{% elif product.productreview_set.count == 1 %}
+					{{ product.productreview_set.count }} review for product
+					{% elif product.productreview_set.count > 1 %}
+					{{ product.productreview_set.count }} total reviews
+					{% endif %}
+					<a href="{% url 'review_prod' product.id %}" role="button" aria-pressed="true">Add Review</a></h3>
+			</div>
+		</div>
+		<div class="row my-2">
+			<div class="col-12 review-section">
+				{% for review in product.productreview_set.all %}
+				<h4>{{ review.title }}</h4>
+				<p>{{ review.content }}</p>
+				{% if review.user.first_name %}
+				<p><i>"{{ review.user.first_name }}"</i> on {{ review.date }}</p>
+				{% else %}
+				<p><i>"{{ review.user }}"</i> on {{ review.date }}</p>
+				{% endif %}
+				<p>"{{ review.rating }}/5"
+					{% if review.user == user %}
+					<a href="{% url 'delete_prod_review' review.id %}">delete</a>
+					<a href="{% url 'edit_review_prod' review.id  %}">change review</a>
+					{% endif %}
+				</p>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+		Shipping and details of returns and all that jazz are to be added, so they are
+	</div>
+</div>
