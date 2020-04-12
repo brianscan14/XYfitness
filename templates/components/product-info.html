@@ -2,33 +2,39 @@
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
 			aria-controls="nav-home" aria-selected="true">Description</a>
-		<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-			aria-controls="nav-profile" aria-selected="false">Reviews ({{product.productreview_set.count}})</a>
-		<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-			aria-controls="nav-contact" aria-selected="false">Shipping</a>
+		<a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab"
+			aria-controls="nav-reviews" aria-selected="false">Reviews ({{product.productreview_set.count}})</a>
+		<a class="nav-item nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab"
+			aria-controls="nav-shipping" aria-selected="false">Shipping</a>
+        {% if product.category == "A" %}
+        <a class="nav-item nav-link" id="nav-size-tab" data-toggle="tab" href="#nav-size" role="tab"
+			aria-controls="nav-size" aria-selected="false">Size info</a>
+        {% endif %}
 	</div>
 </nav>
-<div class="tab-content" id="nav-tabContent">
+<div class="tab-content mt-3 pr-3" id="nav-tabContent">
 	<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-		{{ product.description }}</div>
-	<div class="tab-pane fade " id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+		{{ product.description }}
+    </div>
+	<div class="tab-pane fade " id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
 		<div class="row my-2">
-			<div class="col-12">
-				<h3>
+			<div class="col">
+				<h5 class="mt-2">
 					{% if product.productreview_set.count == 0 %}
-					No reviews for this products
+					No reviews for this product,
 					{% elif product.productreview_set.count == 1 %}
-					{{ product.productreview_set.count }} review for product
+					{{ product.productreview_set.count }} review for product,
 					{% elif product.productreview_set.count > 1 %}
-					{{ product.productreview_set.count }} total reviews
+					{{ product.productreview_set.count }} total reviews,
 					{% endif %}
-					<a href="{% url 'review_prod' product.id %}" role="button" aria-pressed="true">Add Review</a></h3>
+					<a class="text-muted" href="{% url 'review_prod' product.id %}" role="button" aria-pressed="true"><u>Add Review</u></a>
+                </h5>
 			</div>
 		</div>
-		<div class="row my-2">
-			<div class="col-12 review-section">
+		<div class="row my-2 border-bottom">
+			<div class="col my-2 p-3">
 				{% for review in product.productreview_set.all %}
-				<h4>{{ review.title }}</h4>
+				<h4 class="">{{ review.title }}</h4>
 				<p>{{ review.content }}</p>
 				{% if review.user.first_name %}
 				<p><i>"{{ review.user.first_name }}"</i> on {{ review.date }}</p>
@@ -37,15 +43,27 @@
 				{% endif %}
 				<p>"{{ review.rating }}/5"
 					{% if review.user == user %}
-					<a href="{% url 'delete_prod_review' review.id %}">delete</a>
-					<a href="{% url 'edit_review_prod' review.id  %}">change review</a>
+					<a href="{% url 'delete_prod_review' review.id %}">(delete</a> /
+					<a href="{% url 'edit_review_prod' review.id  %}"> change review)</a>
 					{% endif %}
 				</p>
 				{% endfor %}
 			</div>
 		</div>
 	</div>
-	<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+	<div class="tab-pane fade" id="nav-shipping" role="tabpanel" aria-labelledby="nav-shipping-tab">
+    {% if product.category == "A" %}
 		Shipping and details of returns and all that jazz are to be added, so they are
+    {% else %}
+        Plans are emailed in PDF format once purchased, please check your email for a download file.
+    {% endif %}
 	</div>
+    {% if product.category == "A" %}
+    <div class="tab-pane fade" id="nav-size" role="tabpanel" aria-labelledby="nav-size-tab">
+		<p>This item is unisex, so if you are ordering for:</p>
+        <p>Male - please order once size <u>higher</u> than you normal fitting size</p>
+        <p>Female - please order once size <u>lower</u> than you normal fitting size</p>
+	</div>
+    {% endif %}
 </div>
+
