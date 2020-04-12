@@ -228,6 +228,11 @@ input[type="text"].nav-search-form::-moz-placeholder {
     text-align: center;
 }
 
+@media screen and (max-width: 450px) {
+.sort-by-xs {
+    width: 40%;
+}
+}
 
 /* testimonials */
 
