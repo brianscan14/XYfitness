@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark darkest-bg">
     <a class="navbar-brand" href="{% url 'home' %}">XY</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,8 +38,8 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item my-auto">
                 <span class="nav-search-bar" id="navSearchOpen">
-                    <i class="fas fa-search text-white-50 fa-2x d-none d-sm-inline-block"></i>
-                    <span class="nav-search-bar d-sm-none text-white-50 nav-link">Search</span>
+                    <i class="fas fa-search text-white-50 fa-2x d-none d-lg-inline-block"></i>
+                    <span class="nav-search-bar d-lg-none text-white-50 nav-link">Search</span>
                 </span>
                 <div id="overlaySearchBar" class="overlay">
                     <a href="javascript:void(0)" id="navSearchClose" class="close-nav-search">&times;</a>
@@ -58,11 +58,11 @@
             </li>
             <li class="nav-item my-auto">
                 <a class="nav-link" href="{% url 'view_cart' %}">
-                    <i class="fa fa-shopping-bag text-white-50 fa-2x d-none d-sm-inline-block"></i>
+                    <i class="fa fa-shopping-bag text-white-50 fa-2x d-none d-lg-inline-block"></i>
                     {% if product_count > 0 %}
-                        <label class="badge badge-success d-none d-sm-inline-block">{{ product_count }}</label>
+                        <label class="badge badge-success d-none d-lg-inline-block">{{ product_count }}</label>
                     {% endif %}
-                    <span class="text-white-50 d-sm-none py-2">Checkout
+                    <span class="text-white-50 d-lg-none py-2">Checkout
                     {% if product_count == 1 %}
                         ({{ product_count }} item)
                     {% elif product_count > 1 %}
@@ -82,7 +82,7 @@
                 <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
             {% endif %}
         </ul>
