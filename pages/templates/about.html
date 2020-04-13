@@ -16,37 +16,69 @@
 
 {% block content %}
 
-<div class="cotnaier-fluid about-dark mt-4">
+<div class="container-fluid px-0">
     <div class="row">
-        <div class="col-6">
-            <div class="row">
-                <div class="col">
-                    <img class="d-block w-100" src="{{ MEDIA_URL }}images/gym/person-holding-barbell.jpg" alt="First slide">
+        <div class="col-5">
+            <div class="row mt-4">
+                <div class="col-8 ml-auto">
+                    <img class="d-block w-100" src="{{ MEDIA_URL }}images/gym/person-holding-barbell.jpg" alt="Picture of XYfitness">
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-7">
             <div class="row pl-4 mt-3">
-                <div class="col">
+                <div class="col-10">
                     <div class="pr-5 mt-2">
                         <h1 class="">A bit about me...</h1>
-                        <p class="mt-4 text-white">My name is XYfitness, I am class Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        <p class="mt-3">My name is XYfitness, I am class Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Pariatur at odio fugiat tenetur accusamus animi, inventore, perspiciatis alias, dolorum sed 
                         numquam nam necessitatibus! Veniam dicta fugiat excepturi doloremque consequatur voluptatibus?</p>
-                        <p class="mt-3 text-white mb-3">My name is XYfitness, I am class Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        <p class="mt-3 mb-3">My name is XYfitness, I am class Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Pariatur at odio fugiat tenetur accusamus animi, inventore, perspiciatis alias, dolorum sed 
                         numquam nam necessitatibus! Veniam dicta fugiat excepturi doloremque consequatur voluptatibus?</p>
-                        <h1 class="mt-5">Why train with me?</h1>
-                        <p class="mt-4 text-white">My name is XYfitness, I am class Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Pariatur at odio fugiat tenetur accusamus animi, inventore, perspiciatis alias, dolorum sed 
-                        numquam nam necessitatibus! Veniam dicta fugiat excepturi doloremque consequatur voluptatibus?</p>
-                        <p class="mt-4 text-white">
-                            Check out some <a class="text-white" href="{% url 'all_reviews' %}"><u>results</u></a> from customers and see for yourself!
+                        <p class="mt-3">
+                            Check out some <a href="{% url 'all_reviews' %}"><u>results</u></a> from customers and see for yourself!
                         </p>
-                        <p class="mt-5">
-                            <a class="text-white contact-me-button btn btn-outline-primary" href="{% url 'contact' %}">Contact</a>
+                        <p class="mt-4">
+                            <a class=" btn btn-outline-primary" href="{% url 'contact' %}">Contact</a>
                         </p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-4 grey-bg">
+        <div class="col-7 my-5 mx-auto centered">
+            <div class="row">
+                <div class="col my-5">
+                    <h2 class="bold border-bottom w-50 mx-auto p-2">How we work</h2>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col">
+                    <h3>1. Beginning</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Odio eos repellendus, magni delectus iure, consequuntur vero 
+                    voluptatibus tenetur minima labore voluptates minus distinctio 
+                    fuga porro libero ipsam culpa quod eius.</p>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col">
+                    <h3>2. Middle Bit</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Odio eos repellendus, magni delectus iure, consequuntur vero 
+                    voluptatibus tenetur minima labore voluptates minus distinctio 
+                    fuga porro libero ipsam culpa quod eius.</p>
+                </div>
+            </div>
+            <div class="row mt-2 mb-5">
+                <div class="col">
+                    <h3>3. End</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Odio eos repellendus, magni delectus iure, consequuntur vero 
+                    voluptatibus tenetur minima labore voluptates minus distinctio 
+                    fuga porro libero ipsam culpa quod eius.</p>
                 </div>
             </div>
         </div>
