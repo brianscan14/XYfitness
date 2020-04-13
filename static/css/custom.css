@@ -181,8 +181,22 @@ input[type="text"].nav-search-form::-moz-placeholder {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 400px;
 }
 
+.test-para {
+    height: 220px;
+    overflow-y: hidden;
+    vertical-align: middle;
+
+}
+
+@media screen and (max-width: 450px) {
+.test-para {
+    height: 190px;
+    overflow-y: hidden;
+}
+}
 
 /* about page */
 
