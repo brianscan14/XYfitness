@@ -160,6 +160,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    background-attachment: fixed;
 }
 
 .main-pic-text {
@@ -181,14 +182,13 @@ input[type="text"].nav-search-form::-moz-placeholder {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     height: 400px;
 }
 
 .test-para {
     height: 220px;
     overflow-y: hidden;
-    vertical-align: middle;
-
 }
 
 @media screen and (max-width: 450px) {
