@@ -198,6 +198,24 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 }
 
+.fa-instagram:hover {
+    color: #b72f80;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+.fa-facebook:hover {
+    color: #3b5998;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+.fa-youtube:hover {
+    color: #bb0000;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+}
+
 /* about page */
 
 
