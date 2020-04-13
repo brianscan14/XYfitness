@@ -9,18 +9,58 @@
                 <div class="main-pic-text p-3">
                     <h1 class="text-white hero-heading p-3 border-bottom">XYfitness</h1>
                     <h3 class="p-3 my-5 text-white"><em>Build the foundations for a better you..</em></h3>
-                    <a href="{% url 'products' %}" class="contact-me-button btn btn-outline-primary p-3 mt-3">Start your journey today</a>
+                    <a href="{% url 'products' %}" class="contact-btn btn btn-outline-primary p-3 mt-3">Start your journey today</a>
                 </div>
             </div>
 		</div>
 	</div>
 </div>
 
+
+<div class="container centered">
+    <div class="my-5 row">
+        <div class="col mx-auto">
+            <h1 class="border-bottom w-50 mx-auto p-3"><em>What we do</em></h1>
+        </div>
+    </div>
+    <div class="row my-4 ">
+        <div class="col-4 mx-auto">
+            <i class="fas fa-dumbbell fa-4x"></i>
+            <h5 class="my-3">Build strength</h5>
+            <p class="my-3 p-2">get buff
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Earum vero labore sequi, nostrum perferendis officia sint ipsum voluptatum, 
+            sit quae sapiente fuga incidunt? Quisquam maiores, error qui voluptas reiciendis minus.</p>
+        </div>
+        <div class="col-4 mx-auto">
+            <i class="fas fa-utensils fa-4x"></i>
+            <h5 class="my-3">Smarter Eating</h5>
+            <p class="my-3 p-2">70%
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Earum vero labore sequi, nostrum perferendis officia sint ipsum voluptatum, 
+            sit quae sapiente fuga incidunt? Quisquam maiores, error qui voluptas reiciendis minus.</p>
+        </div>
+        <div class="col-4 mx-auto">
+            <i class="fas fa-brain fa-4x"></i>
+            <h5 class="my-3">Improve mentality</h5>
+            <p class="my-3 p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Earum vero labore sequi, nostrum perferendis officia sint ipsum voluptatum, 
+            sit quae sapiente fuga incidunt? Quisquam maiores, error qui voluptas reiciendis minus.</p>
+        </div>
+    </div>
+    <div class="my-5 row">
+        <div class="col mx-auto">
+            <a href="{% url 'products' %}" class=" btn btn-outline-primary  mt-3">Find out more</a>
+        </div>
+    </div>
+</div>
+
+
 {% if reviews %}
-<div class="container-fluid my-4">
+<div class="container-fluid my-4 testimonials-cont" style="background-image: url('{{ MEDIA_URL }}images/gym/gray-barbel-plates.jpg')">
     <div class="row mt-5 mb-3">
         <div class="col-4 mx-auto">
-            <h1 class="centered index-tests-header border-bottom pb-2">
+            <h1 class="centered index-tests-header border-bottom pb-2 mt-4">
                 <em>What My Clients Say:</em>
             </h1>
         </div>
