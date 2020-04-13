@@ -8,10 +8,10 @@
 
     <div class="row mt-5">
         <div class="col-4 mr-auto">
-            <a class="" href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> All products</a>
+            <a href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> All products</a>
         </div>
         <div class="col-4 ml-auto">
-            <div class="">
+            <div>
                 <p class="text-right mb-4">Total items in basket : {{ product_count }}</p>
                 <p class="text-right">
                     {% if product_count == 0 %}
