@@ -21,11 +21,11 @@
 			<div class="col">
 				<h5 class="mt-2">
 					{% if product.productreview_set.count == 0 %}
-					No reviews for this product,
+					No reviews for this product
 					{% elif product.productreview_set.count == 1 %}
-					{{ product.productreview_set.count }} review for product,
+					{{ product.productreview_set.count }} review for product
 					{% elif product.productreview_set.count > 1 %}
-					{{ product.productreview_set.count }} total reviews,
+					{{ product.productreview_set.count }} total reviews
 					{% endif %}
 					<a class="text-muted" href="{% url 'review_prod' product.id %}" role="button" aria-pressed="true"><u>Add Review</u></a>
                 </h5>
