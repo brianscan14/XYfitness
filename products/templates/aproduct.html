@@ -4,9 +4,11 @@
         <div class="row">
             <div class="col pl-4">
                 <div id="breadcrumbs" class="bread">
-                    <a href="/">Home </a> - 
+                    <a href="/">Home </a> 
+                        <i class="fas fa-long-arrow-alt-right"></i> 
                     <a href="{% url 'products' %}">Products </a>
-                    - {{ product.name }}
+                        <i class="fas fa-long-arrow-alt-right"></i> 
+                        {{ product.name }}
                 </div>
             </div>
         </div>

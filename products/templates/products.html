@@ -5,12 +5,13 @@
         <div class="row my-3">
             <div class="col pl-4">
                 <div id="breadcrumbs" class="bread">
-                    <a href="/">Home </a> / 
+                    <a href="/">Home </a> 
+                        <i class="fas fa-long-arrow-alt-right"></i> 
                     <a href="{% url 'products' %}">Products </a>
                     {% if '/products/plans/' in request.path %}
-                    / Plans
+                        <i class="fas fa-long-arrow-alt-right"></i> Plans
                     {% elif '/products/apparel/' in request.path %}
-                    / Apparel 
+                        <i class="fas fa-long-arrow-alt-right"></i> Apparel 
                     {% endif %}
                 </div>
             </div>
