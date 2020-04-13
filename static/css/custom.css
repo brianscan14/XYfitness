@@ -40,10 +40,8 @@
 
 /* navbar  */
 
-
-
-.navbar {
-    background-color: #1E1E24;
+.navbar-brand {
+    font-size: 30px;
 }
 
 .profile-image {
@@ -153,10 +151,10 @@ input[type="text"].nav-search-form::-moz-placeholder {
 
 
 .main-pic {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-   rgba(0, 0, 0, 0.5)), 
-   url("https://image.shutterstock.com/image-illustration/gym-weights-under-strong-dramatic-260nw-472696720.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+   rgba(0, 0, 0, 0.4));
   height: 85vh;
+  background-color: rgba(0, 0, 0, 0.801);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -357,4 +355,8 @@ span{
 
 .dark-border {
     border-bottom: 1px solid rgba(68, 66, 65, 0.553);
+}
+
+.darkest-bg {
+    background-color: rgba(0, 0, 0, 0.904);
 }
