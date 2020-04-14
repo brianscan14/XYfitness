@@ -25,10 +25,7 @@
         <div class="col-8 mx-auto">
             <div class="border-bottom p-2">
                 <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title | title |truncatewords:3 }}</h4>
-                <p class="my-1">{{ review.content | capfirst }}
-                {% if review.before_picture and review.after_picture %}
-                    <a href="{% url 'single_review' review.id %}"><u>see pics here</u></a>.
-                {% endif %}
+                <p class="my-1">"{{ review.content | capfirst }}"
                 </p>
                 <p class="my-2 float-right pr-3">{{ review.date|date:"F, Y" }}</p>
                 {% if request.user == review.author %}
@@ -38,7 +35,9 @@
                 {% endif %}
                     <img class="user-image" src="{{ MEDIA_URL }}{{ review.image }}">
                 </p>
-                <p class="mb-2 pl-3"><a href="{% url 'single_review' review.id %}">View Post</a></p>
+                {% if review.before_picture and review.after_picture %}
+                <p class="mb-2"><a href="{% url 'single_review' review.id %}">View Before & After Pics</a></p>
+                {% endif %}
             </div>
         </div>
     </div>
