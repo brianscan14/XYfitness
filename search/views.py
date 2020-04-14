@@ -10,4 +10,3 @@ def search(request):
         return redirect(reverse('products'))
     else:
         return render(request, "searchresults.html", {"products": results})
-
