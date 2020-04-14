@@ -84,7 +84,11 @@ def profile(request):
 @login_required
 def update_profile(request):
     if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+        form = ProfileUpdateForm(
+            request.POST,
+            request.FILES,
+            instance=request.user
+        )
         if form.is_valid():
             form.save()
             messages.success(request, f'Account updated.')
