@@ -1,6 +1,8 @@
 /* general css */
 
-
+html {
+    scroll-behavior: smooth;
+}
 .centered {
     text-align: center;
 }
@@ -11,7 +13,6 @@
 
 .vh-full {
     height: 70vh;
-    overflow-y: scroll;
 }
 
 /* scroll back to top */
