@@ -66,3 +66,71 @@ The hero image on the index page take up the entire and lets the user know the p
 - PostgreSQL
 - SQlite
 - Many More..
+
+## Features
+
+#### *Elements common to all pages*
+
+##### Navbar:
+
+The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better recipe viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
+
+*Small screen*:
+
+The navbar is a burger icon with a vertical collapsible list of the pages when clicked to easily navigate the website. The pages pop down in a list form under the header as a collapsible list and the user can can click one of these and they are brought to said page. The shopping bag and search icons here are just words, so as to not disturb the uniformity of the collapsible content list. The shopping bag title has the number of items currently in the bag in brackets after the title.
+
+*Larger screen:*
+
+For bigger screens the navbar is displayed as a list of titles of the pages in a horizontal fashion. Again, the overlay for searching can be called by clicking the search icon. In larger screens this and the shopping bag icon are pushed to the right side of the nav, along with the user's profile name if signed in. If not signed in the the profile is replaced by register or login titles. The shopping bag icon attached a green badge to it when an item is added to the cart to signify how many items are currently in it.
+
+##### Footer:
+
+
+
+**Scroll Top button**
+
+This button appears on all screen sizes but is mainly for use with the smaller screens as a handy means for the user to scroll to the top of the screen when clicked. It will appear after 80px of scrolling as an 'up' directional arrow which will allow the user to know its function. Once clicked it bring you back to the start of the page. It also changes colour on hover to notify the user that it is clickable and uses CSS to position itself at the bottom right of the screen, with a higher z-index to make sure it isn't covered by any html content.
+
+**Search Icon**
+
+The navbar uses a search icon in the shape of a magnifying glass which when clicked will call an overlay that covers the whole page. This overlay has less opacity to still show the user the page they were on, but in the 'background'. The overlay itself keeps to the pages colour scheme and consists of a search bar with a simple search button. This search bar searches the DB for recipe names or ingredients that match the sting searched.
+
+**Color Scheme**
+
+
+
+#### Home Page
+
+##### Hero Image
+
+
+
+## Features to implement
+
+
+
+## Information Architecture
+
+### 
+
+## Credits
+
+### Content
+
+All text on XYfitness was written by me.
+
+### Media
+
+All images on this site were sourced from [Pexels](https://www.pexels.com/photo/burger-and-vegetables-placed-on-brown-wood-surface-1565982/)
+
+### Code
+
+The overlay for the search icon click was originally found [here](https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp) and heavily modified for my page.
+
+### Acknowledgments
+
+I would like to thank the CI tutors for all of their help throughout the course of this project, and my mentor, Simen.
+
+### Disclaimer
+
+This website and its content are for educational purposes only
