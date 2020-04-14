@@ -9,7 +9,7 @@
                 <div id="breadcrumbs" class="bread">
                     <a href="/">Home </a> 
                         <i class="fas fa-long-arrow-alt-right"></i> 
-                    <a href="{% url 'all_reviews' %}">Testimonials</a>
+                    <a href="{% url 'testimonials' %}">Testimonials</a>
                 </div>
             </div>
         </div>
@@ -32,13 +32,13 @@
                 </p>
                 <p class="my-2 float-right pr-3">{{ review.date|date:"F, Y" }}</p>
                 {% if request.user == review.author %}
-                    <p class="my-3">{{ review.author.first_name | capfirst }} "{{ review.author }}" (you!)
+                    <p class="my-3 pl-1">{{ review.author.first_name | capfirst }} "{{ review.author }}" (you!)
                 {% else %}
-                    <p class="my-3">{{ review.author.first_name | capfirst }} "{{ review.author }}"
+                    <p class="my-3 pl-1">{{ review.author.first_name | capfirst }} "{{ review.author }}"
                 {% endif %}
                     <img class="user-image" src="{{ MEDIA_URL }}{{ review.image }}">
                 </p>
-                <p class="mb-2"><a href="{% url 'single_review' review.id %}">View Post</a></p>
+                <p class="mb-2 pl-3"><a href="{% url 'single_review' review.id %}">View Post</a></p>
             </div>
         </div>
     </div>
