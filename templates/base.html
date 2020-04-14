@@ -31,11 +31,11 @@
             {% for message in messages %}
                 {% if message.tags == "success" %}
                 <div class="alert alert-light mb-0">
-                    {{ message }}
+                    {{ message|capfirst }}
                 </div>
                 {% elif message.tags == "error" %}
-                <div class="alert alert-danger mb-0">
-                    {{ message }}
+                <div class="alert alert-dark mb-0">
+                    {{ message|capfirst }}
                 </div>
                 {% endif %}
             {% endfor %}
