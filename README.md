@@ -102,11 +102,11 @@ This button appears on all screen sizes but is mainly for use with the smaller s
 
 **Search Icon**
 
-The navbar uses a search icon in the shape of a magnifying glass which when clicked will call an overlay that covers the whole page. This overlay has less opacity to still show the user the page they were on, but in the 'background'. The overlay itself keeps to the pages colour scheme and consists of a search bar with a simple search button. This search bar searches the DB for recipe names or ingredients that match the sting searched.
+The navbar uses a search icon in the shape of a magnifying glass which when clicked will call an overlay that covers the whole page. This overlay has less opacity to still show the user the page they were on, but in the 'background'. The overlay itself keeps to the pages colour scheme and consists of a search bar with a simple search button. This search bar searches the DB for products that match the sting searched.
 
 **Color Scheme**
 
-
+The site conforms to a very uniform colour scheme across the entire page, there are slight variations on buttons or icons hover but mainly just opacity changes. The scheme mainly stems from the following [Bootstrap theme](https://bootswatch.com/lux/), which gives the page the intended professional/cool design desired, convincing the customers to us this page. [Coolors](https://coolors.co/) website was used for the varying background colours, seen in the [about](https://xyfitness.herokuapp.com/page/about/) and [home](https://xyfitness.herokuapp.com/) pages, for example. This scheme is employed throughout the website and gives the user a more pleasant and immersive viewing experience. 
 
 #### Home Page
 
