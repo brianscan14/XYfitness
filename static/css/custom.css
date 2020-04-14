@@ -333,14 +333,19 @@ input[type="text"].nav-search-form::-moz-placeholder {
     border-radius: 4px;
 }
 
-.plus {
+.plus, .minus {
     cursor: grab;
-    color: blue;
+    color: rgba(0, 0, 0, 0.931);
     }
 
-.minus {
+.minus:hover {
     cursor: grab;
-    color: blue;
+    color: rgba(136, 134, 134, 0.931);
+}
+
+.plus:hover {
+    cursor: grab;
+    color: rgba(136, 134, 134, 0.931);
 }
 
 span{
