@@ -11,6 +11,7 @@
 
 .vh-full {
     height: 70vh;
+    overflow-y: scroll;
 }
 
 /* scroll back to top */
