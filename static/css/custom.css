@@ -406,3 +406,7 @@ span{
 .darkest-bg {
     background-color: rgba(0, 0, 0, 0.904);
 }
+
+.container, .container-fluid {
+    overflow-x: hidden;
+}
