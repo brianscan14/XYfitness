@@ -30,7 +30,7 @@
         <div class="messages">
             {% for message in messages %}
                 {% if message.tags == "success" %}
-                <div class="alert alert-success mb-0">
+                <div class="alert alert-light mb-0">
                     {{ message }}
                 </div>
                 {% elif message.tags == "error" %}
