@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth import update_session_auth_hash
-from accounts.forms import UserLoginForm, UserRegistrationForm, ProfileUpdateForm, ProfilePic
+from accounts.forms import (
+    UserLoginForm, UserRegistrationForm, ProfileUpdateForm, ProfilePic
+)
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
@@ -23,8 +25,10 @@ def login(request):
         login_form = UserLoginForm(request.POST)
 
         if login_form.is_valid():
-            user = auth.authenticate(username=request.POST['username'],
-                                    password=request.POST['password'])
+            user = auth.authenticate(
+                username=request.POST['username'],
+                password=request.POST['password']
+            )
             messages.success(request, "You have successfully logged in!")
 
             if user:
@@ -48,8 +52,10 @@ def register(request):
 
         if registration_form.is_valid():
             registration_form.save()
-            user = auth.authenticate(username=request.POST['username'],
-                                     password=request.POST['password1'])
+            user = auth.authenticate(
+                username=request.POST['username'],
+                password=request.POST['password1']
+            )
             user.profile_pic = request.FILES['profile_pic']
             Profile.objects.create(
                 user=user,
@@ -66,7 +72,8 @@ def register(request):
         registration_form = UserRegistrationForm()
 
     return render(request, 'register.html', {
-        "registration_form": registration_form})
+        "registration_form": registration_form
+    })
 
 
 @login_required
@@ -84,8 +91,7 @@ def update_profile(request):
             return redirect('profile')
     else:
         form = ProfileUpdateForm(instance=request.user)
-    return render(request, 'update.html', {
-        "form": form})
+    return render(request, 'update.html', {"form": form})
 
 
 @login_required
@@ -99,8 +105,7 @@ def update_profile_pic(request):
             return redirect('profile')
     else:
         form = ProfilePic(instance=request.user)
-    return render(request, 'profilepic.html', {
-        "form": form})
+    return render(request, 'profilepic.html', {"form": form})
 
 
 @login_required
@@ -116,6 +121,4 @@ def update_password(request):
             messages.error(request, 'Error, please correct')
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'password.html', {
-        'form': form
-    })
+    return render(request, 'password.html', {'form': form})
