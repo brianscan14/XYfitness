@@ -35,7 +35,7 @@ The hero image on the index page take up the entire and lets the user know the p
 
 
 
-## Technologies (add links)
+## Technologies
 
 ### Front End
 
