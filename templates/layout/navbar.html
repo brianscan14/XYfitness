@@ -7,13 +7,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            {% with request.resolver_match.url_name as url_name %}
+            <li class="nav-item {% if url_name == 'home' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if url_name == 'about' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown {% if url_name == 'products' or url_name == 'sort' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" 
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -23,10 +24,10 @@
                     <a class="dropdown-item" href="{% url 'apparel' %}">Apparel</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'all_reviews' %}">Testimonials</a>
+            <li class="nav-item {% if url_name == 'testimonials' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if url_name == 'contact' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
             {% if user.is_authenticated %}
@@ -38,8 +39,8 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item my-auto">
                 <span class="nav-search-bar" id="navSearchOpen">
-                    <i class="fas fa-search text-white-50 fa-2x d-none d-lg-inline-block"></i>
-                    <span class="nav-search-bar d-lg-none text-white-50 nav-link">Search</span>
+                    <i class="fas fa-search fa-2x d-none d-lg-inline-block"></i>
+                    <span class="nav-search-bar d-lg-none nav-link">Search</span>
                 </span>
                 <div id="overlaySearchBar" class="overlay">
                     <a href="javascript:void(0)" id="navSearchClose" class="close-nav-search">&times;</a>
@@ -56,13 +57,13 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item my-auto">
+            <li class="nav-item my-auto {% if url_name == 'view_cart' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'view_cart' %}">
-                    <i class="fa fa-shopping-bag text-white-50 fa-2x d-none d-lg-inline-block"></i>
+                    <i class="fa fa-shopping-bag fa-2x d-none d-lg-inline-block"></i>
                     {% if product_count > 0 %}
                         <label class="badge badge-success d-none d-lg-inline-block">{{ product_count }}</label>
                     {% endif %}
-                    <span class="text-white-50 d-lg-none py-2">Checkout
+                    <span class="d-lg-none py-2">Checkout
                     {% if product_count == 1 %}
                         ({{ product_count }} item)
                     {% elif product_count > 1 %}
@@ -72,19 +73,20 @@
                 </a>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
+            <li class="nav-item my-auto {% if url_name == 'profile' %}active{% endif %}">
                 <a class="nav-link p-0" href="{% url 'profile' %}">{{ user }}
                     <img class="profile-image" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}">
                 </a>
             </li>
             {% else %}
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
             {% endif %}
+            {% endwith %}
         </ul>
     </div>
 </nav>
