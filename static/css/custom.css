@@ -32,7 +32,7 @@
 
 #topBtn:hover {
     opacity: 1;
-    color: rgba(233, 231, 220, 0.9);
+    color: rgba(248, 248, 248, 0.9);
     transition: ease-in-out;
     transition-duration: 0.7s;
 }
@@ -107,16 +107,16 @@
 .nav-search-form {
     border: none;
     height: 80px;
-    background-color: rgba(36, 98, 179, 0.601);
+    background-color: rgba(221, 223, 226, 0.401);
     border-radius: 3em;
     font-size: 30px;
     text-align: center;
 }
 
 .nav-search-form:focus {
-    color: #265c92;
+    color: #000000;
     background-color: #fff;
-    border-color: #1d41b8a6;
+    border-color: #f0f0f0a6;
     outline: 0;
     box-shadow: 0 0 0 0.5rem rgba(206, 198, 198, 0);
 }
