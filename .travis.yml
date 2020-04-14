@@ -1,6 +1,6 @@
 language: python
 python:
 - "3.7"
-intall: "pip install requirements.txt"
+intall: "pip3 install requirements.txt"
 script:
 - SECRET_KEY="xyfitness" ./manage.py test
