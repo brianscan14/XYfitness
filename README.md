@@ -1,5 +1,7 @@
 # XYfitness
 
+[![Build Status](https://travis-ci.org/brianscan14/XYfitness.svg?branch=master)](https://travis-ci.org/brianscan14/XYfitness)
+
 This Django website was created as a means for an aspiring personal fitness or "PT" trainer to display their talents or capabilities to the general public, and potentially attract new clients. Whether this results in them purchasing a plan for exercise or routine to follow, or even if they purchase an item of clothing. This results in a revenue stream for the PT and means of getting their product out on the market and their clientele growing in stature. 
 
 Users are encouraged to sign up to the website in order to create a profile, this will allow them to purchase products, leave reviews and the usual profile features by being able to edit their picture, password and add additional details such as first name, email, etc. However the user can still browse many parts of the page freely without needing an account, this is the encourage freedom of the site and to get the user to browse it more and get a feel for it, without being put off by having to sign in straight away. In order to purchase any products the user will then need to create an account. 
@@ -57,15 +59,22 @@ The hero image on the index page take up the entire and lets the user know the p
 - [Django](https://www.djangoproject.com/)
   - Django framework used to build the app.
 - [PIP](https://pip.pypa.io/en/stable/installing/)
-  - To install tools used in the project
-- Travis
-- Stripe
-- AWS S3 Bucket
-- Gunicorn
-- Psycog2
-- PostgreSQL
-- SQlite
-- Many More..
+  - To install tools used in the project.
+- [Travis](https://travis-ci.org/)
+  - To verify build.
+- [Stripe](https://stripe.com/ie)
+  - Online payment platform for taking payments.
+- [AWS S3 Bucket](https://aws.amazon.com/s3/)
+  - To store static files and media content from the site on a server.
+- [Gunicorn](https://gunicorn.org/)
+  - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX, to deploy to Heroku.
+- [Psycog2](https://pypi.org/project/psycopg2/)
+  - PostgreSQL database adapter for Heroku.
+- [PostgreSQL](https://www.postgresql.org/)
+  - Open Source Relational Database for Heroku.
+- [SQlite](https://www.sqlite.org/index.html)
+  - In-process library used when developing the website.
+- More..
 
 ## Features
 
@@ -111,7 +120,7 @@ The navbar uses a search icon in the shape of a magnifying glass which when clic
 
 ## Information Architecture
 
-### 
+
 
 ## Credits
 
