@@ -5,8 +5,15 @@
 
 {% block content %}
 <div class="container my-5 vh-full">
-	<div class="row ">
-		<div class="col-6 mx-auto mt-5">
+    <div class="row mt-5">
+        <div class="col-6 mx-auto centered">
+            {% for error_message in registration_form.errors.items %}
+                Error: {{ error_message|striptags }}
+            {% endfor %}
+        </div>
+    </div>
+	<div class="row mt-3">
+		<div class="col-6 mx-auto">
 			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %} {{ registration_form | as_bootstrap }}
                 <div class="centered">
@@ -16,12 +23,5 @@
 			</form>
 		</div>
 	</div>
-    <div class="row">
-        <div class="col-6 mx-auto">
-            {% for error_field, error_message in registration_form.errors.items %}
-            {{ error_field|striptags }}: {{ error_message|striptags }}
-            {% endfor %}
-        </div>
-    </div>
 </div>
 {% endblock %}
