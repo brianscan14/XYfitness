@@ -134,10 +134,14 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 
 .fa-search:hover {
-    color: rgba(25, 121, 204, 0.877);
+    color: rgba(255, 255, 255, 0.959);
     transition: ease-in-out;
     transition-duration: 0.4s;
     cursor: grab;
+}
+
+.fa-search {
+    color: #8c8c8c;
 }
 
 
