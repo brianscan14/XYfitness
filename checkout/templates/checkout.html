@@ -30,20 +30,20 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="col-12 col-md-7 col-lg-8 mb-5">
             <div class="row">
                 <div class="col-12">
 
                     <div class="row my-3">
                         <div class="col-8 mx-auto border p-2">
-                            <div>
-                                <p class="mb-2">Delivery Address:
+                            <div class="my-4">
+                                <p class="mb-3">Delivery Address:
                                     <a href="{% url 'delivery' %}" class="float-right pr-4" >
                                         <small><u>Change</u></small>
                                     </a>
                                 </p>
-                                <p class="mb-1">{{ name|capfirst }},</p>
-                                <p>{{ address|capfirst }}, {{ town|capfirst }}, {{ county|capfirst }}..</p>
+                                <p class="mb-2">{{ name|capfirst }},</p>
+                                <p class="mb-2">{{ address|capfirst }}, {{ town|capfirst }}, {{ county|capfirst }}..</p>
                             </div>
                         </div>
                     </div>
