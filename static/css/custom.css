@@ -39,6 +39,7 @@ html {
 
 /* navbar  */
 
+
 .navbar-brand {
     font-size: 30px;
 }
@@ -53,6 +54,11 @@ html {
     vertical-align: top;
 }
 
+@media screen and (max-width: 1025px) {
+.nav-item {
+    margin-right: 1em;
+}
+}
 
 /* nav search icon */
 
@@ -194,10 +200,27 @@ input[type="text"].nav-search-form::-moz-placeholder {
     overflow-y: hidden;
 }
 
+@media screen and (min-width: 1025px) {
+.testimonails-row-xs {
+    margin-top: 3em;
+}
+}
+
 @media screen and (max-width: 450px) {
 .test-para {
     height: 190px;
     overflow-y: hidden;
+}
+
+.testimonails-row-xs {
+    margin-top: 0;
+}
+
+.hero-heading {
+    font-size: 40px;
+}
+.hero-sub-heading {
+    font-size: 20px;
 }
 }
 
@@ -218,6 +241,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
 }
+
 
 /* about page */
 
