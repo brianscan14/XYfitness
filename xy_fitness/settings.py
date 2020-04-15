@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'reviews',
+    'sweetify',
 ]
 
 MIDDLEWARE = [
@@ -153,5 +154,7 @@ AWS_DEFAULT_ACL = 'public-read'
 
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
+
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
