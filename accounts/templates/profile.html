@@ -19,11 +19,11 @@
 
 <div class="container my-5 vh-full">
     <div class="row my-2">
-        <div class="col-6 mx-auto centered">
-            <p><img class="before-after-pic" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
+        <div class="col-9 col-md-6 mx-auto centered">
+            <p><img class="img-fluid" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
             <h2>{{ user.username }}</h2>
             <p>{{ user.email }}</p>
-            <p>{{ user.first_name }}</p>
+            <p>"{{ user.first_name }}"</p>
         </div>
     </div>
     <div class="row my-2">
