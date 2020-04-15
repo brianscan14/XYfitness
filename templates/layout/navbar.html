@@ -12,34 +12,45 @@
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item {% if url_name == 'about' %}active{% endif %}">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
+                <a class="nav-link" href="{% url 'about' %}"
+                data-toggle="tooltip" data-placement="bottom" title="Find out more about me">About</a>
             </li>
             <li class="nav-item dropdown {% if url_name == 'products' or url_name == 'sort' %}active{% endif %}">
-                <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" 
+                <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" title="View shop"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
+                    <a class="dropdown-item" href="{% url 'products' %}"
+                    data-toggle="tooltip" data-placement="bottom" title="All Items">All Products</a>
                 <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'plans' %}">Plans</a>
-                    <a class="dropdown-item" href="{% url 'apparel' %}">Apparel</a>
+                    <a class="dropdown-item" href="{% url 'plans' %}"
+                    data-toggle="tooltip" data-placement="bottom" title="Our plans">Plans</a>
+                    <a class="dropdown-item" href="{% url 'apparel' %}"
+                    data-toggle="tooltip" data-placement="bottom" title="Check out our brand!">Apparel</a>
                 </div>
             </li>
             <li class="nav-item {% if url_name == 'testimonials' %}active{% endif %}">
-                <a class="nav-link" href="{% url 'testimonials' %}">Testimonials</a>
+                <a class="nav-link" href="{% url 'testimonials' %}"
+                data-toggle="tooltip" data-placement="bottom" title="See what past customers say">
+                Testimonials</a>
             </li>
-            <li class="nav-item {% if url_name == 'contact' %}active{% endif %}">
+            <li class="nav-item {% if url_name == 'contact' %}active{% endif %}"
+            data-toggle="tooltip" data-placement="bottom" title="Get in touch">
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Log out</a>
+                <a class="nav-link" href="{% url 'logout' %}"
+                data-toggle="tooltip" data-placement="bottom" title="Sign out">
+                    <i class="fas fa-sign-out-alt"></i>Log out
+                </a>
             </li>
             {% endif %}
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item my-auto">
                 <span class="nav-search-bar" id="navSearchOpen">
-                    <i class="fas fa-search fa-2x d-none d-lg-inline-block"></i>
+                    <i class="fas fa-search fa-2x d-none d-lg-inline-block"
+                    data-toggle="tooltip" data-placement="bottom" title="Search products"></i>
                     <span class="nav-search-bar d-lg-none nav-link">Search</span>
                 </span>
                 <div id="overlaySearchBar" class="overlay">
@@ -58,7 +69,8 @@
                 </div>
             </li>
             <li class="nav-item my-auto {% if url_name == 'view_cart' %}active{% endif %}">
-                <a class="nav-link" href="{% url 'view_cart' %}">
+                <a class="nav-link" href="{% url 'view_cart' %}" data-toggle="tooltip"
+                data-placement="bottom" title="View your cart items">
                     <i class="fa fa-shopping-bag fa-2x d-none d-lg-inline-block"></i>
                     {% if product_count > 0 %}
                         <label class="badge badge-success d-none d-lg-inline-block">{{ product_count }}</label>
@@ -74,16 +86,19 @@
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item my-auto {% if url_name == 'profile' %}active{% endif %}">
-                <a class="nav-link p-0" href="{% url 'profile' %}">{{ user }}
+                <a class="nav-link p-0" href="{% url 'profile' %}" data-toggle="tooltip" 
+                data-placement="bottom" title="View Profile">{{ user }}
                     <img class="profile-image" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}">
                 </a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Log In</a>
+                <a class="nav-link" href="{% url 'login' %}" data-toggle="tooltip" data-placement="bottom"
+                title="Sign in to your Account"><i class="fas fa-sign-in-alt"></i> Log In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                <a class="nav-link" href="{% url 'register' %}"
+                data-toggle="tooltip" data-placement="bottom" title="Sign up to the website!">Register</a>
             </li>
             {% endif %}
             {% endwith %}
