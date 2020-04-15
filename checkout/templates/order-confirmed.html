@@ -20,10 +20,10 @@
 
     <div class="container my-5 vh-100">
         <div class="row">
-            <div class="col-6 mx-auto bg-light">
+            <div class="col-9 col-md-6 mx-auto bg-light">
                 <div class="thanks centered my-5 p-3">
-                    <h2 class="my-4 border-bottom p-2 w-50 mx-auto"> Thank you! :)</h2>
-                    <p class="my-4">Your order is being processed, please check your emails for confirmation</p>
+                    <h2 class="my-4 border-bottom p-2 w-75 mx-auto"> Thank you! :)</h2>
+                    <p class="my-4">Your order is being processed, please check your "{{request.user.email}}" for confirmation</p>
                     <div class="centered mt-5">
                         <a href="{% url 'home' %}" class="btn btn-primary btn-md active" role="button"
                         aria-pressed="true">Back to Site</a>
