@@ -20,12 +20,28 @@
 
 {% block content %}
 
-<div class="container mt-5 vh-full">
+<div class="container my-5">
 	<div class="row">
-		<div class="col-6 mx-auto p-2">
-            <div class="row">
+		<div class="col-10 col-md-6 mx-auto p-2">
+            {% if review.before_picture and review.after_picture %}
+                <div class="row mt-5">
+                    <div class="col-12 col-md-6 mx-auto">
+                        <div class="my-3">
+                            <h3 class="centered mb-3">Before..</h3>
+                            <img class="before-after-pic" src="{{ MEDIA_URL }}{{ review.before_picture }}">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mx-auto before-after-border">
+                        <div class="my-3">
+                            <h3 class="centered mb-3">After!</h3>
+                            <img class="before-after-pic" src="{{ MEDIA_URL }}{{ review.after_picture }}">
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row mt-5">
                 <div class="col">
-                    <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title | title }}</h4>
+                    <h4 class="centered border-bottom w-75 mx-auto p-2 mb-3">{{ review.title | title }}</h4>
                 </div>
             </div>
             <div class="row">
@@ -46,20 +62,6 @@
                 {% endif %}
                 </div>
             </div>
-            {% if review.before_picture and review.after_picture %}
-                <div class="row mt-5">
-                    <div class="col-6 mx-auto">
-                        <div class="cool">
-                            <img class="before-after-pic" src="{{ MEDIA_URL }}{{ review.before_picture }}">
-                        </div>
-                    </div>
-                    <div class="col-6 mx-auto">
-                        <div class="cool">
-                            <img class="before-after-pic" src="{{ MEDIA_URL }}{{ review.after_picture }}">
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
             {% if review.author == user %}
                 <div class="row mt-5">
                     <div class="col mx-auto">
