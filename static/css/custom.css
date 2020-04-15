@@ -348,15 +348,14 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 
 .add-review-title {
-    border-bottom: 1px solid #77695F;
+    border-bottom: 1px solid rgb(0, 0, 0);
     width: 60%;
 }
 
 @media screen and (max-width: 770px) {
  .add-review-title {
-    border-bottom: 1px solid #77695F;
-    width: 60%;
-    font-size: 25px;
+    border-bottom: 1px solid rgb(5, 5, 5);
+    width: 80%;
  }
 }
 
@@ -364,6 +363,12 @@ input[type="text"].nav-search-form::-moz-placeholder {
     width: 30px;
     height: 30px;
     border-radius: 15px;
+}
+
+@media screen and (min-width: 450px) {
+.before-after-border {
+    border-left: 1px solid rgb(31, 29, 27);
+}
 }
 
 
