@@ -23,26 +23,26 @@
 <div class="container">
 
 	<div class="row mt-4">
-		<div class="col-6">
+		<div class="col-10 col-md-6 xs-mx-middle">
             <div class="row">
-                <div class="col">
+                <div class="col xs-mx-middle">
                     {% include 'components/prod-image.html' %} 
                 </div>
             </div>
 	    </div>
 
-        <div class="col-6">
+        <div class="col-10 xs-mx-middle col-md-6">
             <div class="row my-2">
                 <div class="col-12">
 
                     <div class="row">
-                        <div class="col-5">
-                            <h3 class="border-bottom pb-2">{{ product.name }}</h3>
+                        <div class="col-12 col-md-5 xs-mx-middle">
+                            <h3 class="border-bottom pb-2 xs-mx-middle">{{ product.name }}</h3>
                         </div>
                     </div>
 
                     <div class="row mt-2 mb-0">
-                        <div class="col-10">
+                        <div class="col-10 xs-mx-middle">
                             <p>{{ product.description|truncatewords:15 }}</p>
                         </div>
                     </div>
@@ -98,7 +98,8 @@
                                         <span class="minus">-</span>
                                     {% endif %}
                                     <span>
-                                        <button class="btn-outline-success" type="submit">Add to Cart</button>
+                                        <button class="btn-outline-success d-none d-sm-inline-block" type="submit">Add to Cart</button>
+                                        <button class="btn-outline-success d-block d-sm-none mt-3 xs-mx-middle" type="submit">Add to Cart</button>
                                     </span>
                                     </div>
                                 </div>
@@ -112,7 +113,7 @@
     </div>
 
     <div class="row my-5 details-nav">
-        <div class="col-11">
+        <div class="col mx-auto">
             {% include 'components/product-info.html' %} 
         </div>
     </div>

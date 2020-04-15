@@ -1,14 +1,14 @@
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-			aria-controls="nav-home" aria-selected="true">Description</a>
+			aria-controls="nav-home" aria-selected="true">Info</a>
 		<a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab"
 			aria-controls="nav-reviews" aria-selected="false">Reviews ({{product.productreview_set.count}})</a>
 		<a class="nav-item nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab"
 			aria-controls="nav-shipping" aria-selected="false">Shipping</a>
         {% if product.category == "A" %}
         <a class="nav-item nav-link" id="nav-size-tab" data-toggle="tab" href="#nav-size" role="tab"
-			aria-controls="nav-size" aria-selected="false">Size info</a>
+			aria-controls="nav-size" aria-selected="false">Size</a>
         {% endif %}
 	</div>
 </nav>
@@ -19,21 +19,21 @@
 	<div class="tab-pane fade " id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
 		<div class="row my-2">
 			<div class="col">
-				<h5 class="mt-2">
+				<h6 class="mt-2">
 					{% if product.productreview_set.count == 0 %}
-					No reviews for this product
+					No reviews
 					{% elif product.productreview_set.count == 1 %}
-					{{ product.productreview_set.count }} review for product
+					{{ product.productreview_set.count }} review
 					{% elif product.productreview_set.count > 1 %}
 					{{ product.productreview_set.count }} total reviews
 					{% endif %}
 					<a class="text-muted" href="{% url 'review_prod' product.id %}" role="button" aria-pressed="true"><u>Add Review</u></a>
-                </h5>
+                </h6>
 			</div>
 		</div>
         {% for review in product.productreview_set.all %}
-		<div class="row my-2 border-bottom">
-			<div class="col my-2 p-3">
+		<div class="row mb-2 border-bottom">
+			<div class="col mb-2 px-3 pt-0">
 				<h4 class="mb-3">{{ review.title }}</h4>
 				<p class="pr-3">{{ review.content }}</p>
 				{% if review.user.first_name %}
