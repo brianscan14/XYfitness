@@ -7,10 +7,10 @@
 <div class="container no-content">
 
     <div class="row mt-5">
-        <div class="col-4 mr-auto">
+        <div class="col-6 col-md-4 mr-auto">
             <a href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> All products</a>
         </div>
-        <div class="col-4 ml-auto">
+        <div class="col-5 col-md-4 ml-auto">
             <div>
                 <p class="text-right mb-4">Total items in basket : {{ product_count }}</p>
                 <p class="float-right">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="row mt-3 mb-5">
-        <div class="col-12 mx-auto">
+        <div class="col mx-auto">
             <h2 class="centered">My Shopping Bag</h2>
         </div>
     </div>
@@ -33,31 +33,59 @@
     {% for item in cart_items %}
     
     <div class="row my-5">
-        <div class="col-2 mx-auto">
-            <div class="div">
+        <div class="col-5 col-lg-2 mx-auto">
+            <div>
                 <a href="{% url 'single_prod' item.product.id %}">
                     <img class="img-fluid cart-prod-pic"  src="{{ MEDIA_URL }}{{ item.product.image1 }}">
                 </a>
             </div>
         </div>
-        <div class="col-1 mx-auto">
-            <div class="div">
+        <div class="col-6 col-lg-1 mx-auto">
+            <div class="d-none d-lg-inline-block">
                 <a href="{% url 'single_prod' item.product.id %}">
                     <p class="mt-2">{{ item.product.name }}</p>
                 </a>
             </div>
+            <div class="row d-lg-none">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-6 mx-auto">
+                            <a href="{% url 'single_prod' item.product.id %}">
+                                <p class="mt-2">{{ item.product.name }}</p>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <div class="float-right text-right">
+                                <form method="post" action="{% url 'del_cart_item' item.product.id %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="sizez" value="{{item.size}}" />
+                                    <button type="submit" class="rounded-circle mt-1"><i class="fas fa-times"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                        <div class="float-right mt-5">
+                            Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         {% if item.product.category == "P" %}
-            <div class="col-5">
-                <div class="div">
-                    <p class="mt-2">
+            <div class="col-12 col-lg-5">
+                <div>
+                    <p class="mt-2 centered">
                         <strong><i>Note:</i></strong> our plans are emailed as a PDF.
                         Please check your email inbox for a copy once order has been placed.
                     </p>
                 </div>
             </div>
         {% else %}
-            <div class="col-5 mx-auto">
+            <div class="col-12 col-lg-5 mx-auto update-input">
                 <form method="post" action="{% url 'change_cart' item.id %}">
                     {% csrf_token %}
                     <div class="row">
@@ -74,7 +102,7 @@
                                     <input type="hidden" name="size" value="D" />
                                     <input type="hidden" name="oldsize" value="{{item.size}}" />
                                 {% else %}
-                                    <select name="size" type="submit" class="form-control mx-auto w-50" data-title="Select size" 
+                                    <select name="size" type="submit" class="form-control mx-auto size-form" data-title="Select size" 
                                     data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                         <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
                                         <option {% if item.size == 'S' %} selected {% endif %} value="S">S</option>
@@ -91,19 +119,19 @@
                     <div class="row">
                         <div class="col mx-auto">
                             <div class="centered">
-                                <button type="submit" class="btn btn-outline-warning mt-5">Update Item</button>
+                                <button type="submit" class="btn btn-outline-primary update-cart">Update Item</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         {% endif %}
-        <div class="col-2 mx-auto">
-            <div class="div text-right pr-5">
+        <div class="col-2 mx-auto d-none d-lg-inline-block">
+            <div class="text-right pr-5">
                 Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
             </div>
         </div>
-        <div class="col-1 mx-auto">
+        <div class="col-1 mx-auto d-none d-lg-inline-block">
             <div class="">
                 <form method="post" action="{% url 'del_cart_item' item.product.id %}">
                     {% csrf_token %}
@@ -117,7 +145,7 @@
 
 
 <div class="row mt-3">
-    <div class="col-4 ml-auto">
+    <div class="col-6 col-md-4 ml-auto">
         <div>
             <p>Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
             <p>Delivery fee: <i class="fas fa-euro-sign float-right"> {{ del_total }}</i></p>

@@ -430,6 +430,26 @@ span{
     min-height: 150px;
 }
 
+.update-cart {
+    margin-top: 4em;
+}
+
+.size-form {
+    width: 50%;
+}
+
+@media screen and (max-width: 769px) {
+.update-cart, .update-input  {
+    margin-top: 1em;
+}
+}
+
+@media screen and (max-width: 450px) {
+.size-form {
+    width: 75%;
+}
+}
+
 /* checkout page */
 
 
