@@ -140,7 +140,23 @@ The 3 means of operation section is next then which gives the user an insight in
 
 The next section then tells the user why our results last, as was previously explained in how the plans work, it is about giving them a fishing rod as opposed to a fish. If the user buys in to this mode of training or thinking then they will know that this is definitely the PT for them. Again, encouraging them to purchases the products.
 
-#### Products page
+#### All products page
+
+The products page features a plane background and all the products in rows of three, the background is so that the customer can see the product easier. This allows for a better viewing experience. The products themselves are displayed as a picture showing it, with a title and rating, if it has one, underneath it, and the price. The picture has a slight shadow to stand out form the background which gradually but very slightly increases to denote to the user that they are hovering over the product. The picture and title themselves are clickable links which brings you to the <u>product page</u>.
+
+The reviews are dependent on whether the product itself has been reviewed by customers on its page. The value returned is an average of all the reviews accumulated for this product. The stars themselves are gotten from [FA's](https://fontawesome.com/start) site, using a conditional statement to determine to number of full / half stars returned. The price is a set price for the respective and is not dependent on product size, only on the product being offered.
+
+The items can then whittled down to their categories, showing them in a different view. These categories consist of "Apparel" or "Plan",  which are the two types of product being offered. The Apparel currently only consists of a training jumper, as the PT's brand expands this offering could turn into a plethora of different branded offerings. The items can then be sorted in these views using the 'sort' button. This button calls a view to sort the contents of the page either, alphabetically a-z and vice versa, or by prices, high to low / low to high.
+
+#### Single product Page
+
+
+
+#### Contact
+
+The contact page is kept relatively simple as it only serves a purpose as a means for the user to get in contact with the PT if they have a query. This is because if they find themselves on this page in the first place then they do not want to be distracted by more text etc. They merely want to send the PT a message, so this page fits that purpose. Is the user is signed in then the form's initial data will have their email in the email field already.  
+
+The message currently gets sent to the backend, being printed in the terminal window, and also gets added to the admin page. This could be set up in settings to send to my Gmail account but it means changing Gmail settings to less secure ones. If this website were to be fully deployed and used as a business then this would be altered and a work email utlised to take full advantage of this feature, and the Django settings altered. 
 
 ## Features to implement
 
