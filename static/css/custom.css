@@ -342,6 +342,11 @@ input[type="text"].nav-search-form::-moz-placeholder {
 .sort-by-xs {
     width: 40%;
 }
+
+.add-cart-button {
+    width: 9em;
+    height: 45px;
+}
 }
 
 /* testimonials */
