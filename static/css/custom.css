@@ -385,7 +385,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
 
 @media screen and (min-width: 450px) {
 .before-after-border {
-    border-left: 1px solid rgb(31, 29, 27);
+    border-left: 1px solid rgba(31, 29, 27, 0.401);
 }
 }
 
