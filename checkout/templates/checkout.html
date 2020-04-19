@@ -71,7 +71,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="col centered">
+                                    {% if total == 0 %}
+                                        <button type="button" class="btn btn-primary mt-4" disabled 
+                                        data-toggle="tooltip" data-placement="right" title="Can't checkout if you've no items!">
+                                            No items in cart
+                                        </button>
+                                    {% else %}
                                         <input class="btn btn-primary mt-4" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                                    {% endif %}
                                     </div>
                                 </div>
                             </div>
