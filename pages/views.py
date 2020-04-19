@@ -7,7 +7,6 @@ from reviews.models import Review
 from .models import Query
 
 
-# Create your views here.
 def home_page(request):
     reviews = {
         'reviews': Review.objects.all().order_by('-date')
@@ -30,7 +29,6 @@ def contact(request):
             form = EmailContactForm()
     else:
         form = EmailContactForm(request.POST)
-        # Query.objects.get_or_create()
         if form.is_valid():
             title = form.cleaned_data['title']
             email = form.cleaned_data['email']
