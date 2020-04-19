@@ -425,6 +425,10 @@ span{
     min-height: 95vh;
 }
 
+.cart-prod-pic {
+    border-radius: 1.5em;
+    min-height: 150px;
+}
 
 /* checkout page */
 
