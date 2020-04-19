@@ -88,18 +88,21 @@
                                 </div>
                                 {% endif %}
                                 <div class="row mt-3">
-                                    <div class="col prod-quantity">
+                                    <div class="col">
                                     {% if product.category == "P" %}
                                         <input type="hidden" name="quantity" value="1" />
                                         <input type="hidden" name="category" value="plan" />
                                     {% else %}
-                                        <input class="product-qty count" name="quantity" type="number" min="1" max="50" value="1" required>
-                                        <span class="plus">+</span>
-                                        <span class="minus">-</span>
+                                        <input class="product-qty form-control add-cart-form" name="quantity"
+                                                type="number" min="1" max="50" value="1" required>
                                     {% endif %}
                                     <span>
-                                        <button class="btn-outline-success d-none d-sm-inline-block" type="submit">Add to Cart</button>
-                                        <button class="btn-outline-success d-block d-sm-none mt-3 xs-mx-middle" type="submit">Add to Cart</button>
+                                        <button class="btn-success d-none d-sm-inline-block add-cart-button " type="submit">
+                                            Add to Cart
+                                        </button>
+                                        <button class="btn-success d-block d-sm-none mt-3 xs-mx-middle add-cart-button" type="submit">
+                                            Add to Cart
+                                        </button>
                                     </span>
                                     </div>
                                 </div>
