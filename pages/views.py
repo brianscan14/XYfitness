@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
 from reviews.models import Review
+from .models import Query
 
 
 # Create your views here.
@@ -29,6 +30,7 @@ def contact(request):
             form = EmailContactForm()
     else:
         form = EmailContactForm(request.POST)
+        # Query.objects.get_or_create()
         if form.is_valid():
             title = form.cleaned_data['title']
             email = form.cleaned_data['email']
@@ -38,5 +40,11 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, "Successfully sent mail")
+            query = Query(
+                title=title,
+                email=email,
+                message=message
+            )
+            query.save()
             return redirect('home')
     return render(request, "contact.html", {'form': form})
