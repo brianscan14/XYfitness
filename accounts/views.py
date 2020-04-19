@@ -11,13 +11,20 @@ from .models import Profile
 
 @login_required
 def logout(request):
+    """logs user out and returns to home page"""
     auth.logout(request)
     messages.success(request, "Successfully logged out")
     return redirect(reverse('home'))
 
 
 def login(request):
-    """Return a login page"""
+    """
+    If user is already logged in a message is displayed telling
+    them this. If they fill in their details correctly they will
+    be logged in, else the errors returned. If the user tried to
+    access a page that requires loggin in then they will be directed
+    to that 'next' page, else returned to home.
+    """
     if request.user.is_authenticated:
         messages.success(request, "Already logged in!")
         return redirect(reverse('home'))
@@ -42,7 +49,14 @@ def login(request):
 
 
 def register(request):
-    """Render the registration page"""
+    """
+    Renders the registration page, if the user somehow gets here
+    when they are already logged in they are returned to home page
+    with a message. Id there are issues with the form then the errors
+    are returned. Upon successful registration the user's profile will
+    also be created, taking from the register form, and the user directed
+    to the home page.
+    """
     if request.user.is_authenticated:
         messages.success(request, "Sure you're already registered! :)")
         return redirect(reverse('home'))
@@ -78,11 +92,13 @@ def register(request):
 
 @login_required
 def profile(request):
+    """Directs user to their profile page."""
     return render(request, 'profile.html')
 
 
 @login_required
 def update_profile(request):
+    """Updates details of the user."""
     if request.method == 'POST':
         form = ProfileUpdateForm(
             request.POST,
@@ -100,6 +116,7 @@ def update_profile(request):
 
 @login_required
 def update_profile_pic(request):
+    """Updates profile picture of the user."""
     profile = get_object_or_404(Profile, user=request.user)
     if request.method == 'POST':
         form = ProfilePic(request.POST, request.FILES, instance=profile)
@@ -114,6 +131,7 @@ def update_profile_pic(request):
 
 @login_required
 def update_password(request):
+    """Updates password of the user using Django form."""
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
