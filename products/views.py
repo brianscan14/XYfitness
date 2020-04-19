@@ -52,7 +52,10 @@ def review_prod(request, pk):
                 return redirect(single_prod, product.pk)
     else:
         form = ProdReviewForm()
-    return render(request, 'prodreview.html', {'form': form})
+    return render(request, 'prodreview.html', {
+        'form': form, 'product': product.pk
+        }
+    )
 
 
 @login_required()
@@ -69,7 +72,11 @@ def edit_review_prod(request, pk):
             return redirect(single_prod, product)
     else:
         form = ProdReviewForm(instance=review)
-    return render(request, 'editprodreview.html', {'form': form})
+
+    return render(request, 'editprodreview.html', {
+        'form': form, 'product': product
+        }
+    )
 
 
 @login_required()
