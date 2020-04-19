@@ -1,6 +1,3 @@
-console.log("Hello world!");
-
-
 /**
  * @scrollToTop
  * This function shows the button when the user scrolls down 80px from top of document
@@ -71,6 +68,24 @@ $('#navSearchClose').click(function(){
     });
 });
 
+
+/**
+ * @goBackPage
+ * This function target the back button and just goes back one page
+ * in the browser's history when clicked
+ */
+
+function goBackPage() {
+    window.history.back();
+    }
+
+$(document).ready(function() {
+$('#backButton').click(function(){
+       goBackPage();
+    });
+});
+
+
 // counter for quantity of prod items 
 
 $(document).ready(function(){
@@ -89,3 +104,5 @@ $(document).ready(function(){
         return false;
     });
 });
+
+
