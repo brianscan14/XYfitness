@@ -6,11 +6,13 @@ from .models import Profile
 
 
 class UserLoginForm(forms.Form):
+    """logs user in, password is hidden"""
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
 
 class UserRegistrationForm(UserCreationForm):
+    """reisters user and is used to create new profile"""
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(
         label='Password Confirmation',
@@ -23,6 +25,10 @@ class UserRegistrationForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2', 'profile_pic']
 
     def clean_email(self):
+        """
+        checks for user of same address and raises error. Also
+        ensure the fields have content in them.
+        """
         email = self.cleaned_data.get('email')
         if not email:
             raise forms.ValidationError(u'Email address must be included.')
@@ -32,6 +38,7 @@ class UserRegistrationForm(UserCreationForm):
         return email
 
     def clean_password2(self):
+        """Compares passwords and raises error if they are not matching"""
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
@@ -45,6 +52,7 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    """Form used to update some details about the user"""
     email = forms.EmailField()
     first_name = forms.CharField()
     username = forms.CharField()
@@ -55,6 +63,7 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 class ProfilePic(forms.ModelForm):
+    """Form used to update profile picture of user"""
 
     class Meta:
         model = Profile
