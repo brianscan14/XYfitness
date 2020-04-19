@@ -8,6 +8,11 @@ from .models import Query
 
 
 def home_page(request):
+    """
+    Returns index page, testimonials added so
+    that the user can see them on this page in a 
+    slideshow
+    """
     reviews = {
         'reviews': Review.objects.all().order_by('-date')
     }
@@ -15,10 +20,15 @@ def home_page(request):
 
 
 def about(request):
+    """Returns about page giving more info about the PT"""
     return render(request, "about.html")
 
 
 def contact(request):
+    """
+    Uses Django mails to send mail to owner, also creates a
+    mail in the admin site to view it there.
+    """
     if request.method == 'GET':
         if request.user.is_authenticated:
             form_filled = {
