@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import ProdReviewForm, ProdSizeForm
 from django.db.models import Avg
 from django.contrib.auth.decorators import login_required
+import sweetify
 
 
 def all_prods(request):
@@ -39,7 +40,15 @@ def review_prod(request, pk):
     if request.method == "POST":
         if ProductReview.objects.filter(user=user, product=product).exists():
             form = ProdReviewForm(request.POST)
-            messages.error(request, "Already reviewed this product!")
+            sweetify.error(
+                request,
+                "Already reviewed this product",
+                icon='info',
+                timer='2500',
+                toast='true',
+                position='center',
+                background='#181818',
+            )
             return redirect(single_prod, product.pk)
         else:
             form = ProdReviewForm(request.POST)
@@ -48,7 +57,14 @@ def review_prod(request, pk):
                 review.product = product
                 form.instance.user = request.user
                 review.save()
-                messages.success(request, "Review Added")
+                sweetify.success(
+                    request,
+                    "Review added, thanking you",
+                    icon='success',
+                    timer='2500',
+                    toast='true',
+                    position='top',
+                )
                 return redirect(single_prod, product.pk)
     else:
         form = ProdReviewForm()
@@ -68,7 +84,14 @@ def edit_review_prod(request, pk):
             review = form.save(commit=False)
             form.instance.user = request.user
             review.save()
-            messages.success(request, "Review updated")
+            sweetify.success(
+                request,
+                "Review updated",
+                icon='success',
+                timer='2500',
+                toast='true',
+                position='top',
+            )
             return redirect(single_prod, product)
     else:
         form = ProdReviewForm(instance=review)
@@ -85,7 +108,14 @@ def delete_prod_review(request, pk):
     product = review.product_id
     if review.user == request.user:
         review.delete()
-        messages.success(request, "Your review was deleted")
+        sweetify.success(
+            request,
+            "Review deleted",
+            icon='success',
+            timer='2500',
+            toast='true',
+            position='center',
+        )
         return redirect(single_prod, product)
 
 
@@ -99,7 +129,7 @@ def apparel(request):
         'stars': stars
     }
     if not results:
-        messages.error(request, "no results for your search")
+        messages.error(request, "No apparel as of yet, that will change soon!")
         return redirect(reverse('products'))
     else:
         return render(request, "products.html", context)
@@ -115,7 +145,7 @@ def plans(request):
         'stars': stars
     }
     if not results:
-        messages.error(request, "no results for your search")
+        messages.error(request, "No plans as of yet, that will change soon!")
         return redirect(reverse('products'))
     else:
         return render(request, "products.html", context)
