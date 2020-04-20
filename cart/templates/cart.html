@@ -119,7 +119,7 @@
                     <div class="row">
                         <div class="col mx-auto">
                             <div class="centered">
-                                <button type="submit" class="btn btn-outline-primary update-cart">Update Item</button>
+                                <button type="submit" class="btn btn-outline-warning update-cart">Update Item</button>
                             </div>
                         </div>
                     </div>
@@ -144,20 +144,18 @@
     {% endfor %}
 
 
-<div class="row mt-3">
+<div class="row my-5">
     <div class="col-6 col-md-4 ml-auto">
-        <div>
-            <p>Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
-            <p>Delivery fee: <i class="fas fa-euro-sign float-right"> {{ del_total }}</i></p>
-            <p>Total <i class="fas fa-euro-sign float-right"> {{ total }}</i></p>
-            <p class="float-right">
-                {% if product_count == 0 %}
-                    <button type="button" class="btn btn-success" disabled>Checkout</button>
-                {% else %}
-                    <a href="{% url 'delivery' %}" class="btn btn-outline-success" role="button">Checkout</a>
-                {% endif %}
-            </p>
-        </div>
+        <p>Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
+        <p>Delivery fee: <i class="fas fa-euro-sign float-right"> {{ del_total }}</i></p>
+        <p>Total <i class="fas fa-euro-sign float-right"> {{ total }}</i></p>
+        <p class="float-right">
+            {% if product_count == 0 %}
+                <button type="button" class="btn btn-success" disabled>Checkout</button>
+            {% else %}
+                <a href="{% url 'delivery' %}" class="btn btn-outline-success" role="button">Checkout</a>
+            {% endif %}
+        </p>
     </div>
 </div>
 
