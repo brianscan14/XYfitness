@@ -39,7 +39,7 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ### Front End
 
-- This project uses Html, JavaScript & CSS programming languages.
+- This project uses Html, JavaScript, Python & CSS programming languages.
 - [Bootstrap](https://getbootstrap.com/)
   - Used to make the website more responsive and streamline the grid layout.
 - [jQuery](https://jquery.com/)
@@ -65,6 +65,10 @@ The hero image on the index page take up the entire and lets the user know the p
   - Online payment platform for taking payments.
 - [AWS S3 Bucket](https://aws.amazon.com/s3/)
   - To store static files and media content from the site on a server.
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#installation)
+  - It enables Python developers to create, configure, and manage AWS services.
+- [Django Storages](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
+  - django-storages is a collection of custom storage backends for Django.
 - [Gunicorn](https://gunicorn.org/)
   - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX, to deploy to Heroku.
 - [Psycog2](https://pypi.org/project/psycopg2/)
@@ -75,6 +79,8 @@ The hero image on the index page take up the entire and lets the user know the p
   - In-process library used when developing the website.
 - [Sweetify](https://github.com/Atrox/sweetify)
   - To return html alerts from user site interactions.
+- [Pillow](https://pillow.readthedocs.io/en/stable/installation.html)
+  - To process img files stored in DB.
 
 ## Features
 
