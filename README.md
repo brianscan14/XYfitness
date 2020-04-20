@@ -176,6 +176,10 @@ The contact page is kept relatively simple as it only serves a purpose as a mean
 
 The message currently gets sent to the backend, being printed in the terminal window, and also gets added to the admin page. This could be set up in settings to send to my Gmail account but it means changing Gmail settings to less secure ones. If this website were to be fully deployed and used as a business then this would be altered and a work email utlised to take full advantage of this feature, and the Django settings altered. 
 
+#### Profile
+
+The user's profile page, if they create one is kept relatively simple with just their picture they used on registration displayed, their username, first name if they added it, email, and then links to update these fields in the center of the page. The user can easily update their email, first name, username,  password or indeed profile picture on this page if they desire. These links redirect the user to the respective form's pages to alter these fields, and they are waterfalled appropriately.
+
 ## Features to implement
 
 
