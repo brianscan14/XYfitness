@@ -158,6 +158,18 @@ The more info section makes use of [Bootstrap's](https://getbootstrap.com/docs/4
 
 Since the clothing item is unisex it will not need a size selection and they are made to order so there is no need for stock counts at this moment in time, see <u>features to implement section</u>. All items will also have a reviews tab, if there are any reviews for the product then they will be in here. Users can easily add a review if they wish here, and give it a rating out of 5, their post will then appear in this section. They can then edit or delete their review if they want to, but it can only be done if their account is the author. The product's rating is then accumulated form these reviews and the average is taken and reflected by the [star](https://fontawesome.com/icons/star?style=solid) icons.
 
+#### Testimonials
+
+##### *All Testimonials*
+
+This is where customers leave their experiences on the page for others to view, whether good or bad, and give their experience for others to see. The content is kept short and sweet and gives a quick synopsis of how they found it. This is a way for potential customers to see how good the PT is and see what they are getting themselves in for. 
+
+The page itself is kept relatively simple with a bright background to ensure the content is as readable as possible for the user. The testimonials consist of a title, the user who posted it, their user image, the date posted (only month and year used here in Django templates) and also if the user has posted a before and after a link to see the review in full is shown. Only is both pictures are included will this link show up. Also if the user viewing the page is the author, a little extra message saying "you!" is put in brackets beside their name. This just means a little more interaction between the page and the user. There is also a button to add a new review at the bottom of the page which calls the add review form.
+
+##### *Single Testimonial*
+
+The full view of the testimonial consists of the same format for the previous page of all the testimonials, except this time the before and after pics are included. These are shown first, as the user has already seen the message content and has clicked this link to see the pictures, the pictures should then be seen first. The pics are separated by a little border on bigger screens. The author name, which is their username in brackets followed by their first name if they put in one, is floated to the right this time. If the current user is the author of the review then they will see links to either edit the review or just delete it.
+
 #### Contact
 
 The contact page is kept relatively simple as it only serves a purpose as a means for the user to get in contact with the PT if they have a query. This is because if they find themselves on this page in the first place then they do not want to be distracted by more text etc. They merely want to send the PT a message, so this page fits that purpose. Is the user is signed in then the form's initial data will have their email in the email field already.  
