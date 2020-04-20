@@ -115,6 +115,7 @@ def delete_prod_review(request, pk):
             timer='2500',
             toast='true',
             position='center',
+            background='#181818',
         )
         return redirect(single_prod, product)
 
