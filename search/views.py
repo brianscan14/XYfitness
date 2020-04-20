@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from products.models import Product
-from django.contrib import messages
+import sweetify
 
 
 def search(request):
@@ -10,7 +10,14 @@ def search(request):
     """
     results = Product.objects.filter(name__icontains=request.GET['query'])
     if not results:
-        messages.error(request, "no results, see if anything matches below")
+        sweetify.error(
+            request,
+            "No results for your search, try one of the below",
+            icon='question',
+            timer='3000',
+            toast='true',
+            position='top',
+        )
         return redirect(reverse('products'))
     else:
         return render(request, "searchresults.html", {"products": results})
