@@ -18,7 +18,7 @@ def logout(request):
         request,
         "Successfully logged out",
         icon='success',
-        timer='3500',
+        timer='2000',
         toast='true',
         position='top-end',
     )
@@ -38,7 +38,7 @@ def login(request):
             request,
             "Already logged in!",
             icon='info',
-            timer='3000',
+            timer='1500',
             toast='true',
             position='center',
             background='#181818',
@@ -56,9 +56,9 @@ def login(request):
                 auth.login(user=user, request=request)
                 sweetify.success(
                     request,
-                    "Welcome back " + user.username,
+                    title="Welcome back " + user.username,
                     icon='success',
-                    timer='3500',
+                    timer='2000',
                     toast='true',
                     position='top-end',
                 )
@@ -84,7 +84,7 @@ def register(request):
             request,
             "Sure you're already registered!",
             icon='info',
-            timer='3000',
+            timer='1500',
             toast='true',
             position='center',
         )
@@ -109,12 +109,12 @@ def register(request):
                 auth.login(user=user, request=request)
                 sweetify.success(
                     request,
-                    "Thank you for registering, enjoy the site",
+                    title='Thank you for registering, why not edit your ' +
+                    '<a href="/accounts/profile/"><u>Profile Page</u></a>?',
                     icon='success',
-                    timer='5000',
                     toast='true',
+                    timer='11000',
                     position='center',
-                    background='#181818',
                 )
                 return redirect(reverse('home'))
             else:
@@ -122,7 +122,7 @@ def register(request):
                     request,
                     "Unable to register your account at this time",
                     icon='warning',
-                    timer='4000',
+                    timer='2000',
                     toast='true',
                     position='center',
                 )
