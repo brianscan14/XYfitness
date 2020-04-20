@@ -510,6 +510,10 @@ span{
     overflow-x: hidden;
 }
 
+.btn-success:hover {
+    background-color: #68AB6E;
+}
+
 @media screen and (max-width: 450px) {
 .xs-mx-middle {
     margin-left: auto;
