@@ -180,6 +180,18 @@ The message currently gets sent to the backend, being printed in the terminal wi
 
 The user's profile page, if they create one is kept relatively simple with just their picture they used on registration displayed, their username, first name if they added it, email, and then links to update these fields in the center of the page. The user can easily update their email, first name, username,  password or indeed profile picture on this page if they desire. These links redirect the user to the respective form's pages to alter these fields, and they are waterfalled appropriately.
 
+#### Cart
+
+The shopping cart uses a context file in order to have its data available on each page. The user will add items to it from the products page and these will the be added to the cart dictionary, for that product's id. When an item is added the badge will appear on the cart icon in the navbar, or for smaller screens the numeric value is returned. If the item being added is a plan then this will not be added twice. If the item id is already in the cart then it will either; update item's quantity in the dictionary if the size is the same, or add another key value pair in the item's dictionary along with the previous one, if the size is different.
+
+In terms of the cart page itself then the products are presented in rows, as most normal shopping carts would be. If the same product (of differing sizes) is in the cart then the different sizes will be presented as another product row to the user. The user is free to update their cart items from this view as they please. they can update the quantity of items if it is a clothes item, or the size either. If the size they are changing it to is already in the cart then the quantity will just just be added to the size they are changing it to, and the previous item deleted form the cart.
+
+If the user wants to just remove an item form the cart then they can do this by just clicking the 'X' button and the cart is updated with the item removed from the dictionary. All these interactions are confirmed to the user by custom [sweetify](https://github.com/Atrox/sweetify) responses, depending on what they have done. The user can then click checkout, which bring them to next step step in the purchase process of filling out delivery details. If there are no items in the cart then this button is disabled and this next step is prevented. The view also determines what type of items are in the cart and if any of the contents contains an 'Apparel' item then the delivery fee of €5 is also added to the total.
+
+#### Checkout
+
+
+
 ## Features to implement
 
 
