@@ -28,7 +28,14 @@
                         <legend class="centered border-bottom w-50 mx-auto mb-3 pb-2">Delivery Details</legend>
                         {{ order_form | as_bootstrap }}
                         <div class="centered my-4">
+                        {% if total == 0 %}
+                            <button type="button" class="btn btn-primary mt-4" disabled 
+                            data-toggle="tooltip" data-placement="right" title="Can't checkout if you've no items!">
+                                No items in cart
+                            </button>
+                        {% else %}
                             <button type="submit" class="btn btn-outline-primary mt-4">Confirm Details</button>
+                        {% endif %}
                         </div>
                     </form>
                 </div>
