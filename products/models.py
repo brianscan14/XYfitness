@@ -8,7 +8,7 @@ class Product(models.Model):
     image2 = models.ImageField(upload_to='images', default='XYfitness image2')
     image3 = models.ImageField(upload_to='images', default='XYfitness image3')
     name = models.CharField(max_length=100, default='XYfitness Product')
-    description = models.TextField(max_length=250)
+    description = models.TextField(max_length=400)
     price = models.DecimalField(max_digits=4, decimal_places=2)
     cats = (
         ('P', 'Plan'),
@@ -26,6 +26,7 @@ class Product(models.Model):
     size = models.CharField(
         max_length=100, choices=sizes, default='OS', verbose_name="size"
     )
+    equipment = models.TextField(max_length=200)
 
     def __str__(self):
         return self.name
