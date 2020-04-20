@@ -54,12 +54,13 @@ class UserRegistrationForm(UserCreationForm):
 class ProfileUpdateForm(forms.ModelForm):
     """Form used to update some details about the user"""
     email = forms.EmailField()
-    first_name = forms.CharField()
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
     username = forms.CharField()
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name']
+        fields = ['username', 'email', 'first_name', 'last_name']
 
 
 class ProfilePic(forms.ModelForm):
