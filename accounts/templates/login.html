@@ -7,12 +7,15 @@
 <div class="container my-5 no-content">
 	<div class="row">
 		<div class="col-9 col-md-5 my-4 mx-auto border">
-            <form method="POST" class="my-5">
+            <form method="POST" class="mt-5">
                 {% csrf_token %} {{ login_form | as_bootstrap}}
                 <div class="centered mt-3">
                     <button type="submit" class="btn btn-primary btn-md active mt-4"
                     aria-pressed="true" role="button">Login</button>
                     <input type="hidden" name="next" value="{{next}}" />
+                </div>
+                <div class="centered mt-5 mb-2">
+                    Don't have an account? <a href="{% url 'register' %}">Sign Up </a>
                 </div>
             </form>
         </div>
