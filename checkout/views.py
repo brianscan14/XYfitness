@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
 from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
 import stripe
+import sweetify
 
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -80,16 +80,37 @@ def checkout(request):
                     card=payment_form.cleaned_data['stripe_id']
                 )
             except stripe.error.CardError:
-                messages.error(request, "Your card was declined!")
+                sweetify.error(
+                    request,
+                    "Your card was declined!",
+                    icon='error',
+                    timer='1500',
+                    toast='true',
+                    position='center',
+                )
 
             if customer.paid:
                 request.session['cart'] = {}
                 return redirect('order_confirm')
             else:
-                messages.error(request, "Unable to take payment")
+                sweetify.error(
+                    request,
+                    "Unable to take payment",
+                    icon='error',
+                    timer='2000',
+                    toast='true',
+                    position='center',
+                )
         else:
             print(payment_form.errors)
-            messages.error(request, "Unable to take a payment with that card!")
+            sweetify.error(
+                request,
+                "Unable to take a payment with that card!",
+                icon='error',
+                timer='1500',
+                toast='true',
+                position='center',
+            )
     else:
         payment_form = MakePaymentForm()
 
