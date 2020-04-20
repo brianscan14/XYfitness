@@ -52,16 +52,16 @@ def login(request):
                 username=request.POST['username'],
                 password=request.POST['password']
             )
-            sweetify.success(
-                request,
-                "Welcome back " + user.username,
-                icon='success',
-                timer='3500',
-                toast='true',
-                position='top-end',
-            )
             if user:
                 auth.login(user=user, request=request)
+                sweetify.success(
+                    request,
+                    "Welcome back " + user.username,
+                    icon='success',
+                    timer='3500',
+                    toast='true',
+                    position='top-end',
+                )
                 return redirect(request.GET.get('next', 'home'))
             else:
                 login_form.add_error(None, "Username or password is incorrect")
