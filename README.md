@@ -188,7 +188,7 @@ The message currently gets sent to the backend, being printed in the terminal wi
 
 #### Profile
 
-The user's profile page, if they create one is kept relatively simple with just their picture they used on registration displayed, their username, first name if they added it, email, and then links to update these fields in the center of the page. The user can easily update their email, first name, username,  password or indeed profile picture on this page if they desire. These links redirect the user to the respective form's pages to alter these fields, and they are waterfalled appropriately.
+The user's profile page, if they create one is kept relatively simple with just their picture they used on registration displayed, their username, first name if they added it, email, and then links to update these fields in the center of the page. The user can easily update their email, first name, username,  password or indeed profile picture on this page if they desire. The Django [password change](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) form is used here for simplicity. These links redirect the user to the respective form's pages to alter these fields, and they are waterfalled appropriately.
 
 #### Cart
 
@@ -207,6 +207,18 @@ The delivery page then consists of a form of which the user fills out in order t
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors.  
 
 If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now.
+
+#### Account
+
+***Login / Logout*** 
+
+The user can effectively login or logout from wherever they are on the site. If they choose to logout they are simply returned to the home page after doing so, with a [sweetify](https://github.com/Atrox/sweetify) alert telling them they what they are after doing. If they choose to login then they will be redirected to a login form where they enter either their username or email and their password. If successful they are either redirected to a page they needed to login to view or else to the home page if not.  A [sweetify](https://github.com/Atrox/sweetify) again greets them with their username in it this time telling them they logged in successfully. 
+
+If there was an error with the login form then they will be shown the error message and they can try again, or reset their password if they forgot. The user can also login using their email if it matches the password/username, if they are already logged in and manage to access this page they are returned to the home screen with a [sweetify](https://github.com/Atrox/sweetify) message telling them this. If the user forgets their password then they can use the Django templates to do so.
+
+**Register**
+
+If a user wishes to make an account, they will be presented with the registration form and its fields; username, email, password (twice) and profile picture for the site. The Django [user creation](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) form is used here to create a user, with the given details. Password is entered twice so they can be checked for correctness in the backend. If the email entered or the username is taken then the form will return an error stating this, any other others are returned at the top of the form. Upon successful registration the user will also have created a profile, which uses the form pic as their profile pic. These details can be altered in the <u>Profile</u> page, if a user is already logged in and gets this page they are returned to the home screen with a [sweetify](https://github.com/Atrox/sweetify) message telling them they already have an account. They will also be encouraged upon successful registration to edit their profile page, in another [sweetify](https://github.com/Atrox/sweetify) message. 
 
 ## Features to implement
 
