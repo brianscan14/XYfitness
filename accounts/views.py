@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import auth, messages
+from django.contrib import auth
 from django.contrib.auth import update_session_auth_hash
 from accounts.forms import (
     UserLoginForm, UserRegistrationForm, ProfileUpdateForm, ProfilePic
@@ -7,13 +7,21 @@ from accounts.forms import (
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+import sweetify
 
 
 @login_required
 def logout(request):
     """logs user out and returns to home page"""
     auth.logout(request)
-    messages.success(request, "Successfully logged out")
+    sweetify.success(
+            request,
+            "Successfully logged out",
+            icon='success',
+            timer='3500',
+            toast='true',
+            position='top-end',
+        )
     return redirect(reverse('home'))
 
 
@@ -26,7 +34,15 @@ def login(request):
     to that 'next' page, else returned to home.
     """
     if request.user.is_authenticated:
-        messages.success(request, "Already logged in!")
+        sweetify.success(
+                request,
+                "Already logged in!",
+                icon='info',
+                timer='3000',
+                toast='true',
+                position='center',
+                background='#181818',
+            )
         return redirect(reverse('home'))
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
@@ -36,8 +52,14 @@ def login(request):
                 username=request.POST['username'],
                 password=request.POST['password']
             )
-            messages.success(request, "You have successfully logged in!")
-
+            sweetify.success(
+                request,
+                "Welcome back " + user.username,
+                icon='success',
+                timer='3500',
+                toast='true',
+                position='top-end',
+            )
             if user:
                 auth.login(user=user, request=request)
                 return redirect(request.GET.get('next', 'home'))
@@ -58,7 +80,14 @@ def register(request):
     to the home page.
     """
     if request.user.is_authenticated:
-        messages.success(request, "Sure you're already registered! :)")
+        sweetify.error(
+                request,
+                "Sure you're already registered!",
+                icon='info',
+                timer='3000',
+                toast='true',
+                position='center',
+            )
         return redirect(reverse('home'))
 
     if request.method == "POST":
@@ -78,10 +107,25 @@ def register(request):
             )
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered")
+                sweetify.success(
+                    request,
+                    "Thank you for registering, enjoy the site",
+                    icon='success',
+                    timer='5000',
+                    toast='true',
+                    position='center',
+                    background='#181818',
+                )
                 return redirect(reverse('home'))
             else:
-                messages.error(request, "Unable to register your account")
+                sweetify.error(
+                    request,
+                    "Unable to register your account at this time",
+                    icon='warning',
+                    timer='4000',
+                    toast='true',
+                    position='center',
+                )
     else:
         registration_form = UserRegistrationForm()
 
@@ -107,7 +151,15 @@ def update_profile(request):
         )
         if form.is_valid():
             form.save()
-            messages.success(request, f'Account updated.')
+            sweetify.success(
+                request,
+                "Account details updated",
+                icon='success',
+                timer='3000',
+                toast='true',
+                position='bottom',
+                background='#181818',
+            )
             return redirect('profile')
     else:
         form = ProfileUpdateForm(instance=request.user)
@@ -122,7 +174,15 @@ def update_profile_pic(request):
         form = ProfilePic(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Profile picture updated.')
+            sweetify.success(
+                request,
+                "Profile picture updated",
+                icon='success',
+                timer='3000',
+                toast='true',
+                position='bottom',
+                background='#181818',
+            )
             return redirect('profile')
     else:
         form = ProfilePic(instance=request.user)
@@ -137,10 +197,25 @@ def update_password(request):
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            messages.success(request, 'Password updated!')
+            sweetify.success(
+                request,
+                "Password updated",
+                icon='success',
+                timer='3000',
+                toast='true',
+                position='bottom',
+                background='#181818',
+            )
             return redirect('profile')
         else:
-            messages.error(request, 'Error, please correct')
+            sweetify.error(
+                request,
+                "Error, please correct",
+                icon='success',
+                timer='3000',
+                toast='true',
+                position='center',
+            )
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'password.html', {'form': form})
