@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import EmailContactForm
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
-from django.contrib import messages
 from reviews.models import Review
 from .models import Query
+import sweetify
 
 
 def home_page(request):
@@ -47,7 +47,14 @@ def contact(request):
                 send_mail(title, message, email, ['admin@hotmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.success(request, "Successfully sent mail")
+            sweetify.success(
+                request,
+                "Thank you, mail successfully sent",
+                icon='success',
+                timer='3500',
+                toast='true',
+                position='top',
+            )
             query = Query(
                 title=title,
                 email=email,
