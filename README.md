@@ -52,7 +52,6 @@ The hero image on the index page take up the entire and lets the user know the p
   - Used to validate the CSS code for all browsers.
 - [Jasmine](https://jasmine.github.io/)
   - To run automated tests for the JS code.
-- More...
 
 ### Back End
 
@@ -74,7 +73,8 @@ The hero image on the index page take up the entire and lets the user know the p
   - Open Source Relational Database for Heroku.
 - [SQlite](https://www.sqlite.org/index.html)
   - In-process library used when developing the website.
-- More..
+- [Sweetify](https://github.com/Atrox/sweetify)
+  - To return html alerts from user site interactions.
 
 ## Features
 
@@ -148,9 +148,15 @@ The reviews are dependent on whether the product itself has been reviewed by cus
 
 The items can then whittled down to their categories, showing them in a different view. These categories consist of "Apparel" or "Plan",  which are the two types of product being offered. The Apparel currently only consists of a training jumper, as the PT's brand expands this offering could turn into a plethora of different branded offerings. The items can then be sorted in these views using the 'sort' button. This button calls a view to sort the contents of the page either, alphabetically a-z and vice versa, or by prices, high to low / low to high.
 
-#### Single product Page
+#### Single product view
 
+This page consists of more information on the product that the user will have clicked into to find out. Firstly the user is presented with a a slideshow of pictures of the product and some summary information about it. These include the title, description which is truncated and contains a link to the more info section, its reviews rating if it has been reviewed and then its price.
 
+Since the items for sale on this site have two variations, apparel or plan, the design and layout subtly differs depending on this factor. The add to cart button is then below this info. If item is apparel the user is presented with a size selection choice and a numeric input value, if a plan then just the button. If the user tries to add the same plan twice they will be notified by [sweetify](https://github.com/Atrox/sweetify) and it won't be re-added to the cart. If it is apparel and the item of the same size is already in the cart then the quantity will just be updated, if different size then it is added as a new key / value pair to the product id's dictionary in  the cart. 
+
+The more info section makes use of [Bootstrap's](https://getbootstrap.com/docs/4.3/components/navs/) tabs and depending on the product category it displays varying data for the product's fields. it consists of an info section, reviews tab, shipping information and/or size information. The info is the full product description, and if it is a plan then "equipment needed" is added here also.  Shipping then just tells the customer how they will receiver the product, if it is a plan then its in PDF format via email, if its apparel then it will be deliver within 10 working days. If the item is apparel then an extra tab for size info will be displayed.
+
+Since the clothing item is unisex it will not need a size selection and they are made to order so there is no need for stock counts at this moment in time, see <u>features to implement section</u>. All items will also have a reviews tab, if there are any reviews for the product then they will be in here. Users can easily add a review if they wish here, and give it a rating out of 5, their post will then appear in this section. They can then edit or delete their review if they want to, but it can only be done if their account is the author. The product's rating is then accumulated form these reviews and the average is taken and reflected by the [star](https://fontawesome.com/icons/star?style=solid) icons.
 
 #### Contact
 
