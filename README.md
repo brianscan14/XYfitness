@@ -112,6 +112,8 @@ The navbar uses a search icon in the shape of a magnifying glass which when clic
 
 **Color Scheme**
 
+![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/xy-scheme.png?raw=true)
+
 The site conforms to a very uniform colour scheme across the entire page, there are slight variations on buttons or icons hover but mainly just opacity changes. The vibrant colour variations stem from that of the weight plates on a barbell, these can be red, blue, green or yellow. The green and yellow has been implemented on this site, green for use on success buttons, yellow for the review stars and also the cart update button. The scheme mainly stems from the following [Bootstrap theme](https://bootswatch.com/lux/), which gives the page the intended professional/cool design desired, convincing the customers to us this page. [Coolors](https://coolors.co/) website was used for the varying background colours, seen in the [about](https://xyfitness.herokuapp.com/page/about/) and [home](https://xyfitness.herokuapp.com/) pages, for example. This scheme is employed throughout the website and gives the user a more pleasant and immersive viewing experience. 
 
 ![Weight Plates](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/gym-plates.jpg?raw=true)
