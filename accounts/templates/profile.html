@@ -20,10 +20,16 @@
 <div class="container my-5 vh-full">
     <div class="row my-2">
         <div class="col-9 col-md-6 mx-auto centered">
-            <p><img class="img-fluid" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
+            <p><img class="img-fluid rounded" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
             <h2>{{ user.username }}</h2>
             <p>{{ user.email }}</p>
-            <p>"{{ user.first_name }}"</p>
+            {% if user.first_name %}
+                <p>" {{ user.first_name | capfirst }}
+                    {% if user.last_name %}
+                        {{ user.last_name | capfirst }}
+                    {% endif %} "
+                </p>
+            {% endif %}
         </div>
     </div>
     <div class="row my-2">
