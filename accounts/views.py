@@ -15,13 +15,13 @@ def logout(request):
     """logs user out and returns to home page"""
     auth.logout(request)
     sweetify.success(
-            request,
-            "Successfully logged out",
-            icon='success',
-            timer='3500',
-            toast='true',
-            position='top-end',
-        )
+        request,
+        "Successfully logged out",
+        icon='success',
+        timer='3500',
+        toast='true',
+        position='top-end',
+    )
     return redirect(reverse('home'))
 
 
@@ -35,14 +35,14 @@ def login(request):
     """
     if request.user.is_authenticated:
         sweetify.success(
-                request,
-                "Already logged in!",
-                icon='info',
-                timer='3000',
-                toast='true',
-                position='center',
-                background='#181818',
-            )
+            request,
+            "Already logged in!",
+            icon='info',
+            timer='3000',
+            toast='true',
+            position='center',
+            background='#181818',
+        )
         return redirect(reverse('home'))
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
@@ -81,13 +81,13 @@ def register(request):
     """
     if request.user.is_authenticated:
         sweetify.error(
-                request,
-                "Sure you're already registered!",
-                icon='info',
-                timer='3000',
-                toast='true',
-                position='center',
-            )
+            request,
+            "Sure you're already registered!",
+            icon='info',
+            timer='3000',
+            toast='true',
+            position='center',
+        )
         return redirect(reverse('home'))
 
     if request.method == "POST":
