@@ -1,9 +1,8 @@
 /**
  * @scrollToTop
  * This function shows the button when the user scrolls down 80px from top of document
- * @topPage
- * This function scrolls to the top of the page when the button is clicked
  */
+
 
 let mybutton = document.getElementById("topBtn");
 
@@ -18,6 +17,13 @@ function scrollToTop() {
     mybutton.style.display = "none";
         }
 }
+
+
+/**
+ * @topPage
+ * This function scrolls to the top of the page when the button is clicked
+ */
+
 
 function topPage() {
     document.body.scrollTo({top: 0, behavior: 'smooth'});
@@ -34,38 +40,35 @@ $(document).ready(function() {
 /**
  * @openSearchBar
  * These functions open the nav search bar by increasing the width of the overlay
- * @closeSearchBar
- * This function closes the nav search bar by decreasing the width of the overlay
  */
+
 
 function openSearchBar() {
     let searchBar = document.getElementById("overlaySearchBar");
     if (searchBar) {
         searchBar.style.width = "100%";
-        }
+    }
 }
 
-function openSearchBarSmall() {
-    document.getElementById("overlaySearchBar").style.width = "100%";
-}
+
+/**
+ * @closeSearchBar
+ * This function closes the nav search bar by decreasing the width of the overlay
+ */
+
 
 function closeSearchBar() {
     document.getElementById("overlaySearchBar").style.width = "0%";
 }
 
+
 $(document).ready(function() {
-
-$('#navSearchOpen').click(function(){
-       openSearchBar();
-    });
-
-$('#navSearchOpenSmall').click(function(){
-       openSearchBarSmall();
-    });
-
-$('#navSearchClose').click(function(){
-       closeSearchBar();
-    });
+    $('#navSearchOpen').click(function(){
+        openSearchBar();
+        });
+    $('#navSearchClose').click(function(){
+        closeSearchBar();
+        });
 });
 
 
@@ -75,9 +78,10 @@ $('#navSearchClose').click(function(){
  * in the browser's history when clicked
  */
 
+
 function goBackPage() {
     window.history.back();
-    }
+}
 
 $(document).ready(function() {
 $('#backButton').click(function(){
@@ -86,19 +90,17 @@ $('#backButton').click(function(){
 });
 
 
-// counter for quantity of prod items 
-
 $(document).ready(function(){
     $('.minus').click(function () {
-        var $input = $(this).parent().find('input');
-        var amount = parseInt($input.val()) - 1;
+        let $input = $(this).parent().find('input');
+        let amount = parseInt($input.val()) - 1;
         amount = amount < 1 ? 1 : amount;
         $input.val(amount);
         $input.change();
         return false;
     });
     $('.plus').click(function () {
-        var $input = $(this).parent().find('input');
+        let $input = $(this).parent().find('input');
         $input.val(parseInt($input.val()) + 1);
         $input.change();
         return false;
