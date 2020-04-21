@@ -206,7 +206,7 @@ The delivery page then consists of a form of which the user fills out in order t
 
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors.  
 
-If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now.
+If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now. The user will also be sent an email upon successful order with their order number, as explained previously in [Contact](#contact) features, this is sent to the backend as this site is not in production, I did not want to change my Gmail settings to less secure ones for now.
 
 #### Account
 
@@ -227,6 +227,8 @@ If this website were to be put into production, and as it becomes more popular, 
 As the site grows and clientele increases, more plans would need to be offered to cover all shapes and sizes, regimes and goals. This would be done in time as the ones currently there are only a few offerings of what it could potentially be. As the number of items in the shop increases also I would implement a pagination system to help with the viewing process of all these products, it is not needed now as there are very little items on offer.
 
 Since there is only one item in the shop currently that is "Apparel", and this item is made to order from the [oneills](https://www.oneills.com/) website (example of what I would use if it were in production). None of them kept in stock by me, but if there were more items on offer this would change, again another model would need to be added with a relationship to the main product one  giving feedback to the customer and letting them know whether the size of their chosen item is in stock or not.
+
+Currently the user gets sent an email upon successful order, however it only a random number which is generated from Django. If this site were in full production and these plans were actual PDF files then this would need to be automated to send out these files to the user for download. Also the items order would be added to it, and a 'view status' tracker to let them know the progress of their items if they were apparels.
 
 ## Information Architecture
 
