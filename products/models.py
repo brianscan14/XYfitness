@@ -4,9 +4,9 @@ from django.utils import timezone
 
 
 class Product(models.Model):
-    image1 = models.ImageField(upload_to='images', default='XYfitness image1')
-    image2 = models.ImageField(upload_to='images', default='XYfitness image2')
-    image3 = models.ImageField(upload_to='images', default='XYfitness image3')
+    image1 = models.ImageField(upload_to='images', default='images/item.jpg')
+    image2 = models.ImageField(upload_to='images', blank=True)
+    image3 = models.ImageField(upload_to='images', blank=True)
     name = models.CharField(max_length=100, default='XYfitness Product')
     description = models.TextField(max_length=400)
     price = models.DecimalField(max_digits=4, decimal_places=2)
