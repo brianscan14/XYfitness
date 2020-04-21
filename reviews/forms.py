@@ -3,6 +3,12 @@ from .models import Review
 
 
 class PostReviewForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': 'Add Testimonial'
+        }),
+        min_length=5
+    )
     content = forms.CharField(widget=forms.Textarea(
         attrs={
             'rows': '8',
