@@ -5,7 +5,7 @@ from .models import Review
 class PostReviewForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': 'Add Testimonial'
+            'placeholder': 'Your Testimonial Title'
         }),
         min_length=5
     )
