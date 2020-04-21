@@ -5,8 +5,11 @@ from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 import stripe
 import sweetify
+import random
 
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -91,7 +94,20 @@ def checkout(request):
 
             if customer.paid:
                 request.session['cart'] = {}
+
+                order_no = random.randint(1, 10000)
+                title = 'Thank you for order at XY, ' + request.user.username
+                email = request.user.email
+                message = 'Your order number is: ' + str(order_no) \
+                        + ', Thank you for using our website, ' \
+                        + 'Total = €' + str(total)
+                try:
+                    send_mail(title, message, email, ['admin@hotmail.com'])
+                except BadHeaderError:
+                    return HttpResponse('Invalid header found.')
+
                 return redirect('order_confirm')
+
             else:
                 sweetify.error(
                     request,
