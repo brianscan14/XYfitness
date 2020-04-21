@@ -37,6 +37,13 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ## Technologies
 
+### Databases
+
+- [PostgreSQL](https://www.postgresql.org/docs/)
+  - Open source relational DB used for production in Heroku.
+- [SQLite](https://www.sqlite.org/docs.html)
+  - SQL DB engine used while developing the site in Django.
+
 ### Front End
 
 - This project uses Html, JavaScript, Python & CSS programming languages.
