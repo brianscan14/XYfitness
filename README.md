@@ -285,11 +285,15 @@ Below is the data base collection:
 
 *Query*
 
-| Title   | DB Key  | Field Validation               | Type      |
-| ------- | ------- | ------------------------------ | --------- |
-| Title   | title   | max_length=30, default='Query' | CharField |
-| Email   | email   | max_length=30, default='User'  | CharField |
-| Message | message | max_length=250                 | TextField |
+| Title     | DB Key  | Field Validation               | Type      |
+| --------- | ------- | ------------------------------ | --------- |
+| Title*    | title   | max_length=30, default='Query' | CharField |
+| Email     | email   | max_length=30, default='User'  | CharField |
+| Message** | message | max_length=400                 | TextField |
+
+*Title given following attributes in forms.py file: min_length=5
+
+**Message given a placeholder from a widget attribute in forms.py file and also: min_length=30
 
 ##### Products
 
@@ -313,32 +317,38 @@ Size choices are either "Default" for a plan, or range from "XS-XL" for apparel 
 
 *Product Review*
 
-| Title   | DB Key  | Field Validation                     | Type          |
-| ------- | ------- | ------------------------------------ | ------------- |
-| Product | product | Product, on_delete=models.CASCADE    | ForeignKey    |
-| Title   | title   | max_length=30, default='User Review' | CharField     |
-| User    | user    | Product, on_delete=models.CASCADE    | ForeignKey    |
-| Content | content | max_length=250                       | TextField     |
-| Date    | date    | default=timezone.now                 | DateTimeField |
-| Rating  | rating  | choices=ratings, default='5'         | IntegerField  |
+| Title     | DB Key  | Field Validation                     | Type          |
+| --------- | ------- | ------------------------------------ | ------------- |
+| Product   | product | Product, on_delete=models.CASCADE    | ForeignKey    |
+| Title*    | title   | max_length=30, default='User Review' | CharField     |
+| User      | user    | Product, on_delete=models.CASCADE    | ForeignKey    |
+| Content** | content | max_length=250                       | TextField     |
+| Date      | date    | default=timezone.now                 | DateTimeField |
+| Rating    | rating  | choices=ratings, default='5'         | IntegerField  |
 
 Rating choices range from values 1-5.
+
+*Title  given a placeholder from a widget attribute in forms.py, and: min_length=5
+
+**Message given a placeholder from a widget attribute in forms.py file, and: min_length=20
 
 ##### Testimonials
 
 *Review*
 
-| Title      | DB Key         | Field Validation                                             | Type          |
-| ---------- | -------------- | ------------------------------------------------------------ | ------------- |
-| Title      | title          | max_length=30, default='Review Title'                        | CharField     |
-| Image      | image          | upload_to='images', default='avatar.jpg'                     | ImageField    |
-| Author     | author         | User, on_delete=models.CASCADE, unique=True                  | OneToOneField |
-| Content    | content        | max_length=250                                               | TextField     |
-| Date       | date           | default=timezone.now                                         | DateTimeField |
-| Before Pic | before_picture | upload_to='images', blank=True, verbose_name=u"Before pic (only add these if you want to)." | ImageField    |
-| After Pic  | after_picture  | upload_to='images', blank=True                               | ImageField    |
+| Title        | DB Key         | Field Validation                                             | Type          |
+| ------------ | -------------- | ------------------------------------------------------------ | ------------- |
+| Title*       | title          | max_length=30, default='Review Title'                        | CharField     |
+| Image        | image          | upload_to='images', default='avatar.jpg'                     | ImageField    |
+| Author       | author         | User, on_delete=models.CASCADE, unique=True                  | OneToOneField |
+| Content**    | content        | max_length=250                                               | TextField     |
+| Date         | date           | default=timezone.now                                         | DateTimeField |
+| Before Pic   | before_picture | upload_to='images', blank=True, verbose_name=u"Before pic (only add these if you want to)." | ImageField    |
+| After Pic    | after_picture  | upload_to='images', blank=True                               | ImageField    |
 
+*Title  given a placeholder from a widget attribute in forms.py, and: min_length=5
 
+**Message given a placeholder from a widget attribute in forms.py file, and: min_length=40
 
 ## Credits
 
