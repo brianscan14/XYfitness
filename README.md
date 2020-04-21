@@ -239,6 +239,105 @@ Currently the user gets sent an email upon successful order, however it only a r
 
 ## Information Architecture
 
+### Database
+
+During the development phases of this project I worked with the [sqlite](https://www.sqlite.org/index.html) DB that Django uses. When the project is deployed it uses the [PostgreSQL](https://www.postgresql.org/) DB in Heroku.
+
+### Data Structure 
+
+Below is the data base collection:
+
+##### Accounts
+
+*Profile*
+
+| Title       | DB Key      | Field Validation                         | Type          |
+| ----------- | ----------- | ---------------------------------------- | ------------- |
+| User        | user        | on_delete=models.CASCADE                 | OneToOneField |
+| Username    | username    | max_length=30, default='User'            | CharField     |
+| Profile Pic | profile_pic | upload_to='images', default='avatar.jpg' | ImageField    |
+
+##### Checkout
+
+*Order*
+
+| Title     | DB Key          | Field Validation                                             | Type         |
+| --------- | --------------- | ------------------------------------------------------------ | ------------ |
+| Full Name | full_name       | max_length=50, blank=False                                   | CharField    |
+| Number    | phone_number    | blank=False                                                  | IntegerField |
+| Country   | country         | max_length=40, blank=False                                   | CharField    |
+| Postcode  | postcode        | max_length=20, blank=True                                    | CharField    |
+| Town      | town_or_city    | max_length=40, blank=Falsea                                  | CharField    |
+| House No. | street_address1 | max_length=40, verbose_name=u'House name / apartment no.', blank=True | CharField    |
+| Townland  | street_address2 | max_length=40, verbose_name=u'Townland', blank=False         | CharField    |
+| County    | county          | max_length=40, blank=False                                   | CharField    |
+| Date      | date            |                                                              | DateField    |
+
+*OrderLineItem*
+
+| Title    | DB Key   | Field Validation    | Type         |
+| -------- | -------- | ------------------- | ------------ |
+| Order    | order    | Order, null=False   | ForeignKey   |
+| Product  | product  | Product, null=False | ForeignKey   |
+| Quantity | quantity | blank=False         | IntegerField |
+
+##### Pages
+
+*Query*
+
+| Title   | DB Key  | Field Validation               | Type      |
+| ------- | ------- | ------------------------------ | --------- |
+| Title   | title   | max_length=30, default='Query' | CharField |
+| Email   | email   | max_length=30, default='User'  | CharField |
+| Message | message | max_length=250                 | TextField |
+
+##### Products
+
+*Product*
+
+| Title       | DB Key      | Field Validation                                             | Type         |
+| ----------- | ----------- | ------------------------------------------------------------ | ------------ |
+| Image one   | image1      | upload_to='images', default='images/item.jpg'                | ImageField   |
+| Image two   | image2      | upload_to='images', blank=True                               | ImageField   |
+| Image three | image3      | upload_to='images', blank=True                               | ImageField   |
+| Name        | name        | name = models.CharField(max_length=100, default='XYfitness Product') | CharField    |
+| Description | description | max_length=400                                               | TextField    |
+| Price       | price       | max_digits=4, decimal_places=2                               | DecimalField |
+| Category    | category    | max_length=30, choices=cats, default='P'                     | CharField    |
+| Size        | size        | max_length=10, choices=sizes, default='D', verbose_name="size" | CharField    |
+| Equipment   | equipment   | max_length=200                                               | TextField    |
+
+Category choices are either "Plan" or "Apparel".
+
+Size choices are either "Default" for a plan, or range from "XS-XL" for apparel items.
+
+*Product Review*
+
+| Title   | DB Key  | Field Validation                     | Type          |
+| ------- | ------- | ------------------------------------ | ------------- |
+| Product | product | Product, on_delete=models.CASCADE    | ForeignKey    |
+| Title   | title   | max_length=30, default='User Review' | CharField     |
+| User    | user    | Product, on_delete=models.CASCADE    | ForeignKey    |
+| Content | content | max_length=250                       | TextField     |
+| Date    | date    | default=timezone.now                 | DateTimeField |
+| Rating  | rating  | choices=ratings, default='5'         | IntegerField  |
+
+Rating choices range from values 1-5.
+
+##### Testimonials
+
+*Review*
+
+| Title      | DB Key         | Field Validation                                             | Type          |
+| ---------- | -------------- | ------------------------------------------------------------ | ------------- |
+| Title      | title          | max_length=30, default='Review Title'                        | CharField     |
+| Image      | image          | upload_to='images', default='avatar.jpg'                     | ImageField    |
+| Author     | author         | User, on_delete=models.CASCADE, unique=True                  | OneToOneField |
+| Content    | content        | max_length=250                                               | TextField     |
+| Date       | date           | default=timezone.now                                         | DateTimeField |
+| Before Pic | before_picture | upload_to='images', blank=True, verbose_name=u"Before pic (only add these if you want to)." | ImageField    |
+| After Pic  | after_picture  | upload_to='images', blank=True                               | ImageField    |
+
 
 
 ## Credits
