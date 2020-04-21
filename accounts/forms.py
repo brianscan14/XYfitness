@@ -18,7 +18,7 @@ class UserRegistrationForm(UserCreationForm):
         label='Password Confirmation',
         widget=forms.PasswordInput
     )
-    profile_pic = forms.ImageField(label='Profile Pic')
+    profile_pic = forms.ImageField(label='Profile Pic', required=False)
 
     class Meta:
         model = User

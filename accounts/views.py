@@ -99,11 +99,14 @@ def register(request):
                 username=request.POST['username'],
                 password=request.POST['password1']
             )
-            user.profile_pic = request.FILES['profile_pic']
+            pic = registration_form.cleaned_data['profile_pic']
+            if not pic:
+                pic = 'images/4648398-blue-steel.jpg'
+            user.profile_pic = pic
             Profile.objects.create(
                 user=user,
                 username=request.POST['username'],
-                profile_pic=request.FILES['profile_pic']
+                profile_pic=pic
             )
             if user:
                 auth.login(user=user, request=request)
