@@ -75,6 +75,7 @@ def checkout(request):
                     )
                     order_line_item.save()
             total = del_total + total
+
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
@@ -82,32 +83,31 @@ def checkout(request):
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id']
                 )
+                if customer.paid:
+                    request.session['cart'] = {}
+
+                    order_no = random.randint(1, 10000)
+                    title = 'Thank you for ordering, ' + request.user.username
+                    email = request.user.email
+                    message = 'Your order number is: ' + str(order_no) \
+                            + ', Thank you for using our website, ' \
+                            + 'Total = €' + str(total)
+                    try:
+                        send_mail(title, message, email, ['admin@hotmail.com'])
+                    except BadHeaderError:
+                        return HttpResponse('Invalid header found.')
+
+                    return redirect('order_confirm')
+
             except stripe.error.CardError:
                 sweetify.error(
                     request,
                     "Your card was declined!",
                     icon='error',
-                    timer='1500',
+                    timer='2500',
                     toast='true',
                     position='center',
                 )
-
-            if customer.paid:
-                request.session['cart'] = {}
-
-                order_no = random.randint(1, 10000)
-                title = 'Thank you for order at XY, ' + request.user.username
-                email = request.user.email
-                message = 'Your order number is: ' + str(order_no) \
-                        + ', Thank you for using our website, ' \
-                        + 'Total = €' + str(total)
-                try:
-                    send_mail(title, message, email, ['admin@hotmail.com'])
-                except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
-
-                return redirect('order_confirm')
-
             else:
                 sweetify.error(
                     request,
