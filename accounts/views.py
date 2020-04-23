@@ -101,7 +101,7 @@ def register(request):
             )
             pic = registration_form.cleaned_data['profile_pic']
             if not pic:
-                pic = 'images/4648398-blue-steel.jpg'
+                pic = 'images/user.png'
             user.profile_pic = pic
             Profile.objects.create(
                 user=user,
@@ -112,8 +112,8 @@ def register(request):
                 auth.login(user=user, request=request)
                 sweetify.success(
                     request,
-                    title='Thank you for registering, why not edit your ' +
-                    '<a href="/accounts/profile/"><u>Profile Page</u></a>?',
+                    title='Thank you for registering, why not edit your  ' +
+                    ' <a href="/accounts/profile/"><u>Profile Page</u></a>?',
                     icon='success',
                     toast='true',
                     timer='11000',
