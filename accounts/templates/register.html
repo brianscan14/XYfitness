@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 
-{% block title %}XYfitenss | Sign Up{% endblock %}
+{% block title %}XYfitness | Sign Up{% endblock %}
 
 {% block content %}
 <div class="container my-5 no-content">
-	<div class="row mt-3 ">
+	<div class="row mt-3">
 		<div class="col-9 col-md-5 mx-auto ">
 			<form method="POST" enctype="multipart/form-data" class="nav-fixed-m-top">
 				{% csrf_token %} {{ registration_form | as_bootstrap }}
