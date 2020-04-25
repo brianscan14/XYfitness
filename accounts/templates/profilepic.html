@@ -26,7 +26,7 @@
 				{% csrf_token %}
 				{{ form | as_bootstrap }}
                 <div class="centered">
-                    <button type="submit" class="btn btn-primary btn-md active mt-4"
+                    <button type="submit" class="btn btn-outline-success mt-4"
                     aria-pressed="true" role="button">Update Picture</button>
                 </div>
 			</form>
@@ -34,7 +34,7 @@
 	</div>
     <div class="row centered my-5">
         <div class="col mt-3">
-            <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-md"
+            <a href="{% url 'profile' %}" class="btn btn-primary btn-md"
             role="button" aria-pressed="true">Cancel</a>	
         </div>
     </div>
