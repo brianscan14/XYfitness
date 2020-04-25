@@ -1,5 +1,6 @@
 /* general css */
 
+
 html {
     scroll-behavior: smooth;
 }
@@ -160,10 +161,12 @@ input[type="text"].nav-search-form::-moz-placeholder {
 
 /* footer */
 
+
 .footer {
     left: 0;
     bottom: 0;
 }
+
 
 /* home page */
 
@@ -347,6 +350,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 }
 
+
 /* testimonials */
 
 
@@ -470,8 +474,51 @@ span{
     background-size: cover;
 }
 
+.checkout-icon, .tick-icon {
+    background-color: rgba(0, 0, 0, 0.925);
+    width: 55px;
+    height: 55px;
+    border-radius: 27px;
+    padding-top: 15px;
+}
+
+.checkout-icon:hover {
+    background-color: rgba(0, 0, 0, 0.525);
+    transition-timing-function: ease-out;
+    transition-duration: 0.6s;
+}
+
+.check-current {
+    background-color: rgba(92, 88, 88, 0.441);
+}
+
+.check-current:hover {
+    background-color: rgba(0, 0, 0, 0.925);
+    transition-timing-function: ease-out;
+    transition-duration: 0.6s;
+}
+
+.check-current:hover i{
+    color: #fff;
+    transition-timing-function: ease-out;
+    transition-duration: 0.6s;
+}
+
+.check-fa {
+    color: #fff;
+}
+
+.icon-current {
+    color: rgba(0, 0, 0, 0.655);
+}
+
+.confirmed {
+    background-color: #68AB6E;
+}
+
 
 /* styling across the page */
+
 
 .bold {
     font-weight: 999;

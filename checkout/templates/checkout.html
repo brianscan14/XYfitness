@@ -16,11 +16,20 @@
 
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
-        <div class="row">
-            <div class="col-10 mx-auto">
-                <div id="breadcrumbs" class="bread centered">
-                    <a href="{% url 'delivery' %}">Delivery </a> -
-                    <a href="{% url 'checkout' %}">Checkout </a>
+        <div class="row my-2">
+            <div class="col-10 col-md-5 mx-auto my-4">
+                <div id="breadcrumbs" class="bread d-flex justify-content-around">
+                    <a class="checkout-icon centered" href="{% url 'delivery' %}">
+                        <i class="fas fa-truck-loading fa-2x check-fa"></i>
+                    </a> 
+                        <i class="fas fa-greater-than fa-2x my-auto"></i>
+                    <a class="checkout-icon centered check-current" href="{% url 'checkout' %}">
+                        <i class="far fa-credit-card fa-2x check-fa icon-current"></i>
+                    </a> 
+                        <i class="fas fa-greater-than fa-2x my-auto"></i> 
+                    <a class="tick-icon centered">
+                        <i class="fas fa-check fa-2x check-fa" ></i>
+                    </a>
                 </div>
             </div>
         </div>
