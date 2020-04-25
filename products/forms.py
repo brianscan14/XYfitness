@@ -1,8 +1,13 @@
 from django import forms
-from .models import ProductReview, Product
+from .models import ProductReview
 
 
 class ProdReviewForm(forms.ModelForm):
+    """
+    Fields for the form used in order to add a
+    review for an item in the shop, rating is a
+    dropdown selection of 1-5.
+    """
     title = forms.CharField(widget=forms.TextInput(
         attrs={
             'placeholder': 'Add Review'
@@ -20,10 +25,3 @@ class ProdReviewForm(forms.ModelForm):
     class Meta:
         model = ProductReview
         fields = ('title', 'content', 'rating')
-
-
-class ProdSizeForm(forms.ModelForm):
-
-    class Meta:
-        model = Product
-        fields = '__all__'

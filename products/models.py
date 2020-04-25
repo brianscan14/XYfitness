@@ -4,6 +4,7 @@ from django.utils import timezone
 
 
 class Product(models.Model):
+    """Fields used for a product item in the shop."""
     image1 = models.ImageField(upload_to='images', default='images/item.jpg')
     image2 = models.ImageField(upload_to='images', blank=True)
     image3 = models.ImageField(upload_to='images', blank=True)
@@ -33,6 +34,7 @@ class Product(models.Model):
 
 
 class ProductReview(models.Model):
+    """Fields used to review an item in the shop."""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=30, default='User Review')
     user = models.ForeignKey(User, on_delete=models.CASCADE)

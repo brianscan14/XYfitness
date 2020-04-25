@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product, ProductReview
 from django.contrib import messages
-from .forms import ProdReviewForm, ProdSizeForm
+from .forms import ProdReviewForm
 from django.db.models import Avg
 from django.contrib.auth.decorators import login_required
 import sweetify
 
 
 def all_prods(request):
+    """Returns all products and their average ratings."""
     products = Product.objects.all()
     stars = Product.objects.annotate(
         avg_review=Avg('productreview__rating'),
@@ -20,21 +21,25 @@ def all_prods(request):
 
 
 def single_prod(request, pk):
+    """Returns single product and its avergae rating."""
     product = get_object_or_404(Product, pk=pk)
     stars = Product.objects.filter(id=pk).annotate(
         avg_review=Avg('productreview__rating')
     )
-    form = ProdSizeForm()
     context = {
         'product': product,
         'stars': stars,
-        'form': form
     }
     return render(request, 'aproduct.html', context)
 
 
 @login_required()
 def review_prod(request, pk):
+    """
+    Allows user to add a review for a product and checks if they've already
+    reviewed it. Returns them to product page with a sweetify alert depending
+    on whether they have or not successfully added a review.
+    """
     product = get_object_or_404(Product, pk=pk)
     user = request.user
     if request.method == "POST":
@@ -76,6 +81,7 @@ def review_prod(request, pk):
 
 @login_required()
 def edit_review_prod(request, pk):
+    """Edits a previous review a user had for a product."""
     review = get_object_or_404(ProductReview, pk=pk)
     product = review.product_id
     if request.method == "POST":
@@ -104,6 +110,7 @@ def edit_review_prod(request, pk):
 
 @login_required()
 def delete_prod_review(request, pk):
+    """Deletes a previous review a user had for a product."""
     review = get_object_or_404(ProductReview, pk=pk)
     product = review.product_id
     if review.user == request.user:
@@ -121,6 +128,7 @@ def delete_prod_review(request, pk):
 
 
 def apparel(request):
+    """Returns a view of all apparel products nad their ratings."""
     results = Product.objects.filter(category__icontains='A')
     stars = Product.objects.annotate(
         avg_review=Avg('productreview__rating'),
@@ -137,6 +145,7 @@ def apparel(request):
 
 
 def plans(request):
+    """Returns a view of all plans nad their ratings."""
     results = Product.objects.filter(category__icontains='P')
     stars = Product.objects.annotate(
         avg_review=Avg('productreview__rating'),
@@ -153,6 +162,7 @@ def plans(request):
 
 
 def sort(request):
+    """Sorts all products view either alphabeticaly or by price."""
     stars = Product.objects.annotate(
         avg_review=Avg('productreview__rating'),
     )
@@ -176,6 +186,9 @@ def sort(request):
 
 
 def sort_apparel(request):
+    """
+    Sorts apparel view of products either alphabeticaly or by price.
+    """
     stars = Product.objects.annotate(
         avg_review=Avg('productreview__rating'),
     )
@@ -200,6 +213,9 @@ def sort_apparel(request):
 
 
 def sort_plans(request):
+    """
+    Sorts view of plan products either alphabeticaly or by price.
+    """
     stars = Product.objects.annotate(
         avg_review=Avg('productreview__rating'),
     )
