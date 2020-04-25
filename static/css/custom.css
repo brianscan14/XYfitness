@@ -503,7 +503,7 @@ span{
 }
 
 .darkest-bg {
-    background-color: rgba(0, 0, 0, 0.904);
+    background-color: rgba(0, 0, 0, 0.955);
 }
 
 .container, .container-fluid {
@@ -520,4 +520,8 @@ span{
     margin-right: auto;
     text-align: center;
 }
+}
+
+.bread, .nav-fixed-m-top {
+    margin-top: 104px;
 }
