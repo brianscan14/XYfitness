@@ -17,6 +17,11 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def delivery(request):
+    """
+    Delivery details of user, 1st step in checkout process. Uses session
+    data in case user want to go back to change detials, adds cart items
+    to page so user can see/edit them too.
+    """
     if request.method == 'POST':
         order_form = OrderForm(request.POST)
         if order_form.is_valid():
@@ -47,6 +52,13 @@ def delivery(request):
 
 @login_required()
 def checkout(request):
+    """
+    Last step in checkout process, if card details filled out correctly then
+    an order item and stripe charge are created, else the error is returned.
+    Sweetify notfies user of the errors, cart items are added to this page also
+    if user wants to change them. successfull payment returns them to thank you
+    page and user receives an email.
+    """
     delivery_details = request.session['delivery_data']
     order_form = OrderForm(delivery_details)
     if request.method == "POST":
@@ -147,4 +159,8 @@ def checkout(request):
 
 @login_required()
 def order_confirm(request):
+    """
+    Returns user to order confirmation page after
+    successful payment for itms.
+    """
     return render(request, "order-confirmed.html")

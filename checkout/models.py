@@ -3,6 +3,7 @@ from products.models import Product
 
 
 class Order(models.Model):
+    """Delivery detials of user who ordered item"""
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.IntegerField(blank=False)
     country = models.CharField(max_length=40, blank=False)
@@ -24,6 +25,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """Returns items ordered in the admin app for this order"""
     order = models.ForeignKey(Order, null=False)
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)
