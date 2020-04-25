@@ -3,6 +3,10 @@ from .models import Review
 
 
 class PostReviewForm(forms.ModelForm):
+    """
+    Fields used for the form a user fills out to add a testimonial.
+    Attributes modified to ensure a better filled out testimonial.
+    """
     title = forms.CharField(widget=forms.TextInput(
         attrs={
             'placeholder': 'Your Testimonial Title'

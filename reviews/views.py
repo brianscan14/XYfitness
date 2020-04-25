@@ -8,6 +8,7 @@ import datetime
 
 
 def all_reviews(request):
+    """Return all testimonials added to the page, order newest first."""
     reviews = {
         'reviews': Review.objects.all().order_by('-date')
     }
@@ -15,12 +16,17 @@ def all_reviews(request):
 
 
 def single_review(request, pk):
+    """Return view of a single testimonial."""
     review = get_object_or_404(Review, pk=pk)
     return render(request, 'single-review.html', {'review': review})
 
 
 @login_required()
 def new_review(request, pk=None):
+    """
+    Either add a new testimonial or edit a previous review on the page
+    if the user is the testimonial author.
+    """
     review = get_object_or_404(Review, pk=pk) if pk else None
     if request.method == "POST":
         form = PostReviewForm(request.POST, request.FILES, instance=review)
@@ -60,6 +66,7 @@ def new_review(request, pk=None):
 
 @login_required()
 def delete_review(request, pk):
+    """Remove testimonial from the page if the user is the author."""
     review = get_object_or_404(Review, pk=pk)
     if review.author == request.user:
         review.delete()

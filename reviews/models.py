@@ -4,6 +4,7 @@ from django.utils import timezone
 
 
 class Review(models.Model):
+    """Fields used for a testimonial the user can add to the site."""
     title = models.CharField(max_length=30, default='Review Title')
     image = models.ImageField(
         upload_to='images', default='images/4648398-blue-steel.jpg'
