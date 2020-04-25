@@ -3,6 +3,11 @@ from products.models import Product
 
 
 def cart_contents(request):
+    """
+    Iterates through the dict items in the cart and returns value for 
+    each product's dict k/v pair. Also adds delivery total to monetary
+    cost of items if there ia an apparel item in the bag.
+    """
     cart = request.session.get('cart', {})
     cart_items = []
     prod_count = 0
