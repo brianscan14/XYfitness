@@ -2,12 +2,10 @@ from django.contrib.auth.models import User
 
 
 class EmailAuth:
-    """use email and password match to authenticate user"""
+    """Authenticates user by matching email and password"""
 
     def authenticate(self, username=None, password=None):
-        """
-        get user from email and verify password
-        """
+        """Get user from email and verify their password."""
 
         try:
             user = User.objects.get(email=username)
@@ -20,9 +18,7 @@ class EmailAuth:
             return None
 
     def get_user(self, user_id):
-        """
-        Django auth system retrieves user instance
-        """
+        """Django auth system retrieves user instance"""
         try:
             user = User.objects.get(pk=user_id)
 
