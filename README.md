@@ -98,6 +98,8 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ![Nav](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav.PNG?raw=true)
 
+![Nav Logged Out](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav-logged-out.PNG?raw=true)
+
 The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better recipe viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
 
 *Small screen*:
