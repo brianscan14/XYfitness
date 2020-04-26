@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/brianscan14/XYfitness.svg?branch=master)](https://travis-ci.org/brianscan14/XYfitness)
 
-This Django website was created as a means for an aspiring personal fitness or "PT" trainer to display their talents or capabilities to the general public, and potentially attract new clients. Whether this results in them purchasing a plan for exercise or routine to follow, or even if they purchase an item of clothing. This results in a revenue stream for the PT and means of getting their product out on the market and their clientele growing in stature. 
+XYfitness acts as a portal for an aspiring personal fitness or "PT" trainer to display their talents or capabilities to the general public, and potentially attract new clients. Whether this results in them purchasing a plan for exercise or routine to follow, or even if they purchase an item of clothing. This results in a revenue stream for the PT and means of getting their product out on the market and their clientele growing in stature. It is  means of them showing off their talents, their results and their approach for all to see.
 
 Users are encouraged to sign up to the website in order to create a profile, this will allow them to purchase products, leave reviews and the usual profile features by being able to edit their picture, password and add additional details such as first name, email, etc. However the user can still browse many parts of the page freely without needing an account, this is the encourage freedom of the site and to get the user to browse it more and get a feel for it, without being put off by having to sign in straight away. In order to purchase any products the user will then need to create an account. 
 
@@ -357,6 +357,83 @@ Rating choices range from values 1-5.
 
 ### Run project locally:
 
+Using a suitable IDE (this project used Gitpod), make sure these are installed:
+
+**[PIP](https://pip.pypa.io/en/stable/installing/), [Python 3](https://www.python.org/downloads/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**
+
+To enable full use of the site locally, ensure that accounts are created with the following:
+
+**[Stripe](https://stripe.com/docs/api)**, **[AWS](https://docs.aws.amazon.com/index.html)**
+
+1. Clone a copy of the [Github repo](https://github.com/brianscan14/Gourmet_Grub) by clicking the "clone" button, this will open the contents of the repo in a new workspace in the IDE. If Git is installed on your system, clone the repo with the following command: 
+
+   - git clone https://github.com/brianscan14/Gourmet_Grub.git
+
+2. Use the python virtual environment (VI) for the interpreter by entering the below command:
+
+   - pip install virtualenv
+
+3. Specify a path, for example one being created in the local directory called 'montypython' is:
+
+   - virtualenv mypython
+
+4. Activate the VI by running the following command:
+
+   1. Mac OS / Linus:
+      - source montypython/bin/activate
+   2. Windows:
+      - montypython\Scripts\activate
+
+   *Note: your commands may differ, depends on IDE used, check [python](https://docs.python.org/3/library/venv.html) docs if you are running into issues*
+
+5. Upgrade pip if it is needed:
+
+   - pip install --upgrade pip
+
+6. Install all the required modules with the command: 
+
+   - pip -r requirements.txt
+
+   *This will also later be needed to setup the **heroku** app*
+
+7. In your local IDE create a file called env.py.
+
+8. Setup the following variables in your env.py file:
+
+   - "GIT_HOSTNAME": "local site hostname"
+   - "HEROKU_HOSTNAME": "**heroku** site url"
+   - "SECRET_KEY": "Django app secret key in settings"
+   - "STRIPE_PUBLISHABLE": "general key gotten from **stripe** site"
+   - "STRIPE_SECRET": "secret key gotten from **stripe** site"
+   - "DATABASE_URL": "postgress url gotten form **heroku** app"
+   - "AWS_SECRET_ACCESS_KEY": "**AWS** S3 secret key"
+   - "AWS_SECRET_KEY_ID": "**AWS** secret key id"
+
+9. Restart machine to active env variables.
+
+10. Run below command in sequence to migrate the DB models:
+
+    - python3 manage.py makemigrations
+
+    *Packages up your model changes into individual migration files*
+
+    - python3 manage.py migrate
+
+    *Applies these changes to the DB*
+
+11. You can now run the app with the command:
+
+    - python3 manage.py runserver
+
+12. You can visit the site at:
+
+    - http://127.0.0.1:8000/
+
+13. Create a superuser to then be able to access the admin functions of this website, and add content to it: 
+
+    - python3 manage.py createsuperuser
+
+    *Add /admin to the site's url to access this admin page, and add/edit content on the site*
 
 ## Credits
 
