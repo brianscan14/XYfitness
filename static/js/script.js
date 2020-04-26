@@ -107,4 +107,9 @@ $(document).ready(function(){
     });
 });
 
-
+$(document).ready(function(){
+    let refer = document.referrer;
+    if (refer.slice(-24)=='?next=/checkout/deliver/') {
+        document.getElementById("urlValue").value = 'shop';
+    }
+});
