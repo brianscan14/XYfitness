@@ -1,5 +1,7 @@
 # XYfitness
 
+![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/index.PNG?raw=true)
+
 [![Build Status](https://travis-ci.org/brianscan14/XYfitness.svg?branch=master)](https://travis-ci.org/brianscan14/XYfitness)
 
 XYfitness acts as a portal for an aspiring personal fitness or "PT" trainer to display their talents or capabilities to the general public, and potentially attract new clients. Whether this results in them purchasing a plan for exercise or routine to follow, or even if they purchase an item of clothing. This results in a revenue stream for the PT and means of getting their product out on the market and their clientele growing in stature. It is  means of them showing off their talents, their results and their approach for all to see.
@@ -512,7 +514,7 @@ Using this **stack** [post](https://stackoverflow.com/questions/38431166/redirec
 
 Update user's password uses the Django [form](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) to update the user's password, along with a tutorial from this [site](https://simpleisbetterthancomplex.com/tips/2016/08/04/django-tip-9-password-change-form.html).
 
-The **Accounts, Cart & Checkout** apps were initilally setup by following CI's tutorials, then changed to suit the purposes of the website.
+The **Accounts, Cart, Reviews & Checkout** apps were initilally setup by following CI's tutorials, then changed to suit the purposes of the website.
 
 ### Acknowledgments
 
