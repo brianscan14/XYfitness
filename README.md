@@ -234,7 +234,7 @@ The delivery page then consists of a form of which the user fills out in order t
 
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors.  
 
-![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirm.PNG?raw=true)
+![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
 
 If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation, the 'tick' icon will also be coloured green now in the breadcrumb. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now. The user will also be sent an email upon successful order with their order number, as explained previously in [Contact](#contact) features, this is sent to the backend as this site is not in production, I did not want to change my Gmail settings to less secure ones for now.
 
