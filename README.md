@@ -14,28 +14,32 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ### User Stories
 
-1. As a new visitor to the website, I want to be easily navigate the site and find information I was looking for in one or two clicks.
-2. As a new visitor, when browsing the site I want the site to be coherent and responsive, whether I am using a laptop, tablet or phone.
-3. As a new visitor, when filling out forms or entering data I want reasonable feedback to tell me whether I was either successful, or unsuccessful, and what the error is. 
-4. As a new visitor, when browsing the website  want it to have a professional feel and make me want to use this PT.
-5. As a new visitor, when searching the site I want to know from other customers whether this PT is a good one or not.
-6. As a new visitor, when browsing the products I want them to be presented to me in a tidy and easily readable/viewable manner.
-7. As a new visitor, when viewing products, I want to get as much information from them as possible to see what the exercise plan may entail or incorporate.
-8. As a new visitor, when browsing the products I want to be able to filter them by their types and sort them by features such as price or name.
-9. As a new visitor, when browsing the site I want to be able to find out more information about the PT in an easy manner without having to go through a myriad of pages or open new browser sessions.
-10. As a potential customer, when browsing the site I want to get a feel of the content that this PT offers, and the information that they offer so that I know the product will be the same.
-11. As a potential customer, when purchasing the product I want to be able to change my mind in the cart if I want a different size or product.
-12. As a potential customer, when purchasing a product I want the user experience to be slick and to flow in the correct, logical manner when putting in my details.
-13. As a potential customer, when purchasing a product, I want my cart items to be viewable when I am filling out my checkout details.
-14. As a returning customer, I want to be able to leave a testimonial or review for a product that I used, and rate it, whether it was good or bad.
-15. As a returning customer, I want to be able to alter or delete my review if I change my mind on the product.
-16. As a returning site user, i want to be able to edit my profile settings or details as I please.
+- As a new visitor to the website, I want to be easily navigate the site and find information I was looking for in one or two clicks.
+- As a new visitor, when browsing the site I want the site to be coherent and responsive, whether I am using a laptop, tablet or phone.
+- As a new visitor, when filling out forms or entering data I want reasonable feedback to tell me whether I was either successful, or unsuccessful, and what the error is. 
+- As a new visitor, when browsing the website  want it to have a professional feel and make me want to use this PT.
+- As a new visitor, when searching the site I want to know from other customers whether this PT is a good one or not.
+- As a new visitor, when browsing the products I want them to be presented to me in a tidy and easily readable/viewable manner.
+- As a new visitor, when viewing products, I want to get as much information from them as possible to see what the exercise plan may entail or incorporate.
+- As a new visitor, when browsing the products I want to be able to filter them by their types and sort them by features such as price or name.
+- As a new visitor, when browsing the site I want to be able to find out more information about the PT in an easy manner without having to go through a myriad of pages or open new browser sessions.
+- As a potential customer, when browsing the site I want to get a feel of the content that this PT offers, and the information that they offer so that I know the product will be the same.
+- As a potential customer, when purchasing the product I want to be able to change my mind in the cart if I want a different size or product.
+- As a potential customer, when purchasing a product I want the user experience to be slick and to flow in the correct, logical manner when putting in my details.
+- As a potential customer, when purchasing a product, I want my cart items to be viewable when I am filling out my checkout details.
+- As a returning customer, I want to be able to leave a testimonial or review for a product that I used, and rate it, whether it was good or bad.
+- As a returning customer, I want to be able to alter or delete my review if I change my mind on the product.
+- As a returning site user, i want to be able to edit my profile settings or details as I please.
 
 ## Wireframes
 
 
 
 ## Technologies
+
+### Languages Used
+
+- This project uses Html, JavaScript, Python & CSS programming languages.
 
 ### Databases
 
@@ -46,7 +50,6 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ### Front End
 
-- This project uses Html, JavaScript, Python & CSS programming languages.
 - [Bootstrap](https://getbootstrap.com/)
   - Used to make the website more responsive and streamline the grid layout.
 - [jQuery](https://jquery.com/)
@@ -80,10 +83,6 @@ The hero image on the index page take up the entire and lets the user know the p
   - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX, to deploy to Heroku.
 - [Psycog2](https://pypi.org/project/psycopg2/)
   - PostgreSQL database adapter for Heroku.
-- [PostgreSQL](https://www.postgresql.org/)
-  - Open Source Relational Database for Heroku.
-- [SQlite](https://www.sqlite.org/index.html)
-  - In-process library used when developing the website.
 - [Sweetify](https://github.com/Atrox/sweetify)
   - To return html alerts from user site interactions.
 - [Pillow](https://pillow.readthedocs.io/en/stable/installation.html)
@@ -107,7 +106,7 @@ For bigger screens the navbar is displayed as a list of titles of the pages in a
 
 ##### Footer:
 
-
+The footer is a simple line of muted text at the bottom of the page that signifies to the users a to who the page was created by. It is fixed to the bottom of the page with CSS positioning. If this page were to be used in production and as the popularity grows in stature then more links would be added to it, such as FAQs, contact links, contat details etc, for now it uses Django's templates to pull in the current date and just show the year.
 
 **Scroll Top button**
 
