@@ -8,7 +8,11 @@ class Order(models.Model):
     phone_number = models.IntegerField(blank=False)
     country = models.CharField(max_length=40, blank=False)
     postcode = models.CharField(max_length=20, blank=True)
-    town = models.CharField(max_length=40, blank=False)
+    town_or_city = models.CharField(
+        verbose_name=u'Town',
+        max_length=40,
+        blank=False
+        )
     street_address1 = models.CharField(
         max_length=40,
         verbose_name=u'House name / apartment no (optional)',

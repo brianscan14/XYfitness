@@ -23,13 +23,13 @@ class MakePaymentForm(forms.Form):
 
 class OrderForm(forms.ModelForm):
     """
-    Fields for user to fill out their delivery detials in the
+    Fields for user to fill out their delivery details in the
     checkout process and move on to payemnt step.
     """
 
     class Meta:
         model = Order
         fields = (
-            'full_name', 'phone_number', 'street_address1',
-            'street_address2', 'town', 'county', 'country', 'postcode',
+            'full_name', 'phone_number', 'street_address1', 'street_address2',
+            'town_or_city', 'county', 'country', 'postcode'
         )
