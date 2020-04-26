@@ -12,12 +12,12 @@
                         <i class="fas fa-truck-loading fa-2x check-fa icon-current"></i>
                     </a> 
                         <i class="fas fa-greater-than fa-2x my-auto"></i>
-                   {% if total == 0 %}
-                    <a class="checkout-icon centered">
-                        <i class="far fa-credit-card fa-2x check-fa icon-current"></i>
+                   {% if total != 0 and request.session.delivery_data %}
+                    <a class="checkout-icon centered" href="{% url 'checkout' %}">
+                        <i class="far fa-credit-card fa-2x check-fa"></i>
                     </a> 
                     {% else %}
-                    <a class="checkout-icon centered" href="{% url 'checkout' %}">
+                    <a class="tick-icon centered">
                         <i class="far fa-credit-card fa-2x check-fa"></i>
                     </a> 
                     {% endif %}
