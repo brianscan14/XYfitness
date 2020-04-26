@@ -210,6 +210,8 @@ The message currently gets sent to the backend, being printed in the terminal wi
 
 #### Profile
 
+![Profile Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/profile.PNG?raw=true)
+
 The user's profile page, if they create one is kept relatively simple with just their picture they used on registration displayed, their username, first name if they added it, email, and then links to update these fields in the center of the page. The user can easily update their email, first name, username,  password or indeed profile picture on this page if they desire. The Django [password change](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) form is used here for simplicity. These links redirect the user to the respective form's pages to alter these fields, and they are waterfalled appropriately.
 
 #### Cart
@@ -240,7 +242,9 @@ If the card is filled out successfully the info is sent to stripe, the cart is e
 
 #### Account
 
-***Login / Logout*** 
+***Login / Logout***
+
+![Login / Register Pages](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/login-register.PNG?raw=true)
 
 The user can effectively login or logout from wherever they are on the site. If they choose to logout they are simply returned to the home page after doing so, with a [sweetify](https://github.com/Atrox/sweetify) alert telling them they what they are after doing. If they choose to login then they will be redirected to a login form where they enter either their username or email and their password. If successful they are either redirected to a page they needed to login to view or else to the home page if not.  A [sweetify](https://github.com/Atrox/sweetify) again greets them with their username in it this time telling them they logged in successfully. 
 
