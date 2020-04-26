@@ -349,6 +349,15 @@ Rating choices range from values 1-5.
 
 **Message given a placeholder from a widget attribute in forms.py file, and: min_length=40
 
+## Testing
+
+[Link to testing.md file](https://github.com/brianscan14/XYfitness/blob/master/testing/TESTING.md)
+
+## Deployment
+
+### Run project locally:
+
+
 ## Credits
 
 ### Content
@@ -357,7 +366,7 @@ All text on XYfitness was written by me.
 
 ### Media
 
-All images on this site were sourced from [Pexels](https://www.pexels.com/photo/burger-and-vegetables-placed-on-brown-wood-surface-1565982/)
+All images on this site were sourced from [Pexels](https://www.pexels.com/photo/burger-and-vegetables-placed-on-brown-wood-surface-1565982/) and [Pixaby](https://pixabay.com/)
 
 ### Code
 
