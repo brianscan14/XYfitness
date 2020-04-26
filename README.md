@@ -498,10 +498,32 @@ All images on this site were sourced from [Pexels](https://www.pexels.com/photo/
 
 The overlay for the search icon click was originally found [here](https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp) and heavily modified for my page.
 
+The counter used in the cart view originated form this [example](https://bootsnipp.com/snippets/2eKOz).
+
+The following **stack** [example](https://stackoverflow.com/questions/39576016/django-1-9-using-django-sessions-in-two-page-forms) helped with figuring out how to use session data for the delivery form in the ckecout process.
+
+**Django** emails were used on the site are from the [docs](https://docs.djangoproject.com/en/3.0/topics/email/).
+
+This **stack** [post](https://stackoverflow.com/questions/46617375/how-do-i-show-an-active-link-in-a-django-navigation-bar-dropdown-list) helped to get the *active* class added to the navbar links when on the page.
+
+The following [example](https://stackoverflow.com/questions/45969679/get-average-of-user-input-ratings-for-different-model-instances-django) from **stack** helped with getting the **average ratings** used on the page for product reviews.
+
+Using this **stack** [post](https://stackoverflow.com/questions/38431166/redirect-to-next-after-login-in-django) I was able to setup the redirect after login seen on the site.
+
+Update user's password uses the Django [form](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) to update the user's password, along with a tutorial from this [site](https://simpleisbetterthancomplex.com/tips/2016/08/04/django-tip-9-password-change-form.html).
+
+The **Accounts, Cart & Checkout** apps were initilally setup by following CI's tutorials, then changed to suit the purposes of the website.
+
 ### Acknowledgments
 
-I would like to thank the CI tutors for all of their help throughout the course of this project, and my mentor, Simen.
+I would like to thank the CI tutors for all of their help throughout the course of this project. 
+
+A special thanks would go to my mentor Simen, who has helped me throughout the course of not just this project, but the entire CI course. 
 
 ### Disclaimer
 
 This website and its content are for educational purposes only
+
+## Contact
+
+Please feel free to contact me at brianscanlon14@gmail.com
