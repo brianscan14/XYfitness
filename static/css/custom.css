@@ -121,7 +121,7 @@ html {
 .nav-search-form {
     border: none;
     height: 80px;
-    background-color: rgba(221, 223, 226, 0.401);
+    background-color: rgba(221, 223, 226, 0.751);
     border-radius: 3em;
     font-size: 30px;
     text-align: center;
@@ -139,12 +139,14 @@ input[type="text"].nav-search-form::-webkit-input-placeholder {
     font-size: 30px;
     font-style: italic;
     text-align: center;
+    color: #3a3a3a;
 }
 
 input[type="text"].nav-search-form::-moz-placeholder {
     font-size: 30px;
     font-style: italic;
     text-align: center;
+    color: #3a3a3a;
 }
 
 .fa-search:hover {
@@ -156,6 +158,11 @@ input[type="text"].nav-search-form::-moz-placeholder {
 
 .fa-search {
     color: #8c8c8c;
+}
+
+.search-button, .search-button:focus, .search-prod {
+    border: hidden;
+    outline-color: transparent;
 }
 
 
