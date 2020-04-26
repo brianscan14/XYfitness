@@ -435,6 +435,55 @@ To enable full use of the site locally, ensure that accounts are created with th
 
     *Add /admin to the site's url to access this admin page, and add/edit content on the site*
 
+### Heroku Deployment:
+
+Follow the below instructions to deploy XYfitness to Heroku:
+
+1. In bash, create requirements file with:
+
+   - pip3 freeze --local > requirements.txt
+
+2. Create a Procfile in the terminal with the command:
+
+   - `web: gunicorn "app name".wsgi:application`
+
+   *Make sure gunicorn is installed with the below command for this to work:*
+
+   - pip3 install gunicorn
+
+   *Update requirements.txt file again if this is not already installed*
+
+3. If you ever use pip3 to install more packages after an initial deploy, you must re-generate the requirements.txt and commit/push to **heroku**
+
+4. Using bash, commit everything:
+
+   - git add .
+   - git commit -m "<Commit Message>"
+
+5. In bash, push to GitHub using: 
+
+   - git push -u origin master
+
+6. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Make sure to set the region to Europe when naming it.
+
+7. From the heroku dashboard of your new app, click on "Deploy" and then "Deployment method" and select GitHub, from there a popup will  appear and you select the appropriate repo.
+
+8. Go to your Heroku account, find the app and open it. Click on setting and then "reveal config vars", set the following config vars:
+
+   - "DISABLE_COLLECTSTATIC": "1"
+   - "SECRET_KEY": "Django app secret key in settings"
+   - "STRIPE_PUBLISHABLE": "general key gotten from **stripe** site"
+   - "STRIPE_SECRET": "secret key gotten from **stripe** site"
+   - "DATABASE_URL": "postgress url gotten form **heroku** app"
+   - "AWS_SECRET_ACCESS_KEY": "**AWS** S3 secret key"
+   - "AWS_SECRET_KEY_ID": "**AWS** secret key id"
+
+9. In the dashboard, click "Deploy", go to "manual" and make sure the master branch is selected and click "Deploy", and the build will begin.
+
+10. Click on "view app" to see the app once this build is complete, this will  bring you to the site.
+
+11. Same as in [local](#run-project-locally), add /admin to the end of the **site's url** and access the admin content on the page.
+
 ## Credits
 
 ### Content
