@@ -110,19 +110,19 @@ def register(request):
             )
             if user:
                 auth.login(user=user, request=request)
-                sweetify.success(
-                    request,
-                    title='Thank you for registering, why not edit your  ' +
-                    '<a href="/accounts/profile/"><u> Profile Page </u></a>',
-                    icon='success',
-                    toast='true',
-                    timer='11000',
-                    position='center',
-                )
                 prev_url = request.POST.get('prevUrl')
                 if prev_url == 'shop':
                     return redirect('view_cart')
                 else:
+                    sweetify.success(
+                        request,
+                        title='Thank you for registering, why not edit your:' +
+                        '<a href="/accounts/profile/"><u>Profile Page</u></a>',
+                        icon='success',
+                        toast='true',
+                        timer='11000',
+                        position='center',
+                    )
                     return redirect(reverse('home'))
             else:
                 sweetify.error(
