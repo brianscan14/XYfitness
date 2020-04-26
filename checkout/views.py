@@ -144,7 +144,7 @@ def checkout(request):
 
     name = request.session['delivery_data']['full_name']
     address = request.session['delivery_data']['street_address2']
-    town = request.session['delivery_data']['town_or_city']
+    town = request.session['delivery_data']['town']
     county = request.session['delivery_data']['county']
 
     return render(request, "checkout.html", {
