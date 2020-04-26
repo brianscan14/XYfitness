@@ -1,6 +1,6 @@
 # XYfitness
 
-![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/index.PNG?raw=true)
+![Hero Image](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/hero.PNG?raw=true)
 
 [![Build Status](https://travis-ci.org/brianscan14/XYfitness.svg?branch=master)](https://travis-ci.org/brianscan14/XYfitness)
 
@@ -96,6 +96,8 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ##### Navbar:
 
+![Nav](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav.PNG?raw=true)
+
 The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better recipe viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
 
 *Small screen*:
@@ -116,6 +118,8 @@ This button appears on all screen sizes but is mainly for use with the smaller s
 
 **Search Icon**
 
+![Overlay](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/overlay.PNG?raw=true)
+
 The navbar uses a search icon in the shape of a magnifying glass which when clicked will call an overlay that covers the whole page. This overlay has less opacity to still show the user the page they were on, but in the 'background'. The overlay itself keeps to the pages colour scheme and consists of a search bar with a simple search button. This search bar searches the DB for products that match the string searched.
 
 **Color Scheme**
@@ -127,6 +131,8 @@ The site conforms to a very uniform colour scheme across the entire page, there 
 ![Weight Plates](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/gym-plates.jpg?raw=true)
 
 #### Home Page
+
+![Home Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/index.PNG?raw=true)
 
 ##### Hero Image
 
@@ -149,6 +155,8 @@ The three pillars of an aspiring fitness trainer's social media platform are the
 This gives the user a quick synopsis of the values and goals of our company. It is an honest statement of what you will get if you work with this PT and tries to give the user a more personal note. Again, this is trying to solidify the user;s trust in this PT and eventually going on to use his services. 
 
 #### About page
+
+![About Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/about.PNG?raw=true)
 
 The about page enkeeps with the previously mentioned home page with the dark background to begin with containing information about what XY is. This is because if the user is a new user to the site, the next logical step is to browse the about section to find out more about this PT and what they stand for. The user is given a quick synopsis of what the company is and how they operate. 
 
@@ -180,15 +188,21 @@ Since the clothing item is unisex it will not need a size selection and they are
 
 ##### *All Testimonials*
 
+![All Testimonials](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/testimonials.PNG?raw=true)
+
 This is where customers leave their experiences on the page for others to view, whether good or bad, and give their experience for others to see. The content is kept short and sweet and gives a quick synopsis of how they found it. This is a way for potential customers to see how good the PT is and see what they are getting themselves in for. 
 
 The page itself is kept relatively simple with a bright background to ensure the content is as readable as possible for the user. The testimonials consist of a title, the user who posted it, their user image, the date posted (only month and year used here in Django templates) and also if the user has posted a before and after a link to see the review in full is shown. Only is both pictures are included will this link show up. Also if the user viewing the page is the author, a little extra message saying "you!" is put in brackets beside their name. This just means a little more interaction between the page and the user. There is also a button to add a new review at the bottom of the page which calls the add review form. If they already had a review, then they will be notified of this by [sweetify](https://github.com/Atrox/sweetify) and redirected to the all testimonials page.
 
 ##### *Single Testimonial*
 
+![Single Testimonial](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/this-testimonial.PNG?raw=true)
+
 The full view of the testimonial consists of the same format for the previous page of all the testimonials, except this time the before and after pics are included. These are shown first, as the user has already seen the message content and has clicked this link to see the pictures, the pictures should then be seen first. The pics are separated by a little border on bigger screens. The author name, which is their username in brackets followed by their first name if they put in one, is floated to the right this time. If the current user is the author of the review then they will see links to either edit the review or just delete it.
 
 #### Contact
+
+![Contact Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/contact.PNG?raw=true)
 
 The contact page is kept relatively simple as it only serves a purpose as a means for the user to get in contact with the PT if they have a query. This is because if they find themselves on this page in the first place then they do not want to be distracted by more text etc. They merely want to send the PT a message, so this page fits that purpose. Is the user is signed in then the form's initial data will have their email in the email field already.  
 
@@ -200,6 +214,8 @@ The user's profile page, if they create one is kept relatively simple with just 
 
 #### Cart
 
+![Cart Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/cart.PNG?raw=true)
+
 The shopping cart uses a context file in order to have its data available on each page. The user will add items to it from the products page and these will the be added to the cart dictionary, for that product's id. When an item is added the badge will appear on the cart icon in the navbar, or for smaller screens the numeric value is returned. If the item being added is a plan then this will not be added twice. If the item id is already in the cart then it will either; update item's quantity in the dictionary if the size is the same, or add another key value pair in the item's dictionary along with the previous one, if the size is different.
 
 In terms of the cart page itself then the products are presented in rows, as most normal shopping carts would be. If the same product (of differing sizes) is in the cart then the different sizes will be presented as another product row to the user. The user is free to update their cart items from this view as they please. they can update the quantity of items if it is a clothes item, or the size either. If the size they are changing it to is already in the cart then the quantity will just just be added to the size they are changing it to, and the previous item deleted form the cart.
@@ -210,9 +226,15 @@ If the user wants to just remove an item form the cart then they can do this by 
 
 The checkout sequence is then divided into two main sections for better user experience. The first being entering the user's delivery details and the second is entering the user's payment card information. On both pages the cart items can be seen with a similar assembly to the previous [cart page](#cart), only a more summarised version. The user can edit these details at any stage and return to the cart with the edit link provided. Throughout the checkout process there is breadcrumb of icons denoting to the user what stage they are at, depending on the stage they can use these to go back and forth.
 
+![Delivery Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/delivery.PNG?raw=true)
+
 The delivery page then consists of a form of which the user fills out in order to proceed to next step. These details are the standard ones of which a user fills out in most online stores to purchases an item. They consist of delivery address, phone number and name. Having these details will allow the site owner know where they will have to deliver the items. Once the user confirms their details they proceed to the next step of payment card information.
 
+![Payment Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/checkout.PNG?raw=true)
+
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors.  
+
+![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirm.PNG?raw=true)
 
 If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation, the 'tick' icon will also be coloured green now in the breadcrumb. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now. The user will also be sent an email upon successful order with their order number, as explained previously in [Contact](#contact) features, this is sent to the backend as this site is not in production, I did not want to change my Gmail settings to less secure ones for now.
 
