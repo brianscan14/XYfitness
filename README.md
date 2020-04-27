@@ -138,21 +138,29 @@ The site conforms to a very uniform colour scheme across the entire page, there 
 
 ##### Hero Image
 
-The user is first presented when the y load the page by a hero image which consists of a darkened brick wall and some hero text as well. The image is taken from [Pexels](https://www.pexels.com/photo/burger-and-vegetables-placed-on-brown-wood-surface-1565982/) and is fixed, it also ties in very well with the sub-text, telling the user to "build a better foundation". It serves a purpose as the user immediately knows what the purpose of this site is from their initial arrival. The button to learn more then scrolls the user down to the section on the page which tells them what this page offers, and how this PT works.
+The user is first presented when they load the page by a hero image which consists of a darkened brick wall and some hero text as well stating the name of the site. The image is taken from [Pexels](https://www.pexels.com/photo/burger-and-vegetables-placed-on-brown-wood-surface-1565982/) and is fixed, it also ties in very well with the sub-text, telling the user to "build a better foundation". It serves a purpose as the user immediately knows what the purpose of this site is from their initial arrival. The button to learn more then scrolls the user down to the section on the page which tells them what this page offers, and how this PT works.
 
 ##### Info Section
+
+![Info](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexinfo.PNG?raw=true)
 
 The next section to scroll to then is what gives the user more of an insight in to how the PT works. This is achieved by stating the 3 pillars of how he operates to improve you on; physically, mentally and eating habits. Each pillar has a little paragraph describing what he means by them and how he plans on improving you in that category. The user is then encouraged to start their journey and click on the button which will then redirect them to the products page.
 
 ##### Testimonials slideshow
 
+![Testimonials](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indextestimonials.PNG?raw=true)
+
 The user is then presented with a series of testimonials from previous clients in a slideshow fashion. Each of these slides will move on themselves after 6 seconds unless clicked by the user to do otherwise. The background image again enkeeps with the theme of the page and is a greyed picture of dumbbells, which is again fixed in order to keep that professional feel. These testimonials act as a means of shoring up any reservations the potential customer may have had about using this PT, and (providing the testimonials are good) will entice them to use this PT and purchases one of the products. In the event of there being no testimonials on the page an inspiration quote with the same background will be used instead.
 
 ##### Social Media
 
+![Social](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexsocialmedia.PNG?raw=true)
+
 The three pillars of an aspiring fitness trainer's social media platform are then linked in the next section with a grey background. These icons send the user to their respective browsers in a new tab and will open up their platform there, where they can explore instructional videos etc. When the user hovers over any of these icons then they will slowly transition to their respective company colours, adding a bit of colour and also denoting to the user the icon is clickable and they are on it. 
 
 ##### Mission Statement
+
+![Mission](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexmission.PNG?raw=true)
 
 This gives the user a quick synopsis of the values and goals of our company. It is an honest statement of what you will get if you work with this PT and tries to give the user a more personal note. Again, this is trying to solidify the user;s trust in this PT and eventually going on to use his services. 
 
