@@ -170,6 +170,8 @@ The next section then tells the user why our results last, as was previously exp
 
 #### All products page
 
+![All Products](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/products.PNG?raw=true)
+
 The products page features a plane background and all the products in rows of three, the background is so that the customer can see the product easier. This allows for a better viewing experience. The products themselves are displayed as a picture showing it, with a title and rating, if it has one, underneath it, and the price. The picture has a slight shadow to stand out form the background which gradually but very slightly increases to denote to the user that they are hovering over the product. The picture and title themselves are clickable links which brings you to the [product page](#single-product-view).
 
 The reviews are dependent on whether the product itself has been reviewed by customers on its page. The value returned is an average of all the reviews accumulated for this product. The stars themselves are gotten from [FA's](https://fontawesome.com/start) site, using a conditional statement to determine to number of full / half stars returned. The price is a set price for the respective and is not dependent on product size, only on the product being offered.
@@ -177,6 +179,8 @@ The reviews are dependent on whether the product itself has been reviewed by cus
 The items can then whittled down to their categories, showing them in a different view. These categories consist of "Apparel" or "Plan",  which are the two types of product being offered. The Apparel currently only consists of a training jumper, as the PT's brand expands this offering could turn into a plethora of different branded offerings. The items can then be sorted in these views using the 'sort' button. This button calls a view to sort the contents of the page either, alphabetically a-z and vice versa, or by prices, high to low / low to high.
 
 #### Single product view
+
+![A Product](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/aproduct.PNG?raw=true)
 
 This page consists of more information on the product that the user will have clicked into to find out. Firstly the user is presented with a a slideshow of pictures of the product and some summary information about it. These include the title, description which is truncated and contains a link to the more info section, its reviews rating if it has been reviewed and then its price.
 
@@ -238,7 +242,7 @@ The delivery page then consists of a form of which the user fills out in order t
 
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors.  
 
-![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
+   ![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
 
 If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation, the 'tick' icon will also be coloured green now in the breadcrumb. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now. The user will also be sent an email upon successful order with their order number, as explained previously in [Contact](#contact) features, this is sent to the backend as this site is not in production, I did not want to change my Gmail settings to less secure ones for now.
 
