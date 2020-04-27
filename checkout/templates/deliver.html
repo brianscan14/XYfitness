@@ -9,21 +9,25 @@
             <div class="col-10 col-md-5 mx-auto my-4">
                 <div id="breadcrumbs" class="bread d-flex justify-content-around">
                     <a class="checkout-icon centered check-current" href="{% url 'delivery' %}">
-                        <i class="fas fa-truck-loading fa-2x check-fa icon-current"></i>
+                        <i class="fas fa-truck-loading fa-2x check-fa icon-current" aria-label="Delivery"
+                        data-toggle="tooltip" data-placement="bottom" title="Delivery Details"></i>
                     </a> 
-                        <i class="fas fa-greater-than fa-2x my-auto"></i>
+                        <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i>
                    {% if total != 0 and request.session.delivery_data %}
                     <a class="checkout-icon centered" href="{% url 'checkout' %}">
-                        <i class="far fa-credit-card fa-2x check-fa"></i>
+                        <i class="far fa-credit-card fa-2x check-fa" aria-label="Credit Card"
+                        data-toggle="tooltip" data-placement="bottom" title="Card Details"></i>
                     </a> 
                     {% else %}
                     <a class="tick-icon centered">
-                        <i class="far fa-credit-card fa-2x check-fa"></i>
+                        <i class="far fa-credit-card fa-2x check-fa" aria-label="Credit Card"
+                        data-toggle="tooltip" data-placement="bottom" title="Card Details"></i>
                     </a> 
                     {% endif %}
-                        <i class="fas fa-greater-than fa-2x my-auto"></i> 
+                        <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i> 
                     <a class="tick-icon centered">
-                        <i class="fas fa-check fa-2x check-fa" ></i>
+                        <i class="fas fa-check fa-2x check-fa" aria-label="Confirmed!"
+                        data-toggle="tooltip" data-placement="bottom" title="Order Confirmation"></i>
                     </a>
                 </div>
             </div>
