@@ -154,7 +154,7 @@ The user is then presented with a series of testimonials from previous clients i
 
 ##### Social Media
 
-![Social](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexsocialmedia.PNG?raw=true)
+![Social](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexsocial.PNG?raw=true)
 
 The three pillars of an aspiring fitness trainer's social media platform are then linked in the next section with a grey background. These icons send the user to their respective browsers in a new tab and will open up their platform there, where they can explore instructional videos etc. When the user hovers over any of these icons then they will slowly transition to their respective company colours, adding a bit of colour and also denoting to the user the icon is clickable and they are on it. 
 
@@ -565,7 +565,3 @@ A special thanks would go to my mentor Simen, who has helped me throughout the c
 ### Disclaimer
 
 This website and its content are for educational purposes only
-
-## Contact
-
-Please feel free to contact me at brianscanlon14@gmail.com
