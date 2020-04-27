@@ -6,7 +6,6 @@ class EmailAuth:
 
     def authenticate(self, username=None, password=None):
         """Get user from email and verify their password."""
-
         try:
             user = User.objects.get(email=username)
 
