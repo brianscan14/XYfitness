@@ -35,7 +35,36 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ## Wireframes
 
-
+- [About](https://github.com/brianscan14/XYfitness/blob/master/wireframes/about.jpg?raw=true)
+- [Testimonials](https://github.com/brianscan14/XYfitness/blob/master/wireframes/testimonials.jpg?raw=true)
+  - [Add / edit](https://github.com/brianscan14/XYfitness/blob/master/wireframes/add-testimonial.jpg?raw=true) testimonial
+  - [Single](https://github.com/brianscan14/XYfitness/blob/master/wireframes/single-testimonial.jpg?raw=true) testimonial
+- Cart
+  - [xs-md](https://github.com/brianscan14/XYfitness/blob/master/wireframes/cart-xs.jpg?raw=true)
+  - [lg-xl](https://github.com/brianscan14/XYfitness/blob/master/wireframes/cart-lg.jpg?raw=true)
+- Checkout
+  - [Delivery Details](https://github.com/brianscan14/XYfitness/blob/master/wireframes/delivery-details.jpg?raw=true)
+  - [Card Details](https://github.com/brianscan14/XYfitness/blob/master/wireframes/checkout.jpg?raw=true)
+  - [Order Confirmed](https://github.com/brianscan14/XYfitness/blob/master/wireframes/order-confirmed.jpg?raw=true)
+- [Index](https://github.com/brianscan14/XYfitness/blob/master/wireframes/index.jpg?raw=true)
+- Account
+  - [Login](https://github.com/brianscan14/XYfitness/blob/master/wireframes/login.jpg?raw=true)
+  - [Register](https://github.com/brianscan14/XYfitness/blob/master/wireframes/register.jpg?raw=true)
+- Navbar
+  - [xs-md](https://github.com/brianscan14/XYfitness/blob/master/wireframes/navbar-xs.jpg?raw=true)
+  - [lg-xl](https://github.com/brianscan14/XYfitness/blob/master/wireframes/navbar-lg.jpg?raw=true)
+- Products
+  - [All products](https://github.com/brianscan14/XYfitness/blob/master/wireframes/products.jpg?raw=true)
+  - Single product
+    - [Apparel product](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-apparel.jpg?raw=true)
+    - [Plan product](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-plan.jpg?raw=true)
+    - [Product info](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-info.jpg?raw=true)
+  - Product [review](https://github.com/brianscan14/XYfitness/blob/master/wireframes/prod-review.jpg?raw=true)
+- [Profile](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile.jpg?raw=true)
+  - [Password](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-password.jpg?raw=true) change
+  - [Name / email](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-update-details.jpg?raw=true) change
+  - [Picture](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-pic.jpg?raw=true) change
+- [Search](https://github.com/brianscan14/XYfitness/blob/master/wireframes/search.jpg?raw=true)
 
 ## Technologies
 
