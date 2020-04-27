@@ -49,7 +49,7 @@
             <form {% if '/products/apparel/' in request.path %} action="{% url 'sort_apparel' %}"
             {% elif '/products/plans/' in request.path %} action="{% url 'sort_plans' %}"
             {% else %} action="{% url 'sort' %}" {% endif %}
-            method="get" class="form-inline my-2 float-right sort-form">
+            method="get" class="form-inline my-2 sort-form">
                 <select class="custom-select custom-select-md sort-by-xs" required
                 {% if '/products/apparel/' in request.path %} name="sorta"
                 {% elif '/products/plans/' in request.path %} name="sortp"
