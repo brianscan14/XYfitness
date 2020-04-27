@@ -568,7 +568,7 @@ span{
     background-color: #68AB6E;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 765px) {
 .xs-mx-middle {
     margin-left: auto;
     margin-right: auto;
