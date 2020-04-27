@@ -114,7 +114,7 @@ For bigger screens the navbar is displayed as a list of titles of the pages in a
 
 ##### Footer:
 
-![Footer](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/xy.png?raw=true)
+![Footer](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/logo.png?raw=true)
 
 The footer is a simple line of muted text alogn with a symbol for the site at the bottom of the page that signifies to the users who the page was created by. It is fixed to the bottom of the page with CSS positioning. If this page were to be used in production and as the popularity grows in stature then more links would be added to it, such as FAQs, contact links, contat details etc, for now it uses Django's templates to pull in the current date and just show the year. The image was created on [Canva](https://www.canva.com/).
 
