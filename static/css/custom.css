@@ -218,7 +218,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
     overflow-y: hidden;
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1370px) {
 .testimonails-row-xs {
     margin-top: 3em;
 }
@@ -346,7 +346,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
     border: 1px solid rgb(54, 144, 86);
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (min-width: 767px) {
 .sort-form {
     float: right;
 }
