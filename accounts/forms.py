@@ -19,6 +19,7 @@ class UserRegistrationForm(UserCreationForm):
         widget=forms.PasswordInput
     )
     profile_pic = forms.ImageField(label='Profile Pic', required=False)
+    email = forms.EmailField(required=True)
 
     class Meta:
         model = User
@@ -35,7 +36,7 @@ class UserRegistrationForm(UserCreationForm):
         username = self.cleaned_data.get('username')
         if User.objects.filter(email=email).exclude(username=username):
             raise forms.ValidationError(u'Email addresses must be unique.')
-        return email
+        return email.lower()
 
     def clean_password2(self):
         """Compares passwords and raises error if they are not matching"""
