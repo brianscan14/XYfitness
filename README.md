@@ -96,17 +96,19 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ##### Navbar:
 
-![Nav](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav.PNG?raw=true)
-
-![Nav Logged Out](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav-logged-out.PNG?raw=true)
-
 The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better recipe viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
 
 *Small screen*:
 
+![Nav Smaller Screens](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/smallnav.PNG?raw=true)
+
 The navbar is a burger icon with a vertical collapsible list of the pages when clicked to easily navigate the website. The pages pop down in a list form under the header as a collapsible list and the user can can click one of these and they are brought to said page. The shopping bag and search icons here are just words, so as to not disturb the uniformity of the collapsible content list. The shopping bag title has the number of items currently in the bag in brackets after the title.
 
 *Larger screen:*
+
+![Nav](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav.PNG?raw=true)
+
+![Nav Logged Out](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/nav-logged-out.PNG?raw=true)
 
 For bigger screens the navbar is displayed as a list of titles of the pages in a horizontal fashion. Again, the overlay for searching can be called by clicking the search icon. In larger screens this and the shopping bag icon are pushed to the right side of the nav, along with the user's profile name if signed in. If not signed in the the profile is replaced by register or login titles. The shopping bag icon attached a green badge to it when an item is added to the cart to signify how many items are currently in it.
 
