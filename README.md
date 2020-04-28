@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/brianscan14/XYfitness.svg?branch=master)](https://travis-ci.org/brianscan14/XYfitness)
 
-XYfitness acts as a portal for an aspiring personal fitness or "PT" trainer to display their talents or capabilities to the general public, and potentially attract new clients. Whether this results in them purchasing a plan for exercise or routine to follow, or even if they purchase an item of clothing. This results in a revenue stream for the PT and means of getting their product out on the market and their clientele growing in stature. It is  means of them showing off their talents, their results and their approach for all to see.
+XYfitness acts as a portal for an aspiring personal fitness or **"PT"** trainer to display their talents or capabilities to the general public, and potentially attract new clients. Whether this results in them purchasing a plan for exercise or routine to follow, or even if they purchase an item of clothing. This results in a revenue stream for the PT and means of getting their product out on the market and their clientele growing in stature. It is  means of them showing off their talents, their results and their approach for all to see.
 
 Users are encouraged to sign up to the website in order to create a profile, this will allow them to purchase products, leave reviews and the usual profile features by being able to edit their picture, password and add additional details such as first name, email, etc. However the user can still browse many parts of the page freely without needing an account, this is the encourage freedom of the site and to get the user to browse it more and get a feel for it, without being put off by having to sign in straight away. In order to purchase any products the user will then need to create an account. 
 
@@ -12,7 +12,7 @@ Users are encouraged to sign up to the website in order to create a profile, thi
 
 The main goal of the website is to convince customers that this is the PT that they need, and that his plans are the best ones to get on the market. This is accomplished by a combination of a sleek, professional design and many reviews and testimonials from current customers to persuade the user to use this PT. The pages are kept sleek and interactive so as to allow the user to easily navigate around the site.  The navbar at the top enkeeps with this theme and allows the users to navigate to each page with ease, decreasing to a menu icon on smaller screen sizes.
 
-The hero image on the index page take up the entire and lets the user know the purpose of the site straight away, grabbing their attention. If the user just wants to search a product quickly then they can utilise the search icon in the nav bar which calls an overlay that has a search bar, which searches the DB for names matching the string inputted by the user. The user can also easily navigate to the about or contact page, if they want to find out more about the PT. All products also have a review rating from customers, if they have left one. And the testimonials page shows previous customers experiences and even before and after pics if they have left one.
+The **hero image** on the index page take up the entire and lets the user know the purpose of the site straight away, grabbing their attention. If the user just wants to search a product quickly then they can utilise the **search icon** in the navbar which calls an overlay that has a search bar, which searches the DB for names matching the string inputted by the user. The user can also easily navigate to the **about** or **contact** page, if they want to find out more about the PT. All products also have a review rating from customers, if they have left one. And the testimonials page shows previous customers experiences and even before and after pics if they have left one.
 
 ### User Stories
 
@@ -59,7 +59,7 @@ The hero image on the index page take up the entire and lets the user know the p
     - [Apparel product](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-apparel.jpg?raw=true)
     - [Plan product](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-plan.jpg?raw=true)
     - [Product info](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-info.jpg?raw=true)
-  - Product [review](https://github.com/brianscan14/XYfitness/blob/master/wireframes/prod-review.jpg?raw=true)
+  - [Product review](https://github.com/brianscan14/XYfitness/blob/master/wireframes/prod-review.jpg?raw=true)
 - [Profile](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile.jpg?raw=true)
   - [Password change](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-password.jpg?raw=true)
   - [Name / email change](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-update-details.jpg?raw=true)
@@ -148,7 +148,7 @@ For bigger screens the navbar is displayed as a list of titles of the pages in a
 
 ##### Footer:
 
-![Footer](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/logo.png?raw=true)
+![Footer](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/footer.PNG?raw=true)
 
 The footer is a simple line of muted text alogn with a symbol for the site at the bottom of the page that signifies to the users who the page was created by. It is fixed to the bottom of the page with CSS positioning. If this page were to be used in production and as the popularity grows in stature then more links would be added to it, such as FAQs, contact links, contat details etc, for now it uses Django's templates to pull in the current date and just show the year. The image was created on [Canva](https://www.canva.com/).
 
