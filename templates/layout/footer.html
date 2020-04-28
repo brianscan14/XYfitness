@@ -1,12 +1,42 @@
 <!-- some small print fixed to bottom of the page -->
 <footer class="container-fluid mt-0 py-3 mx-auto footer darkest-bg">
     <div class="row my-4">
-        <div class="col">
-            <div class="centered">
-                <p class="logo mx-auto">
-                    <img class="img-fluid" src="{{ MEDIA_URL }}images/XY.png">
-                </p>
-                <p class="text-white">Created by: Brian Scanlon, {% now "Y" %}</p>
+        <div class="col mx-auto centered">
+            <div class="row">
+                <div class="col mx-auto">
+                    <p class="logo mx-auto">
+                        <img class="img-fluid" src="{{ MEDIA_URL }}images/XY.png">
+                    </p>
+                </div>
+            </div>
+            <div class="row centered p-3 mt-3 mb-5">
+                <div class="col-9 col-md-5 col-lg-3 mx-auto">
+                    <div class="row">
+                        <div class="col-4 mx-auto">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                            data-toggle="tooltip" data-placement="bottom" title="Connect on FB">
+                                <i class="fab fa-facebook fa-3x"></i>
+                            </a>
+                        </div>
+                        <div class="col-4 mx-auto">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                            data-toggle="tooltip" data-placement="bottom" title="Follow me on Instagram">
+                                <i class="fab fa-instagram fa-3x"></i>
+                            </a>
+                        </div>
+                        <div class="col-4 mx-auto">
+                            <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+                            data-toggle="tooltip" data-placement="bottom" title="See our Youtube tutorials">
+                                <i class="fab fa-youtube fa-3x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-white">Created by: Brian Scanlon, {% now "Y" %}</p>
+                </div>
             </div>
         </div>
     </div>
