@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}XYfitenss | Testimonials{% endblock %}
+{% block title %}XYfitness | Testimonials{% endblock %}
 
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
@@ -48,9 +48,9 @@
 {% endfor %}
 
 {% if user.is_authenticated  %}
-    <div class="row my-5">
-        <div class="col-6 mx-auto">
-            <p class="centered">
+    <div class="row mt-5">
+        <div class="col-6 mx-auto my-4">
+            <p class="centered mt-4">
                 <a href="{% url 'new_review' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Add your Experience!</a>
             </p>
         </div>
