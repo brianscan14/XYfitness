@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}XYfitenss | Cart Items{% endblock %}
+{% block title %}XYfitness | Cart Items{% endblock %}
 
 {% block content %}
 
@@ -85,7 +85,7 @@
                 </div>
             </div>
         {% else %}
-            <div class="col-12 col-lg-5 mx-auto update-input">
+            <div class="col-12 col-lg-5 update-input mt-2">
                 <form method="post" action="{% url 'change_cart' item.id %}">
                     {% csrf_token %}
                     <div class="row">
@@ -126,12 +126,12 @@
                 </form>
             </div>
         {% endif %}
-        <div class="col-2 mx-auto d-none d-lg-inline-block">
+        <div class="col-2 mx-auto d-none d-lg-inline-block mt-2">
             <div class="text-right pr-5">
                 Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
             </div>
         </div>
-        <div class="col-1 mx-auto d-none d-lg-inline-block">
+        <div class="col-1 mx-auto d-none d-lg-inline-block mt-1">
             <div class="">
                 <form method="post" action="{% url 'del_cart_item' item.product.id %}">
                     {% csrf_token %}
