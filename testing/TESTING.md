@@ -286,3 +286,67 @@ The audit tool from google inspect was also used in order to improve on three as
 2. Confirm that all content on this page is centered, and the back to website button points correctly to the home page
 3. Confirm that the user's email mentioned in the thank you message is correct
 4. Confirm that if the user goes back in history from this page, all of the content from the previous pages is now empty, and none of the confirm details or submit payment buttons are active
+
+###### *User Stories tests*
+
+- As a new visitor to the website, I want to be easily navigate the site and find information I was looking for in one or two clicks.
+  - The navbar is very simple to use and brings the user to any part of the page when clicked.
+  - There are also buttons all over the page linking intuitively to different parts of it.
+  - The search icon can be clicked from any page and lets the user search for any product in two clicks.
+  - Shop items can be searched by their categories either if the user wishes from the navbar.
+- As a new visitor, when browsing the site I want the site to be coherent and responsive, whether I am using a laptop, tablet or phone.
+  - The **BS4** classes and layout were utilised in this project to have the layout responsive to different configurations etc.
+  - Media queries were used for heading font sizes on smaller screens and positions of items. **CSS** such as 'text-overflow' was also used to hide any text that goes over its div.
+  - Images were given **BS4** class "img-fluid" were customer classes were not used to determine their sizes and ensure aspect ratios were adhered to.
+- As a new visitor, when filling out forms or entering data I want reasonable feedback to tell me whether I was either successful, or unsuccessful, and what the error is. 
+  - **Sweetify** alerts are utilised throughout this page to give a level of feedback to the user about an interaction they have just completed or attempted, such as logging in or adding an item to the cart.
+  - If filling out forms the user is redirected to a new page telling them they were either successful or if not, giving them the reason for it with **sweetify**.
+- As a new user, when browsing the website  want it to have a professional feel and make me want to use this PT.
+  - A simple, slick colour scheme is adhered to at all times with this website, these colours were utilised to give the customer that sense that this is a professional site.
+  - Background photos in the [index](https://xyfitness.herokuapp.com/) page are fixed on scroll which help aid the qualified persona of this expert PT.
+  - Paragraphs are kept concise and to the point in order to not lose the customer's attention span.
+  - The site is kept relatively simple but with enough information so that the user is well informed but at the same time not distracted by unbeneficial content for the PT.
+- As a new user, when searching the site I want to know from other customers whether this PT is a good one or not.
+  - A testimonials section is added to the site whereby a past customer can add their experience with this PT to the site, whether good or bad, and also add before or after pics if they wish.
+  - Reviews can be added to the products on the site and these can be seen both while browsing all products, which gives the average rating, or when viewing a single product, which gives the average but also a list of all the reviews.
+- As a new user, when browsing the products I want them to be presented to me in a tidy and easily readable/viewable manner.
+  - In the 'all products' view the products are laid out in rows of columns of 3, currently there are 6 products on the page which doesn't take up too much screen space on mobile or desktop.
+  - I the 'all products view' the items can be sorted either alphabetically or by price by the user.
+  - Products can be filtered and searched by their category either if the user wishes.
+  - Single product view displays all the information about this product in a tidy and readable manner, with differing views for screen sizes.
+- As a new user, when viewing products, I want to get as much information from them as possible to see what the exercise plan may entail or incorporate.
+  - All products have an information tab which differs depending on their category type, giving the user more information about the product.
+  - If the product is a plan then information such as 'equipment needed' is added to its info, and also the description gives a brief summary of what the plan entails.
+- As a new user, when browsing the products I want to be able to filter them by their types and sort them by features such as price or name.
+  - Items in the shop can be filtered down to either be of the 'apparel' type, or a 'plan'.
+  - These filtered options can then be sorted accordingly by their features.
+- As a new user, when browsing the site I want to be able to find out more information about the PT in an easy manner without having to go through a myriad of pages or open new browser sessions.
+  - The about section gives the user a very good synopsis of this PT's methodology in training an also their ethos in how they work.
+  - Information such as mission statements are given in the index, and the 3 pillars of the PT's mentality also.
+  - Users can easily contact the PT by filling out a quick and easy contact form in the [contact](https://xyfitness.herokuapp.com/xy/contact/) page, they don't need an account to do this.
+- As a potential customer, when browsing the site I want to get a feel of the content that this PT offers, and the information that they offer so that I know the product will be the same.
+  - Social media links are provided on the [home page](https://xyfitness.herokuapp.com/) which will link a user to this PT's social media platform, as all good PTs have.
+- As a potential customer, when purchasing the product I want to be able to change my mind in the cart if I want a different size or product.
+  - Forms are included in the cart to update the items there and then, user can select a different size or quantity and the product will update to this new selection.
+  - There is also a delete button which offers quick and simple removable of an item from the shopping cart for a potential customer.
+- As a potential customer, when purchasing a product I want the user experience to be slick and to flow in the correct, logical manner when putting in my details.
+  - The customer is progressed through the checkout process in logical manner,enter delivery details, then enter card details, then place the order and redirect to the confirmation page when successful.
+  - Customers can ramble between these checkout stages (only if the forms were filled out) and edit the previously entered details if they wish.
+  - The user is presented with a breadcrumb which denote to them which stage of the checkout process they are on, these are clickable but pull the session data to determine whether the user has completed previous step to get onto the next stage.
+- As a potential customer, when purchasing a product, I want my cart items to be viewable when I am filling out my checkout details.
+  - The customer is presented with a list of their checkout items in a tidy and presentable manner at the side of the page during all stages of the checkout.
+  - The customer can click on this 'bag' and edit their items if they wish.
+- As a returning customer, I want to be able to leave a testimonial or review for a product that I used, and rate it, whether it was good or bad.
+  - Users can easily add a testimonial by clicking the 'add testimonial' button on the '[testimonials](https://xyfitness.herokuapp.com/testimonials/all/)' page which brings them to a form they can fill out with their experience.
+  - Users can also easily add product reviews by clicking on the 'add review' link in the product info section, and give it a rating.
+- As a returning customer, I want to be able to alter or delete my review if I change my mind on the product.
+  - User can easily view their reviews and if they change their mind, edit them, as ad 'edit' option will appear on the reviews or testimonial if the current user is the original author.
+  - A user can also simply delete their review as a 'delete' option will also appear beside the aforementioned 'edit' link if they are the original author.
+- As a returning site user, i want to be able to edit my profile settings or details as I please.
+  - Users can access their profile easily by clicking on their username in the navbar and here they will be directed to their profile page showing a summary of all their details.
+  - Users can change their password from the profile page.
+  - Users can also change their profile picture if they wish from the like on the profile page.
+  - Users can also add a bit more detail about themselves like their actual names on the profile page, and edit their usernames or emails which then cascades across the site.
+
+###### **Results**
+
