@@ -439,7 +439,7 @@ Below is the data base collection:
 
 ### Run project locally:
 
-Using a suitable IDE (this project used Gitpod), the requirements for running this project are:
+Using a suitable IDE (this project used Gitpod), the below requirements are what are needed for running this project:
 
 **[PIP](https://pip.pypa.io/en/stable/installing/), [Python 3](https://www.python.org/downloads/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**
 
@@ -489,19 +489,19 @@ On the **AWS** website after [setting up](https://docs.aws.amazon.com/quickstart
 ```python
 "GIT_HOSTNAME": "local site hostname"
 
-"HEROKU_HOSTNAME": "**heroku** site url"
+"HEROKU_HOSTNAME": "heroku site url"
 
 "SECRET_KEY": "Django app secret key in settings"
 
-"STRIPE_PUBLISHABLE": "general key gotten from **stripe** site"
+"STRIPE_PUBLISHABLE": "general key gotten from stripe site"
 
-"STRIPE_SECRET": "secret key gotten from **stripe** site"
+"STRIPE_SECRET": "secret key gotten from stripe site"
 
-"DATABASE_URL": "postgress url gotten form **heroku** app"
+"DATABASE_URL": "postgress url gotten form heroku app"
 
-"AWS_SECRET_ACCESS_KEY": "**AWS** S3 secret key"
+"AWS_SECRET_ACCESS_KEY": "AWS S3 secret key"
 
-"AWS_SECRET_KEY_ID": "**AWS** secret key id"
+"AWS_SECRET_KEY_ID": "AWS secret key id"
 ```
 
 9. Restart machine to active env variables.
@@ -565,13 +565,21 @@ Follow the below instructions to deploy XYfitness to Heroku:
 
 8. Go to your Heroku account, find the app and open it. Click on setting and then "reveal config vars", set the following config vars:
 
-   - "DISABLE_COLLECTSTATIC": "1"
-   - "SECRET_KEY": "Django app secret key in settings"
-   - "STRIPE_PUBLISHABLE": "general key gotten from **stripe** site"
-   - "STRIPE_SECRET": "secret key gotten from **stripe** site"
-   - "DATABASE_URL": "postgress url gotten form **heroku** app"
-   - "AWS_SECRET_ACCESS_KEY": "**AWS** S3 secret key"
-   - "AWS_SECRET_KEY_ID": "**AWS** secret key id"
+```console
+"DISABLE_COLLECTSTATIC": "1"
+
+"SECRET_KEY": "Django app secret key in settings"
+
+"STRIPE_PUBLISHABLE": "general key gotten from stripe site"
+
+"STRIPE_SECRET": "secret key gotten from stripe site"
+
+"DATABASE_URL": "postgress url gotten form heroku app"
+
+"AWS_SECRET_ACCESS_KEY": "AWS S3 secret key"
+
+"AWS_SECRET_KEY_ID": "AWS secret key id"
+```
 
 9. In the dashboard, click "Deploy", go to "manual" and make sure the master branch is selected and click "Deploy", and the build will begin.
 
