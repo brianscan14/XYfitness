@@ -56,7 +56,7 @@ html {
     vertical-align: top;
 }
 
-@media screen and (max-width: 1025px) {
+@media screen and (max-width: 1075px) {
 .nav-item {
     margin-right: 1em;
 }
