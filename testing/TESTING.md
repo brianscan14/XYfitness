@@ -287,7 +287,9 @@ The audit tool from google inspect was also used in order to improve on three as
 3. Confirm that the user's email mentioned in the thank you message is correct
 4. Confirm that if the user goes back in history from this page, all of the content from the previous pages is now empty, and none of the confirm details or submit payment buttons are active
 
+###### *Further Manual Tests*
 
+Asked family and friends working in the field to view the site and run through all aspects of it and report back any potential issues they came across
 
 ###### *User Stories tests*
 
@@ -396,3 +398,37 @@ This let me realise where aria-labels were missing and alt tags, along with labe
 
 There was an bug in IE where the JQuery used doesn't work, I looked up [Can i use](https://caniuse.com/#search=jquery) and unfortunately it isn't available in any forms of IE.
 
+#### Automated Testing
+
+##### Validation
+
+- [W3C Markup Validation](https://validator.w3.org/) was used to validate HTML.
+- [W3C CSS validation](https://jigsaw.w3.org/css-validator/) was used to validate CSS.
+- [JSHint](https://jshint.com/) was used to validate JavaScript.
+
+No major errors were observed, the only one to note was with CSS and this relates to a known BS problem.
+
+##### Jasmine
+
+The main functions were tested in this project with Jasmine as a means of ensuring they were working as planned. The way I approached the testing method was to start small and make sure it is implemented correctly in the first place and work from there. The files for testing are below:
+
+- [Jasmine HTML](https://github.com/brianscan14/XYfitness/blob/master/testing/jasmine/jasmine.html)
+- [Jasmine JS specs](https://github.com/brianscan14/XYfitness/blob/master/testing/jasmine/jasmine.spec.js)
+- [JS](https://github.com/brianscan14/XYfitness/blob/master/static/js/script.js)
+
+###### Running the tests
+
+Firstly make sure the the project is cloned from the GitHub repo and running on your own IDE as outlined in the [README.md](https://github.com/brianscan14/Gourmet_Grub/blob/master/README.md) file. Then:
+
+1. Open the Jasmine HTML file.
+2. Run it to see the results in your browser.
+
+To create Jasmine tests of your own:
+
+1. Open the Jasmine spec file.
+2. Write the tests using Jasmine's framework.
+3. Save the spec and refresh the HTML file.
+
+**Travis**
+
+Throughout the course of the project [Travis](https://travis-ci.org/) was used as a means of keeping continuous integration with the Heroku site. If the build was not successful at any stage then there was an issue with the code and this was remedied to ensure the site was deployed successfully.
