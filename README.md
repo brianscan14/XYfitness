@@ -183,7 +183,7 @@ The next section to scroll to then is what gives the user more of an insight in 
 
 ![Testimonials](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indextestimonials.PNG?raw=true)
 
-The user is then presented with a series of testimonials from previous clients in a slideshow fashion. Each of these slides will move on themselves after 6 seconds unless clicked by the user to do otherwise. The background image again enkeeps with the theme of the page and is a greyed picture of dumbbells, which is again fixed in order to keep that professional feel. These testimonials act as a means of shoring up any reservations the potential customer may have had about using this PT, and (providing the testimonials are good) will entice them to use this PT and purchases one of the products. In the event of there being no testimonials on the page an inspiration quote with the same background will be used instead.
+The user is then presented with a series of five of the first testimonials from previous clients in a slideshow fashion. Each of these slides will move on themselves after 6 seconds unless clicked by the user to do otherwise. The background image again enkeeps with the theme of the page and is a greyed picture of dumbbells, which is again fixed in order to keep that professional feel. These testimonials act as a means of shoring up any reservations the potential customer may have had about using this PT, and (providing the testimonials are good) will entice them to use this PT and purchases one of the products. In the event of there being no testimonials on the page an inspiration quote with the same background will be used instead.
 
 ##### Social Media
 
@@ -277,13 +277,13 @@ The checkout sequence is then divided into two main sections for better user exp
 
 ![Delivery Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/delivery.PNG?raw=true)
 
-The delivery page then consists of a form of which the user fills out in order to proceed to next step. These details are the standard ones of which a user fills out in most online stores to purchases an item. They consist of delivery address, phone number and name. Having these details will allow the site owner know where they will have to deliver the items. Once the user confirms their details they proceed to the next step of payment card information.
+The delivery page then consists of a form of which the user fills out in order to proceed to next step. These details are the standard ones of which a user fills out in most online stores to purchases an item. They consist of delivery address, phone number and name. Having these details will allow the site owner know where they will have to deliver the items. Once the user confirms their details they proceed to the next step of payment card information. If these details are not filled out or the cart items are empty then the button to continue to the next step will be disabled and the user unable to proceed.
 
 ![Payment Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/checkout.PNG?raw=true)
 
-The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors.  
+The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors. If the user has managed to get to this page with no items in the cart or the previous delivery page not filled out, then the 'pay' button will be disabled and the user won't be able to select it to make an incorrect payment.
 
-   ![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
+![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
 
 If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation, the 'tick' icon will also be coloured green now in the breadcrumb. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now. The user will also be sent an email upon successful order with their order number, as explained previously in [Contact](#contact) features, this is sent to the backend as this site is not in production, I did not want to change my Gmail settings to less secure ones for now.
 
@@ -310,6 +310,8 @@ As the site grows and clientele increases, more plans would need to be offered t
 Since there is only one item in the shop currently that is "Apparel", and this item is made to order from the [oneills](https://www.oneills.com/) website (example of what I would use if it were in production). None of them kept in stock by me, but if there were more items on offer this would change, again another model would need to be added with a relationship to the main product one  giving feedback to the customer and letting them know whether the size of their chosen item is in stock or not.
 
 Currently the user gets sent an email upon successful order, however it only a random number which is generated from Django. If this site were in full production and these plans were actual PDF files then this would need to be automated to send out these files to the user for download. Also the items order would be added to it, and a 'view status' tracker to let them know the progress of their items if they were apparels.
+
+If this website were to be put into product then content would need to be added to these PDF files of exercises, diets etc. A sneak peek of these PDFs would then be added to the page to give the customer even more of an insight into what the workouts entail.
 
 ## Information Architecture
 
