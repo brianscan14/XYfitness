@@ -37,8 +37,8 @@ The hero image on the index page take up the entire and lets the user know the p
 
 - [About](https://github.com/brianscan14/XYfitness/blob/master/wireframes/about.jpg?raw=true)
 - [Testimonials](https://github.com/brianscan14/XYfitness/blob/master/wireframes/testimonials.jpg?raw=true)
-  - [Add / edit](https://github.com/brianscan14/XYfitness/blob/master/wireframes/add-testimonial.jpg?raw=true) testimonial
-  - [Single](https://github.com/brianscan14/XYfitness/blob/master/wireframes/single-testimonial.jpg?raw=true) testimonial
+  - [Add / edit testimonial](https://github.com/brianscan14/XYfitness/blob/master/wireframes/add-testimonial.jpg?raw=true)
+  - [Single testimonial](https://github.com/brianscan14/XYfitness/blob/master/wireframes/single-testimonial.jpg?raw=true)
 - Cart
   - [xs-md](https://github.com/brianscan14/XYfitness/blob/master/wireframes/cart-xs.jpg?raw=true)
   - [lg-xl](https://github.com/brianscan14/XYfitness/blob/master/wireframes/cart-lg.jpg?raw=true)
@@ -61,16 +61,21 @@ The hero image on the index page take up the entire and lets the user know the p
     - [Product info](https://github.com/brianscan14/XYfitness/blob/master/wireframes/product-info.jpg?raw=true)
   - Product [review](https://github.com/brianscan14/XYfitness/blob/master/wireframes/prod-review.jpg?raw=true)
 - [Profile](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile.jpg?raw=true)
-  - [Password](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-password.jpg?raw=true) change
-  - [Name / email](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-update-details.jpg?raw=true) change
-  - [Picture](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-pic.jpg?raw=true) change
+  - [Password change](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-password.jpg?raw=true)
+  - [Name / email change](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-update-details.jpg?raw=true)
+  - [Picture change](https://github.com/brianscan14/XYfitness/blob/master/wireframes/profile-pic.jpg?raw=true)
 - [Search](https://github.com/brianscan14/XYfitness/blob/master/wireframes/search.jpg?raw=true)
 
 ## Technologies
 
 ### Languages Used
 
-- This project uses Html, JavaScript, Python & CSS programming languages.
+This project uses the below languages:
+
+-  Html
+-  JavaScript
+-  Python 
+-  CSS
 
 ### Databases
 
@@ -125,7 +130,7 @@ The hero image on the index page take up the entire and lets the user know the p
 
 ##### Navbar:
 
-The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better recipe viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
+The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
 
 *Small screen*:
 
@@ -367,9 +372,9 @@ Below is the data base collection:
 | Email     | email   | max_length=30, default='User'  | CharField |
 | Message** | message | max_length=400                 | TextField |
 
-*Title given following attributes in forms.py file: min_length=5
+**Title given following attributes in forms.py file: min_length=5*
 
-**Message given a placeholder from a widget attribute in forms.py file and also: min_length=30
+***Message given a placeholder from a widget attribute in forms.py file and also: min_length=30*
 
 ##### Products
 
@@ -387,9 +392,9 @@ Below is the data base collection:
 | Size        | size        | max_length=10, choices=sizes, default='D', verbose_name="size" | CharField    |
 | Equipment   | equipment   | max_length=200                                               | TextField    |
 
-Category choices are either "Plan" or "Apparel".
+**Category choices are either "Plan" or "Apparel".**
 
-Size choices are either "Default" for a plan, or range from "XS-XL" for apparel items.
+**Size choices are either "Default" for a plan, or range from "XS-XL" for apparel items.**
 
 *Product Review*
 
@@ -402,11 +407,11 @@ Size choices are either "Default" for a plan, or range from "XS-XL" for apparel 
 | Date      | date    | default=timezone.now                 | DateTimeField |
 | Rating    | rating  | choices=ratings, default='5'         | IntegerField  |
 
-Rating choices range from values 1-5.
+**Rating choices range from values 1-5.**
 
-*Title  given a placeholder from a widget attribute in forms.py, and: min_length=5
+**Title  given a placeholder from a widget attribute in forms.py, and: min_length=5*
 
-**Message given a placeholder from a widget attribute in forms.py file, and: min_length=20
+***Message given a placeholder from a widget attribute in forms.py file, and: min_length=20*
 
 ##### Testimonials
 
@@ -422,19 +427,19 @@ Rating choices range from values 1-5.
 | Before Pic   | before_picture | upload_to='images', blank=True, verbose_name=u"Before pic (only add these if you want to)." | ImageField    |
 | After Pic    | after_picture  | upload_to='images', blank=True                               | ImageField    |
 
-*Title  given a placeholder from a widget attribute in forms.py, and: min_length=5
+**Title  given a placeholder from a widget attribute in forms.py, and: min_length=5*
 
-**Message given a placeholder from a widget attribute in forms.py file, and: min_length=40
+***Message given a placeholder from a widget attribute in forms.py file, and: min_length=40*
 
 ## Testing
 
-[Link to testing.md file](https://github.com/brianscan14/XYfitness/blob/master/testing/TESTING.md)
+[Link to the testing file for this project](https://github.com/brianscan14/XYfitness/blob/master/testing/TESTING.md)
 
 ## Deployment
 
 ### Run project locally:
 
-Using a suitable IDE (this project used Gitpod), make sure these are installed:
+Using a suitable IDE (this project used Gitpod), the requirements for running this project are:
 
 **[PIP](https://pip.pypa.io/en/stable/installing/), [Python 3](https://www.python.org/downloads/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**
 
@@ -442,34 +447,38 @@ To enable full use of the site locally, ensure that accounts are created with th
 
 **[Stripe](https://stripe.com/docs/api)**, **[AWS](https://docs.aws.amazon.com/index.html)**
 
-1. Clone a copy of the [Github repo](https://github.com/brianscan14/Gourmet_Grub) by clicking the "clone" button, this will open the contents of the repo in a new workspace in the IDE. If Git is installed on your system, clone the repo with the following command: 
+On the **Stripe** site the user is given a secret key and a publishable key, make sure to take note of these as they will be needed.
 
-   - git clone https://github.com/brianscan14/Gourmet_Grub.git
+On the **AWS** website after [setting up](https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html) the bucket the user is given a secret key and a secret key id, these won't be sent twice so make sure to save them correctly when given them.
+
+1. Clone a copy of the [Github repo](https://github.com/brianscan14/XYfitness) by clicking the "clone" button, this will open the contents of the repo in a new workspace in the IDE. If Git is installed on your system, clone the repo with the following command: 
+
+   `git clone https://github.com/brianscan14/XYfitness.git`
 
 2. Use the python virtual environment (VI) for the interpreter by entering the below command:
 
-   - pip install virtualenv
+   `pip install virtualenv`
 
 3. Specify a path, for example one being created in the local directory called 'montypython' is:
 
-   - virtualenv mypython
+   `virtualenv mypython`
 
 4. Activate the VI by running the following command:
 
    1. Mac OS / Linus:
-      - source montypython/bin/activate
+      `source montypython/bin/activate`
    2. Windows:
-      - montypython\Scripts\activate
+      `montypython\Scripts\activate`
 
    *Note: your commands may differ, depends on IDE used, check [python](https://docs.python.org/3/library/venv.html) docs if you are running into issues*
 
 5. Upgrade pip if it is needed:
 
-   - pip install --upgrade pip
+   `pip install --upgrade pip`
 
 6. Install all the required modules with the command: 
 
-   - pip -r requirements.txt
+   `pip -r requirements.txt`
 
    *This will also later be needed to setup the **heroku** app*
 
@@ -477,30 +486,39 @@ To enable full use of the site locally, ensure that accounts are created with th
 
 8. Setup the following variables in your env.py file:
 
-   - "GIT_HOSTNAME": "local site hostname"
-   - "HEROKU_HOSTNAME": "**heroku** site url"
-   - "SECRET_KEY": "Django app secret key in settings"
-   - "STRIPE_PUBLISHABLE": "general key gotten from **stripe** site"
-   - "STRIPE_SECRET": "secret key gotten from **stripe** site"
-   - "DATABASE_URL": "postgress url gotten form **heroku** app"
-   - "AWS_SECRET_ACCESS_KEY": "**AWS** S3 secret key"
-   - "AWS_SECRET_KEY_ID": "**AWS** secret key id"
+```python
+"GIT_HOSTNAME": "local site hostname"
+
+"HEROKU_HOSTNAME": "**heroku** site url"
+
+"SECRET_KEY": "Django app secret key in settings"
+
+"STRIPE_PUBLISHABLE": "general key gotten from **stripe** site"
+
+"STRIPE_SECRET": "secret key gotten from **stripe** site"
+
+"DATABASE_URL": "postgress url gotten form **heroku** app"
+
+"AWS_SECRET_ACCESS_KEY": "**AWS** S3 secret key"
+
+"AWS_SECRET_KEY_ID": "**AWS** secret key id"
+```
 
 9. Restart machine to active env variables.
 
 10. Run below command in sequence to migrate the DB models:
 
-    - python3 manage.py makemigrations
+    `python3 manage.py makemigrations`
 
     *Packages up your model changes into individual migration files*
 
-    - python3 manage.py migrate
+    `python3 manage.py migrate`
 
     *Applies these changes to the DB*
 
 11. You can now run the app with the command:
 
-    - python3 manage.py runserver
+    `python3 manage.py runserver`
 
 12. You can visit the site at:
 
@@ -508,7 +526,7 @@ To enable full use of the site locally, ensure that accounts are created with th
 
 13. Create a superuser to then be able to access the admin functions of this website, and add content to it: 
 
-    - python3 manage.py createsuperuser
+    `python3 manage.py createsuperuser`
 
     *Add /admin to the site's url to access this admin page, and add/edit content on the site*
 
@@ -518,15 +536,15 @@ Follow the below instructions to deploy XYfitness to Heroku:
 
 1. In bash, create requirements file with:
 
-   - pip3 freeze --local > requirements.txt
+   `pip3 freeze --local > requirements.txt`
 
 2. Create a Procfile in the terminal with the command:
 
-   - `web: gunicorn "app name".wsgi:application`
+   `web: gunicorn "app name".wsgi:application`
 
    *Make sure gunicorn is installed with the below command for this to work:*
 
-   - pip3 install gunicorn
+   `pip3 install gunicorn`
 
    *Update requirements.txt file again if this is not already installed*
 
@@ -534,12 +552,12 @@ Follow the below instructions to deploy XYfitness to Heroku:
 
 4. Using bash, commit everything:
 
-   - git add .
-   - git commit -m "<Commit Message>"
+   `git add .`
+   `git commit -m "<Commit Message>"`
 
 5. In bash, push to GitHub using: 
 
-   - git push -u origin master
+   `git push -u origin master`
 
 6. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Make sure to set the region to Europe when naming it.
 
