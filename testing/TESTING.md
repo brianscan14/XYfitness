@@ -287,10 +287,6 @@ The audit tool from google inspect was also used in order to improve on three as
 3. Confirm that the user's email mentioned in the thank you message is correct
 4. Confirm that if the user goes back in history from this page, all of the content from the previous pages is now empty, and none of the confirm details or submit payment buttons are active
 
-###### *Further Manual Tests*
-
-Asked family and friends working in the field to view the site and run through all aspects of it and report back any potential issues they came across
-
 ###### *User Stories tests*
 
 - As a new visitor to the website, I want to be easily navigate the site and find information I was looking for in one or two clicks.
@@ -352,6 +348,9 @@ Asked family and friends working in the field to view the site and run through a
   - Users can also change their profile picture if they wish from the like on the profile page.
   - Users can also add a bit more detail about themselves like their actual names on the profile page, and edit their usernames or emails which then cascades across the site.
 
+###### *Further Manual Tests*
+
+Asked family and friends working in the field to view the site and run through all aspects of it and report back any potential issues they came across
 
 ###### **Results**
 
