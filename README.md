@@ -33,6 +33,12 @@ The **hero image** on the index page take up the entire and lets the user know t
 - As a returning customer, I want to be able to alter or delete my review if I change my mind on the product.
 - As a returning site user, i want to be able to edit my profile settings or details as I please.
 
+**Color Scheme**
+
+![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/xy-scheme.png?raw=true)
+
+The site conforms to a very uniform colour scheme across the entire page, there are slight variations on buttons or icons hover but mainly just opacity changes. The vibrant colour variations stem from that of the weight plates on a barbell, these can be red, blue, green or yellow. The green and yellow has been implemented on this site, green for use on success buttons, yellow for the review stars and also the cart update button. The scheme mainly stems from the following [Bootstrap theme](https://bootswatch.com/lux/), which gives the page the intended professional/cool design desired, convincing the customers to us this page. [Coolors](https://coolors.co/) website was used for the varying background colours, seen in the [about](https://xyfitness.herokuapp.com/page/about/) and [home](https://xyfitness.herokuapp.com/) pages, for example. This scheme is employed throughout the website and gives the user a more pleasant and immersive viewing experience.
+
 ## Wireframes
 
 - [About](https://github.com/brianscan14/XYfitness/blob/master/wireframes/about.jpg?raw=true)
@@ -161,12 +167,6 @@ This button appears on all screen sizes but is mainly for use with the smaller s
 ![Overlay](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/overlay.PNG?raw=true)
 
 The navbar uses a search icon in the shape of a magnifying glass which when clicked will call an overlay that covers the whole page. This overlay has less opacity to still show the user the page they were on, but in the 'background'. The overlay itself keeps to the pages colour scheme and consists of a search bar with a simple search button. This search bar searches the DB for products that match the string searched.
-
-**Color Scheme**
-
-![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/xy-scheme.png?raw=true)
-
-The site conforms to a very uniform colour scheme across the entire page, there are slight variations on buttons or icons hover but mainly just opacity changes. The vibrant colour variations stem from that of the weight plates on a barbell, these can be red, blue, green or yellow. The green and yellow has been implemented on this site, green for use on success buttons, yellow for the review stars and also the cart update button. The scheme mainly stems from the following [Bootstrap theme](https://bootswatch.com/lux/), which gives the page the intended professional/cool design desired, convincing the customers to us this page. [Coolors](https://coolors.co/) website was used for the varying background colours, seen in the [about](https://xyfitness.herokuapp.com/page/about/) and [home](https://xyfitness.herokuapp.com/) pages, for example. This scheme is employed throughout the website and gives the user a more pleasant and immersive viewing experience. 
 
 ![Weight Plates](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/gym-plates.jpg?raw=true)
 
@@ -552,8 +552,13 @@ Follow the below instructions to deploy XYfitness to Heroku:
 
 4. Using bash, commit everything:
 
-   `git add .`
-   `git commit -m "<Commit Message>"`
+- first:
+
+  `git add .`
+
+- then:
+
+  `git commit -m "<Commit Message>"`
 
 5. In bash, push to GitHub using: 
 
