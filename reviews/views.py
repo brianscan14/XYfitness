@@ -21,6 +21,7 @@ def single_review(request, pk):
     return render(request, 'single-review.html', {'review': review})
 
 
+# below code taken from a Code Institute tutorial and modified for my project
 @login_required()
 def new_review(request, pk=None):
     """
