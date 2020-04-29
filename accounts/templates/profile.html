@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+<!-- page title -->
 {% block title %}XYfitness | {{ user.username | capfirst }}{% endblock %}
 
+<!-- breadcrumb showing path -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-3">
@@ -19,10 +21,12 @@
 
 <div class="container my-5 no-content">
     <div class="row my-2">
+        <!-- summary of user details -->
         <div class="col-9 col-md-6 mx-auto centered">
             <p><img class="img-fluid rounded" src="{{ MEDIA_URL }}{{ user.profile.profile_pic }}"></p>
             <h2>{{ user.username }}</h2>
             <p>{{ user.email }}</p>
+            <!-- conditional only shows second name if both names are there -->
             {% if user.first_name %}
                 <p>" {{ user.first_name | capfirst }}
                     {% if user.last_name %}
@@ -34,16 +38,19 @@
     </div>
     <div class="row my-2">
         <div class="col centered">
+            <!-- takes user to update profile form -->
             <a href="{% url 'update_profile' %}">Update Profile</a>
         </div>
     </div>
     <div class="row">
         <div class="col centered">
+            <!-- takes user to update password form -->
             <a href="{% url 'update_password' %}">Update password</a>
         </div>
     </div>
     <div class="row my-2">
         <div class="col centered">
+            <!-- takes user to update profile picture form -->
             <a href="{% url 'update_profile_pic' %}">Update pic</a>
         </div>
     </div>

@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
+
+<!-- load bootstrap form -->
 {% load bootstrap_tags %}
 
+<!-- page title -->
 {% block title %}XYfitness | Update Pic{% endblock %}
 
+<!-- breadcrumb showing path -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-3">
@@ -24,8 +28,10 @@
 		<div class="col-9 col-md-6 mx-auto my-5 centered">
 			<form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
+                <!-- bootstrap styled login form -->
 				{{ form | as_bootstrap }}
                 <div class="centered">
+                    <!-- change picture -->
                     <button type="submit" class="btn btn-outline-success mt-4"
                     aria-pressed="true" role="button">Update Picture</button>
                 </div>
@@ -34,6 +40,7 @@
 	</div>
     <div class="row centered my-5">
         <div class="col mt-3">
+            <!-- back to profile -->
             <a href="{% url 'profile' %}" class="btn btn-primary btn-md"
             role="button" aria-pressed="true">Cancel</a>	
         </div>

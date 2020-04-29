@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+
+<!-- load bootstrap form -->
 {% load bootstrap_tags %}
 
+<!-- page title -->
 {% block title %}XYfitness | Login{% endblock %}
 
 {% block content %}
@@ -8,13 +11,17 @@
 	<div class="row nav-fixed-m-top">
 		<div class="col-9 col-md-5 my-4 mx-auto border">
             <form method="POST" class="mt-5">
+            <!-- login form styled with BS -->
                 {% csrf_token %} {{ login_form | as_bootstrap}}
                 <div class="centered mt-3">
+                    <!-- logs user in -->
                     <button type="submit" class="btn btn-primary btn-md active mt-4"
                     aria-pressed="true" role="button">Login</button>
+                    <!-- takes next value from url and redirect user here if applicable -->
                     <input type="hidden" name="next" value="{{next}}" />
                 </div>
                 <div class="centered mt-5 mb-2">
+                <!-- link to register view -->
                     Don't have an account? <a href="{% url 'register' %}">Sign Up </a>
                 </div>
             </form>
@@ -22,6 +29,7 @@
 	</div>
     <div class="row mt-2">
         <div class="col-9 col-md-5 mx-auto pl-0">
+        <!-- ltakes user to django password reset link -->
             <p>Forgot Password? <a href="{% url 'password_reset' %}">Reset</a></p>
         </div>
     </div>
