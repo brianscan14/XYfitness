@@ -1,20 +1,20 @@
-### XYfitness Testing
+# XYfitness Testing
 
-#### Manual Testing
+[link to view the website on Heroku](https://xyfitness.herokuapp.com/)
 
-###### **Planning**
+## Manual Testing
+
+### **Planning**
 
 ------
 
 The main goal of this website is to offer a means for a PT to get their brand out on the market and obtain new customers by encouraging them to purchase one of their products. This testing will be carried out using developer tools audit tests, different browsers and also different screen sizes to check responsiveness. Validation tools and automated tests will also be carried out to check the code's validity, as outlined in the "Automated testing" section below. The main means of testing the intended purpose of this website will also be to go through each client story and check if their outcome was achieved.
 
-###### **Implementation**
+### **Implementation**
 
 ------
 
-###### Manual Tests
-
-###### *Methodology used*
+### *Methodology used*
 
 *This site was tested across the below browsers:*
 
@@ -37,11 +37,11 @@ The audit tool from google inspect was also used in order to improve on three as
 - Best Practices
 - Accessibility
 
-###### *Manual tests carried out*
+### *Manual tests carried out*
 
-**Common elements:**
+### Common elements:
 
-<u>Navbar</u>:
+#### Navbar:
 
 1. Confirm nav is a list of the different pages on lg-xl screens
 2. Confirm nav is a burger icon with collapsible menu on xs-md screens
@@ -56,12 +56,12 @@ The audit tool from google inspect was also used in order to improve on three as
 11. Confirm if user is signed in their username appears on the nav as a link, and a logout link too
 12. Confirm if the site viewer has no profile or is signed out then the sign in or register links are shown instead
 
-<u>Footer:</u>
+#### Footer:
 
 1. Confirm the footer content stays centered and at the bottom of the page on all screen sizes and pages.
 2. Confirm footer logo adjusts width appropriately for differing screen sizes. 
 
-<u>Float Top Button:</u>
+#### Float Top Button:
 
 1. Confirm button only appears on bottom right of screen when user has scrolled down the page
 2. Confirm that the icon changes colour when hovered over
@@ -69,7 +69,7 @@ The audit tool from google inspect was also used in order to improve on three as
 4. Confirm that the action of scrolling to the top is  slowed down and not a sudden jolt
 5. Confirm icon is above any content that is on the page and doesn't have a lower z-index
 
-**Index/Home Page:**
+### Index/Home Page:
 
 1. Confirm that the page content is margined correctly on all screen sizes.
 2. Confirm that hero text, subheading and find out more button resizes and stays centered on all screen sizes.
@@ -91,7 +91,7 @@ The audit tool from google inspect was also used in order to improve on three as
 18. Confirm that on hover the social media icon changes colour to their respective signature colours.
 19. Confirm that when clicked this icon will redirect the user to a new tab for this social media link.
 
-**About Page**
+### About Page:
 
 1. Confirm that the page content is margined correctly on all screen sizes
 2. Confirm that the '**Why XY?**' heading, its subtext and get started button resizes and stays centered on all screen sizes
@@ -108,7 +108,7 @@ The audit tool from google inspect was also used in order to improve on three as
 13. Confirm that the 'get in touch' button redirects the user to the contact page
 14. Confirm that on hover the 'get in touch' button changes colour
 
-**Shop**
+### Shop
 
 1. Confirm the breadcrumb for this page is pointing correctly
 2. Confirm that the page title adds 'Shop' to it
@@ -124,7 +124,7 @@ The audit tool from google inspect was also used in order to improve on three as
 12. Confirm that if you alter the rating on a product that the pages updates the average reviews value from this rating correctly
 13. Confirm if the user selects the sort by function when in the apparel or plan category view, that only the products matching this category are sorted appropriately
 
-**Single Product Page**
+### Single Product Page
 
 1. Confirm that the page content is margined correctly on all screen sizes
 2. Confirm that the breadcrumb points to the correct product
@@ -151,7 +151,7 @@ The audit tool from google inspect was also used in order to improve on three as
 23. Confirm is user tries to add a review straight but they already have a review then they will be redirected to the product's page and told this with **sweetify**, and the duplicate review not added
 24. Confirm that the act of deleting a review removes it from the DB and the page, and the average reviews are updated correctly, with a **sweetify** message to confirm this action
 
-**Contact Page**
+### Contact Page
 
 1. Confirm that the breadcrumb is pointing correctly to this page
 2. Confirm if the user is signed in then the forms email field is populated with their email
@@ -161,7 +161,7 @@ The audit tool from google inspect was also used in order to improve on three as
 6. Confirm that this content is also sent to the admin site for the site admin to look at there
 7. Confirm that the user receives a **sweetify** success alert telling them their email was sent and they are redirect to the home page
 
-**Testimonials**
+### Testimonials
 
 1. Confirm the breadcrumb for this page is pointing to the correct url
 2. Confirm that the rows of testimonials content remains in the center of the screen for all screen sizes
@@ -179,7 +179,7 @@ The audit tool from google inspect was also used in order to improve on three as
 14. Confirm clicking cancel button brings user back to the previous page of all the testimonials
 15. Confirm that if a user already has a testimonial on the page that they will be redirected to the previous page and given a **sweetify** notification saying this, and a duplicate testimonial isn't added to the site
 
-**Single Testimonial Page**
+### Single Testimonial Page
 
 1. Confirm all content on the page is margined / appropriately on all screen sizes
 2. Confirm the breadcrumb is pointing towards the correct testimonials name
@@ -192,7 +192,7 @@ The audit tool from google inspect was also used in order to improve on three as
 9. Confirm clicking on the delete button will remove the testimonial from the site and also the DB
 10. Confirm clicking on the back button will bring the user back to the previous page of all the testimonials
 
-**Login / logout**
+### Login / logout
 
 1. Confirm that if the user is already logged in and tries to do so again, they are redirected to home page with an alert form **sweetify** telling them they are already logged in
 2. Confirm that all content on the page is margined correctly and the form content is all centered on all screen sizes
@@ -205,7 +205,7 @@ The audit tool from google inspect was also used in order to improve on three as
 9. Confirm that if the user needed to login to access a page on a site, that they are then redirected to that page after logging in, and no notification is sent to them this time
 10. Confirm that if the user previously changed their username or email in their settings then that these new fields log in successfully, and not the old ones, they are now obsolete
 
-**Register**
+### Register
 
 1. Confirm that all content on the register page is margined appropriately and in the center of the page on all screen sizes
 2. Confirm that if the user is already logged in and tries to register, they are redirected to home page with an alert form **sweetify** telling them they are already registered
@@ -215,7 +215,7 @@ The audit tool from google inspect was also used in order to improve on three as
 6. Confirm that if the user chooses not to user a picture on sign up, that the default avatar image is given to them instead
 7. Confirm that if the user needed to register to checkout their items in the cart, then they'll be redirected to the delivery details step in the checkout process after successful register, with no **sweetify**
 
-**Profile**
+### Profile
 
 1. Confirm that all content on the profile page is centered correctly on all screen sizes
 2. Confirm that the breadcrumb is pulling the username correctly
@@ -232,7 +232,7 @@ The audit tool from google inspect was also used in order to improve on three as
 13. Confirm the cancel button brings you back to the profile page
 14. Confirm that upon successful update on either the picture, password or details update pages, the user is returned to the profile page with a **sweetify** message telling them they were successful and a varying message depending on what page they just came form
 
-**Cart** 
+### Cart
 
 1. Confirm that the all products link is displayed on the left hand side on all screen sizes, and that it brings the user back to the all products page
 2. Confirm the total items and checkout button at the top are floated to the right correctly on all screen sizes, and the total of items updates appropriately when they are changed
@@ -254,9 +254,9 @@ The audit tool from google inspect was also used in order to improve on three as
 18. Confirm that the checkout button changes colour on hover
 19. Confirm that clicking on the checkout button will bring the user to begin the checkout process if they are signed in, or tell them they need an account to do so
 
-**Checkout Page**
+### Checkout Page
 
-*Delivery Steps*
+#### *Delivery Steps*
 
 1. Confirm that this page is only accessible if  the user is logged in
 2. Confirm that all content on the page is margined appropriately, with the delivery details on the left side, and the cart content on the right side of a centered page, and on smaller screen sizes these cart contents are pushed to the bottom of the page with all content centered correctly
@@ -268,7 +268,7 @@ The audit tool from google inspect was also used in order to improve on three as
 8. Confirm that the confirm details button is centered to the delivery form and that it changes colour on hover, bringing the user to the next stage of the checkout process if they have items in the cart and the form is filled out correctly
 9. Confirm that the confirm details button is disabled if there are no items in the cart and prevents an empty checkout if the user used the back in history tab to get back to this step
 
-*Card Details step*
+#### *Card Details step*
 
 1. Confirm that this page is only accessible if  the user is logged in
 2. Confirm that all content on the page is margined appropriately, with the previous delivery details on the left side with the card form underneath, and the cart content on the right side of a centered page, and on smaller screen sizes these cart contents are pushed to the bottom of the page with all content centered correctly
@@ -280,14 +280,14 @@ The audit tool from google inspect was also used in order to improve on three as
 8. Confirm that the submit payment button is disabled if there are no items in the cart, preventing an empty checkout and incorrect customer charge
 9. Confirm that the submit payment button changes colour on hover and is centered, when clicked it redirects you to the thank you page confirming your order, and an email is sent to the terminal, thanking the customer
 
-*Thank You page*
+#### *Thank You page*
 
 1. Confirm that upon successful order of products on the site, the user is redirected to the thank you page, which thanks them for their order
 2. Confirm that all content on this page is centered, and the back to website button points correctly to the home page
 3. Confirm that the user's email mentioned in the thank you message is correct
 4. Confirm that if the user goes back in history from this page, all of the content from the previous pages is now empty, and none of the confirm details or submit payment buttons are active
 
-###### *User Stories tests*
+### *User Stories tests*
 
 - As a new visitor to the website, I want to be easily navigate the site and find information I was looking for in one or two clicks.
   - The navbar is very simple to use and brings the user to any part of the page when clicked.
@@ -348,19 +348,19 @@ The audit tool from google inspect was also used in order to improve on three as
   - Users can also change their profile picture if they wish from the like on the profile page.
   - Users can also add a bit more detail about themselves like their actual names on the profile page, and edit their usernames or emails which then cascades across the site.
 
-###### *Further Manual Tests*
+### *Further Manual Tests*
 
 Asked family and friends working in the field to view the site and run through all aspects of it and report back any potential issues they came across
 
-###### **Results**
+### **Results**
 
 ------
 
-###### *Results of Google Audits*
+#### *Results of Google Audits*
 
 This let me realise where aria-labels were missing and alt tags, along with labels for forms and if CDN library version was vulnerable. Where loading times can be reduced and colour's opacities needed to be changed to improve performance. The pictures were gotten from [Pexels](https://www.pexels.com/) and were large in file size so these were either condensed on [TinyPNG](https://tinypng.com/) or changed for a smaller sized picture. From these audits on the site each page scored over 90% or over in the three aspects aforementioned.
 
-###### *Bugs fixed*
+#### *Bugs fixed*
 
 - When in the plan or apparel view in the shop and trying to sort the products all product types would be called:
   - This was due to an error both in my urls file, view and the fix for it stemmed from using the templating language. Django templating was used to determine which url was currently being viewed by the user, and this would then feed back to the view. Depending on the url, the view would pick up a different value for the sort value; general, apparel or plans. This would then filter back to the view and there it would filter the results which only matched those in the sort's value, and then sort them appropriately.
@@ -397,9 +397,9 @@ This let me realise where aria-labels were missing and alt tags, along with labe
 
 There was an bug in IE where the JQuery used doesn't work, I looked up [Can i use](https://caniuse.com/#search=jquery) and unfortunately it isn't available in any forms of IE.
 
-#### Automated Testing
+## Automated Testing
 
-##### Validation
+### Validation
 
 - [W3C Markup Validation](https://validator.w3.org/) was used to validate HTML.
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/) was used to validate CSS.
@@ -407,7 +407,7 @@ There was an bug in IE where the JQuery used doesn't work, I looked up [Can i us
 
 No major errors were observed, the only one to note was with CSS and this relates to a known BS problem.
 
-##### Jasmine
+### Jasmine
 
 The main functions were tested in this project with Jasmine as a means of ensuring they were working as planned. The way I approached the testing method was to start small and make sure it is implemented correctly in the first place and work from there. The files for testing are below:
 
@@ -415,7 +415,7 @@ The main functions were tested in this project with Jasmine as a means of ensuri
 - [Jasmine JS specs](https://github.com/brianscan14/XYfitness/blob/master/testing/jasmine/jasmine.spec.js)
 - [JS](https://github.com/brianscan14/XYfitness/blob/master/static/js/script.js)
 
-###### Running the tests
+#### *Running the tests*
 
 Firstly make sure the the project is cloned from the GitHub repo and running on your own IDE as outlined in the [README.md](https://github.com/brianscan14/Gourmet_Grub/blob/master/README.md) file. Then:
 
@@ -428,6 +428,6 @@ To create Jasmine tests of your own:
 2. Write the tests using Jasmine's framework.
 3. Save the spec and refresh the HTML file.
 
-**Travis**
+### Travis
 
 Throughout the course of the project [Travis](https://travis-ci.org/) was used as a means of keeping continuous integration with the Heroku site. If the build was not successful at any stage then there was an issue with the code and this was remedied to ensure the site was deployed successfully.
