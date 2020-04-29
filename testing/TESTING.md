@@ -8,10 +8,11 @@
   * [Planning](#planning)
   * [Implementation](#implementation)
     + [*Methodology used*](#methodology-used)
+    + [*Manual testing completed*](#manual-testing-undertaken-on-features)
     + [*User Stories tests*](#user-stories-tests)
   * [Results](#results)
     + [*Results of Google Audits*](#results-of-google-audits)
-    + [*Bugs fixed*](#-bugs-fixed)
+    + [*Bugs fixed*](#bugs-fixed)
     + [*Bugs still an issue*](#bugs-still-an-issue)
   * [*Further Manual Tests*](#further-manual-tests)
 - [Automated Testing](#automated-testing)
@@ -54,7 +55,9 @@ The audit tool from google inspect was also used in order to improve on three as
 - Best Practices
 - Accessibility
 
-#### Common elements:
+#### *Manual testing undertaken on features:*
+
+#### Common elements
 
 ##### Navbar:
 
@@ -106,7 +109,7 @@ The audit tool from google inspect was also used in order to improve on three as
 18. Confirm that on hover the social media icon changes colour to their respective signature colours.
 19. Confirm that when clicked this icon will redirect the user to a new tab for this social media link.
 
-#### About Page:
+#### About Page
 
 1. Confirm that the page content is margined correctly on all screen sizes
 2. Confirm that the '**Why XY?**' heading, its subtext and get started button resizes and stays centered on all screen sizes
