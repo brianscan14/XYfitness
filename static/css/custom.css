@@ -230,12 +230,16 @@ input[type="text"].nav-search-form::-moz-placeholder {
 .testimonails-row-xs {
     margin-top: 1em;
 }
-.test-para {
-    font-size: 21px;
+.test-text {
+    font-size: 20px;
 }
 .index-tests-header {
     margin-top: 0;
 }
+}
+
+.index-tests-header {
+    margin-top: 2;
 }
 
 @media screen and (max-width: 450px) {
