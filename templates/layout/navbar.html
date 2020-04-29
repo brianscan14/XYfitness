@@ -1,20 +1,27 @@
+<!-- dark nav used for this site -->
 <nav class="navbar navbar-expand-lg navbar-dark darkest-bg fixed-top">
     <a class="navbar-brand" href="{% url 'home' %}">XY</a>
+    <!-- burger icon on smaller screens -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- content will turn into collapsible list on smaller screens -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            <!-- used to determine current url and give active class to nav item if matching -->
             {% with request.resolver_match.url_name as url_name %}
+            <!-- home link -->
             <li class="nav-item {% if url_name == 'home' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
+            <!-- about link -->
             <li class="nav-item {% if url_name == 'about' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'about' %}"
                 data-toggle="tooltip" data-placement="bottom" title="Find out more about me">About</a>
             </li>
+            <!-- shop link with dropdown for categories -->
             <li class="nav-item dropdown {% if url_name == 'products' or url_name == 'sort' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="navbarDropdown" title="View shop"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
@@ -28,15 +35,18 @@
                     data-toggle="tooltip" data-placement="bottom" title="Check out our brand!">Apparel</a>
                 </div>
             </li>
+            <!-- testimonials link -->
             <li class="nav-item {% if url_name == 'testimonials' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'testimonials' %}"
                 data-toggle="tooltip" data-placement="bottom" title="See what past customers say">
                 Testimonials</a>
             </li>
+            <!-- contact link -->
             <li class="nav-item {% if url_name == 'contact' %}active{% endif %}"
             data-toggle="tooltip" data-placement="bottom" title="Get in touch">
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
+            <!-- signout link if user is signed in -->
             {% if user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}"
@@ -46,20 +56,26 @@
             </li>
             {% endif %}
         </ul>
+        <!-- nav content on right side on larger screens -->
         <ul class="navbar-nav ml-auto">
+            <!-- calls the search function overlay to search products from any page -->
             <li class="nav-item my-auto">
+                <!-- icon used to open overlay -->
                 <span class="nav-search-bar" id="navSearchOpen">
                     <i class="fas fa-search fa-2x d-none d-lg-inline-block"
                     data-toggle="tooltip" data-placement="bottom" title="Search products"></i>
                     <span class="nav-search-bar d-lg-none nav-link">Search</span>
                 </span>
+                <!-- content in the search overlay -->
                 <div id="overlaySearchBar" class="overlay">
                     <a href="javascript:void(0)" id="navSearchClose" class="close-nav-search">&times;</a>
                     <div class="overlay-content">
+                        <!-- search function will find matches for string entered -->
                         <form action="{% url 'search' %}" method="get">
                             <div class="w-75 mx-auto">
                                 <input class="form-control nav-search-form mx-auto" autocomplete="off" 
                                 type="text" placeholder="Search products!" name="query" required>
+                                <!-- icon initiates search or clicking enter-->
                                 <button type="submit" class="bg-transparent search-button mt-3" aria-label="search">
                                     <i class="fas fa-search fa-4x search-prod"></i>
                                 </button>
@@ -68,6 +84,7 @@
                     </div>
                 </div>
             </li>
+            <!-- cart link which will have badge with number of cart items on it if there are any -->
             <li class="nav-item my-auto {% if url_name == 'view_cart' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'view_cart' %}" data-toggle="tooltip"
                 data-placement="bottom" title="View your cart items">
@@ -75,6 +92,7 @@
                     {% if product_count > 0 %}
                         <label class="badge badge-success d-none d-lg-inline-block">{{ product_count }}</label>
                     {% endif %}
+                    <!-- smaller screens the cart count of items is just in text -->
                     <span class="d-lg-none py-2">Checkout
                     {% if product_count == 1 %}
                         ({{ product_count }} item)
@@ -85,6 +103,7 @@
                 </a>
             </li>
             {% if user.is_authenticated %}
+            <!-- shows user's avatar and brigns them to their profile if signed in -->
             <li class="nav-item my-auto {% if url_name == 'profile' %}active{% endif %}">
                 <a class="nav-link p-0" href="{% url 'profile' %}" data-toggle="tooltip" 
                 data-placement="bottom" title="View Profile">{{ user }}
@@ -92,11 +111,12 @@
                 </a>
             </li>
             {% else %}
-            <li class="nav-item">
+            <!-- if not signed in then the login or register links are shown instead" -->
+            <li class="nav-item {% if url_name == 'login' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'login' %}" data-toggle="tooltip" data-placement="bottom"
                 title="Sign in to your Account"><i class="fas fa-sign-in-alt"></i> Log In</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if url_name == 'register' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'register' %}"
                 data-toggle="tooltip" data-placement="bottom" title="Sign up to the website!">Register</a>
             </li>

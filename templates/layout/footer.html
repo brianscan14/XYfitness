@@ -3,11 +3,13 @@
     <div class="row my-3">
         <div class="col mx-auto centered">
             <div class="row">
+            <!-- pulls in current year and retuns it as text -->
                 <div class="col">
                     <p class="text-white">Created by: Brian Scanlon, {% now "Y" %}</p>
                 </div>
             </div>
             <div class="row">
+            <!-- shows page's logo and adjusts size based on screen size -->
                 <div class="col-5 col-md-3 col-lg-2 mx-auto">
                     <p class="logo mx-auto">
                         <img class="img-fluid" src="{{ MEDIA_URL }}images/XY.png">
@@ -15,7 +17,9 @@
                 </div>
             </div>
             <div class="row centered">
+            <!-- links all the social media platforms for the PT to the site -->
                 <div class="d-flex justify-content-center p-3 mx-auto">
+                <!-- icons will change to their platform's colour on hover -->
                     <div class="row">
                         <div class="col-4 mx-auto">
                             <a href="https://www.facebook.com/" target="_blank" rel="noopener"

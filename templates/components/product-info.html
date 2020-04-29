@@ -1,28 +1,36 @@
 <nav>
+<!-- tabs shown which when clicked show the user their respective info -->
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
 			aria-controls="nav-home" aria-selected="true">Info</a>
+        <!-- shows number of reviews in brackets after tab title -->
 		<a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab"
 			aria-controls="nav-reviews" aria-selected="false">Reviews ({{product.productreview_set.count}})</a>
 		<a class="nav-item nav-link" id="nav-shipping-tab" data-toggle="tab" href="#nav-shipping" role="tab"
 			aria-controls="nav-shipping" aria-selected="false">Shipping</a>
         {% if product.category == "A" %}
+        <!-- extra size info tab if the product is an apparel item -->
         <a class="nav-item nav-link" id="nav-size-tab" data-toggle="tab" href="#nav-size" role="tab"
 			aria-controls="nav-size" aria-selected="false">Size</a>
         {% endif %}
 	</div>
 </nav>
+
 <div class="tab-content mt-3 pr-3" id="nav-tabContent">
+    <!-- description content shows the full summary of the prdouct info -->
 	<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 		<p>{{ product.description | capfirst }}</p>
         {% if product.category == "P" %}
+        <!-- if item is a plan then equipment need is added to info -->
 		<p><span class="bold"><u>Equipment needed:</u></span> {{ product.equipment }}</p>
         {% endif %}
     </div>
-	<div class="tab-pane fade " id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+    <!-- reviews content shows the reviews for this product in rows -->
+	<div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
 		<div class="row my-2">
 			<div class="col">
 				<h6 class="mt-2">
+                <!-- varying message depending on review count -->
 					{% if product.productreview_set.count == 0 %}
 					No reviews
 					{% elif product.productreview_set.count == 1 %}
@@ -30,10 +38,12 @@
 					{% elif product.productreview_set.count > 1 %}
 					{{ product.productreview_set.count }} total reviews
 					{% endif %}
+                    <!-- link to add a review to this product -->
 					<a class="text-muted" href="{% url 'review_prod' product.id %}" role="button" aria-pressed="true"><u>Add Review</u></a>
                 </h6>
 			</div>
 		</div>
+        <!-- iterates through the review content for this product as rwos -->
         {% for review in product.productreview_set.all %}
 		<div class="row mb-2 border-bottom">
 			<div class="col mb-2 px-3 pt-0">
@@ -46,6 +56,7 @@
 				{% endif %}
 				<p>"{{ review.rating }}/5"
 					{% if review.user == user %}
+                    <!-- if user is the author they will see these linkto alter it -->
 					<a href="{% url 'delete_prod_review' review.id %}">(delete</a> /
 					<a href="{% url 'edit_review_prod' review.id  %}"> change review)</a>
 					{% endif %}
@@ -54,6 +65,7 @@
 		</div>
         {% endfor %}
 	</div>
+    <!-- shipping or delivery info is different depending on the prdouct's category -->
 	<div class="tab-pane fade" id="nav-shipping" role="tabpanel" aria-labelledby="nav-shipping-tab">
     {% if product.category == "A" %}
 		<p>This website uses a courier to deliver its products.</p>
@@ -65,6 +77,7 @@
     {% endif %}
 	</div>
     {% if product.category == "A" %}
+    <!-- size information tab shown if the product is an apparel item -->
     <div class="tab-pane fade" id="nav-size" role="tabpanel" aria-labelledby="nav-size-tab">
 		<p>This item is unisex, so if you are ordering for:</p>
         <p>Male - please order once size <u>higher</u> than you normal fitting size</p>

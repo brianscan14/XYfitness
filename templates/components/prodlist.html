@@ -1,10 +1,12 @@
 
 <div class="row">
 
+    <!-- iterates through all of the matching products for this view -->
     {% for product in products %}
     <div class="col-10 xs-mx-middle col-md-4 my-4">
         <div class="row">
             <div class="col">
+                <!-- product image and title act as links to view them in their page -->
                 <a href="{% url 'single_prod' product.id %}">
                     <img class="product rounded" src="{{ MEDIA_URL }}{{ product.image1 }}">
                 </a>
@@ -13,6 +15,7 @@
                 </h5>
                 <p class="mb-0"><i class="fas fa-euro-sign"></i> {{ product.price }}</p>
                 <p class="mt-1">
+                <!-- shows average rating for this product if it has one -->
                     {% for star in stars %}
                         {% if product.id == star.id %}
                             {% if star.avg_review %}
