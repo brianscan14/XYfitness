@@ -33,11 +33,13 @@ The **hero image** on the index page take up the entire and lets the user know t
 - As a returning customer, I want to be able to alter or delete my review if I change my mind on the product.
 - As a returning site user, i want to be able to edit my profile settings or details as I please.
 
-###Color Scheme
+### Color Scheme
 
 ![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/xy-scheme.png?raw=true)
 
 The site conforms to a very uniform colour scheme across the entire page, there are slight variations on buttons or icons hover but mainly just opacity changes. The vibrant colour variations stem from that of the weight plates on a barbell, these can be red, blue, green or yellow. The green and yellow has been implemented on this site, green for use on success buttons, yellow for the review stars and also the cart update button. The scheme mainly stems from the following [Bootstrap theme](https://bootswatch.com/lux/), which gives the page the intended professional/cool design desired, convincing the customers to us this page. [Coolors](https://coolors.co/) website was used for the varying background colours, seen in the [about](https://xyfitness.herokuapp.com/page/about/) and [home](https://xyfitness.herokuapp.com/) pages, for example. This scheme is employed throughout the website and gives the user a more pleasant and immersive viewing experience.
+
+![Weight Plates](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/gym-plates.jpg?raw=true)
 
 ## Wireframes
 
@@ -158,17 +160,15 @@ For bigger screens the navbar is displayed as a list of titles of the pages in a
 
 The footer is a simple line of muted text alogn with a symbol for the site at the bottom of the page that signifies to the users who the page was created by. It is fixed to the bottom of the page with CSS positioning. If this page were to be used in production and as the popularity grows in stature then more links would be added to it, such as FAQs, contact links, contat details etc, for now it uses Django's templates to pull in the current date and just show the year. The image was created on [Canva](https://www.canva.com/).
 
-###Scroll Top button:
+### Scroll Top button:
 
 This button appears on all screen sizes but is mainly for use with the smaller screens as a handy means for the user to scroll to the top of the screen when clicked. It will appear after 80px of scrolling as an 'up' directional arrow which will allow the user to know its function. Once clicked it bring you back to the start of the page. It also changes colour on hover to notify the user that it is clickable and uses CSS to position itself at the bottom right of the screen, with a higher z-index to make sure it isn't covered by any html content.
 
-###Search Overlay:
+### Search Overlay:
 
 ![Overlay](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/overlay.PNG?raw=true)
 
 The navbar uses a search icon in the shape of a magnifying glass which when clicked will call an overlay that covers the whole page. This overlay has less opacity to still show the user the page they were on, but in the 'background'. The overlay itself keeps to the pages colour scheme and consists of a search bar with a simple search button. This search bar searches the DB for products that match the string searched.
-
-![Weight Plates](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/gym-plates.jpg?raw=true)
 
 ### Home Page
 
@@ -280,13 +280,19 @@ If the user wants to just remove an item form the cart then they can do this by 
 
 The checkout sequence is then divided into two main sections for better user experience. The first being entering the user's delivery details and the second is entering the user's payment card information. On both pages the cart items can be seen with a similar assembly to the previous [cart page](#cart), only a more summarised version. The user can edit these details at any stage and return to the cart with the edit link provided. Throughout the checkout process there is breadcrumb of icons denoting to the user what stage they are at, depending on the stage they can use these to go back and forth.
 
+#### Delivery Details
+
 ![Delivery Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/delivery.PNG?raw=true)
 
 The delivery page then consists of a form of which the user fills out in order to proceed to next step. These details are the standard ones of which a user fills out in most online stores to purchases an item. They consist of delivery address, phone number and name. Having these details will allow the site owner know where they will have to deliver the items. Once the user confirms their details they proceed to the next step of payment card information. If these details are not filled out or the cart items are empty then the button to continue to the next step will be disabled and the user unable to proceed.
 
+#### Payment Card Details
+
 ![Payment Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/checkout.PNG?raw=true)
 
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form, which also has the current month pre-selected, this is done in the forms file to grab the current date, then month, then set that as initial value. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors. If the user has managed to get to this page with no items in the cart or the previous delivery page not filled out, then the 'pay' button will be disabled and the user won't be able to select it to make an incorrect payment.
+
+#### Order Confirmation
 
 ![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
 
@@ -294,7 +300,7 @@ If the card is filled out successfully the info is sent to stripe, the cart is e
 
 ### Account
 
-###Login / Logout
+### Login / Logout
 
 ![Login / Register Pages](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/login-register.PNG?raw=true)
 
@@ -302,7 +308,7 @@ The user can effectively login or logout from wherever they are on the site. If 
 
 If there was an error with the login form then they will be shown the error message and they can try again, or reset their password if they forgot. The user can also login using their email if it matches the password/username, if they are already logged in and manage to access this page they are returned to the home screen with a [sweetify](https://github.com/Atrox/sweetify) message telling them this. If the user forgets their password then they can use the Django templates to do so.
 
-###Register
+### Register
 
 If a user wishes to make an account, they will be presented with the registration form and its fields; username, email, password (twice) and profile picture for the site. The Django [user creation](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) form is used here to create a user, with the given details. Password is entered twice so they can be checked for correctness in the backend. If the email entered or the username is taken then the form will return an error stating this, any other others are returned at the top of the form. Upon successful registration the user will also have created a profile, which uses the form pic as their profile pic, and be logged in. These details can be altered in the [Profile](#profile) page, if a user is already logged in and gets this page they are returned to the home screen with a [sweetify](https://github.com/Atrox/sweetify) message telling them they already have an account. They will also be encouraged upon successful registration to edit their profile page, in another [sweetify](https://github.com/Atrox/sweetify) message. If they needed to register an account to checkout then they will be redirected to the cart using the document.referrer and slice method to check if the url matches the 'next' one seen in the login page url.
 
@@ -552,13 +558,9 @@ Follow the below instructions to deploy XYfitness to Heroku:
 
 4. Using bash, commit everything:
 
-  - first:
+   `git add .`
 
-  `git add .`
-
-  - then:
-
-  `git commit -m "<Commit Message>"`
+   `git commit -m "<Commit Message>"`
 
 5. In bash, push to GitHub using: 
 
