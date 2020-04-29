@@ -59,7 +59,9 @@
                                 <form method="post" action="{% url 'del_cart_item' item.product.id %}">
                                     {% csrf_token %}
                                     <input type="hidden" name="sizez" value="{{item.size}}" />
-                                    <button type="submit" class="rounded-circle mt-1"><i class="fas fa-times"></i></button>
+                                    <button type="submit" class="bg-transparent search-button mt-1">
+                                        <i class="far fa-trash-alt fa-2x"></i>
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -136,7 +138,9 @@
                 <form method="post" action="{% url 'del_cart_item' item.product.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="sizez" value="{{item.size}}" />
-                    <button type="submit" class="rounded-circle"><i class="fas fa-times"></i></button>
+                    <button type="submit" class="bg-transparent search-button">
+                        <i class="far fa-trash-alt fa-2x"></i>
+                    </button>
                 </form>
             </div>
         </div>

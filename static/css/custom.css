@@ -477,6 +477,10 @@ span{
     width: 50%;
 }
 
+.fa-trash-alt:hover {
+    color: 555251;
+}
+
 @media screen and (max-width: 769px) {
 .update-cart, .update-input  {
     margin-top: 1em;
