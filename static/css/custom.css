@@ -302,7 +302,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
     transition-duration: 0.5s;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 992px) {
 .product-image {
     width: 100%;
     height: 300px;
@@ -311,7 +311,7 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 }
 
-@media screen and (max-width: 769px) and (min-width: 450px) {
+@media screen and (max-width: 991px) and (min-width: 450px) {
 .product-image {
     width: 100%;
     height: 250px;
