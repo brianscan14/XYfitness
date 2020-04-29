@@ -411,6 +411,8 @@ This let me realise where aria-labels were missing and alt tags, along with labe
 
 There was an bug in IE where the JQuery used doesn't work, I looked up [Can i use](https://caniuse.com/#search=jquery) and unfortunately it isn't available in any forms of IE.
 
+When the credit card form wasn't filled out correctly, the card errors were posted correctly to page in a div above the card. However there was 402 errors being created in the console, after much troubleshooting and no success in stopping them, I researched the topic. I believe that the issue stems from testing with the incorrect keys from **stripe**, and this is not an issue when using the live key and proper card numbers.
+
 ### *Further Manual Tests*
 
 Asked family and friends working in the field to view the site and run through all aspects of it and report back any potential issues they came across
