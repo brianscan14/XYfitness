@@ -286,7 +286,7 @@ The delivery page then consists of a form of which the user fills out in order t
 
 ![Payment Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/checkout.PNG?raw=true)
 
-The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors. If the user has managed to get to this page with no items in the cart or the previous delivery page not filled out, then the 'pay' button will be disabled and the user won't be able to select it to make an incorrect payment.
+The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form, which also has the current month pre-selected, this is done in the forms file to grab the current date, then month, then set that as initial value. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors. If the user has managed to get to this page with no items in the cart or the previous delivery page not filled out, then the 'pay' button will be disabled and the user won't be able to select it to make an incorrect payment.
 
 ![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
 
@@ -388,13 +388,13 @@ Below is the data base collection:
 | Name        | name        | name = models.CharField(max_length=100, default='XYfitness Product') | CharField    |
 | Description | description | max_length=400                                               | TextField    |
 | Price       | price       | max_digits=4, decimal_places=2                               | DecimalField |
-| Category    | category    | max_length=30, choices=cats, default='P'                     | CharField    |
-| Size        | size        | max_length=10, choices=sizes, default='D', verbose_name="size" | CharField    |
+| Category*   | category    | max_length=30, choices=cats, default='P'                     | CharField    |
+| Size**      | size        | max_length=10, choices=sizes, default='D', verbose_name="size" | CharField    |
 | Equipment   | equipment   | max_length=200                                               | TextField    |
 
-**Category choices are either "Plan" or "Apparel".**
+**Category choices are either "Plan" or "Apparel".*
 
-**Size choices are either "Default" for a plan, or range from "XS-XL" for apparel items.**
+***Size choices are either "Default" for a plan, or range from "XS-XL" for apparel items.*
 
 *Product Review*
 
@@ -405,13 +405,13 @@ Below is the data base collection:
 | User      | user    | Product, on_delete=models.CASCADE    | ForeignKey    |
 | Content** | content | max_length=250                       | TextField     |
 | Date      | date    | default=timezone.now                 | DateTimeField |
-| Rating    | rating  | choices=ratings, default='5'         | IntegerField  |
-
-**Rating choices range from values 1-5.**
+| Rating*** | rating  | choices=ratings, default='5'         | IntegerField  |
 
 **Title  given a placeholder from a widget attribute in forms.py, and: min_length=5*
 
 ***Message given a placeholder from a widget attribute in forms.py file, and: min_length=20*
+
+****Rating choices range from values 1-5.*
 
 ##### Testimonials
 
@@ -522,7 +522,7 @@ On the **AWS** website after [setting up](https://docs.aws.amazon.com/quickstart
 
 12. You can visit the site at:
 
-    - http://127.0.0.1:8000/
+    http://127.0.0.1:8000/
 
 13. Create a superuser to then be able to access the admin functions of this website, and add content to it: 
 
