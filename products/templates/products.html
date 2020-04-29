@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+<!-- page title -->
 {% block title %}XYfitness | Shop{% endblock %}
 
+<!-- breadcrumb showing path -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-3">
@@ -25,6 +27,7 @@
 
 <div class="container my-3 no-content">
 
+    <!-- link to apparel or plan products -->
     <div class="row">
         <div class="col-3 mr-auto mx-auto prod-links border-bottom p-2">
             <a href="{% url 'apparel' %}">Apparel</a>
@@ -32,6 +35,7 @@
         </div>
     </div>
 
+    <!-- differeing title depenidng on the current path -->
     <div class="row d-none d-md-block mt-3">
         <div class="col-6 mr-auto p-2">
             {% if '/products/apparel/' in request.path %}
@@ -46,15 +50,18 @@
 
     <div class="row mb-4 mt-3">
         <div class="col-12 ml-auto">
+            <!-- sort by function which sorts matching products depending on the current view -->
             <form {% if '/products/apparel/' in request.path %} action="{% url 'sort_apparel' %}"
             {% elif '/products/plans/' in request.path %} action="{% url 'sort_plans' %}"
             {% else %} action="{% url 'sort' %}" {% endif %}
             method="get" class="form-inline my-2 sort-form">
+                <!-- select value determines the products being sorted in the view -->
                 <select class="custom-select custom-select-md sort-by-xs" required
                 {% if '/products/apparel/' in request.path %} name="sorta"
                 {% elif '/products/plans/' in request.path %} name="sortp"
                 {% else %} name="sort"
                 {% endif %}>
+                    <!-- options to sort the products by -->
                     <option value="" disabled selected hidden>Sort By:</option>
                     <option value="LtoH">Price: Low to High</option>
                     <option value="HtoL">Price: High to Low</option>
@@ -62,12 +69,14 @@
                     <option value="ZtoA">Alphabetically: Z to A</option>
                 </select>
                 <span class="pl-2 sort-button">
+                    <!-- initiates sort function -->
                     <button class="btn btn-success" type="submit" name="action">Sort</button>
                 </span>
             </form>
         </div>
     </div>
 
+    <!-- list of products component -->
     {% include 'components/prodlist.html' %}
 
 </div>

@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+<!-- page title -->
 {% block title %}XYfitness | Shop | {{ product.name|title }}{% endblock %}
 
+<!-- breadcrumb showing path -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row">
@@ -22,15 +24,18 @@
 
 <div class="container no-content">
 
+    <!-- product image on left then in middle by itself on smaller screens -->
 	<div class="row mt-4">
 		<div class="col-10 col-md-6 xs-mx-middle">
             <div class="row">
                 <div class="col xs-mx-middle">
+                    <!-- BS4 carousel of product images -->
                     {% include 'components/prod-image.html' %} 
                 </div>
             </div>
 	    </div>
-
+        
+        <!-- product details on right then in middle by itself on smaller screens -->
         <div class="col-10 xs-mx-middle col-md-6">
             <div class="row my-2">
                 <div class="col-12">
@@ -66,13 +71,16 @@
                         </div>
                     </div>
 
+                    <!-- add product to cart -->
                     <div class="row mt-2">
                         <div class="col">
                             <form method="post" action="{% url 'cart_add' product.id %}">
                                 {% csrf_token %}
+                                <!-- default size for plans -->
                                 {% if product.category == "P" %}
                                     <input type="hidden" name="size" value="D" />
                                 {% else %}    
+                                <!-- select size options for apparel -->
                                 <div class="row">
                                     <div class="col-12 col-md-6 col-lg-4">
                                         <input type="hidden" name="size" value="D" />
@@ -90,17 +98,21 @@
                                 {% endif %}
                                 <div class="row mt-3">
                                     <div class="col">
+                                    <!-- if plan quantity of 1 is added to cart -->
                                     {% if product.category == "P" %}
                                         <input type="hidden" name="quantity" value="1" />
                                         <input type="hidden" name="category" value="plan" />
                                     {% else %}
+                                    <!-- if apparel quantity selected by user is added to cart -->
                                         <input class="product-qty form-control add-cart-form" name="quantity"
                                                 type="number" min="1" max="50" value="1" required>
                                     {% endif %}
                                     <span>
+                                        <!-- add item to cart-->
                                         <button class="btn-success d-none d-sm-inline-block add-cart-button " type="submit">
                                             Add to Cart
                                         </button>
+                                        <!-- add button centered on smaller screens -->
                                         <button class="btn-success d-block d-sm-none mt-3 xs-mx-middle add-cart-button" type="submit">
                                             Add to Cart
                                         </button>
@@ -118,6 +130,7 @@
 
     <div class="row my-5 details-nav">
         <div class="col mx-auto">
+            <!-- includes more info product component -->
             {% include 'components/product-info.html' %} 
         </div>
     </div>
