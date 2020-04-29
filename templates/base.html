@@ -11,7 +11,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ MEDIA_URL }}images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ MEDIA_URL }}images/favicons/favicon-16x16.png">
 
+    <!-- generic title of page -->
     <title>{% block title %}XYfitness{% endblock %}</title>
+
+    <!-- style sheets -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.min.css">
@@ -19,48 +22,60 @@
 </head>
 
 <header>
-{% include 'layout/navbar.html' %}
+    <!-- loads navbar component for all pages -->
+    {% include 'layout/navbar.html' %}
 </header>
 
 <body>
+    <!-- loads breadcrumbs for respective pages -->
+    {% block breadcrumb %}
+    {% endblock breadcrumb %}
 
-{% block breadcrumb %}
-{% endblock breadcrumb %}
+        <!-- gives varying alert div depending on message alert -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    {% if message.tags == "success" %}
+                    <div class="alert alert-light mb-0">
+                        {{ message|capfirst }}
+                    </div>
+                    {% elif message.tags == "error" %}
+                    <div class="alert alert-dark mb-0">
+                        {{ message|capfirst }}
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
 
-    {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-                {% if message.tags == "success" %}
-                <div class="alert alert-light mb-0">
-                    {{ message|capfirst }}
-                </div>
-                {% elif message.tags == "error" %}
-                <div class="alert alert-dark mb-0">
-                    {{ message|capfirst }}
-                </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
+    <!-- where html content is loaded from all the pages -->
+    {% block content %}
+    {% endblock %}
 
-{% block content %}
-{% endblock %}
+    <!-- includes sroll to top button for all pages -->
+    {% include 'layout/scrolltop.html' %}
 
-{% include 'layout/scrolltop.html' %}
+    <!-- includes footer for all pages -->
+    {% include 'layout/footer.html' %}
 
-{% include 'layout/footer.html' %}
+    <!-- bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
-<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <!-- script for swetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 
-{% block head_js %}
-{% endblock head_js %}
+    <!-- cscript for custom js used on site -->
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
-{% load sweetify %}
-{% sweetify %}
+    <!-- to load stripe js needed for checkout -->
+    {% block head_js %}
+    {% endblock head_js %}
 
+    <!-- to laod sweetify alerts -->
+    {% load sweetify %}
+    {% sweetify %}
 </body>
+
 </html>
