@@ -386,12 +386,12 @@ This let me realise where aria-labels were missing and alt tags, along with labe
 9. When testing the checkout with [stripe's](https://stripe.com/docs/testing) test numbers, and using the card declined code, an error occurred where the customer paid check was being referenced too early:
    - This led me to realise the check for cusotmer.paid was being referenced to early in the view function in the event of this error happening. The paid check and subsequent email send and was added to inside the 'try' part of the function for charging the customer in stripe, else telling them their card was declined with a **sweetify** alert.
 10. When trying to edit a testimonial on the page, the previously written content was not being pulled and the form was blank:
-   - This led to a lot of troubleshooting and failed attempts at fixing the issue, even trying the make a new edit view function purely for editing the previous form. Eventually I realised that the regex in the testimonials urls file was incorrect, and therefore was not routing correctly to pull the previous testimonial, this was altered and it is working correctly now.
+    - This led to a lot of troubleshooting and failed attempts at fixing the issue, even trying the make a new edit view function purely for editing the previous form. Eventually I realised that the regex in the testimonials urls file was incorrect, and therefore was not routing correctly to pull the previous testimonial, this was altered and it is working correctly now.
 11. Wheel entering the credit card details at the checkout, there were no form errors being shown clearly to the user.
-   - The first issue was that there were no validations added to the credit card form's fields used in the forms file, these were added and the notifications were shown to the user.
-   - Secondly an alert div was added which made use of [BS4](https://getbootstrap.com/docs/4.0/components/alerts/)'s alert-danger class to highlight the area in red and make the card error clear to the user.
+    - The first issue was that there were no validations added to the credit card form's fields used in the forms file, these were added and the notifications were shown to the user.
+    - Secondly an alert div was added which made use of [BS4](https://getbootstrap.com/docs/4.0/components/alerts/)'s alert-danger class to highlight the area in red and make the card error clear to the user.
 12. While testing registering on a phone, it became clear a user could not do this as they couldn't added the photo required for the profile picture field:
-   - The field on the forms file was given 'required=False' attribute to firstly stop errors coming up and preventing the user from registering because the picture was missing. Then a default profile picture was added to the account in the view if this field was left empty by the user on sign up.
+    - The field on the forms file was given 'required=False' attribute to firstly stop errors coming up and preventing the user from registering because the picture was missing. Then a default profile picture was added to the account in the view if this field was left empty by the user on sign up.
 
 #### *Bugs still an issue*
 
