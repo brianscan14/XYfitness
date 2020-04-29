@@ -33,7 +33,7 @@ The **hero image** on the index page take up the entire and lets the user know t
 - As a returning customer, I want to be able to alter or delete my review if I change my mind on the product.
 - As a returning site user, i want to be able to edit my profile settings or details as I please.
 
-**Color Scheme**
+###Color Scheme
 
 ![Colour Scheme](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/xy-scheme.png?raw=true)
 
@@ -132,9 +132,9 @@ This project uses the below languages:
 
 ## Features
 
-#### *Elements common to all pages*
+### *Elements common to all pages*
 
-##### Navbar:
+#### Navbar:
 
 The navbar can be divided into two type, small screen sizes and screen sizes above small. The pages consist of; home, about, contact, shop, testimonials, cart and depending on whether the user is signed in or not, login, signup, log out or view profile. There is a search icon on both screens for easier interaction with the user, when hovered all pages will change colour to signify it is a clickable option. The nav header is the short name of the page and this is in bolder and larger font to notify the users of this fact, when clicked it will bring them back to the home page. It is positioned at the top of the page for better viewing experience. The user can easily be returned to the navbar's location by clicking the up arrow which brings them to the top of the page.
 
@@ -152,17 +152,17 @@ The navbar is a burger icon with a vertical collapsible list of the pages when c
 
 For bigger screens the navbar is displayed as a list of titles of the pages in a horizontal fashion. Again, the overlay for searching can be called by clicking the search icon. In larger screens this and the shopping bag icon are pushed to the right side of the nav, along with the user's profile name if signed in. If not signed in the the profile is replaced by register or login titles. The shopping bag icon attached a green badge to it when an item is added to the cart to signify how many items are currently in it.
 
-##### Footer:
+#### Footer:
 
 ![Footer](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/footer.PNG?raw=true)
 
 The footer is a simple line of muted text alogn with a symbol for the site at the bottom of the page that signifies to the users who the page was created by. It is fixed to the bottom of the page with CSS positioning. If this page were to be used in production and as the popularity grows in stature then more links would be added to it, such as FAQs, contact links, contat details etc, for now it uses Django's templates to pull in the current date and just show the year. The image was created on [Canva](https://www.canva.com/).
 
-**Scroll Top button**
+###Scroll Top button:
 
 This button appears on all screen sizes but is mainly for use with the smaller screens as a handy means for the user to scroll to the top of the screen when clicked. It will appear after 80px of scrolling as an 'up' directional arrow which will allow the user to know its function. Once clicked it bring you back to the start of the page. It also changes colour on hover to notify the user that it is clickable and uses CSS to position itself at the bottom right of the screen, with a higher z-index to make sure it isn't covered by any html content.
 
-**Search Overlay**
+###Search Overlay:
 
 ![Overlay](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/overlay.PNG?raw=true)
 
@@ -170,39 +170,39 @@ The navbar uses a search icon in the shape of a magnifying glass which when clic
 
 ![Weight Plates](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/gym-plates.jpg?raw=true)
 
-#### Home Page
+### Home Page
 
 ![Home Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/index.PNG?raw=true)
 
-##### Hero Image
+#### Hero Image
 
 The user is first presented when they load the page by a hero image which consists of a darkened brick wall and some hero text as well stating the name of the site. The image is taken from [Pexels](https://www.pexels.com/photo/burger-and-vegetables-placed-on-brown-wood-surface-1565982/) and is fixed, it also ties in very well with the sub-text, telling the user to "build a better foundation". It serves a purpose as the user immediately knows what the purpose of this site is from their initial arrival. The button to learn more then scrolls the user down to the section on the page which tells them what this page offers, and how this PT works.
 
-##### Info Section
+#### Info Section
 
 ![Info](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexinfo.PNG?raw=true)
 
 The next section to scroll to then is what gives the user more of an insight in to how the PT works. This is achieved by stating the 3 pillars of how he operates to improve you on; physically, mentally and eating habits. Each pillar has a little paragraph describing what he means by them and how he plans on improving you in that category. The user is then encouraged to start their journey and click on the button which will then redirect them to the products page.
 
-##### Testimonials slideshow
+#### Testimonials slideshow
 
 ![Testimonials](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indextestimonials.PNG?raw=true)
 
 The user is then presented with a series of five of the first testimonials from previous clients in a slideshow fashion. Each of these slides will move on themselves after 6 seconds unless clicked by the user to do otherwise. The background image again enkeeps with the theme of the page and is a greyed picture of dumbbells, which is again fixed in order to keep that professional feel. These testimonials act as a means of shoring up any reservations the potential customer may have had about using this PT, and (providing the testimonials are good) will entice them to use this PT and purchases one of the products. In the event of there being no testimonials on the page an inspiration quote with the same background will be used instead.
 
-##### Social Media
+#### Social Media
 
 ![Social](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexsocial.PNG?raw=true)
 
 The three pillars of an aspiring fitness trainer's social media platform are then linked in the next section with a grey background. These icons send the user to their respective browsers in a new tab and will open up their platform there, where they can explore instructional videos etc. When the user hovers over any of these icons then they will slowly transition to their respective company colours, adding a bit of colour and also denoting to the user the icon is clickable and they are on it. 
 
-##### Mission Statement
+#### Mission Statement
 
 ![Mission](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/indexmission.PNG?raw=true)
 
 This gives the user a quick synopsis of the values and goals of our company. It is an honest statement of what you will get if you work with this PT and tries to give the user a more personal note. Again, this is trying to solidify the user;s trust in this PT and eventually going on to use his services. 
 
-#### About page
+### About page
 
 ![About Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/about.PNG?raw=true)
 
@@ -214,7 +214,7 @@ The 3 means of operation section is next then which gives the user an insight in
 
 The next section then tells the user why our results last, as was previously explained in how the plans work, it is about giving them a fishing rod as opposed to a fish. If the user buys in to this mode of training or thinking then they will know that this is definitely the PT for them. Again, encouraging them to purchases the products.
 
-#### All products page
+### All products page
 
 ![All Products](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/products.PNG?raw=true)
 
@@ -224,7 +224,7 @@ The reviews are dependent on whether the product itself has been reviewed by cus
 
 The items can then whittled down to their categories, showing them in a different view. These categories consist of "Apparel" or "Plan",  which are the two types of product being offered. The Apparel currently only consists of a training jumper, as the PT's brand expands this offering could turn into a plethora of different branded offerings. The items can then be sorted in these views using the 'sort' button. This button calls a view to sort the contents of the page either, alphabetically a-z and vice versa, or by prices, high to low / low to high.
 
-#### Single product view
+### Single product view
 
 ![A Product](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/aproduct.PNG?raw=true)
 
@@ -236,9 +236,9 @@ The more info section makes use of [Bootstrap's](https://getbootstrap.com/docs/4
 
 Since the clothing item is unisex it will not need a size selection and they are made to order so there is no need for stock counts at this moment in time, see [features to implement section](#features-to-implement). All items will also have a reviews tab, if there are any reviews for the product then they will be in here. Users can easily add a review if they wish here, and give it a rating out of 5, their post will then appear in this section. If they already had a review, then they will be notified of this by [sweetify](https://github.com/Atrox/sweetify) and redirected to the product's page. They can then edit or delete their review if they want to, but it can only be done if their account is the author. The product's rating is then accumulated form these reviews and the average is taken and reflected by the [star](https://fontawesome.com/icons/star?style=solid) icons.
 
-#### Testimonials
+### Testimonials
 
-##### *All Testimonials*
+#### *All Testimonials*
 
 ![All Testimonials](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/testimonials.PNG?raw=true)
 
@@ -246,13 +246,13 @@ This is where customers leave their experiences on the page for others to view, 
 
 The page itself is kept relatively simple with a bright background to ensure the content is as readable as possible for the user. The testimonials consist of a title, the user who posted it, their user image, the date posted (only month and year used here in Django templates) and also if the user has posted a before and after a link to see the review in full is shown. Only is both pictures are included will this link show up. Also if the user viewing the page is the author, a little extra message saying "you!" is put in brackets beside their name. This just means a little more interaction between the page and the user. There is also a button to add a new review at the bottom of the page which calls the add review form. If they already had a review, then they will be notified of this by [sweetify](https://github.com/Atrox/sweetify) and redirected to the all testimonials page.
 
-##### *Single Testimonial*
+#### *Single Testimonial*
 
 ![Single Testimonial](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/this-testimonial.PNG?raw=true)
 
 The full view of the testimonial consists of the same format for the previous page of all the testimonials, except this time the before and after pics are included. These are shown first, as the user has already seen the message content and has clicked this link to see the pictures, the pictures should then be seen first. The pics are separated by a little border on bigger screens. The author name, which is their username in brackets followed by their first name if they put in one, is floated to the right this time. If the current user is the author of the review then they will see links to either edit the review or just delete it.
 
-#### Contact
+### Contact
 
 ![Contact Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/contact.PNG?raw=true)
 
@@ -260,13 +260,13 @@ The contact page is kept relatively simple as it only serves a purpose as a mean
 
 The message currently gets sent to the backend, being printed in the terminal window, and also gets added to the admin page. This could be set up in settings to send to my Gmail account but it means changing Gmail settings to less secure ones. If this website were to be fully deployed and used as a business then this would be altered and a work email utlised to take full advantage of this feature, and the Django settings altered. 
 
-#### Profile
+### Profile
 
 ![Profile Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/profile.PNG?raw=true)
 
 The user's profile page, if they create one is kept relatively simple with just their picture they used on registration displayed, their username, first name if they added it, email, and then links to update these fields in the center of the page. The user can easily update their email, first name, username,  password or indeed profile picture on this page if they desire. The Django [password change](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) form is used here for simplicity. These links redirect the user to the respective form's pages to alter these fields, and they are waterfalled appropriately.
 
-#### Cart
+### Cart
 
 ![Cart Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/cart.PNG?raw=true)
 
@@ -276,7 +276,7 @@ In terms of the cart page itself then the products are presented in rows, as mos
 
 If the user wants to just remove an item form the cart then they can do this by just clicking the 'X' button and the cart is updated with the item removed from the dictionary. All these interactions are confirmed to the user by custom [sweetify](https://github.com/Atrox/sweetify) responses, depending on what they have done. The user can then click checkout, which bring them to next step step in the purchase process of filling out delivery details. If there are no items in the cart then this button is disabled and this next step is prevented. The view also determines what type of items are in the cart and if any of the contents contains an 'Apparel' item then the delivery fee of €5 is also added to the total.
 
-#### Checkout
+### Checkout
 
 The checkout sequence is then divided into two main sections for better user experience. The first being entering the user's delivery details and the second is entering the user's payment card information. On both pages the cart items can be seen with a similar assembly to the previous [cart page](#cart), only a more summarised version. The user can edit these details at any stage and return to the cart with the edit link provided. Throughout the checkout process there is breadcrumb of icons denoting to the user what stage they are at, depending on the stage they can use these to go back and forth.
 
@@ -292,9 +292,9 @@ The payment page then will show the user a summary of their address details, and
 
 If the card is filled out successfully the info is sent to stripe, the cart is emptied and the user returned to the thank you with a thank you message and a paragraph telling them to check their emails for the order confirmation, the 'tick' icon will also be coloured green now in the breadcrumb. If for some reason the user decides to use the history tab on this page and go back to the previous pages, the confirm details button for delivery and submit payment will be disabled as there are no items in the cart now. The user will also be sent an email upon successful order with their order number, as explained previously in [Contact](#contact) features, this is sent to the backend as this site is not in production, I did not want to change my Gmail settings to less secure ones for now.
 
-#### Account
+### Account
 
-***Login / Logout***
+###Login / Logout
 
 ![Login / Register Pages](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/login-register.PNG?raw=true)
 
@@ -302,7 +302,7 @@ The user can effectively login or logout from wherever they are on the site. If 
 
 If there was an error with the login form then they will be shown the error message and they can try again, or reset their password if they forgot. The user can also login using their email if it matches the password/username, if they are already logged in and manage to access this page they are returned to the home screen with a [sweetify](https://github.com/Atrox/sweetify) message telling them this. If the user forgets their password then they can use the Django templates to do so.
 
-**Register**
+###Register
 
 If a user wishes to make an account, they will be presented with the registration form and its fields; username, email, password (twice) and profile picture for the site. The Django [user creation](https://docs.djangoproject.com/en/1.8/_modules/django/contrib/auth/forms/) form is used here to create a user, with the given details. Password is entered twice so they can be checked for correctness in the backend. If the email entered or the username is taken then the form will return an error stating this, any other others are returned at the top of the form. Upon successful registration the user will also have created a profile, which uses the form pic as their profile pic, and be logged in. These details can be altered in the [Profile](#profile) page, if a user is already logged in and gets this page they are returned to the home screen with a [sweetify](https://github.com/Atrox/sweetify) message telling them they already have an account. They will also be encouraged upon successful registration to edit their profile page, in another [sweetify](https://github.com/Atrox/sweetify) message. If they needed to register an account to checkout then they will be redirected to the cart using the document.referrer and slice method to check if the url matches the 'next' one seen in the login page url.
 
@@ -328,9 +328,9 @@ During the development phases of this project I worked with the [sqlite](https:/
 
 Below is the data base collection:
 
-##### Accounts
+#### Accounts
 
-*Profile*
+##### *Profile*
 
 | Title       | DB Key      | Field Validation                         | Type          |
 | ----------- | ----------- | ---------------------------------------- | ------------- |
@@ -338,9 +338,9 @@ Below is the data base collection:
 | Username    | username    | max_length=30, default='User'            | CharField     |
 | Profile Pic | profile_pic | upload_to='images', default='avatar.jpg' | ImageField    |
 
-##### Checkout
+#### Checkout
 
-*Order*
+##### *Order*
 
 | Title     | DB Key          | Field Validation                                             | Type         |
 | --------- | --------------- | ------------------------------------------------------------ | ------------ |
@@ -354,7 +354,7 @@ Below is the data base collection:
 | County    | county          | max_length=40, blank=False                                   | CharField    |
 | Date      | date            |                                                              | DateField    |
 
-*OrderLineItem*
+##### *OrderLineItem*
 
 | Title    | DB Key   | Field Validation    | Type         |
 | -------- | -------- | ------------------- | ------------ |
@@ -362,9 +362,9 @@ Below is the data base collection:
 | Product  | product  | Product, null=False | ForeignKey   |
 | Quantity | quantity | blank=False         | IntegerField |
 
-##### Pages
+#### Pages
 
-*Query*
+##### *Query*
 
 | Title     | DB Key  | Field Validation               | Type      |
 | --------- | ------- | ------------------------------ | --------- |
@@ -376,9 +376,9 @@ Below is the data base collection:
 
 ***Message given a placeholder from a widget attribute in forms.py file and also: min_length=30*
 
-##### Products
+#### Products
 
-*Product*
+##### *Product*
 
 | Title       | DB Key      | Field Validation                                             | Type         |
 | ----------- | ----------- | ------------------------------------------------------------ | ------------ |
@@ -396,7 +396,7 @@ Below is the data base collection:
 
 ***Size choices are either "Default" for a plan, or range from "XS-XL" for apparel items.*
 
-*Product Review*
+##### *Product Review*
 
 | Title     | DB Key  | Field Validation                     | Type          |
 | --------- | ------- | ------------------------------------ | ------------- |
@@ -413,9 +413,9 @@ Below is the data base collection:
 
 ****Rating choices range from values 1-5.*
 
-##### Testimonials
+#### Testimonials
 
-*Review*
+##### *Review*
 
 | Title        | DB Key         | Field Validation                                             | Type          |
 | ------------ | -------------- | ------------------------------------------------------------ | ------------- |
@@ -437,7 +437,7 @@ Below is the data base collection:
 
 ## Deployment
 
-### Run project locally:
+### *Run project locally:*
 
 Using a suitable IDE (this project used Gitpod), the below requirements are what are needed for running this project:
 
@@ -530,7 +530,7 @@ On the **AWS** website after [setting up](https://docs.aws.amazon.com/quickstart
 
     *Add /admin to the site's url to access this admin page, and add/edit content on the site*
 
-### Heroku Deployment:
+### *Heroku Deployment:*
 
 Follow the below instructions to deploy XYfitness to Heroku:
 
@@ -552,11 +552,11 @@ Follow the below instructions to deploy XYfitness to Heroku:
 
 4. Using bash, commit everything:
 
-- first:
+  - first:
 
   `git add .`
 
-- then:
+  - then:
 
   `git commit -m "<Commit Message>"`
 
