@@ -1,5 +1,6 @@
 from django import forms
 from .models import Order
+import datetime
 
 
 class MakePaymentForm(forms.Form):
@@ -7,6 +8,8 @@ class MakePaymentForm(forms.Form):
 
     MONTH_CHOICES = [(i, i) for i in range(1, 12)]
     YEAR_CHOICES = [(i, i) for i in range(2020, 2030)]
+    TODAY = datetime.datetime.now()
+    MONTH = TODAY.month
 
     credit_card_number = forms.CharField(
         label='Credit card number', required=False, max_length=16
@@ -17,7 +20,10 @@ class MakePaymentForm(forms.Form):
         max_length=3
     )
     expiry_month = forms.ChoiceField(
-        label='Month', choices=MONTH_CHOICES, required=False
+        label='Month',
+        choices=MONTH_CHOICES,
+        required=False,
+        initial=MONTH
     )
     expiry_year = forms.ChoiceField(
         label='Year', choices=YEAR_CHOICES, required=False
