@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
+<!-- page title -->
 {% block title %}XYfitness | About Me{% endblock %}
 
 {% block content %}
 
 <div class="container-fluid px-0 nav-fixed-m-top">
+    <!-- initial section same colour as nav telling user about xy -->
     <div class="row darkest-bg mb-5">
         <div class="col-7 mx-auto centered my-5">
             <h2 class="text-white">Why XY?</h2>
@@ -32,6 +34,7 @@
             </p>
         </div>
     </div>
+    <!-- about me section including picture of PT with text content describing themself -->
     <div class="row my-5">
         <div class="col-11 col-md-4 xs-mx-middle ml-auto my-auto">
             <div class="row">
@@ -52,9 +55,11 @@
                         myself much of a PT, but once I started seeing the results these people were getting and how it changed their everyday
                         lives, my mind was made up fairly quickly. Thus, XYfitness was born and we haven't looked back since.</p>
                         <p class="mt-3">
+                            <!-- link to testimonials page -->
                             Check out some <a href="{% url 'testimonials' %}"><u>results</u></a> from customers and see for yourself!
                         </p>
                         <p class="mt-4">
+                            <!-- link to contact form -->
                             <a class=" btn btn-outline-primary" href="{% url 'contact' %}"
                             data-toggle="tooltip" data-placement="right" title="Send us a quick email">Contact</a>
                         </p>
@@ -63,6 +68,7 @@
             </div>
         </div>
     </div>
+    <!-- light grey section telling the user how the PT works in steps -->
     <div class="row my-4 grey-bg">
         <div class="col-10 col-md-7 my-5 mx-auto centered">
             <div class="row">
@@ -99,6 +105,7 @@
             </div>
         </div>
     </div>
+    <!-- back to normal plain colour telling user how the PT rsults last better -->
     <div class="row my-4">
         <div class="col-10 col-md-7 mx-auto centered">
             <h2 class="my-5 w-75 mx-auto border-bottom p-3">Our Work lasts</h2>
@@ -113,6 +120,7 @@
             <p class=" my-5">
             We look forward to hearing from you..</p>
             <p class=" my-5">
+                <!-- link to contact form -->
                 <a class=" btn btn-outline-primary" href="{% url 'contact' %}"
                 data-toggle="tooltip" data-placement="right" title="Send us a quick email">Get in Touch</a>
             </p>
