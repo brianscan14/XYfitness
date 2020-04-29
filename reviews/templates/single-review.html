@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+<!-- page title -->
 {% block title %}XYfitness | {{ review.author|title }}'s Testimonial{% endblock %}
 
+<!-- breadcrumb showing path -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-3">
@@ -23,8 +25,10 @@
 <div class="container my-5 no-content">
 	<div class="row">
 		<div class="col-10 col-md-6 mx-auto p-2">
+            <!-- if before and after pics they are shown here side by side -->
             {% if review.before_picture and review.after_picture %}
                 <div class="row mt-5">
+                <!-- pics take up rows to themselves on smaller screens -->
                     <div class="col-12 col-md-6 mx-auto">
                         <div class="my-3">
                             <h3 class="centered mb-3">Before..</h3>
@@ -39,6 +43,7 @@
                     </div>
                 </div>
             {% endif %}
+            <!-- same content in same format as seen on the previous all testimonials page -->
             <div class="row mt-5">
                 <div class="col">
                     <h4 class="centered border-bottom w-75 mx-auto p-2 mb-3">{{ review.title | title }}</h4>
@@ -62,6 +67,7 @@
                 {% endif %}
                 </div>
             </div>
+            <!-- if user is the author they will see these links to edit or delete their review -->
             {% if review.author == user %}
                 <div class="row mt-5">
                     <div class="col mx-auto">
@@ -72,6 +78,7 @@
                     </div>
                 </div>
             {% endif %}
+            <!-- back to all testimonials -->
             <div class="row centered my-5">
                 <div class="col">
                     <a href="{% url 'testimonials' %}" class="btn btn-primary text-white">Back</a>	

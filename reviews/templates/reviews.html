@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
+<!-- page title -->
 {% block title %}XYfitness | Testimonials{% endblock %}
 
+<!-- breadcrumb showing path -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-3">
@@ -20,16 +22,20 @@
 
 <div class="container my-5 no-content">
 
+<!-- checks for testimonials and iterates through them if there are any -->
 {% if reviews %}
     {% for review in reviews %}
         <div class="row my-3">
             <div class="col-11 col-md-8 mx-auto">
                 <div class="border-bottom p-2">
+                    <!-- couple of testimonial details like title, text, date, author-->
                     <h4 class="centered border-bottom w-50 mx-auto p-2 mb-3">{{ review.title | title |truncatewords:3 }}</h4>
                     <p class="my-1 xs-mx-middle centered">"{{ review.content | capfirst }}"</p>
                     <p class="mb-2 mt-3 float-right pr-3">{{ review.date|date:"F, Y" }}</p>
+                    <!-- custom message beside author field if the user is the testimonial's author -->
                     {% if request.user == review.author %}
                         <p class="mt-2 pl-1">{{ review.author.first_name | capfirst }} "{{ review.author }}" (you!)
+                            <!-- author's user avatar -->
                             <img class="user-image" src="{{ MEDIA_URL }}{{ review.image }}">
                         </p>
                         <p class="mb-3 mt-0 pr-3"> 
@@ -40,6 +46,7 @@
                             <img class="user-image" src="{{ MEDIA_URL }}{{ review.image }}">
                         </p>
                     {% endif %}
+                    <!-- if user included both a before and after pic the link to view them shows here -->
                     {% if review.before_picture and review.after_picture %}
                     <p class="mb-2 xs-mx-middle"><a href="{% url 'single_review' review.id %}">View Before & After Pics</a></p>
                     {% endif %}
@@ -47,6 +54,7 @@
             </div>
         </div>
     {% endfor %}
+<!-- if no testimonials then a different message is shown -->
 {% else %}
     <div class="row my-5">
         <div class="col-6 my-5 mx-auto">
@@ -57,17 +65,19 @@
     </div>
 {% endif %}
 
+<!-- if user is logged in this button will show and they can add their own testimonial -->
 {% if user.is_authenticated  %}
     <div class="row mt-5">
         <div class="col-6 mx-auto my-4">
             <p class="centered mt-4">
-                <a href="{% url 'new_review' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Add your Experience!</a>
+                <a href="{% url 'new_review' %}" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">
+                    Add your Experience!
+                </a>
             </p>
         </div>
     </div>
 {% endif %}
 
 </div>
-
 
 {% endblock %}
