@@ -238,10 +238,6 @@ input[type="text"].nav-search-form::-moz-placeholder {
 }
 }
 
-.index-tests-header {
-    margin-top: 2;
-}
-
 @media screen and (max-width: 450px) {
 .test-para {
     height: 190px;
