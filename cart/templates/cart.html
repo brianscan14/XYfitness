@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+<!-- page title -->
 {% block title %}XYfitness | Cart Items{% endblock %}
 
 {% block content %}
@@ -8,10 +9,12 @@
 
     <div class="row mt-5">
         <div class="col-6 col-md-4 mr-auto">
+            <!-- link back to all products view -->
             <a href="{% url 'products' %}"><i class="fas fa-long-arrow-alt-left"></i> All products</a>
         </div>
         <div class="col-5 col-md-4 ml-auto">
             <div>
+            <!-- quick summary of items in cart and checkout disabled if 0 -->
                 <p class="text-right mb-4">Total items in basket : {{ product_count }}</p>
                 <p class="float-right">
                     {% if product_count == 0 %}
@@ -26,6 +29,7 @@
 
     <div class="row mt-3 mb-5">
         <div class="col mx-auto">
+            <!-- page main title -->
             <h2 class="centered">My Shopping Bag</h2>
         </div>
     </div>
@@ -35,6 +39,7 @@
     <div class="row my-5">
         <div class="col-5 col-lg-2 mx-auto">
             <div>
+                <!-- item image which is a link to it also -->
                 <a href="{% url 'single_prod' item.product.id %}">
                     <img class="img-fluid cart-prod-pic"  src="{{ MEDIA_URL }}{{ item.product.image1 }}">
                 </a>
@@ -42,10 +47,12 @@
         </div>
         <div class="col-6 col-lg-1 mx-auto">
             <div class="d-none d-lg-inline-block">
+                <!-- item name which is a link to it also -->
                 <a href="{% url 'single_prod' item.product.id %}">
                     <p class="mt-2">{{ item.product.name }}</p>
                 </a>
             </div>
+            <!-- below two rows only displayed for smaller screen sizes -->
             <div class="row d-lg-none">
                 <div class="col">
                     <div class="row">
@@ -56,6 +63,7 @@
                         </div>
                         <div class="col-6">
                             <div class="float-right text-right">
+                                <!-- remove item from cart -->
                                 <form method="post" action="{% url 'del_cart_item' item.product.id %}">
                                     {% csrf_token %}
                                     <input type="hidden" name="sizez" value="{{item.size}}" />
@@ -69,6 +77,7 @@
                     <div class="row">
                         <div class="col">
                         <div class="float-right mt-5">
+                            <!-- aggregate of this particular item's total in cart -->
                             Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
                         </div>
                         </div>
@@ -77,6 +86,7 @@
             </div>
 
         </div>
+        <!-- if item is a plan, a note is shown instead -->
         {% if item.product.category == "P" %}
             <div class="col-12 col-lg-5">
                 <div>
@@ -86,6 +96,7 @@
                     </p>
                 </div>
             </div>
+        <!-- else the update quantity / size forms are shown -->
         {% else %}
             <div class="col-12 col-lg-5 update-input mt-2">
                 <form method="post" action="{% url 'change_cart' item.id %}">
@@ -93,6 +104,7 @@
                     <div class="row">
                         <div class="col-6 mx-auto">
                             <div class="centered">
+                                <!-- increments or decreases value by 1 when spans are clicked -->
                                 <span class="minus"><i class="fas fa-minus-circle fa-2x"></i></span>
                                 <input name="quantity" class="count" type="number" min="1" max="50" value="{{item.quantity}}" required>
                                 <span class="plus"><i class="fas fa-plus-circle fa-2x"></i></span>
@@ -100,10 +112,12 @@
                         </div>
                         <div class="col-6 mx-auto">
                             <div class="">
+                                <!-- default size given to a plan -->
                                 {% if item.product.category == "P" %}
                                     <input type="hidden" name="size" value="D" />
                                     <input type="hidden" name="oldsize" value="{{item.size}}" />
                                 {% else %}
+                                    <!-- select dropdown of size options -->
                                     <select name="size" type="submit" class="form-control mx-auto size-form" data-title="Select size" 
                                     data-style="btn-default btn-block" data-menu-style="dropdown-blue">
                                         <option {% if item.size == 'XS' %} selected {% endif %} value="XS">XS</option>
@@ -112,6 +126,7 @@
                                         <option {% if item.size == 'L' %} selected {% endif %} value="L">L</option>
                                         <option {% if item.size == 'XL' %} selected {% endif %} value="XL">XL</option>
                                     </select>
+                                    <!-- used in the cart view to pop old size out of dict -->
                                     <input type="hidden" name="oldsize" value="{{item.size}}" />
                                 {% endif %}
 
@@ -121,6 +136,7 @@
                     <div class="row">
                         <div class="col mx-auto">
                             <div class="centered">
+                                <!-- updates cart dict with the new selection -->
                                 <button type="submit" class="btn btn-outline-warning update-cart">Update Item</button>
                             </div>
                         </div>
@@ -130,11 +146,13 @@
         {% endif %}
         <div class="col-2 mx-auto d-none d-lg-inline-block mt-2">
             <div class="text-right pr-5">
+                <!-- aggregate total of this item in the cart -->
                 Total: <i class="fas fa-euro-sign"></i> {{ item.this_total }}
             </div>
         </div>
         <div class="col-1 mx-auto d-none d-lg-inline-block mt-1">
-            <div class="">
+            <div>
+                <!-- removes item from the cart -->
                 <form method="post" action="{% url 'del_cart_item' item.product.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="sizez" value="{{item.size}}" />
@@ -150,10 +168,14 @@
 
 <div class="row my-5">
     <div class="col-6 col-md-4 ml-auto">
+        <!-- total of all items before delivery fee added -->
         <p>Subtotal <i class="fas fa-euro-sign float-right"> {{ subtotal }}</i></p>
+        <!-- delivery fee only added if an apparel item in the cart -->
         <p>Delivery fee: <i class="fas fa-euro-sign float-right"> {{ del_total }}</i></p>
+        <!-- new total depending on whether delivery fee is added or not -->
         <p>Total <i class="fas fa-euro-sign float-right"> {{ total }}</i></p>
         <p class="float-right">
+            <!-- button disabled if no items in the cart -->
             {% if product_count == 0 %}
                 <button type="button" class="btn btn-success" disabled>Checkout</button>
             {% else %}
