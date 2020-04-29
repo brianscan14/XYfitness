@@ -50,6 +50,8 @@ def delivery(request):
     return render(request, "deliver.html", {"order_form": order_form})
 
 
+# below code taken from a Code Institute tutorial intialy to set up
+# and modified for my project
 @login_required()
 def checkout(request):
     """

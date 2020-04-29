@@ -2,6 +2,7 @@ from django.db import models
 from products.models import Product
 
 
+# below code taken from a Code Institute tutorial and modified for my project
 class Order(models.Model):
     """Delivery detials of user who ordered item"""
     full_name = models.CharField(max_length=50, blank=False)
@@ -34,6 +35,7 @@ class Order(models.Model):
         )
 
 
+# below code taken from a Code Institute tutorial and modified for my project
 class OrderLineItem(models.Model):
     """Returns items ordered in the admin app for this order"""
     order = models.ForeignKey(Order, null=False)

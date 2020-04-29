@@ -3,6 +3,7 @@ from .models import Order
 import datetime
 
 
+# below code taken from a Code Institute tutorial and modified for my project
 class MakePaymentForm(forms.Form):
     """Fields used for the payment form utlised in stripe."""
 
@@ -31,6 +32,7 @@ class MakePaymentForm(forms.Form):
     stripe_id = forms.CharField(widget=forms.HiddenInput)
 
 
+# below code taken from a Code Institute tutorial and modified for my project
 class OrderForm(forms.ModelForm):
     """
     Fields for user to fill out their delivery details in the
