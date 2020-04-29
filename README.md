@@ -8,6 +8,10 @@ XYfitness acts as a portal for an aspiring personal fitness or **"PT"** trainer 
 
 Users are encouraged to sign up to the website in order to create a profile, this will allow them to purchase products, leave reviews and the usual profile features by being able to edit their picture, password and add additional details such as first name, email, etc. However the user can still browse many parts of the page freely without needing an account, this is the encourage freedom of the site and to get the user to browse it more and get a feel for it, without being put off by having to sign in straight away. In order to purchase any products the user will then need to create an account. 
 
+## Table of Contents
+
+[TOC]
+
 ## UX
 
 The main goal of the website is to convince customers that this is the PT that they need, and that his plans are the best ones to get on the market. This is accomplished by a combination of a sleek, professional design and many reviews and testimonials from current customers to persuade the user to use this PT. The pages are kept sleek and interactive so as to allow the user to easily navigate around the site.  The navbar at the top enkeeps with this theme and allows the users to navigate to each page with ease, decreasing to a menu icon on smaller screen sizes.
@@ -236,9 +240,7 @@ The more info section makes use of [Bootstrap's](https://getbootstrap.com/docs/4
 
 Since the clothing item is unisex it will not need a size selection and they are made to order so there is no need for stock counts at this moment in time, see [features to implement section](#features-to-implement). All items will also have a reviews tab, if there are any reviews for the product then they will be in here. Users can easily add a review if they wish here, and give it a rating out of 5, their post will then appear in this section. If they already had a review, then they will be notified of this by [sweetify](https://github.com/Atrox/sweetify) and redirected to the product's page. They can then edit or delete their review if they want to, but it can only be done if their account is the author. The product's rating is then accumulated form these reviews and the average is taken and reflected by the [star](https://fontawesome.com/icons/star?style=solid) icons.
 
-### Testimonials
-
-#### *All Testimonials*
+### All Testimonials
 
 ![All Testimonials](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/testimonials.PNG?raw=true)
 
@@ -246,7 +248,7 @@ This is where customers leave their experiences on the page for others to view, 
 
 The page itself is kept relatively simple with a bright background to ensure the content is as readable as possible for the user. The testimonials consist of a title, the user who posted it, their user image, the date posted (only month and year used here in Django templates) and also if the user has posted a before and after a link to see the review in full is shown. Only is both pictures are included will this link show up. Also if the user viewing the page is the author, a little extra message saying "you!" is put in brackets beside their name. This just means a little more interaction between the page and the user. There is also a button to add a new review at the bottom of the page which calls the add review form. If they already had a review, then they will be notified of this by [sweetify](https://github.com/Atrox/sweetify) and redirected to the all testimonials page.
 
-#### *Single Testimonial*
+### Single Testimonial View
 
 ![Single Testimonial](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/this-testimonial.PNG?raw=true)
 
@@ -280,19 +282,19 @@ If the user wants to just remove an item form the cart then they can do this by 
 
 The checkout sequence is then divided into two main sections for better user experience. The first being entering the user's delivery details and the second is entering the user's payment card information. On both pages the cart items can be seen with a similar assembly to the previous [cart page](#cart), only a more summarised version. The user can edit these details at any stage and return to the cart with the edit link provided. Throughout the checkout process there is breadcrumb of icons denoting to the user what stage they are at, depending on the stage they can use these to go back and forth.
 
-#### Delivery Details
+#### Delivery Details:
 
 ![Delivery Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/delivery.PNG?raw=true)
 
 The delivery page then consists of a form of which the user fills out in order to proceed to next step. These details are the standard ones of which a user fills out in most online stores to purchases an item. They consist of delivery address, phone number and name. Having these details will allow the site owner know where they will have to deliver the items. Once the user confirms their details they proceed to the next step of payment card information. If these details are not filled out or the cart items are empty then the button to continue to the next step will be disabled and the user unable to proceed.
 
-#### Payment Card Details
+#### Payment Card Details:
 
 ![Payment Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/checkout.PNG?raw=true)
 
 The payment page then will show the user a summary of their address details, and gives them an opportunity to go back and change them. If they are happy with them then they can fill out the card form, which also has the current month pre-selected, this is done in the forms file to grab the current date, then month, then set that as initial value. This card form sends the information to stripe which will then take the payment form the user for the products. If there are any errors on the credit card form then they will be reflected as a message below the form's legend. There will also be notification from [sweetify](https://github.com/Atrox/sweetify) for these card errors. If the user has managed to get to this page with no items in the cart or the previous delivery page not filled out, then the 'pay' button will be disabled and the user won't be able to select it to make an incorrect payment.
 
-#### Order Confirmation
+#### Order Confirmation:
 
 ![Confirm Page](https://github.com/brianscan14/XYfitness/blob/master/media/images/readme/confirmation.PNG?raw=true)
 
