@@ -3,6 +3,7 @@ from products.models import Product
 import sweetify
 
 
+# below code taken from a Code Institute tutorial and modified for my project
 def search(request):
     """
     Searches product DB for string matches of names that match
