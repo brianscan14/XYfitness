@@ -1,9 +1,15 @@
 {% extends "base.html" %}
+
+<!-- load js staticfiles for stripe -->
 {% load static from staticfiles %}
+
+<!-- load bootstrap form -->
 {% load bootstrap_tags %}
 
+<!-- page title -->
 {% block title %}XYfitness | Checkout{% endblock %}
 
+<!-- stripe files to be loaded for this page -->
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
@@ -14,22 +20,26 @@
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock head_js %}
 
+<!-- breadcrumb showing checkout process -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-2">
             <div class="col-10 col-md-5 mx-auto my-4">
                 <div id="breadcrumbs" class="bread d-flex justify-content-around">
+                    <!-- icon can be clicked to go back to delivery page  -->
                     <a class="checkout-icon centered" href="{% url 'delivery' %}">
                         <i class="fas fa-truck-loading fa-2x check-fa" aria-label="Delivery"
                         data-toggle="tooltip" data-placement="bottom" title="Delivery Details"></i>
                     </a> 
                         <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i>
+                    <!-- this icon is highlighted as it is the current page -->
                     <a class="checkout-icon centered check-current" href="{% url 'checkout' %}">
                         <i class="far fa-credit-card fa-2x check-fa icon-current" aria-label="Credit Card"
                         data-toggle="tooltip" data-placement="bottom" title="Card Details"></i>
                     </a> 
                         <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i> 
                     <a class="tick-icon centered">
+                        <!-- can't click as order not confirmed yet  -->
                         <i class="fas fa-check fa-2x check-fa" aria-label="Confirmed!"
                         data-toggle="tooltip" data-placement="bottom" title="Order Confirmation"></i>
                     </a>
@@ -50,16 +60,19 @@
                         <div class="col-8 mx-auto border p-2">
                             <div class="my-4">
                                 <p class="mb-3">Delivery Address:
+                                    <!-- link to go back and change delivery details form -->
                                     <a href="{% url 'delivery' %}" class="float-right pr-4" >
                                         <small><u>Change</u></small>
                                     </a>
                                 </p>
+                                <!-- summary of previous delivery details -->
                                 <p class="mb-2">{{ name|capfirst }},</p>
                                 <p class="mb-2">{{ address|capfirst }}, {{ town|capfirst }}, {{ county|capfirst }}..</p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- credit card form need to checkout -->
                     <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
                         {% csrf_token %}
                         <legend class="centered border-bottom w-50 mx-auto mt-5">Payment Method</legend>
@@ -69,6 +82,7 @@
                                 <div class="row my-3">
                                     <div class="col-8 mx-auto">
                                         <div id="credit-card-errors" style="display: none;">
+                                            <!-- div appears if there are credit card errors -->
                                             <div class="alert alert-danger error centered" id="stripe-error-message"></div>
                                         </div>
                                     </div>
@@ -78,17 +92,20 @@
                             <div class="col mx-auto">
                                 <div class="row">
                                     <div class="col-8 mx-auto">
+                                    <!-- load bootstrap styled card form -->
                                         {{ payment_form | as_bootstrap }}
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col centered">
+                                    <!-- disbaled button if there are no items in cart to pevent incorrect checkout  -->
                                     {% if total == 0 %}
                                         <button type="button" class="btn btn-primary mt-4" disabled 
                                         data-toggle="tooltip" data-placement="right" title="Can't checkout if you've no items!">
                                             No items in cart
                                         </button>
                                     {% else %}
+                                    <!-- checks user out and creates order -->
                                         <input class="btn btn-primary mt-4" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
                                     {% endif %}
                                     </div>
@@ -100,6 +117,7 @@
                 </div>
             </div>
         </div>
+        <!-- cart items list shown on right side -->
         {% include 'components/cart-items.html' %}
     </div>
 </div>

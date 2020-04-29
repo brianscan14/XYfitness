@@ -1,22 +1,27 @@
 {% extends "base.html" %}
 
+<!-- page title -->
 {% block title %}XYfitness | Thank You{% endblock %}
 
+<!-- breadcrumb showing checkout process -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-2">
             <div class="col-10 col-md-5 mx-auto my-4">
                 <div id="breadcrumbs" class="bread d-flex justify-content-around">
+                    <!-- can't click as order process completed and cart emptied  -->
                     <a class="tick-icon centered">
                         <i class="fas fa-truck-loading fa-2x check-fa" aria-label="Delivery"
                         data-toggle="tooltip" data-placement="bottom" title="Delivery Details"></i>
                     </a> 
                         <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i>
+                    <!-- can't click as order process completed and cart emptied  -->
                     <a class="tick-icon centered">
                         <i class="far fa-credit-card fa-2x check-fa" aria-label="Credit Card"
                         data-toggle="tooltip" data-placement="bottom" title="Card Details"></i>
                     </a> 
                         <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i> 
+                    <!-- this icon is highlighted as it is the current page -->
                     <a class="tick-icon centered confirmed">
                         <i class="fas fa-check fa-2x check-fa" aria-label="Confirmed!"
                         data-toggle="tooltip" data-placement="bottom" title="Order Confirmation"></i>
@@ -33,12 +38,14 @@
         <div class="row">
             <div class="col-9 col-md-6 mx-auto bg-light">
                 <div class="thanks centered my-5 p-3">
+                    <!-- thank you message after successful order -->
                     <h2 class="my-4 border-bottom p-2 w-75 mx-auto"> Thank you! :)</h2>
                     <p class="my-4">
                         Your order is being processed, please check your email 
                         "{{request.user.email}}" for confirmation
                     </p>
                     <div class="centered mt-5">
+                        <!-- retun to home page after successful order -->
                         <a href="{% url 'home' %}" class="btn btn-primary btn-md active" role="button"
                         aria-pressed="true">Back to Site</a>
                     </div>

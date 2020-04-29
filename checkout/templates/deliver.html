@@ -1,18 +1,24 @@
 {% extends "base.html" %}
+
+<!-- load bootstrap form -->
 {% load bootstrap_tags %}
 
+<!-- page title -->
 {% block title %}XYfitness | Delivery Details{% endblock %}
 
+<!-- breadcrumb showing checkout process -->
 {% block breadcrumb %}
     <div class="container-fluid my-3 pl-4">
         <div class="row my-2">
             <div class="col-10 col-md-5 mx-auto my-4">
                 <div id="breadcrumbs" class="bread d-flex justify-content-around">
+                    <!-- this icon is highlighted as it is the current page -->
                     <a class="checkout-icon centered check-current" href="{% url 'delivery' %}">
                         <i class="fas fa-truck-loading fa-2x check-fa icon-current" aria-label="Delivery"
                         data-toggle="tooltip" data-placement="bottom" title="Delivery Details"></i>
                     </a> 
                         <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i>
+                    <!-- card details icon can only be clicked if delivery details filled out -->
                    {% if total != 0 and request.session.delivery_data %}
                     <a class="checkout-icon centered" href="{% url 'checkout' %}">
                         <i class="far fa-credit-card fa-2x check-fa" aria-label="Credit Card"
@@ -25,6 +31,7 @@
                     </a> 
                     {% endif %}
                         <i class="fas fa-long-arrow-alt-right fa-2x my-auto"></i> 
+                    <!-- can't click as order not confirmed yet  -->
                     <a class="tick-icon centered">
                         <i class="fas fa-check fa-2x check-fa" aria-label="Confirmed!"
                         data-toggle="tooltip" data-placement="bottom" title="Order Confirmation"></i>
@@ -44,10 +51,12 @@
                 <div class="col-10 mx-auto">
                     <form method="POST">
                         {% csrf_token %}
+                        <!-- load bootstrap styled delivery form -->
                         <legend class="centered border-bottom w-50 mx-auto mb-3 pb-2">Delivery Details</legend>
                         {{ order_form | as_bootstrap }}
                         <div class="centered my-4">
                         {% if total == 0 %}
+                        <!-- next step button disabled if cart is empty -->
                             <button type="button" class="btn btn-primary mt-4" disabled 
                             data-toggle="tooltip" data-placement="right" title="Can't checkout if you've no items!">
                                 No items in cart
@@ -60,6 +69,7 @@
                 </div>
             </div>
         </div>
+        <!-- cart items list shown on right side -->
         {% include 'components/cart-items.html' %}
     </div>
 </div>
