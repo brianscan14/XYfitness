@@ -2,9 +2,11 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 
 
+# below code taken from a Code Institute tutorial intially and
+# were modified to suit the needs of my project
 def cart_contents(request):
     """
-    Iterates through the dict items in the cart and returns value for 
+    Iterates through the dict items in the cart and returns value for
     each product's dict k/v pair. Also adds delivery total to monetary
     cost of items if there ia an apparel item in the bag.
     """

@@ -8,6 +8,8 @@ def view_cart(request):
     return render(request, "cart.html")
 
 
+# below code taken from a Code Institute tutorial intially and
+# were modified heavily to suit the needs of my project
 def cart_add(request, id):
     """
     Add another k/v pair to your cart id if size there
@@ -69,6 +71,8 @@ def cart_add(request, id):
     return redirect(single_prod, id)
 
 
+# below code taken from a Code Institute tutorial intially and
+# were modified heavily to suit the needs of my project
 def change_cart(request, id):
     """
     Alter items in cart, if previous size is same
