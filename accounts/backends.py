@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+# below code taken from a Code Institute tutorial
 
 
 class EmailAuth:

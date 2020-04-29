@@ -5,6 +5,7 @@ from django.contrib.auth.views import (
     password_reset_confirm, password_reset_complete
 )
 
+# below code taken form a code institute tutorial
 urlpatterns = [
     url(r'^$', password_reset,
         {'post_reset_redirect': reverse_lazy('password_reset_done')},

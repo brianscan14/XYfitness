@@ -25,6 +25,8 @@ def logout(request):
     return redirect(reverse('home'))
 
 
+# below code initially taken from a Code Institute
+# tutorial and modified heavily for my project
 def login(request):
     """
     If user is already logged in a message is displayed telling
@@ -70,6 +72,8 @@ def login(request):
     return render(request, 'login.html', {'login_form': login_form})
 
 
+# below code initially taken from a Code Institute
+# tutorial and modified heavily for my project
 def register(request):
     """
     Renders the registration page, if the user somehow gets here

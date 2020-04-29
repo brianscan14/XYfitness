@@ -5,12 +5,16 @@ from django.core.exceptions import ValidationError
 from .models import Profile
 
 
+# below code taken initially from a Code Institute tutorial when
+# setting up and modified for my project
 class UserLoginForm(forms.Form):
     """logs user in, password is hidden"""
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
 
+# below code taken initially from a Code Institute tutorial when
+# setting up and modified for my project
 class UserRegistrationForm(UserCreationForm):
     """reisters user and is used to create new profile"""
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
