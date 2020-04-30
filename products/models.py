@@ -27,7 +27,7 @@ class Product(models.Model):
     size = models.CharField(
         max_length=100, choices=sizes, default='OS', verbose_name="size"
     )
-    equipment = models.TextField(max_length=200)
+    equipment = models.TextField(max_length=200, blank=True)
 
     def __str__(self):
         return self.name
